@@ -365,7 +365,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.9655173
+  aspectRatio: 2.5517242
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
@@ -455,18 +455,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 270
+  mWidth: 292
   mHeight: 58
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.6551723
+  aspectRatio: 4.3448277
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: Spaceship
+  mText: STARSHIP
   mFontSize: 58
   mFontStyle: 0
   mAlignment: 0
@@ -586,12 +586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5ecb5660b11414fb042fb826e03b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalingStyle: 0
+  scalingStyle: 2
   manualWidth: 1280
-  manualHeight: 720
+  manualHeight: 800
   minimumHeight: 320
   maximumHeight: 1536
-  fitWidth: 0
+  fitWidth: 1
   fitHeight: 1
   adjustByDPI: 0
   shrinkPortraitUI: 0
@@ -603,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 1170484575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0017777778, y: 0.0017777778, z: 0.0017777778}
+  m_LocalScale: {x: 0.0025, y: 0.0025, z: 0.0025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1675336549}
@@ -780,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1355203748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 583.44, y: -448.52, z: 0}
+  m_LocalPosition: {x: 460.2, y: -333.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
