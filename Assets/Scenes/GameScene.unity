@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.57508564, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -9.97
       objectReference: {fileID: 0}
     - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
       propertyPath: m_LocalRotation.x
@@ -548,18 +548,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 292
+  mWidth: 388
   mHeight: 58
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.3448277
+  aspectRatio: 5.965517
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: STARSHIP
+  mText: STARSHIP BR
   mFontSize: 58
   mFontStyle: 0
   mAlignment: 0
