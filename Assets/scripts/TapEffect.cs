@@ -17,7 +17,7 @@ public class TapEffect : MonoBehaviour
 //			var pos = _camera.ScreenToWorldPoint(Input.mousePosition + _camera.transform.forward * 100);
 			tapEffect.transform.position = tmpPos2;
 			tapEffect.Emit(1);
-			Debug.Log("tmpPos == " + tmpPos2 , this);
+//			Debug.Log("tmpPos == " + tmpPos2 , this);
 		}
 	}
 }
