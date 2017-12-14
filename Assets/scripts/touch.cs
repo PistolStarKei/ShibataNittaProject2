@@ -44,10 +44,12 @@ namespace GodTouches{
 				startPos = Move.position;
 
 			} else if (phase == GodPhase.Moved) {
-				Vector3 mousePos = GodTouch.GetPosition ();
-				mousePos.z = 5.0f;
-				Vector3 tmpPos2 = Camera.main.ScreenToWorldPoint (mousePos);
-				Move.position = tmpPos2;
+
+				// タップの位置に出す
+//				Vector3 mousePos = GodTouch.GetPosition ();
+//				mousePos.z = 5.0f;
+//				Vector3 tmpPos2 = Camera.main.ScreenToWorldPoint (mousePos);
+//				Move.position = tmpPos2;
 //				Debug.Log("tmpPos == " + tmpPos2 , this);
 
 			} else if (phase == GodPhase.Ended) 
