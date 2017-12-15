@@ -23,7 +23,7 @@ public class shipControl : MonoBehaviour {
 	}
 
 	// 移動スピード
-	public float speed = 0.1f;
+	public float speed = 0.2f;
 
 	void Update () {
 //		keyControl ();

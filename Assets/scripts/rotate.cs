@@ -5,7 +5,8 @@ public class rotate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		float scale = Random.Range (0.2f, 4.0f);
+		transform.localScale = new Vector3(scale, scale, scale);
 	}
 	
 	// Update is called once per frame
