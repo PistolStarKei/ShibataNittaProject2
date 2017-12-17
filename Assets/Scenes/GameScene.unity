@@ -100,6 +100,8 @@ GameObject:
   - 4: {fileID: 106709267}
   - 114: {fileID: 106709266}
   - 96: {fileID: 106709268}
+  - 54: {fileID: 106709270}
+  - 135: {fileID: 106709269}
   m_Layer: 0
   m_Name: shipParent
   m_TagString: Untagged
@@ -185,6 +187,33 @@ TrailRenderer:
       rgba: 16747106
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!135 &106709269
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106709265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &106709270
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106709265}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1001 &218261870
 Prefab:
   m_ObjectHideFlags: 0
@@ -275,7 +304,9 @@ Prefab:
       propertyPath: m_MotionVectors
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 135000012241707406, guid: d79faafdd93454232a26359020a02513, type: 2}
+    - {fileID: 54000010954374502, guid: d79faafdd93454232a26359020a02513, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d79faafdd93454232a26359020a02513, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &218261871 stripped
@@ -444,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1000012333698624, guid: f6e24da63600dea4394609fd5b5f17cb, type: 2}
+  enemy: {fileID: 2020050632}
 --- !u!1 &431073230
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +953,57 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1001 &963681373
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011290787056, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011530596698, guid: d79faafdd93454232a26359020a02513,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cabc6244dc687a4d89b3973eb70ccc3, type: 2}
+    - target: {fileID: 1000011600934148, guid: d79faafdd93454232a26359020a02513, type: 2}
+      propertyPath: m_Name
+      value: enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d79faafdd93454232a26359020a02513, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1170484575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,3 +1726,8 @@ MonoBehaviour:
   mAtlas: {fileID: 0}
   mSpriteName: 
   mFillCenter: 1
+--- !u!1 &2020050632 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011600934148, guid: d79faafdd93454232a26359020a02513,
+    type: 2}
+  m_PrefabInternal: {fileID: 963681373}

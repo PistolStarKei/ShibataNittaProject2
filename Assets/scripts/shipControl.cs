@@ -33,9 +33,9 @@ public class shipControl : MonoBehaviour {
 		}
 
 		// 回転
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newRotation), Time.deltaTime * 2.0f);
+		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newRotation), Time.deltaTime * 4.0f);
 		// 移動
-		transform.Translate( Vector3.forward * 0.01f);
+		transform.Translate( Vector3.forward * 0.02f);
 	}
 
 	void tapControl(){
