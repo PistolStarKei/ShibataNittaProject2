@@ -3,11 +3,7 @@ using System.Collections;
 
 public class shipControl : MonoBehaviour {
 
-	Quaternion from;
-	Quaternion to;
-
 	Vector3 newRotation = new Vector3(0,0,0);
-
 	public GameObject shot;
 
 	IEnumerator Start ()
@@ -23,19 +19,40 @@ public class shipControl : MonoBehaviour {
 	}
 
 	// 移動スピード
-	public float speed = 0.2f;
+	public const float maxSpeed = 1.0f;
+	public float speed = 0.01f;
+	public int speedCount = 0;
 
 	void Update () {
 //		keyControl ();
+		Vector3 tr = transform.position.normalized;
+		Rigidbody rd = GetComponent<Rigidbody> (); 
 
-		if( TapEffect.tapFlag ){
+		if (TapEffect.tapFlag) {
 			tapControl ();
+
+			// 回転
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
+			// 移動
+
+		} else {
+			// 徐々に止める
+			Vector3 velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
+			velocity = velocity - (velocity / 40);
+			rd.velocity = velocity;
+
 		}
 
-		// 回転
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newRotation), Time.deltaTime * 4.0f);
-		// 移動
-		transform.Translate( Vector3.forward * 0.02f);
+		if(rd.velocity.magnitude > maxSpeed)
+		{
+			rd.velocity = rd.velocity.normalized * maxSpeed;
+		}
+
+		tr = transform.forward * speed;
+
+//		Debug.Log("speedCount : " + speed , this);
+		rd.AddForce (tr, ForceMode.VelocityChange);
+//		rd.AddForce (tr);
 	}
 
 	void tapControl(){
