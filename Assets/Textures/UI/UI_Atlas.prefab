@@ -1,0 +1,397 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000011325263698}
+  m_IsPrefabParent: 1
+--- !u!1 &1000011325263698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011221833996}
+  - 114: {fileID: 114000013970074830}
+  m_Layer: 0
+  m_Name: UI_Atlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000011221833996
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011325263698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000013970074830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011325263698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 40e138f4fc449417ba0b028aafd7d2e4, type: 2}
+  mSprites:
+  - name: bg
+    x: 509
+    y: 1626
+    width: 416
+    height: 422
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 48
+    paddingRight: 48
+    paddingTop: 45
+    paddingBottom: 45
+  - name: bg1
+    x: 0
+    y: 924
+    width: 205
+    height: 344
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 163
+    paddingRight: 144
+    paddingTop: 100
+    paddingBottom: 68
+  - name: box
+    x: 695
+    y: 1582
+    width: 21
+    height: 21
+    borderLeft: 10
+    borderRight: 10
+    borderTop: 10
+    borderBottom: 10
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Button_04_Normal_Right
+    x: 301
+    y: 1315
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Button_04_Normal_Shoot
+    x: 558
+    y: 1315
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Button_04_Normal_Up
+    x: 206
+    y: 1012
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Button_04_Normal_Virgin
+    x: 463
+    y: 1012
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Button_04_Pressed_Virgin
+    x: 720
+    y: 1012
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: buttonNormal
+    x: 695
+    y: 1604
+    width: 175
+    height: 21
+    borderLeft: 69
+    borderRight: 73
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 5
+    paddingTop: 2
+    paddingBottom: 8
+  - name: buttonSelect
+    x: 509
+    y: 1576
+    width: 179
+    height: 21
+    borderLeft: 73
+    borderRight: 66
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 3
+    paddingTop: 2
+    paddingBottom: 8
+  - name: check
+    x: 737
+    y: 1572
+    width: 11
+    height: 11
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 3
+    paddingTop: 0
+    paddingBottom: 3
+  - name: checkbox
+    x: 717
+    y: 1572
+    width: 11
+    height: 11
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 3
+    paddingTop: 0
+    paddingBottom: 3
+  - name: div
+    x: 509
+    y: 1572
+    width: 30
+    height: 3
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 4
+    paddingBottom: 5
+  - name: fieldNormal
+    x: 757
+    y: 1576
+    width: 17
+    height: 17
+    borderLeft: 7
+    borderRight: 7
+    borderTop: 7
+    borderBottom: 7
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: fieldSelect
+    x: 792
+    y: 1586
+    width: 17
+    height: 17
+    borderLeft: 7
+    borderRight: 7
+    borderTop: 7
+    borderBottom: 7
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: gun1
+    x: 0
+    y: 779
+    width: 150
+    height: 144
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 187
+    paddingRight: 175
+    paddingTop: 202
+    paddingBottom: 166
+  - name: hor
+    x: 757
+    y: 1594
+    width: 34
+    height: 9
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 1
+    paddingBottom: 6
+  - name: ic_conf
+    x: 0
+    y: 1269
+    width: 300
+    height: 302
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 14
+    paddingBottom: 13
+  - name: label
+    x: 509
+    y: 1598
+    width: 185
+    height: 27
+    borderLeft: 35
+    borderRight: 46
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 1
+  - name: sliderhor
+    x: 695
+    y: 1576
+    width: 10
+    height: 5
+    borderLeft: 4
+    borderRight: 4
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 3
+    paddingBottom: 4
+  - name: slidervert
+    x: 689
+    y: 1587
+    width: 5
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 4
+    borderBottom: 4
+    paddingLeft: 3
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
+  - name: thumb
+    x: 717
+    y: 1584
+    width: 19
+    height: 19
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: thumb1
+    x: 737
+    y: 1584
+    width: 19
+    height: 19
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 1
+    paddingTop: 1
+    paddingBottom: 1
+  - name: vert
+    x: 871
+    y: 1591
+    width: 9
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 6
+    paddingTop: 0
+    paddingBottom: 0
+  - name: white
+    x: 815
+    y: 1391
+    width: 180
+    height: 180
+    borderLeft: 17
+    borderRight: 17
+    borderTop: 17
+    borderBottom: 17
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: window
+    x: 0
+    y: 1572
+    width: 508
+    height: 476
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 0
+    paddingTop: 17
+    paddingBottom: 19
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
