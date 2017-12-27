@@ -1118,6 +1118,7 @@ static public class NGUIMath
 	static public void OverlayPosition (this Transform trans, Vector3 worldPos, Camera worldCam, Camera myCam)
 	{
 		worldPos = worldCam.WorldToViewportPoint(worldPos);
+
 		worldPos = myCam.ViewportToWorldPoint(worldPos);
 		Transform parent = trans.parent;
 		trans.localPosition = (parent != null) ? parent.InverseTransformPoint(worldPos) : worldPos;

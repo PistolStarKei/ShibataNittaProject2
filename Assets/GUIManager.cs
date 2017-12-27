@@ -3,11 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GUIManager : PS_SingletonBehaviour<GUIManager> {
-
 	// Use this for initialization
 	void Start () {
+
+	}
+
+	public void OnPressTapLayer(bool isPress){
+		//shipControl.OnClickTapLayer(worldPos);
+
+	}
+
+	public void OnClickTapLayer(Vector3 worldPos){
+		//shipControl.OnClickTapLayer(worldPos);
+
+	}
+
+	public void OnDragTapLayer(Vector3 worldPos){
 		
 	}
+
+
+
+
+
 	
 	public void Test(){
 		Damage(10.0f,100.0f);
@@ -50,5 +68,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		hpSlider.AddVal((MaxHP*(persentage/100.0f))/MaxHP);
 
 	}
+
+
+
 
 }
