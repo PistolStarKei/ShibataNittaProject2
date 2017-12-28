@@ -51,3 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1994a344f6e804a22b28be47f0d33899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onClickShootBtn:
+  - mTarget: {fileID: 0}
+    mMethodName: 
+    mParameters: []
+    oneShot: 0
+  hpSlider: {fileID: 0}
+  zankiLAbel: {fileID: 0}
+  killLAbel: {fileID: 0}
+  logger: {fileID: 0}

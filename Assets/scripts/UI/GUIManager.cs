@@ -8,6 +8,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	}
 
+	/*
+	 * 
+	 * タップ受け取り
+	 * 
+	 * 
+	*/
 	public void OnPressTapLayer(bool isPress){
 		//shipControl.OnClickTapLayer(worldPos);
 
@@ -32,6 +38,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 
+	/*
+	 * 
+	 * Shootボタン
+	 * 
+	 * 
+	*/
 	public List<EventDelegate> onClickShootBtn = new List<EventDelegate>();
 	public void OnShootBtnClicked(){
 		EventDelegate.Execute(onClickShootBtn);
@@ -70,6 +82,25 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 
+	/*
+	 * 
+	 * 残機とキル
+	 * 
+	 * 
+	*/
+	public PS_GUI_LabelAnimation zankiLAbel;
+	public void SetZanki(string str){
+		zankiLAbel.SetNum(str);
+	}
+	//TODO ローカライズする。
+	public PS_GUI_LabelAnimation killLAbel;
+	public void SetKills(int killNum){
+		zankiLAbel.SetNum(killNum.ToString()+"Kills");
+	}
 
 
+	public PS_GUI_DynamicInfo logger;
+	public void Log(string log){
+		logger.Log(log);
+	}
 }
