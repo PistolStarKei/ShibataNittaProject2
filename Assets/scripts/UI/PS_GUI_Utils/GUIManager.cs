@@ -34,7 +34,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	
 	public void Test(){
-		Damage(10.0f,100.0f);
+		ShowResult(1,12);
 	}
 
 
@@ -128,4 +128,17 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public void SetSettingValues(bool se,bool bgm){
 		settingMenu.SetSettignValues(se,bgm);
 	}
+
+	/*
+	 * 
+	 * Result
+	 * 
+	 * 
+	*/
+
+	public ResultPanel resultMenu;
+	public void ShowResult(int rank,int kills){
+		resultMenu.ShowResult(rank,kills);
 	}
+
+}
