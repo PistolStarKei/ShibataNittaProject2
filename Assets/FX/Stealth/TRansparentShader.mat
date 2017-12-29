@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BlueSkin
-  m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _SPECGLOSSMAP
-  m_LightmapFlags: 5
+  m_Name: TRansparentShader
+  m_Shader: {fileID: 4800000, guid: 4d0b0c51602ab864ab24d034e826ad0a, type: 3}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -54,13 +54,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 9e0d7fdc874b69a4594d0825c9ffc064, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Mask
-      second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bf3708747662b47058bb7f5b43a65c0f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -81,13 +75,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _SpecGlossMap
-      second:
-        m_Texture: {fileID: 2800000, guid: 58d9c65d9a225ef49a1a9e4ad12092e4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _AlphaPower
+      second: 0.5
     - first:
         name: _BumpScale
       second: 1
@@ -101,11 +92,17 @@ Material:
         name: _DstBlend
       second: 0
     - first:
-        name: _Focus
-      second: -100
+        name: _FresnelPower
+      second: 5
+    - first:
+        name: _GlossMapScale
+      second: 1
     - first:
         name: _Glossiness
-      second: 0.58
+      second: 0.5
+    - first:
+        name: _GlossyReflections
+      second: 1
     - first:
         name: _Metallic
       second: 0
@@ -116,11 +113,17 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
+        name: _OpaqueReflection
+      second: 0
+    - first:
         name: _Parallax
       second: 0.02
     - first:
-        name: _Shininess
-      second: 0.078
+        name: _SmoothnessTextureChannel
+      second: 0
+    - first:
+        name: _SpecularHighlights
+      second: 1
     - first:
         name: _SrcBlend
       second: 1
@@ -133,19 +136,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _EmisColor
-      second: {r: 1, g: 1, b: 1, a: 0}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _ReflectColor
-      second: {r: 1, g: 1, b: 1, a: 0.5}
+      second: {r: 0, g: 1, b: 0.8344829, a: 0.5}
     - first:
-        name: _SpecColor
+        name: _TintColor
       second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _Specular
-      second: {r: 0, g: 0, b: 0, a: 0}

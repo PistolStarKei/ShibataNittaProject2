@@ -98,9 +98,22 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		zankiLAbel.SetNum(killNum.ToString()+"Kills");
 	}
 
-
+	/*
+	 * 
+	 * ログ
+	 * 
+	 * 
+	*/
 	public PS_GUI_DynamicInfo logger;
 	public void Log(string log){
 		logger.Log(log);
 	}
+
+	/*
+	 * 
+	 * GUIカバー
+	 * 
+	 * 
+	*/
+	public PS_GUI_Cover guiCover;
 }

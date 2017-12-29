@@ -396,10 +396,10 @@ MonoBehaviour:
     y: 1572
     width: 508
     height: 476
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 98
+    borderRight: 133
+    borderTop: 57
+    borderBottom: 72
     paddingLeft: 4
     paddingRight: 0
     paddingTop: 17
