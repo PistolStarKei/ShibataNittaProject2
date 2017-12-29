@@ -62,6 +62,7 @@ public class StealthEffecter : MonoBehaviour {
 			}
 		}
 	}
+
 	public Color colorOnStealthMode=new Color(0.0f,255.0f/255.0f,212.0f/255.0f,127.0f/255.0f);
 	public Color colorOnStealthMode_to=new Color(00.0f,0.0f,0.0f,127.0f/255.0f);
 
