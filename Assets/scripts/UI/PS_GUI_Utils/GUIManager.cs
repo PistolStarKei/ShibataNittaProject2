@@ -116,4 +116,16 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	*/
 	public PS_GUI_Cover guiCover;
-}
+
+	/*
+	 * 
+	 * GUIカバー
+	 * 
+	 * 
+	*/
+
+	public SettingMenu settingMenu;
+	public void SetSettingValues(bool se,bool bgm){
+		settingMenu.SetSettignValues(se,bgm);
+	}
+	}

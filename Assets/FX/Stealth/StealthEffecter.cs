@@ -50,5 +50,6 @@ public class StealthEffecter : MonoBehaviour {
 	MeshRenderer mr;
 	void Start(){
 		mr=gameObject.GetComponent<MeshRenderer>() as MeshRenderer;
+
 	}
 }
