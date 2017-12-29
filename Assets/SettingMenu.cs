@@ -54,11 +54,11 @@ public class SettingMenu : MonoBehaviour {
 
 	public void OnBGTweened(){
 		if(bgScale.direction==AnimationOrTween.Direction.Forward){
-			Debug.Log("On");
+			
 			toggleSE.SetVisible(true);
 			toggleBGM.SetVisible(true);
 		}else if(bgScale.direction==AnimationOrTween.Direction.Reverse){
-			Debug.Log("Off");
+
 			toggleSE.SetVisible(false);
 			toggleBGM.SetVisible(false);
 		}

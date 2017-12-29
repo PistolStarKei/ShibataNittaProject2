@@ -5,8 +5,8 @@ using System.Collections.Generic;
 [RequireComponent (typeof (MeshRenderer))]
 public class StealthEffecter : MonoBehaviour {
 
-
-	public bool isStealthMode=false;
+	bool isStealthMode=false;
+	public bool needStealthMode=false;
 	public void StealthMode(bool isOn)
 	{
 		if(!isStealthMode){
@@ -52,4 +52,18 @@ public class StealthEffecter : MonoBehaviour {
 		mr=gameObject.GetComponent<MeshRenderer>() as MeshRenderer;
 
 	}
+
+	Color lerpedColor;
+	void Update() {
+		if(isStealthMode && needStealthMode){
+			lerpedColor = Color.Lerp(colorOnStealthMode,colorOnStealthMode_to, Mathf.PingPong(Time.time, 1));
+			for(int i=0;i<mr.materials.Length;i++){
+				mr.materials[i].SetColor("_ReflectColor",lerpedColor);
+			}
+		}
+	}
+	public Color colorOnStealthMode=new Color(0.0f,255.0f/255.0f,212.0f/255.0f,127.0f/255.0f);
+	public Color colorOnStealthMode_to=new Color(00.0f,0.0f,0.0f,127.0f/255.0f);
+
+
 }
