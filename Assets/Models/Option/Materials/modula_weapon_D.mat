@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: modula_weapon_D
-  m_Shader: {fileID: 10708, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: ede9ae86f39606d47b9280b47ff8cb2d, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -19,6 +19,12 @@ Material:
         name: _BumpMap
       second:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _CubeTex
+      second:
+        m_Texture: {fileID: 8900000, guid: ddfaa8ff248bcd54187baeec6ddf23ae, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -46,9 +52,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _FresnelTex
+      second:
+        m_Texture: {fileID: 2800000, guid: dd009de095192824aaa0872b48971758, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 42db1bde9d5d4934f8d39959904421c3, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -69,6 +81,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _WaveTex
+      second:
+        m_Texture: {fileID: 2800000, guid: b9a01407e0d4053459b06e97a3dc6837, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _BumpScale
@@ -82,6 +100,12 @@ Material:
     - first:
         name: _DstBlend
       second: 0
+    - first:
+        name: _FresnelBias
+      second: 0.2
+    - first:
+        name: _FresnelPower
+      second: 1
     - first:
         name: _GlossMapScale
       second: 1
@@ -104,6 +128,12 @@ Material:
         name: _Parallax
       second: 0.02
     - first:
+        name: _Refraction
+      second: 0.5
+    - first:
+        name: _Shininess
+      second: 1
+    - first:
         name: _SmoothnessTextureChannel
       second: 0
     - first:
@@ -116,6 +146,12 @@ Material:
         name: _UVSec
       second: 0
     - first:
+        name: _WaveAmount
+      second: 0.5
+    - first:
+        name: _WaveSpeed
+      second: 0.01
+    - first:
         name: _ZWrite
       second: 1
     m_Colors:
@@ -125,3 +161,9 @@ Material:
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _LightDir
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _SpecColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}

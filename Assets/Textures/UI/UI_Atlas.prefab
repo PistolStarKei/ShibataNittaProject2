@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 427
-    y: 409
+    x: 445
+    y: 427
     width: 11
     height: 11
     borderLeft: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: div
-    x: 452
+    x: 462
     y: 445
     width: 30
     height: 3
@@ -249,8 +249,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: gun1
-    x: 1067
-    y: 22
+    x: 1571
+    y: 623
     width: 150
     height: 144
     borderLeft: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
     paddingTop: 202
     paddingBottom: 166
   - name: hor
-    x: 417
+    x: 427
     y: 439
     width: 34
     height: 9
@@ -327,7 +327,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Item_stealth
-    x: 1067
+    x: 1316
     y: 605
     width: 254
     height: 162
@@ -339,9 +339,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 45
     paddingBottom: 49
+  - name: item_Wave
+    x: 1067
+    y: 511
+    width: 248
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 8
+    paddingTop: 0
+    paddingBottom: 0
   - name: item_yudoudan
     x: 1067
-    y: 348
+    y: 40
     width: 154
     height: 256
     borderLeft: 0
@@ -405,8 +418,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 4
   - name: slidervert
-    x: 439
-    y: 410
+    x: 445
+    y: 416
     width: 5
     height: 10
     borderLeft: 0
@@ -418,7 +431,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: thumb
-    x: 439
+    x: 459
     y: 451
     width: 19
     height: 19
@@ -431,7 +444,7 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: thumb1
-    x: 459
+    x: 439
     y: 451
     width: 19
     height: 19
@@ -445,7 +458,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: vert
     x: 417
-    y: 404
+    y: 414
     width: 9
     height: 34
     borderLeft: 0
@@ -456,9 +469,22 @@ MonoBehaviour:
     paddingRight: 6
     paddingTop: 0
     paddingBottom: 0
-  - name: white
+  - name: Waku
     x: 1067
-    y: 167
+    y: 297
+    width: 216
+    height: 213
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 20
+    paddingTop: 28
+    paddingBottom: 15
+  - name: white
+    x: 1316
+    y: 424
     width: 180
     height: 180
     borderLeft: 17
