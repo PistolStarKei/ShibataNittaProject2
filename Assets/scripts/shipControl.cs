@@ -65,7 +65,10 @@ public class shipControl : MonoBehaviour {
 		tr = transform.position.normalized;
 
 		if (isPressed) {
-			
+
+			//エンジンを切る
+			if(engine!=null)engine.Engine(true);
+
 			// タップの方向に向く
 			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
 			newRotation.x = 0;
@@ -75,12 +78,17 @@ public class shipControl : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
 
 		} else {
+			//エンジンを切る
+			if(engine!=null)engine.Engine(false);
+
 			// 徐々に止める
 			velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
 			velocity = velocity - (velocity / 40);
 			rd.velocity = velocity;
 
 		}
+
+
 
 		if(rd.velocity.magnitude > maxSpeed)
 		{
@@ -91,5 +99,6 @@ public class shipControl : MonoBehaviour {
 
 		rd.AddForce (tr, ForceMode.VelocityChange);
 	}
+	public EngineParticle engine;
 
 }
