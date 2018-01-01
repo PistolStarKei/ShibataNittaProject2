@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class shot : MonoBehaviour {
+public class enemy : MonoBehaviour {
 
-	private int life = 60;
+	public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,15 +12,11 @@ public class shot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate( Vector3.forward * 0.05f);
-
-		life--;
-		if (life <= 0) {
-			Destroy(this.gameObject);
-		}
+	
 	}
 
 	void OnTriggerEnter(Collider other) {
 		Destroy(this.gameObject);
+		Instantiate (explosion, transform.position, transform.rotation);
 	}
 }

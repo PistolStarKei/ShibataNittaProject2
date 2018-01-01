@@ -23,7 +23,7 @@ public class shipControl : MonoBehaviour {
 	public float speed = 0.01f;
 	public int speedCount = 0;
 
-	void Update () {
+		void Update () {
 //		keyControl ();
 		Vector3 tr = transform.position.normalized;
 		Rigidbody rd = GetComponent<Rigidbody> (); 
@@ -50,9 +50,7 @@ public class shipControl : MonoBehaviour {
 
 		tr = transform.forward * speed;
 
-//		Debug.Log("speedCount : " + speed , this);
 		rd.AddForce (tr, ForceMode.VelocityChange);
-//		rd.AddForce (tr);
 	}
 
 	void tapControl(){
