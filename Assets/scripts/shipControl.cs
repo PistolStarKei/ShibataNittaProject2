@@ -8,8 +8,8 @@ public class shipControl : MonoBehaviour {
 
 
 	void Start(){
+		
 		rd = GetComponent<Rigidbody> (); 
-
 		//カメラに機体を設定
 		Camera.main.gameObject.GetComponent<cameraLookAt>().target=this.gameObject.transform;
 		//GUIManagerに機体を設定
@@ -40,13 +40,16 @@ public class shipControl : MonoBehaviour {
 	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
 		//Debug.Log("OnPressTapLayer"+isPress+worldPos.ToString());
 		isPressed=isPress;
-	}
-
-	public void OnUpdateTapLayer(Vector3 worldPos){
 		currentTappedPos=worldPos;
 	}
 
-	bool isPressed=false;
+	public void OnUpdateTapLayer(Vector3 worldPos){
+		//Debug.Log("OnPressTapLayer"+worldPos.ToString());
+		currentTappedPos=worldPos;
+	}
+
+
+	public bool isPressed=false;
 	Vector3 currentTappedPos;
 
 	// 移動スピード
@@ -54,20 +57,22 @@ public class shipControl : MonoBehaviour {
 	public float speed = 0.01f;
 	public int speedCount = 0;
 
-
-	Vector3 tr ;
+	Vector3 tr;
 	Rigidbody rd;
 	Vector3 velocity;
 	void Update () {
-			tr = transform.position.normalized;
 
+		tr = transform.position.normalized;
 
 		if (isPressed) {
-			tapControl ();
+			
+			// タップの方向に向く
+			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
+			newRotation.x = 0;
+			newRotation.z = 0;
 
 			// 回転
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
-			// 移動
 
 		} else {
 			// 徐々に止める
@@ -85,19 +90,6 @@ public class shipControl : MonoBehaviour {
 		tr = transform.forward * speed;
 
 		rd.AddForce (tr, ForceMode.VelocityChange);
-	}
-
-	Vector3 temp2;
-	void tapControl(){
-		// タップの方向に向く
-		temp2 = currentTappedPos;
-		temp.x = temp.x;
-		temp.y = 0.0f;
-		temp.z = temp.z;
-
-		newRotation = Quaternion.LookRotation(temp - transform.position).eulerAngles;
-		newRotation.x = 0;
-		newRotation.z = 0;
 	}
 
 }
