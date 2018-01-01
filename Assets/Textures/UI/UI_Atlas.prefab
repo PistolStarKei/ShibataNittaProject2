@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 40e138f4fc449417ba0b028aafd7d2e4, type: 2}
   mSprites:
   - name: bg
-    x: 0
-    y: 125
+    x: 509
+    y: 1626
     width: 416
     height: 422
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 45
     paddingBottom: 45
   - name: bg1
-    x: 509
-    y: 377
+    x: 1632
+    y: 1704
     width: 205
     height: 344
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 100
     paddingBottom: 68
   - name: box
-    x: 417
-    y: 449
+    x: 821
+    y: 1582
     width: 21
     height: 21
     borderLeft: 10
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Button_04_Normal_Right
-    x: 810
-    y: 768
+    x: 261
+    y: 689
     width: 256
     height: 256
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Button_04_Normal_Shoot
-    x: 810
-    y: 511
+    x: 261
+    y: 946
     width: 256
     height: 256
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Button_04_Normal_Up
-    x: 810
-    y: 254
+    x: 261
+    y: 1203
     width: 256
     height: 256
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Button_04_Normal_Virgin
-    x: 1067
-    y: 768
+    x: 0
+    y: 172
     width: 256
     height: 256
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Button_04_Pressed_Virgin
-    x: 1324
-    y: 768
+    x: 0
+    y: 429
     width: 256
     height: 256
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: buttonNormal
-    x: 0
-    y: 53
+    x: 695
+    y: 1604
     width: 175
     height: 21
     borderLeft: 69
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: buttonSelect
-    x: 0
-    y: 75
+    x: 509
+    y: 1576
     width: 179
     height: 21
     borderLeft: 73
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: check
-    x: 497
-    y: 459
+    x: 855
+    y: 1572
     width: 11
     height: 11
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 445
-    y: 427
+    x: 843
+    y: 1572
     width: 11
     height: 11
     borderLeft: 0
@@ -209,9 +209,48 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 0
     paddingBottom: 3
+  - name: circ
+    x: 0
+    y: 686
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 19
+    paddingTop: 41
+    paddingBottom: 25
+  - name: circ1
+    x: 0
+    y: 1200
+    width: 260
+    height: 259
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 38
+    paddingRight: 17
+    paddingTop: 40
+    paddingBottom: 23
+  - name: circ2
+    x: 0
+    y: 943
+    width: 257
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 31
+    paddingRight: 19
+    paddingTop: 41
+    paddingBottom: 25
   - name: div
-    x: 462
-    y: 445
+    x: 509
+    y: 1572
     width: 30
     height: 3
     borderLeft: 3
@@ -223,8 +262,8 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 5
   - name: fieldNormal
-    x: 427
-    y: 421
+    x: 1051
+    y: 1573
     width: 17
     height: 17
     borderLeft: 7
@@ -236,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fieldSelect
-    x: 479
-    y: 453
+    x: 1086
+    y: 1583
     width: 17
     height: 17
     borderLeft: 7
@@ -248,9 +287,100 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: GrBar
+    x: 0
+    y: 15
+    width: 236
+    height: 156
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 4
+    paddingRight: 16
+    paddingTop: 51
+    paddingBottom: 49
+  - name: GUI_circ3
+    x: 1838
+    y: 1661
+    width: 131
+    height: 387
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 130
+    paddingRight: 78
+    paddingTop: 52
+    paddingBottom: 62
+  - name: GUI_Corner_Glow
+    x: 926
+    y: 1578
+    width: 104
+    height: 65
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 21
+    paddingTop: 22
+    paddingBottom: 19
+  - name: GUI_Corner_Round
+    x: 1031
+    y: 1601
+    width: 82
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 32
+    paddingTop: 34
+    paddingBottom: 30
+  - name: GUI_Head
+    x: 0
+    y: 1460
+    width: 719
+    height: 111
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 47
+    paddingRight: 100
+    paddingTop: 81
+    paddingBottom: 52
+  - name: GUI_Head_Line
+    x: 720
+    y: 1488
+    width: 724
+    height: 83
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 45
+    paddingRight: 97
+    paddingTop: 112
+    paddingBottom: 49
+  - name: GUI_Header2
+    x: 1445
+    y: 1531
+    width: 422
+    height: 40
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 26
+    paddingRight: 70
+    paddingTop: 40
+    paddingBottom: 33
   - name: gun1
-    x: 1571
-    y: 623
+    x: 261
+    y: 31
     width: 150
     height: 144
     borderLeft: 0
@@ -262,8 +392,8 @@ MonoBehaviour:
     paddingTop: 202
     paddingBottom: 166
   - name: hor
-    x: 427
-    y: 439
+    x: 1051
+    y: 1591
     width: 34
     height: 9
     borderLeft: 0
@@ -275,8 +405,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 6
   - name: ic_conf
-    x: 509
-    y: 722
+    x: 1331
+    y: 1746
     width: 300
     height: 302
     borderLeft: 0
@@ -288,8 +418,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 13
   - name: item_napam
-    x: 810
-    y: 23
+    x: 518
+    y: 972
     width: 215
     height: 230
     borderLeft: 0
@@ -301,8 +431,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 12
   - name: item_nuke
-    x: 1581
-    y: 769
+    x: 261
+    y: 176
     width: 256
     height: 255
     borderLeft: 0
@@ -314,8 +444,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: item_razer
-    x: 1838
-    y: 768
+    x: 518
+    y: 715
     width: 190
     height: 256
     borderLeft: 0
@@ -327,8 +457,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Item_stealth
-    x: 1316
-    y: 605
+    x: 1331
+    y: 1583
     width: 254
     height: 162
     borderLeft: 0
@@ -340,8 +470,8 @@ MonoBehaviour:
     paddingTop: 45
     paddingBottom: 49
   - name: item_Wave
-    x: 1067
-    y: 511
+    x: 518
+    y: 1203
     width: 248
     height: 256
     borderLeft: 0
@@ -353,8 +483,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: item_yudoudan
-    x: 1067
-    y: 40
+    x: 518
+    y: 244
     width: 154
     height: 256
     borderLeft: 0
@@ -366,8 +496,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: item_Zenhoukou
-    x: 509
-    y: 120
+    x: 261
+    y: 432
     width: 256
     height: 256
     borderLeft: 0
@@ -379,8 +509,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: label
-    x: 0
-    y: 97
+    x: 509
+    y: 1598
     width: 185
     height: 27
     borderLeft: 35
@@ -392,8 +522,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: map_ic_player
-    x: 417
-    y: 471
+    x: 1933
+    y: 1584
     width: 88
     height: 76
     borderLeft: 0
@@ -405,8 +535,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 15
   - name: sliderhor
-    x: 497
-    y: 453
+    x: 821
+    y: 1576
     width: 10
     height: 5
     borderLeft: 4
@@ -418,8 +548,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 4
   - name: slidervert
-    x: 445
-    y: 416
+    x: 689
+    y: 1587
     width: 5
     height: 10
     borderLeft: 0
@@ -430,9 +560,35 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 0
     paddingBottom: 0
+  - name: squere
+    x: 1970
+    y: 1975
+    width: 74
+    height: 73
+    borderLeft: 3
+    borderRight: 3
+    borderTop: 3
+    borderBottom: 3
+    paddingLeft: 81
+    paddingRight: 41
+    paddingTop: 51
+    paddingBottom: 45
+  - name: squere_circ
+    x: 1838
+    y: 1579
+    width: 94
+    height: 81
+    borderLeft: 22
+    borderRight: 21
+    borderTop: 19
+    borderBottom: 18
+    paddingLeft: 7
+    paddingRight: 6
+    paddingTop: 7
+    paddingBottom: 7
   - name: thumb
-    x: 459
-    y: 451
+    x: 843
+    y: 1584
     width: 19
     height: 19
     borderLeft: 0
@@ -444,8 +600,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 1
   - name: thumb1
-    x: 439
-    y: 451
+    x: 1031
+    y: 1581
     width: 19
     height: 19
     borderLeft: 0
@@ -456,9 +612,113 @@ MonoBehaviour:
     paddingRight: 1
     paddingTop: 1
     paddingBottom: 1
+  - name: UI_Kakomi
+    x: 871
+    y: 1573
+    width: 51
+    height: 52
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 24
+    paddingTop: 17
+    paddingBottom: 16
+  - name: UI_Napam
+    x: 1735
+    y: 1601
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Nuke
+    x: 767
+    y: 1253
+    width: 101
+    height: 103
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Razer
+    x: 1868
+    y: 1469
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Stealth
+    x: 412
+    y: 73
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Wave
+    x: 1632
+    y: 1600
+    width: 102
+    height: 103
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Yudou
+    x: 767
+    y: 1357
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Zenhoukou
+    x: 870
+    y: 1357
+    width: 101
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 1
   - name: vert
-    x: 417
-    y: 414
+    x: 1114
+    y: 1609
     width: 9
     height: 34
     borderLeft: 0
@@ -469,9 +729,22 @@ MonoBehaviour:
     paddingRight: 6
     paddingTop: 0
     paddingBottom: 0
+  - name: waku
+    x: 695
+    y: 1574
+    width: 125
+    height: 29
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
   - name: Waku
-    x: 1067
-    y: 297
+    x: 518
+    y: 501
     width: 216
     height: 213
     borderLeft: 0
@@ -483,8 +756,8 @@ MonoBehaviour:
     paddingTop: 28
     paddingBottom: 15
   - name: white
-    x: 1316
-    y: 424
+    x: 518
+    y: 63
     width: 180
     height: 180
     borderLeft: 17
@@ -497,7 +770,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: window
     x: 0
-    y: 548
+    y: 1572
     width: 508
     height: 476
     borderLeft: 98
@@ -507,6 +780,19 @@ MonoBehaviour:
     paddingLeft: 4
     paddingRight: 0
     paddingTop: 17
+    paddingBottom: 19
+  - name: window_Map
+    x: 926
+    y: 1644
+    width: 404
+    height: 404
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 19
+    paddingTop: 22
     paddingBottom: 19
   mPixelSize: 1
   mReplacement: {fileID: 0}

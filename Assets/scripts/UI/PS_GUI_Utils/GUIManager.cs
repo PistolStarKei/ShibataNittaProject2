@@ -8,6 +8,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	}
 
+
+
+	public shipControl shipControll;
+
 	/*
 	 * 
 	 * タップ受け取り
@@ -28,6 +32,16 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		
 	}
 
+	/*
+	 * 
+	 * Shootボタン
+	 * 
+	 * 
+	*/
+	public void OnShootBtnClicked(){
+		
+	}
+
 
 
 
@@ -38,16 +52,6 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 
-	/*
-	 * 
-	 * Shootボタン
-	 * 
-	 * 
-	*/
-	public List<EventDelegate> onClickShootBtn = new List<EventDelegate>();
-	public void OnShootBtnClicked(){
-		EventDelegate.Execute(onClickShootBtn);
-	}
 
 
 
@@ -79,6 +83,32 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		}
 		hpSlider.AddVal((MaxHP*(persentage/100.0f))/MaxHP);
 
+	}
+
+	/*
+	 * 
+	 * サブウェポン
+	 * 
+	 * 
+	*/
+
+	public SubWeaponMenu subWeaponSlot;
+
+	/// <summary>
+	/// サブウェポン取得時にGUIを更新する　もしも最大個数であればfalseを返す
+	/// </summary>
+	public bool OnGetSubWeapon(Subweapon weaponType){
+		if(!subWeaponSlot.ISHolderHasSpace()){
+			return false;
+		}
+
+		subWeaponSlot.AddSubWeaponToHolder(weaponType);
+
+		return true;
+	}
+
+	public void OnUseSubWeapon(Subweapon weaponType){
+		
 	}
 
 

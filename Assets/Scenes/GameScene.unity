@@ -540,33 +540,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012999631820, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-        type: 2}
-      propertyPath: onClick.Array.data[0].mTarget
-      value: 
-      objectReference: {fileID: 1024036644}
     - target: {fileID: 114000010098488914, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 611160360}
-    - target: {fileID: 1000014217978138, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 114000012999631820, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+        type: 2}
+      propertyPath: onClick.Array.data[0].mTarget
+      value: 
+      objectReference: {fileID: 1024036644}
+    - target: {fileID: 114000011206015232, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000013397768000, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114000011206015232, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+        type: 2}
+      propertyPath: autoResizeBoxCollider
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012669148994, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010663315252, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012950705624, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
+    - target: {fileID: 1000012897329484, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -575,7 +569,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!114 &513192048 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012836696756, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+  m_PrefabParentObject: {fileID: 114000013345277198, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
     type: 2}
   m_PrefabInternal: {fileID: 513192047}
   m_Script: {fileID: 11500000, guid: 38eb176f7edd7496a8c38d0b51a70960, type: 3}
@@ -609,6 +603,57 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 513192047}
   m_Script: {fileID: 11500000, guid: 4c6d25eb0ba9d42acadee328fb251301, type: 3}
+--- !u!114 &513192054 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012764547370, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 513192047}
+  m_Script: {fileID: 11500000, guid: 4a4472cb40c974f15893c23c51722f32, type: 3}
+--- !u!1 &513192055 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013519747836, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 513192047}
+--- !u!114 &513192056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513192055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e862f287df53bb64db191162f851a296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHoverOver: []
+  onHoverOut: []
+  onPress: []
+  onRelease: []
+  onSelect: []
+  onDeselect: []
+  onClick:
+  - mTarget: {fileID: 513192054}
+    mMethodName: OnTapItem
+    mParameters: []
+    oneShot: 0
+  onDoubleClick: []
+  onDragStart: []
+  onDragEnd: []
+  onDragOver: []
+  onDragOut: []
+  onDrag: []
+--- !u!65 &513192057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513192055}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 106, y: 104, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &611160356
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +933,11 @@ Prefab:
       propertyPath: resultMenu
       value: 
       objectReference: {fileID: 513192053}
+    - target: {fileID: 114000012173805336, guid: 03d28708dd7474dbc95d51fdefce67df,
+        type: 2}
+      propertyPath: subWeaponSlot
+      value: 
+      objectReference: {fileID: 513192054}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03d28708dd7474dbc95d51fdefce67df, type: 2}
   m_IsPrefabParent: 0
