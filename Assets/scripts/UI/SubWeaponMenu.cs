@@ -7,6 +7,17 @@ public enum Subweapon{NAPAM,NUKE,RAZER,STEALTH,WAVE,YUDOU,ZENHOUKOU,NONE}
 public class SubWeaponMenu : MonoBehaviour {
 	
 
+	public Subweapon subTest;
+	public void Test(){
+		AddSubWeaponToHolder(subTest);
+	}
+
+	public void Test2(){
+		OnUseSubWeapon();
+	}
+
+
+
 	public void OnTapItem(){
 		if(GetCurrentWeapon()!=null && GetCurrentWeapon()!=Subweapon.NONE){
 			GUIManager.Instance.OnUseSubWeapon(GetCurrentWeapon());
@@ -25,13 +36,16 @@ public class SubWeaponMenu : MonoBehaviour {
 	}
 
 	public Subweapon GetCurrentWeapon(){
-		return subWeaponHolder[0];
+		if(subWeaponHolder.Count<=0){
+			return Subweapon.NONE;
+		}
+			
+		return subWeaponHolder[subWeaponHolder.Count-1];
 
 	}
 
 	public void AddSubWeaponToHolder(Subweapon add){
 		if(!ISHolderHasSpace()){
-			Debug.LogError("Holder is Full");
 			return;
 		}
 
@@ -41,25 +55,29 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	void OnUseSubWeapon(){
 		if(subWeaponHolder.Count<=0){
-			Debug.LogError("Holder is Empty");
 			return;
 		}
-		subWeaponHolder.RemoveAt(0);
+
+		subWeaponHolder.RemoveAt(subWeaponHolder.Count-1);
+
 		UpdateBtns();
 	}
 
 
 	void UpdateBtns(){
+
 		holdNum.text=subWeaponHolder.Count.ToString()+"/10";
-		SetCurrent(subWeaponHolder[0]!=null ? subWeaponHolder[0] : Subweapon.NONE);
 
-		for(int i=1;i<nextHolder.Length+1;i++){
-			if(subWeaponHolder[i]==null || subWeaponHolder[i]==Subweapon.NONE){
+		SetCurrent(subWeaponHolder.Count<=0 ? Subweapon.NONE:subWeaponHolder[subWeaponHolder.Count-1]);
 
-				nextHolder[i-1].SetToEmpty();
-			}else{
-				nextHolder[i-1].SetItem(fittingName[(int)subWeaponHolder[i]]);
-			}
+		for(int i=0;i<nextHolder.Length;i++){
+			nextHolder[i].SetToEmpty();
+		}
+
+		int y=0;
+		for(int i=subWeaponHolder.Count-2;i>=0;i--){
+			nextHolder[y].SetItem(fittingName[(int)subWeaponHolder[i]]);
+			y++;
 		}
 	}
 
@@ -109,6 +127,7 @@ public class SubWeaponMenu : MonoBehaviour {
 	public UILabel ready;
 
 	void SetCurrentSubItem(Subweapon wep){
+		
 		currentSub.enabled=true;
 		ready.enabled=true;
 		currentSub.spriteName=fittingName[(int)wep];
