@@ -21,8 +21,10 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 	}
 
 	void OnPress(bool isPress){
+		isPressed=isPress;
 		if(!isActive)return;
-		GUIManager.Instance.OnPressTapLayer(isPress);
+
+		GUIManager.Instance.OnPressTapLayer(isPress,InverseOverlayPosition(GetTouchPosition()));
 
 		if(isPress){
 			SetUIPositon(GetTouchPosition(),tapIndecator);
@@ -32,16 +34,27 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 		}
 
 	}
+
+	bool isPressed=false;
+
+	void Update(){
+
+		if(isPressed && isActive){
+			GUIManager.Instance.OnUpdateTapLayer(InverseOverlayPosition(GetTouchPosition()));
+		}
+
+
+	}
+			/*
 	void OnClick(){
 		if(!isActive)return;
 		SetUIPositon(GetTouchPosition(),tapIndecator);
 		GUIManager.Instance.OnClickTapLayer(InverseOverlayPosition(GetTouchPosition()));
-	}
+	}*/
 
 	void OnDrag (Vector2 delta){
 		if(!isActive)return;
 		SetUIPositon(GetTouchPosition(),tapIndecator);
-		GUIManager.Instance.OnClickTapLayer(InverseOverlayPosition(GetTouchPosition()));
 	}
 
 	Vector3 GetTouchPosition(){

@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GUIManager : PS_SingletonBehaviour<GUIManager> {
+
+
 	// Use this for initialization
 	void Start () {
 
 	}
-
 
 
 	public shipControl shipControll;
@@ -18,18 +19,13 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	 * 
 	*/
-	public void OnPressTapLayer(bool isPress){
-		//shipControl.OnClickTapLayer(worldPos);
+	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
+		shipControll.OnPressTapLayer(isPress,worldPos);
 
 	}
 
-	public void OnClickTapLayer(Vector3 worldPos){
-		//shipControl.OnClickTapLayer(worldPos);
-
-	}
-
-	public void OnDragTapLayer(Vector3 worldPos){
-		
+	public void OnUpdateTapLayer(Vector3 worldPos){
+		shipControll.OnUpdateTapLayer(worldPos);
 	}
 
 	/*

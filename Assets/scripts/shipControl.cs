@@ -6,7 +6,19 @@ public class shipControl : MonoBehaviour {
 	Vector3 newRotation = new Vector3(0,0,0);
 	public GameObject shot;
 
-	IEnumerator Start ()
+
+	void Start(){
+
+		//カメラに機体を設定
+		Camera.main.gameObject.GetComponent<cameraLookAt>().target=this.gameObject.transform;
+		//GUIManagerに機体を設定
+		GUIManager.Instance.shipControll=this;
+
+		StartCoroutine(ShotCoroutine());
+		isPressed=false;
+	}
+
+	IEnumerator ShotCoroutine ()
 	{
 		while (true) {
 			// 弾をプレイヤーと同じ位置/角度で作成
@@ -18,17 +30,34 @@ public class shipControl : MonoBehaviour {
 		}
 	}
 
+
+	//GUIManagerからの入力受け取りメソッド
+
+	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
+		//Debug.Log("OnPressTapLayer"+isPress+worldPos.ToString());
+		isPressed=isPress;
+		testTrans.position=worldPos;
+	}
+
+	public void OnUpdateTapLayer(Vector3 worldPos){
+		currentTappedPos=worldPos;
+		testTrans.position=worldPos;
+	}
+
+	public bool isPressed=false;
+	Vector3 currentTappedPos;
+	public Transform testTrans;
+
 	// 移動スピード
 	public const float maxSpeed = 1.0f;
 	public float speed = 0.01f;
 	public int speedCount = 0;
 
 		void Update () {
-//		keyControl ();
 		Vector3 tr = transform.position.normalized;
 		Rigidbody rd = GetComponent<Rigidbody> (); 
 
-		if (TapEffect.tapFlag) {
+		if (isPressed) {
 			tapControl ();
 
 			// 回転
@@ -55,7 +84,7 @@ public class shipControl : MonoBehaviour {
 
 	void tapControl(){
 		// タップの方向に向く
-		Vector3 temp = TapEffect.tapPos;
+		Vector3 temp = currentTappedPos;
 		temp.x = temp.x;
 		temp.y = 0.0f;
 		temp.z = temp.z;
@@ -65,12 +94,4 @@ public class shipControl : MonoBehaviour {
 		newRotation.z = 0;
 	}
 
-	void keyControl(){
-		float x = Input.GetAxisRaw ("Horizontal");		// 右・左
-		float z = Input.GetAxisRaw ("Vertical");		// 上・下
-		Vector3 direction = new Vector3 (x, 0.0f, z).normalized;		// 移動する向きを求める
-
-		// 移動する向きとスピードを代入する
-		transform.position += direction * speed;
-	}
 }

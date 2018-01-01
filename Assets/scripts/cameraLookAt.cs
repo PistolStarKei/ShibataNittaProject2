@@ -4,18 +4,24 @@ using System.Collections;
 public class cameraLookAt : MonoBehaviour {
 
 	public Transform target;
-	private Vector3 positionOffset;		// 相対座標
+
+	Transform tr;
+	Vector3 vec=Vector3.zero;
+	public float offset=4.0f;
 
 	// Use this for initialization
 	void Start () {
-		positionOffset = GetComponent<Transform>().position - target.position;
+		
+		tr=GetComponent<Transform>();
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Transform>().position = target.position + positionOffset;
+		
+		vec=target.position;
+		vec.y=target.position.y+offset;
+		if(tr!=null)tr.position = vec;
 
-//		transform.LookAt(target.transform);
-//		Debug.Log("tmpPos == " + target.transform.position , this);
 	}
 }
