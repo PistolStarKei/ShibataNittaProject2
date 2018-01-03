@@ -53,7 +53,7 @@ public class shipControl : MonoBehaviour {
 	Vector3 currentTappedPos;
 
 	// 移動スピード
-	public const float maxSpeed = 1.0f;
+	public const float maxSpeed = 2.0f;
 	public float speed = 0.01f;
 	public int speedCount = 0;
 

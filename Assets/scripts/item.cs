@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class enemy : MonoBehaviour {
+public class item : MonoBehaviour {
 
-	public GameObject explosion;
 	public AudioClip sound;
 
 	// Use this for initialization
@@ -18,7 +17,6 @@ public class enemy : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		Destroy(this.gameObject);
-		Instantiate (explosion, transform.position, transform.rotation);
 		AudioSource.PlayClipAtPoint(sound, transform.position);
 	}
 }
