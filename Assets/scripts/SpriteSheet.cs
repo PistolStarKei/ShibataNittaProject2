@@ -8,14 +8,14 @@ public class SpriteSheet : MonoBehaviour {
 	public int _fps = 10;
 
 	private Vector2 _size;
-	private TrailRenderer _myRenderer;
+	private LineRenderer _myRenderer;
 
 	private int _lastIndex = -1;
 
 	void Start () 
 	{
 		_size = new Vector2 (1.0f / _uvTieX , 1.0f / _uvTieY);
-		_myRenderer = GetComponent<TrailRenderer>();
+		_myRenderer = GetComponent<LineRenderer>();
 		if(_myRenderer == null)
 			enabled = false;
 	}
