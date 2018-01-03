@@ -6,22 +6,29 @@ using System.Collections;
 public class EngineParticle : MonoBehaviour {
 
 	void Start(){
-		ps=gameObject.GetComponent<ParticleSystem>();
-		ps.loop=false;
-		ps.Stop();
+
+		for(int i=0;i<ps.Length;i++){
+			ps[i].loop=false;
+			ps[i].Stop();
+		}
+
 	}
 
-	public float speed=1.0f;
 	public void Engine(bool isOn){
 		if(isOn){
-			ps.loop=true;
-			ps.Play();
+			for(int i=0;i<ps.Length;i++){
+				ps[i].loop=true;
+				ps[i].Play();
+			}
+
 		}else{
-			if(!ps.isStopped){
-				ps.loop=false;
-				ps.Stop();
+			if(!ps[0].isStopped){
+				for(int i=0;i<ps.Length;i++){
+					ps[i].loop=false;
+					ps[i].Stop();
+				}
 			}
 		}
 	}
-	ParticleSystem ps;
+	public ParticleSystem[] ps;
 }
