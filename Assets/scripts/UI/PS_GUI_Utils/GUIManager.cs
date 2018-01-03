@@ -20,12 +20,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	*/
 	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
-		shipControll.OnPressTapLayer(isPress,worldPos);
+		if(shipControll!=null)shipControll.OnPressTapLayer(isPress,worldPos);
 
 	}
 
 	public void OnUpdateTapLayer(Vector3 worldPos){
-		shipControll.OnUpdateTapLayer(worldPos);
+		if(shipControll!=null)shipControll.OnUpdateTapLayer(worldPos);
 	}
 
 	/*
