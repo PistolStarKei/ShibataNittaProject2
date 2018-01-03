@@ -1467,7 +1467,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012597622188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 230.3, y: -134, z: 0}
+  m_LocalPosition: {x: 145.71, y: -124.9, z: 0}
   m_LocalScale: {x: 0.99955064, y: 0.99955064, z: 0.99955064}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -2166,7 +2166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013859053922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75, y: -102.4, z: 0}
+  m_LocalPosition: {x: 225, y: -212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4331,7 +4331,7 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 0.8161765, g: 0.9163285, b: 1, a: 0.891}
-  mPivot: 3
+  mPivot: 5
   mWidth: 90
   mHeight: 26
   mDepth: 4
@@ -5638,16 +5638,16 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0.09589247, b: 0.22794116, a: 0.472}
+  mColor: {r: 0.10964533, g: 0.14394464, b: 0.19117647, a: 0.472}
   mPivot: 5
-  mWidth: 262
+  mWidth: 245
   mHeight: 154
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.7012987
+  aspectRatio: 1.5909091
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -5928,20 +5928,20 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 0.8156863, g: 0.9137255, b: 1, a: 0.8901961}
-  mPivot: 5
-  mWidth: 108
-  mHeight: 26
+  mPivot: 4
+  mWidth: 148
+  mHeight: 36
   mDepth: 4
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.1538463
+  aspectRatio: 4
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
   mText: 10/34
-  mFontSize: 26
+  mFontSize: 36
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -7021,7 +7021,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.063635394, g: 0.36784837, b: 0.78676474, a: 0.703}
+  mColor: {r: 0.5182201, g: 0.7178066, b: 0.99264705, a: 0.703}
   mPivot: 5
   mWidth: 262
   mHeight: 154
@@ -7221,7 +7221,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.03627812, g: 0.22676648, b: 0.44852942, a: 1}
+  mColor: {r: 0.20631489, g: 0.47112495, b: 0.7794118, a: 1}
   mPivot: 4
   mWidth: 344
   mHeight: 360

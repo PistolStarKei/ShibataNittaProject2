@@ -292,6 +292,16 @@ Prefab:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 611160360}
+    - target: {fileID: 114000012744160636, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+        type: 2}
+      propertyPath: aspectRatio
+      value: 4.111111
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013802758184, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+        type: 2}
+      propertyPath: mColor.g
+      value: 0.77670103
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
   m_IsPrefabParent: 0

@@ -3,12 +3,25 @@ using System.Collections;
 
 public class ShipSelecter : MonoBehaviour {
 
+	public string[] shipNames;
 	public ScrollItem[] items;
-	public bool[] itemFlags;
+	[SerializeField]
+	bool[] itemFlags;
 
 
 	void Start(){
-		ClearAll();
+		itemFlags=new bool[items.Length];
+		for(int i=0;i<itemFlags.Length;i++){
+			items[i].itemTittle.text=shipNames[i];
+			itemFlags[i]=false;
+		}
+		int num=DataManager.Instance.gameData.shipType;
+		if(num>=itemFlags.Length){
+			Debug.LogError("num==over Length");
+		}else{
+		}
+
+		itemFlags[num]=true;
 		UpdateItems();
 	}
 
@@ -18,9 +31,22 @@ public class ShipSelecter : MonoBehaviour {
 
 		}
 	}
+
+	public UILabel currentShipNameLb;
+	public void SetCurrentShipName(string name){
+		currentShipNameLb.text=name;
+
+	}
+	public ShipSwitcher switcher;
 	void UpdateItems(){
 		for(int i=0;i<itemFlags.Length;i++){
 			items[i].SetState(itemFlags[i]);
+			if(itemFlags[i]){
+				SetCurrentShipName(shipNames[i]);
+				switcher.Set(i);
+				DataManager.Instance.gameData.shipType=i;
+				DataManager.Instance.SaveAll();
+			}
 		}
 	}
 
@@ -28,6 +54,7 @@ public class ShipSelecter : MonoBehaviour {
 	public void OnClickItem(string name){
 		ClearAll();
 		currentSelect=int.Parse(name)-1;
+		Debug.LogWarning("ここで機種を変更する");
 		itemFlags[currentSelect]=true;
 		UpdateItems();
 	}
