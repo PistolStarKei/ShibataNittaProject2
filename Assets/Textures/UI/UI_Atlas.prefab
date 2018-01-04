@@ -171,7 +171,7 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 5
   - name: fieldNormal
-    x: 1555
+    x: 1537
     y: 1708
     width: 17
     height: 17
@@ -184,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fieldSelect
-    x: 1537
+    x: 1555
     y: 1708
     width: 17
     height: 17
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 22
   - name: GUI_Cover3
-    x: 626
-    y: 156
+    x: 1431
+    y: 997
     width: 154
     height: 49
     borderLeft: 0
@@ -586,6 +586,19 @@ MonoBehaviour:
     paddingRight: 27
     paddingTop: 25
     paddingBottom: 23
+  - name: ic_hp
+    x: 1859
+    y: 1010
+    width: 69
+    height: 72
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 29
+    paddingRight: 30
+    paddingTop: 34
+    paddingBottom: 30
   - name: IC_HPBar
     x: 1981
     y: 1975
@@ -612,6 +625,19 @@ MonoBehaviour:
     paddingRight: 18
     paddingTop: 22
     paddingBottom: 18
+  - name: ic_kill
+    x: 1942
+    y: 1268
+    width: 88
+    height: 92
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 68
+    paddingRight: 36
+    paddingTop: 42
+    paddingBottom: 35
   - name: label
     x: 1576
     y: 1575
@@ -639,7 +665,7 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 15
   - name: sliderhor
-    x: 654
+    x: 648
     y: 1579
     width: 10
     height: 5
@@ -653,7 +679,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: slidervert
     x: 648
-    y: 1574
+    y: 1568
     width: 5
     height: 10
     borderLeft: 2
@@ -665,8 +691,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: squere
-    x: 524
-    y: 29
+    x: 1784
+    y: 1009
     width: 74
     height: 73
     borderLeft: 3
@@ -678,8 +704,8 @@ MonoBehaviour:
     paddingTop: 51
     paddingBottom: 45
   - name: squere_circ
-    x: 1942
-    y: 1279
+    x: 626
+    y: 22
     width: 94
     height: 81
     borderLeft: 22
@@ -690,6 +716,32 @@ MonoBehaviour:
     paddingRight: 6
     paddingTop: 7
     paddingBottom: 7
+  - name: sw_empty
+    x: 626
+    y: 104
+    width: 101
+    height: 101
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 0
+  - name: sw_empty 1
+    x: 524
+    y: 1
+    width: 101
+    height: 101
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 0
   - name: thumb
     x: 1298
     y: 1627
@@ -730,8 +782,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 16
   - name: UI_Napam
-    x: 1942
-    y: 1361
+    x: 656
+    y: 793
     width: 102
     height: 102
     borderLeft: 0
@@ -757,7 +809,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_Razer
     x: 656
-    y: 793
+    y: 587
     width: 102
     height: 102
     borderLeft: 0
@@ -795,8 +847,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Yudou
-    x: 656
-    y: 587
+    x: 1942
+    y: 1361
     width: 102
     height: 102
     borderLeft: 0

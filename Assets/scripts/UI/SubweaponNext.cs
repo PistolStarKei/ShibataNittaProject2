@@ -6,7 +6,7 @@ public class SubweaponNext : MonoBehaviour {
 	public UISprite spItem;
 
 	public void SetToEmpty(){
-		spItem.enabled=false;
+		spItem.spriteName="sw_empty";
 	}
 
 	public void SetItem(string name){

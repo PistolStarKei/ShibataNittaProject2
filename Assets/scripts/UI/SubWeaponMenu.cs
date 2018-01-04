@@ -66,7 +66,6 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	void UpdateBtns(){
 
-		holdNum.text=subWeaponHolder.Count.ToString()+"/10";
 
 		SetCurrent(subWeaponHolder.Count<=0 ? Subweapon.NONE:subWeaponHolder[subWeaponHolder.Count-1]);
 
@@ -88,7 +87,6 @@ public class SubWeaponMenu : MonoBehaviour {
 
 		if(wep==Subweapon.NONE){
 			currentSub.enabled=false;
-			ready.enabled=false;
 			SetHighLight(false);
 		}else{
 			
@@ -101,35 +99,19 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	string[] fittingName=new string[7]{"UI_Napam","UI_Nuke","UI_Razer","UI_Stealth","UI_Wave","UI_Yudou","UI_Zenhoukou"};
 
-	public TweenPosition left;
-	public TweenPosition right;
-
 	void SetHighLight(bool isOn){
 		if(isOn){
-			if(left.enabled==false){
-				left.transform.localPosition=left.from;
-				right.transform.localPosition=right.from;
-				left.enabled=true;
-				right.enabled=true;
-			}
+			tr.enabled=true;
 		}else{
-			if(left.enabled==true){
-				left.enabled=false;
-				right.enabled=false;
-				left.transform.localPosition=left.from;
-				right.transform.localPosition=right.from;
+			tr.enabled=false;
+			tr.gameObject.transform.localRotation=Quaternion.Euler(tr.from);
 
-			}
 		}
 	}
 
-	public UILabel holdNum;
-	public UILabel ready;
-
+	public TweenRotation tr;
 	void SetCurrentSubItem(Subweapon wep){
-		
 		currentSub.enabled=true;
-		ready.enabled=true;
 		currentSub.spriteName=fittingName[(int)wep];
 		SetHighLight(true);
 	}
