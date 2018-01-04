@@ -33,10 +33,7 @@ public class GlowMaterialInspector : MaterialEditor
 
     private static void ShowToggleGUI(Material material, string friendlyName, string keyword)
     {
-		
         var shaderKeywords = material.shaderKeywords.OfType<string>().ToList();
-
-
         int index = -1;
         for (int i = 0; i < shaderKeywords.Count; ++i) {
             if (shaderKeywords[i].Contains(keyword)) {
@@ -44,15 +41,10 @@ public class GlowMaterialInspector : MaterialEditor
                 break;
             }
         }
-		//Debug.Log("2 ");
         bool keywordEnabled = shaderKeywords.Contains(keyword);
         EditorGUI.BeginChangeCheck();
-
-		//Debug.Log("3 ");
         keywordEnabled = EditorGUILayout.Toggle(friendlyName, keywordEnabled);
-		//Debug.Log("4 "+index);
-
-		if (EditorGUI.EndChangeCheck() ) {
+        if (EditorGUI.EndChangeCheck()) {
             if (keywordEnabled) {
                 shaderKeywords[index] = keyword;
             } else {

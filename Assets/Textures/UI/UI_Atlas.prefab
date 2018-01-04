@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: check
-    x: 636
+    x: 624
     y: 1573
     width: 11
     height: 11
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 624
+    x: 636
     y: 1573
     width: 11
     height: 11
@@ -276,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 62
   - name: GUI_Corner_Glow
     x: 656
-    y: 521
+    y: 520
     width: 104
     height: 65
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 34
     paddingBottom: 30
   - name: GUI_Cover2
-    x: 1431
-    y: 1047
+    x: 1123
+    y: 996
     width: 352
     height: 35
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 22
   - name: GUI_Cover3
-    x: 1431
-    y: 997
+    x: 626
+    y: 74
     width: 154
     height: 49
     borderLeft: 0
@@ -392,8 +392,8 @@ MonoBehaviour:
     paddingTop: 66
     paddingBottom: 41
   - name: GUI_HPBar
-    x: 1123
-    y: 1033
+    x: 781
+    y: 865
     width: 307
     height: 49
     borderLeft: 87
@@ -457,8 +457,8 @@ MonoBehaviour:
     paddingTop: 202
     paddingBottom: 166
   - name: Header_Tittle_BG
-    x: 1244
-    y: 1187
+    x: 1123
+    y: 1075
     width: 710
     height: 77
     borderLeft: 0
@@ -509,8 +509,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 6
   - name: HPBar
-    x: 1123
-    y: 1083
+    x: 781
+    y: 915
     width: 828
     height: 29
     borderLeft: 0
@@ -522,8 +522,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 60
   - name: HPBar_BG
-    x: 1123
-    y: 1113
+    x: 781
+    y: 945
     width: 841
     height: 39
     borderLeft: 36
@@ -534,6 +534,19 @@ MonoBehaviour:
     paddingRight: 166
     paddingTop: 57
     paddingBottom: 54
+  - name: HPBar3
+    x: 1123
+    y: 1032
+    width: 529
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 7
+    paddingTop: 19
+    paddingBottom: 15
   - name: HUD_Map
     x: 268
     y: 27
@@ -587,8 +600,8 @@ MonoBehaviour:
     paddingTop: 25
     paddingBottom: 23
   - name: ic_hp
-    x: 1859
-    y: 1010
+    x: 1974
+    y: 1192
     width: 69
     height: 72
     borderLeft: 0
@@ -651,9 +664,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 1
+  - name: Logo
+    x: 1244
+    y: 1176
+    width: 626
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 138
+    paddingTop: 87
+    paddingBottom: 38
   - name: map_ic_player
-    x: 1955
-    y: 1188
+    x: 1653
+    y: 998
     width: 88
     height: 76
     borderLeft: 0
@@ -665,7 +691,7 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 15
   - name: sliderhor
-    x: 648
+    x: 654
     y: 1579
     width: 10
     height: 5
@@ -679,7 +705,7 @@ MonoBehaviour:
     paddingBottom: 4
   - name: slidervert
     x: 648
-    y: 1568
+    y: 1574
     width: 5
     height: 10
     borderLeft: 2
@@ -691,8 +717,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: squere
-    x: 1784
-    y: 1009
+    x: 1742
+    y: 1001
     width: 74
     height: 73
     borderLeft: 3
@@ -705,7 +731,7 @@ MonoBehaviour:
     paddingBottom: 45
   - name: squere_circ
     x: 626
-    y: 22
+    y: 124
     width: 94
     height: 81
     borderLeft: 22
@@ -717,7 +743,7 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 7
   - name: sw_empty
-    x: 626
+    x: 524
     y: 104
     width: 101
     height: 101
@@ -731,7 +757,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: sw_empty 1
     x: 524
-    y: 1
+    y: 2
     width: 101
     height: 101
     borderLeft: 0
@@ -744,7 +770,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: thumb
     x: 1298
-    y: 1627
+    y: 1607
     width: 19
     height: 19
     borderLeft: 0
@@ -757,7 +783,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: thumb1
     x: 1298
-    y: 1607
+    y: 1627
     width: 19
     height: 19
     borderLeft: 0
@@ -795,8 +821,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Nuke
-    x: 675
-    y: 247
+    x: 656
+    y: 586
     width: 101
     height: 103
     borderLeft: 0
@@ -808,8 +834,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Razer
-    x: 656
-    y: 587
+    x: 1942
+    y: 1361
     width: 102
     height: 102
     borderLeft: 0
@@ -821,8 +847,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Stealth
-    x: 656
-    y: 690
+    x: 1871
+    y: 1162
     width: 102
     height: 102
     borderLeft: 0
@@ -847,8 +873,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Yudou
-    x: 1942
-    y: 1361
+    x: 656
+    y: 690
     width: 102
     height: 102
     borderLeft: 0
@@ -860,8 +886,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Zenhoukou
-    x: 524
-    y: 103
+    x: 675
+    y: 248
     width: 101
     height: 102
     borderLeft: 0

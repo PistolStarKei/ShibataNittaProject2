@@ -507,13 +507,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 46962275}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.8, y: 410, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -45.8, y: 47.02005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1666273510}
-  m_RootOrder: 4
+  m_Father: {fileID: 1832644632}
+  m_RootOrder: 0
 --- !u!114 &46962277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,26 +543,26 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.5514706, g: 0.80876666, b: 1, a: 0.622}
+  mColor: {r: 0.007843138, g: 0.4, b: 0.7176471, a: 1}
   mPivot: 4
-  mWidth: 476
+  mWidth: 390
   mHeight: 60
   mDepth: 5
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 7.9333334
+  aspectRatio: 6.5
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 530427d69ab6a488496adbfd909c0cf3, type: 3}
   mFont: {fileID: 0}
-  mText: FIGHTER SELECT
+  mText: STAR DEBRIS
   mFontSize: 60
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 2
+  mEffectStyle: 0
   mEffectColor: {r: 1, g: 1, b: 1, a: 0.391}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   - {fileID: 653424844}
   - {fileID: 1414759332}
   itemFlags: 
-  currentShipNameLb: {fileID: 922349938}
+  currentShipNameLb: {fileID: 46962277}
   switcher: {fileID: 2093217538}
   currentSelect: 0
   enableAlpha: 0.3
@@ -3270,12 +3270,12 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 884310176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.9000025, y: 416.67014, z: 0}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 10, y: 267.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1666273510}
+  m_Father: {fileID: 1391297927}
   m_RootOrder: 5
 --- !u!114 &884310178
 MonoBehaviour:
@@ -3307,15 +3307,15 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 0, g: 0.24474037, b: 0.41911763, a: 0.528}
-  mPivot: 4
-  mWidth: 883
-  mHeight: 250
+  mPivot: 7
+  mWidth: 769
+  mHeight: 307
   mDepth: 5
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.532
+  aspectRatio: 2.504886
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -3543,7 +3543,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 922349936}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: -0.00000004371139}
-  m_LocalPosition: {x: 25.6, y: 423, z: 0}
+  m_LocalPosition: {x: 4.1, y: 412.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3578,26 +3578,26 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 0.609}
+  mColor: {r: 0.5735294, g: 0.8058824, b: 1, a: 1}
   mPivot: 4
-  mWidth: 386
+  mWidth: 30
   mHeight: 34
   mDepth: 5
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 11.3529415
+  aspectRatio: 0.88235295
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
-  mText: FIGHTER SELECT
+  mText: F
   mFontSize: 34
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 2
+  mEffectStyle: 0
   mEffectColor: {r: 0.4852941, g: 0.850457, b: 1, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
@@ -5864,6 +5864,7 @@ Transform:
   - {fileID: 27531327}
   - {fileID: 489195457}
   - {fileID: 922349937}
+  - {fileID: 884310177}
   - {fileID: 1941974797}
   m_Father: {fileID: 416369319}
   m_RootOrder: 0
@@ -6558,8 +6559,7 @@ Transform:
   - {fileID: 470012605}
   - {fileID: 959754201}
   - {fileID: 771314726}
-  - {fileID: 46962276}
-  - {fileID: 884310177}
+  - {fileID: 1832644632}
   m_Father: {fileID: 416369319}
   m_RootOrder: 1
 --- !u!1 &1676074034
@@ -7423,6 +7423,93 @@ MonoBehaviour:
   mMaxLineHeight: 0
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &1832644631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1000011717842418, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1832644632}
+  - 114: {fileID: 1832644633}
+  m_Layer: 5
+  m_Name: Sprite (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832644632
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4000012246567874, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832644631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.87, y: 447.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 46962276}
+  m_Father: {fileID: 1666273510}
+  m_RootOrder: 4
+--- !u!114 &1832644633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000011242409150, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1832644631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 0.010596896, g: 0.4035481, b: 0.7205882, a: 0.703}
+  mPivot: 4
+  mWidth: 902
+  mHeight: 198
+  mDepth: 5
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 4.5555553
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 114000013970074830, guid: cb5bfb68fea7449049430fb4897f9f35, type: 2}
+  mSpriteName: Logo
+  mFillCenter: 1
 --- !u!1 &1866100485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7821,13 +7908,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1941974796}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.7, y: 444.62, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.008726535, w: 0.9999619}
+  m_LocalPosition: {x: -55.04, y: 353.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1391297927}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1941974798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7856,16 +7943,16 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.78676474, g: 0.9029412, b: 1, a: 1}
+  mColor: {r: 0.5147059, g: 0.7791076, b: 1, a: 1}
   mPivot: 4
-  mWidth: 1989
+  mWidth: 1926
   mHeight: 362
   mDepth: 7
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.4944754
+  aspectRatio: 5.320442
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
