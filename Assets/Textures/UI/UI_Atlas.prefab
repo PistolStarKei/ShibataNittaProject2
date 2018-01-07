@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: check
-    x: 624
+    x: 636
     y: 1573
     width: 11
     height: 11
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 636
+    x: 624
     y: 1573
     width: 11
     height: 11
@@ -171,7 +171,7 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 5
   - name: fieldNormal
-    x: 1537
+    x: 1555
     y: 1708
     width: 17
     height: 17
@@ -184,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fieldSelect
-    x: 1555
+    x: 1537
     y: 1708
     width: 17
     height: 17
@@ -276,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 62
   - name: GUI_Corner_Glow
     x: 656
-    y: 520
+    y: 521
     width: 104
     height: 65
     borderLeft: 0
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 22
   - name: GUI_Cover3
-    x: 626
-    y: 74
+    x: 1653
+    y: 1025
     width: 154
     height: 49
     borderLeft: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
     paddingBottom: 10
   - name: gun1
     x: 524
-    y: 206
+    y: 21
     width: 150
     height: 144
     borderLeft: 0
@@ -639,8 +639,8 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 18
   - name: ic_kill
-    x: 1942
-    y: 1268
+    x: 883
+    y: 772
     width: 88
     height: 92
     borderLeft: 0
@@ -651,6 +651,32 @@ MonoBehaviour:
     paddingRight: 36
     paddingTop: 42
     paddingBottom: 35
+  - name: ic_shot
+    x: 1942
+    y: 1304
+    width: 84
+    height: 263
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 71
+    paddingTop: 29
+    paddingBottom: 43
+  - name: ic_user
+    x: 524
+    y: 166
+    width: 127
+    height: 184
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 52
+    paddingRight: 49
+    paddingTop: 43
+    paddingBottom: 56
   - name: label
     x: 1576
     y: 1575
@@ -678,8 +704,8 @@ MonoBehaviour:
     paddingTop: 87
     paddingBottom: 38
   - name: map_ic_player
-    x: 1653
-    y: 998
+    x: 972
+    y: 788
     width: 88
     height: 76
     borderLeft: 0
@@ -717,8 +743,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: squere
-    x: 1742
-    y: 1001
+    x: 781
+    y: 689
     width: 74
     height: 73
     borderLeft: 3
@@ -730,8 +756,8 @@ MonoBehaviour:
     paddingTop: 51
     paddingBottom: 45
   - name: squere_circ
-    x: 626
-    y: 124
+    x: 652
+    y: 166
     width: 94
     height: 81
     borderLeft: 22
@@ -743,8 +769,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 7
   - name: sw_empty
-    x: 524
-    y: 104
+    x: 781
+    y: 763
     width: 101
     height: 101
     borderLeft: 0
@@ -756,8 +782,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 0
   - name: sw_empty 1
-    x: 524
-    y: 2
+    x: 1936
+    y: 1051
     width: 101
     height: 101
     borderLeft: 0
@@ -808,8 +834,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 16
   - name: UI_Napam
-    x: 656
-    y: 793
+    x: 652
+    y: 248
     width: 102
     height: 102
     borderLeft: 0
@@ -821,8 +847,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Nuke
-    x: 656
-    y: 586
+    x: 675
+    y: 62
     width: 101
     height: 103
     borderLeft: 0
@@ -834,8 +860,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Razer
-    x: 1942
-    y: 1361
+    x: 656
+    y: 587
     width: 102
     height: 102
     borderLeft: 0
@@ -847,8 +873,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Stealth
-    x: 1871
-    y: 1162
+    x: 656
+    y: 690
     width: 102
     height: 102
     borderLeft: 0
@@ -860,8 +886,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Wave
-    x: 1942
-    y: 1464
+    x: 1871
+    y: 1161
     width: 102
     height: 103
     borderLeft: 0
@@ -874,7 +900,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_Yudou
     x: 656
-    y: 690
+    y: 793
     width: 102
     height: 102
     borderLeft: 0
@@ -886,8 +912,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Zenhoukou
-    x: 675
-    y: 248
+    x: 1834
+    y: 1050
     width: 101
     height: 102
     borderLeft: 0

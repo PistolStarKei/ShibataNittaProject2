@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ShipSwitcher : MonoBehaviour {
+public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 
 	public List<GameObject> ships;
-
+	public GUI_ShipRotater currentShip;
 	// Use this for initialization
 	void Awake () {
 		foreach (Transform child in transform){
@@ -16,7 +16,8 @@ public class ShipSwitcher : MonoBehaviour {
 	public void Set(int index){
 		ClearAll();
 		ships[index].SetActive(true);
-		ships[index].GetComponent<GUI_ShipRotater>().SetToDefault();
+		currentShip=ships[index].GetComponent<GUI_ShipRotater>();
+		currentShip.SetToDefault();
 
 	}
 

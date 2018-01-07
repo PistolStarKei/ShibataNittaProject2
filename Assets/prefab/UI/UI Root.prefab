@@ -262,6 +262,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000010534429946
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011294586948}
+  - 114: {fileID: 114000013729266708}
+  m_Layer: 5
+  m_Name: Background (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000010650050332
 GameObject:
   m_ObjectHideFlags: 1
@@ -1739,6 +1755,7 @@ Transform:
   - {fileID: 4000010149109302}
   - {fileID: 4000010629479672}
   - {fileID: 4000013662281716}
+  - {fileID: 4000011294586948}
   m_Father: {fileID: 4000011823453504}
   m_RootOrder: 0
 --- !u!4 &4000010112623386
@@ -2130,6 +2147,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011842970540}
   m_RootOrder: 2
+--- !u!4 &4000011294586948
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010534429946}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6965392, w: 0.7175187}
+  m_LocalPosition: {x: -1.26, y: 2.34, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010092678514}
+  m_RootOrder: 3
 --- !u!4 &4000011389792180
 Transform:
   m_ObjectHideFlags: 1
@@ -2978,7 +3008,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013116025842}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
-  m_LocalPosition: {x: 236.4, y: 119.4, z: 0}
+  m_LocalPosition: {x: 236.4, y: 126.62, z: 0}
   m_LocalScale: {x: 0.8381925, y: 0.8381925, z: 0.8381925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -3039,7 +3069,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013633240234}
   m_LocalRotation: {x: 0, y: 0, z: 0.57035524, w: 0.82139814}
-  m_LocalPosition: {x: 701.93, y: -4, z: 0}
+  m_LocalPosition: {x: 701.93, y: -8.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3477,6 +3507,7 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   isActive: 1
   tapIndecator: {fileID: 4000010536570702}
+  viewType: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -4346,7 +4377,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.5661765, g: 0.8009517, b: 1, a: 0.48235294}
+  mColor: {r: 0, g: 0.5411765, b: 1, a: 0.48235294}
   mPivot: 5
   mWidth: 318
   mHeight: 306
@@ -8209,6 +8240,60 @@ MonoBehaviour:
   toggleSEFlag: 1
   toggleBGMFlag: 1
   bgScale: {fileID: 114000011017026934}
+--- !u!114 &114000013729266708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010534429946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 0.014705896, g: 0.67383397, b: 1, a: 0.496}
+  mPivot: 4
+  mWidth: 90
+  mHeight: 94
+  mDepth: 1
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 0.9574468
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 114000013970074830, guid: cb5bfb68fea7449049430fb4897f9f35, type: 2}
+  mSpriteName: ic_shot
+  mFillCenter: 1
 --- !u!114 &114000013738082858
 MonoBehaviour:
   m_ObjectHideFlags: 1
