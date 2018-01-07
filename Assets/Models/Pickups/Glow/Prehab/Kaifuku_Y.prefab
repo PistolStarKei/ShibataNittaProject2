@@ -24,7 +24,6 @@ GameObject:
   - 114: {fileID: 114000012227310060}
   - 114: {fileID: 114000010121309346}
   - 135: {fileID: 135000013493168140}
-  - 114: {fileID: 114000011966156412}
   m_Layer: 13
   m_Name: Kaifuku_Y
   m_TagString: Untagged
@@ -92,18 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d2c8460f40e8a418d7ff5657d399cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000011966156412
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012693178156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b636477b5932fa141a37919d99afb7f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: acc4d2b703ec38940b5e72dc3df00173, type: 3}
 --- !u!114 &114000012227310060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,5 +112,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13725664
+  m_Radius: 0.26
   m_Center: {x: 0.0752774, y: 0.11251805, z: -0.00030785054}
