@@ -14,7 +14,8 @@ public class item : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy(this.gameObject);
-		AudioController.Play ("Powerup");
+			Destroy(this.gameObject);
+			AudioController.Play ("Powerup");
+		
 	}
 }

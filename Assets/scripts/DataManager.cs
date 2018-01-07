@@ -35,7 +35,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		}
 
-		if(!ES2.Exists(filename+"?tag=toggleSE")){
+		if(!ES2.Exists(filename+"?tag=username")){
 			InitData();
 		}else{
 			LoadData();

@@ -16,8 +16,9 @@ public class enemy : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy(this.gameObject);
-		Instantiate (explosion, transform.position, transform.rotation);
-		AudioController.Play ("Explosion2");
+			Destroy(this.gameObject);
+			Instantiate (explosion, transform.position, transform.rotation);
+			AudioController.Play ("Explosion2");
+		
 	}
 }
