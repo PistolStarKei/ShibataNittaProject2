@@ -101,7 +101,7 @@ GameObject:
   - 114: {fileID: 106709266}
   - 54: {fileID: 106709270}
   - 135: {fileID: 106709269}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: shipParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +212,16 @@ Prefab:
     - target: {fileID: 4000012087319076, guid: f1b87771072314c4e9987c0b745fca70, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
+        type: 2}
+      propertyPath: _currentInspectorSelection.currentItemIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
+        type: 2}
+      propertyPath: AudioCategories.Array.data[0].AudioItems.Array.data[0].Name
+      value: Explosion
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1b87771072314c4e9987c0b745fca70, type: 2}
@@ -473,7 +483,7 @@ Prefab:
     - target: {fileID: 114000010052385554, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: aspectRatio
-      value: 2.3
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 114000011316117458, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
@@ -523,7 +533,7 @@ Prefab:
     - target: {fileID: 114000010019734170, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: aspectRatio
-      value: 5
+      value: 5.1875
       objectReference: {fileID: 0}
     - target: {fileID: 114000011950823432, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
@@ -601,7 +611,7 @@ Prefab:
     - target: {fileID: 114000014168328970, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: aspectRatio
-      value: 3.2
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000013089390508, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -804,6 +814,10 @@ Prefab:
     - target: {fileID: 4000013367402274, guid: a9bc02cdb46ac4f0e9c7be2de627c1f1, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012452579564, guid: a9bc02cdb46ac4f0e9c7be2de627c1f1, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9bc02cdb46ac4f0e9c7be2de627c1f1, type: 2}
@@ -1111,6 +1125,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012712590354, guid: 3f7248d514d46452c8cc2da42811a994, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012264827442, guid: 3f7248d514d46452c8cc2da42811a994, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f7248d514d46452c8cc2da42811a994, type: 2}
   m_IsPrefabParent: 0
@@ -1373,7 +1395,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1627175963}
   - 96: {fileID: 1627175964}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1614,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2101334239}
   - 123: {fileID: 2101334240}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: lens
   m_TagString: Untagged
   m_Icon: {fileID: 0}

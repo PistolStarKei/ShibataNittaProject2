@@ -14,7 +14,10 @@ public class item : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy(this.gameObject);
-		AudioController.Play ("Powerup");
+		if(other.gameObject.layer==LayerMask.NameToLayer("Ship")){
+			//Shipの時だけ動作するようにする
+			Destroy(this.gameObject);
+			AudioController.Play ("Powerup");
+		}
 	}
 }
