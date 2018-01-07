@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum TapViewType{Side,Top,Forward}
 public class PS_GUI_Tapdetecter : MonoBehaviour {
 
 
@@ -24,7 +25,11 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 		isPressed=isPress;
 		if(!isActive)return;
 
-		GUIManager.Instance.OnPressTapLayer(isPress,InverseOverlayPosition(GetTouchPosition()));
+		if(GUIManager.Instance!=null){
+			GUIManager.Instance.OnPressTapLayer(isPress,InverseOverlayPosition(GetTouchPosition()));
+		}else{
+			if(ShipSwitcher.Instance!=null && ShipSwitcher.Instance.currentShip)ShipSwitcher.Instance.currentShip.OnPress(isPress,InverseOverlayPosition(GetTouchPosition()));
+		}
 
 		if(isPress){
 			SetUIPositon(GetTouchPosition(),tapIndecator);
@@ -40,7 +45,11 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 	void Update(){
 
 		if(isPressed && isActive){
-			GUIManager.Instance.OnUpdateTapLayer(InverseOverlayPosition(GetTouchPosition()));
+			if(GUIManager.Instance!=null){
+				GUIManager.Instance.OnUpdateTapLayer(InverseOverlayPosition(GetTouchPosition()));
+			}else{
+				if(ShipSwitcher.Instance!=null && ShipSwitcher.Instance.currentShip)ShipSwitcher.Instance.currentShip.OnTapUpdate(InverseOverlayPosition(GetTouchPosition()));
+			}
 		}
 
 
@@ -61,6 +70,8 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 		return UICamera.lastWorldPosition;
 	}
 
+
+	public TapViewType viewType=TapViewType.Top;
 	[SerializeField]
 	private LayerMask layerMask;
 	Vector3 worldPos;
@@ -76,13 +87,24 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 		hit = new RaycastHit();
 //		Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 		if (Physics.Raycast(ray, out hit, 10,layerMask)) {
-			return new Vector3(hit.point.x,hit.collider.gameObject.transform.position.y,hit.point.z);
+			switch(viewType){
+				case TapViewType.Top:
+					return new Vector3(hit.point.x,hit.collider.gameObject.transform.position.y,hit.point.z);
+					break;
+				case TapViewType.Forward:
+					return new Vector3(hit.point.x,hit.point.y,hit.collider.gameObject.transform.position.y);
+					break;
+				case TapViewType.Side:
+					return new Vector3(hit.collider.gameObject.transform.position.x,hit.point.y,hit.point.z);
+					break;
+			}
+
 		}else{
 			Debug.LogError("Tapdetecter is not found");
-			return Vector3.zero;
+
 
 		}
-
+		return Vector3.zero;
 
 
 	}
