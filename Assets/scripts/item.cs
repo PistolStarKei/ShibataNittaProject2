@@ -3,8 +3,6 @@ using System.Collections;
 
 public class item : MonoBehaviour {
 
-	public AudioClip sound;
-
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +15,6 @@ public class item : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		Destroy(this.gameObject);
-		AudioSource.PlayClipAtPoint(sound, transform.position);
+		AudioController.Play ("Powerup");
 	}
 }
