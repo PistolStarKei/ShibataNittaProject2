@@ -4,8 +4,8 @@ using System.Collections;
 public class shipControl : MonoBehaviour {
 
 	Vector3 newRotation = new Vector3(0,0,0);
+	public GameObject explosion;
 	public GameObject shot;
-
 
 	void Start(){
 		
@@ -65,9 +65,6 @@ public class shipControl : MonoBehaviour {
 		tr = transform.position.normalized;
 
 		if (isPressed) {
-
-
-
 			// タップの方向に向く
 			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
 			newRotation.x = 0;
@@ -82,7 +79,6 @@ public class shipControl : MonoBehaviour {
 			velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
 			velocity = velocity - (velocity / 40);
 			rd.velocity = velocity;
-
 		}
 
 
@@ -97,4 +93,20 @@ public class shipControl : MonoBehaviour {
 		rd.AddForce (tr, ForceMode.VelocityChange);
 	}
 
+	// 敵の弾に当たった場合
+	void OnTriggerEnter(Collider other) {
+		if(other.gameObject.layer == LayerMask.NameToLayer("Shot")){
+//			Destroy(this.gameObject);
+			Instantiate (explosion, transform.position, transform.rotation);
+			AudioController.Play ("Explosion2");
+
+			GUIManager.Instance.Damage (100.0f, 1500.0f);
+		}
+
+		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
+			Destroy(other.gameObject);
+			AudioController.Play ("Powerup");
+			GUIManager.Instance.Cure (30.0f, 1500.0f);
+		}
+	}
 }

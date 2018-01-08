@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db8778676538cc4abf88736ae3b2e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1000010267510094, guid: 738fffe0dacd7744a80d04075e86234b, type: 2}
   shot: {fileID: 1000011281995224, guid: b97c2fd1dd3cf3c4692e8568b60e7c40, type: 2}
   shotDulation: 0.2
   shotOffset: 0.2
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroid: {fileID: 1000012333698624, guid: f6e24da63600dea4394609fd5b5f17cb, type: 2}
-  enemy: {fileID: 1000010445479490, guid: 03c1d90e37d0dff4aa5bc0ee4c288962, type: 2}
+  enemy: {fileID: 1000010169676908, guid: 5e7438a6ca53a54469f56d6f6d6bc104, type: 2}
   pick_repair1: {fileID: 1000014213631258, guid: 777a1650f8a5d45499fc910c5ed038dd,
     type: 2}
   pick_repair2: {fileID: 1000012693178156, guid: 72461eeb2ed9544038959b259d2ce364,
