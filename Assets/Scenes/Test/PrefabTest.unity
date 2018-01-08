@@ -146,45 +146,6 @@ Prefab:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 611160360}
-    - target: {fileID: 1000010534429946, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013729266708, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-        type: 2}
-      propertyPath: mWidth
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013729266708, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-        type: 2}
-      propertyPath: aspectRatio
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013729266708, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-        type: 2}
-      propertyPath: mHeight
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010092678514, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -190.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010224214466, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -188.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010224214466, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010224214466, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010224214466, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
   m_IsPrefabParent: 0
