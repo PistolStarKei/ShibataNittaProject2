@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000011994709420}
   - 114: {fileID: 114000013548827990}
   - 135: {fileID: 135000014169058954}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Kaifuku_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d2c8460f40e8a418d7ff5657d399cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: acc4d2b703ec38940b5e72dc3df00173, type: 3}
 --- !u!135 &135000014169058954
 SphereCollider:
   m_ObjectHideFlags: 1

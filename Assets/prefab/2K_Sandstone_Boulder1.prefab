@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000012394865932}
   - 54: {fileID: 54000013457965454}
   - 135: {fileID: 135000010014609180}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 2K_Sandstone_Boulder1
   m_TagString: Boulder
   m_Icon: {fileID: 0}

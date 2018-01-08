@@ -23,7 +23,7 @@ GameObject:
   - 135: {fileID: 135000012349569728}
   - 23: {fileID: 23000012766060578}
   - 114: {fileID: 114000014020591972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

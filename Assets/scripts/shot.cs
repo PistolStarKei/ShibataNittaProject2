@@ -4,6 +4,7 @@ using System.Collections;
 public class shot : MonoBehaviour {
 
 	private int life = 60;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +21,9 @@ public class shot : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy(this.gameObject);
+		if(other.gameObject.layer == LayerMask.NameToLayer("enemy")){
+			Destroy(this.gameObject);
+			AudioController.Play ("Explosion");
+		}
 	}
 }
