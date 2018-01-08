@@ -104,9 +104,18 @@ public class shipControl : MonoBehaviour {
 		}
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
+			Pickup putype=other.gameObject.GetComponent<item>().pickType;
+			switch(putype){
+				case Pickup.CureS:
+					AudioController.Play ("Powerup");
+					GUIManager.Instance.Cure (30.0f, 1500.0f);
+					break;
+				case Pickup.CureM:
+					AudioController.Play ("Powerup");
+					GUIManager.Instance.Cure (30.0f, 1500.0f);
+					break;
+			}
 			Destroy(other.gameObject);
-			AudioController.Play ("Powerup");
-			GUIManager.Instance.Cure (30.0f, 1500.0f);
 		}
 	}
 }
