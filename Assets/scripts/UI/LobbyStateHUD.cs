@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum NetworkState{DISCONNECTED,SERVERCONNECTED,LOBBYCONNECTED};
+public enum NetworkState{DISCONNECTED,SERVERCONNECTED,LOBBYCONNECTED,ROOMCONNECTED};
 public class LobbyStateHUD : MonoBehaviour {
 
 	public NetworkState networkState=NetworkState.DISCONNECTED;
@@ -92,6 +92,16 @@ public class LobbyStateHUD : MonoBehaviour {
 				connect1.enabled=true;
 				connect2.enabled=true;
 				PlayBtnRot.enabled=true;
+				break;
+			case NetworkState.ROOMCONNECTED:
+				stateLB.text=Application.systemLanguage == SystemLanguage.Japanese? "対戦受付中" :"Matching Fight";
+				stateLB.color=normalC;
+				state1.color=normalC;
+				state2.color=normalC;
+				state3.color=normalC;
+				connect1.enabled=true;
+				connect2.enabled=true;
+				PlayBtnRot.enabled=false;
 				break;
 		}
 

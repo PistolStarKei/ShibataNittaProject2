@@ -38,12 +38,15 @@ public class ShipSelecter : MonoBehaviour {
 
 	}
 	public ShipSwitcher switcher;
+	public PSPhoton.LobbyManager lobby;
+
 	void UpdateItems(){
 		for(int i=0;i<itemFlags.Length;i++){
 			items[i].SetState(itemFlags[i]);
 			if(itemFlags[i]){
 				SetCurrentShipName(shipNames[i]);
 				switcher.Set(i);
+				lobby.OnShipChanged(i);
 				DataManager.Instance.gameData.shipType=i;
 				DataManager.Instance.SaveAll();
 			}
@@ -54,7 +57,6 @@ public class ShipSelecter : MonoBehaviour {
 	public void OnClickItem(string name){
 		ClearAll();
 		currentSelect=int.Parse(name)-1;
-		Debug.LogWarning("ここで機種を変更する");
 		itemFlags[currentSelect]=true;
 		UpdateItems();
 	}

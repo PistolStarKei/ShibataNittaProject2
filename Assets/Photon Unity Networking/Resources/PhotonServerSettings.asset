@@ -46,4 +46,6 @@ MonoBehaviour:
   - LoadGame
   - StartCountdown
   - UpdateTrack
+  - UpdateShip
+  - UpdateTimer
   DisableAutoOpenWizard: 1

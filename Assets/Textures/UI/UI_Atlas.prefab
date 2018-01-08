@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: check
-    x: 636
+    x: 624
     y: 1573
     width: 11
     height: 11
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 624
+    x: 636
     y: 1573
     width: 11
     height: 11
@@ -171,7 +171,7 @@ MonoBehaviour:
     paddingTop: 4
     paddingBottom: 5
   - name: fieldNormal
-    x: 1555
+    x: 1537
     y: 1708
     width: 17
     height: 17
@@ -184,7 +184,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: fieldSelect
-    x: 1537
+    x: 1555
     y: 1708
     width: 17
     height: 17
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 22
   - name: GUI_Cover3
-    x: 1653
-    y: 1025
+    x: 781
+    y: 713
     width: 154
     height: 49
     borderLeft: 0
@@ -599,6 +599,19 @@ MonoBehaviour:
     paddingRight: 27
     paddingTop: 25
     paddingBottom: 23
+  - name: ic_game
+    x: 1653
+    y: 991
+    width: 123
+    height: 83
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 13
+    paddingTop: 9
+    paddingBottom: 8
   - name: ic_hp
     x: 1974
     y: 1192
@@ -744,7 +757,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: squere
     x: 781
-    y: 689
+    y: 639
     width: 74
     height: 73
     borderLeft: 3
@@ -861,7 +874,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_Razer
     x: 656
-    y: 587
+    y: 793
     width: 102
     height: 102
     borderLeft: 0
@@ -900,7 +913,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: UI_Yudou
     x: 656
-    y: 793
+    y: 587
     width: 102
     height: 102
     borderLeft: 0

@@ -18,6 +18,9 @@ public class PS_GUI_TimerSlider : MonoBehaviour {
 	}
 
 
-
+	public UILabel tittleLb;
+	public void SetTittle(string str){
+		tittleLb.text=str;
+	}
 
 }
