@@ -38,10 +38,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		
 	}
 
-
-
-
-
+	public void OnShootBtnToggle(bool val){
+		//shipControll.OnShotToggle(val);
+	}
+		
 	
 	public void Test(){
 		ShowResult(1,12);
@@ -104,7 +104,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
-		
+		//shipControll.OnUseSubWeapon(weaponType);
 	}
 
 

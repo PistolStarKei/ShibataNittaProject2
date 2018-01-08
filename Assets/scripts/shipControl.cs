@@ -24,6 +24,7 @@ public class shipControl : MonoBehaviour {
 	Vector3 temp;
 	public float shotDulation=0.2f;
 	public float shotOffset=0.2f;
+
 	IEnumerator ShotCoroutine ()
 	{
 		while (true) {
