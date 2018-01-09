@@ -37,6 +37,7 @@ public class shipControl : MonoBehaviour {
 		}
 	}
 
+
 	//GUIManagerからの入力受け取りメソッド
 
 	public void OnPressTapLayer(bool isPress,Vector3 worldPos){

@@ -482,7 +482,7 @@ Prefab:
         type: 2}
       propertyPath: onClick.Array.data[0].mTarget
       value: 
-      objectReference: {fileID: 513192048}
+      objectReference: {fileID: 1024036644}
     - target: {fileID: 114000010098488914, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: mainCam
@@ -643,12 +643,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &513192048 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000010687668790, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-    type: 2}
-  m_PrefabInternal: {fileID: 513192047}
-  m_Script: {fileID: 11500000, guid: 8d9b8ff3a02db45378b341a4f0ee2467, type: 3}
 --- !u!114 &513192050 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012051662622, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
@@ -1341,7 +1335,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03d28708dd7474dbc95d51fdefce67df, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!114 &1024036644 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000012173805336, guid: 03d28708dd7474dbc95d51fdefce67df,
@@ -1353,8 +1346,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000014285428878, guid: a153b9fd0238c40a5bda02624a26e83e,
     type: 2}
   m_PrefabInternal: {fileID: 790857885}
-=======
->>>>>>> b7a8f828ada9c25d439b3c986677bfdd792bbfef
 --- !u!1 &1237765350
 GameObject:
   m_ObjectHideFlags: 0

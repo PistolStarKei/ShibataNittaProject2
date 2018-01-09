@@ -25,9 +25,5 @@ public class shot : MonoBehaviour {
 			Destroy(this.gameObject);
 			AudioController.Play ("Explosion");
 		}
-
-		if(other.gameObject.layer == LayerMask.NameToLayer("Wall")){
-			Destroy(this.gameObject);
-		}
 	}
 }
