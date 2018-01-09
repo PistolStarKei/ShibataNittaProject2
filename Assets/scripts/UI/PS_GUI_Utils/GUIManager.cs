@@ -35,7 +35,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	*/
 	public void OnShootBtnClicked(){
-		
+		Debug.Log("mainweapon");
+
 	}
 
 
@@ -104,7 +105,9 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
-		
+
+		Debug.Log("sub weapon");
+
 	}
 
 
