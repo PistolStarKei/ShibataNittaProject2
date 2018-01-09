@@ -129,7 +129,7 @@ namespace PSPhoton {
 			HUDOnROOM(true);
 			//RandomJoinし、ダメなら部屋をつくる
 
-			if(rooms.Count>0){
+			if(rooms.Count<=0){
 				//部屋がないので、作る
 				CreateRoom(PhotonNetwork.player.NickName);
 			}else{
@@ -145,6 +145,11 @@ namespace PSPhoton {
 			RoomOptions options = new RoomOptions();
 			options.MaxPlayers = maxPlayers;
 			options.PlayerTtl = playerTTL;
+
+			//ここでマップをランダムに設定する
+			int mapNum=0;
+			options.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable() { { "map",mapNum} };
+
 			PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
 		}
 
@@ -309,8 +314,9 @@ namespace PSPhoton {
 		float _timerFlag=0.0f;
 
 		void Update(){
-			if(isMasterClient || !timer.gameObject.activeSelf)return;
+			if(!isMasterClient || !timer.gameObject.activeSelf)return;
 			_timerFlag+=Time.deltaTime;
+
 			if(_timerFlag>checkTimeOnRoom){
 				_timerFlag=0.0f;
 				if(PhotonNetwork.playerList.Length>=minPlayers){
@@ -324,12 +330,12 @@ namespace PSPhoton {
 
 		}
 		public void CallUpdateTimer(float time) {
-
 			object[] args = new object[]{
 				checkTimeOnRoom-time,
 				_timerFlag
 			};
-			photonView.RPC("UpdateTimer", PhotonTargets.All);
+
+			photonView.RPC("UpdateTimer", PhotonTargets.All,args);
 		}
 		[PunRPC]
 		public void UpdateTimer (float lastTime,float timerFlag) {
@@ -349,7 +355,10 @@ namespace PSPhoton {
 
 		[PunRPC]
 		public void LoadGame () {
-			PhotonNetwork.LoadLevel("GameSceneName");
+			int map=(int)PhotonNetwork.room.CustomProperties["map"];
+
+			Debug.LogWarning("ここでMapに応じて出し分ける");
+			PhotonNetwork.LoadLevel(GameSceneName);
 		}
 
 

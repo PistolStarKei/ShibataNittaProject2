@@ -8,7 +8,9 @@ public class shipControl : MonoBehaviour {
 	public GameObject shot;
 
 	void Start(){
-		
+
+		gameObject.tag="Player";
+
 		rd = GetComponent<Rigidbody> (); 
 		//カメラに機体を設定
 		Camera.main.gameObject.GetComponent<cameraLookAt>().target=this.gameObject.transform;
@@ -22,6 +24,7 @@ public class shipControl : MonoBehaviour {
 	Vector3 temp;
 	public float shotDulation=0.2f;
 	public float shotOffset=0.2f;
+
 	IEnumerator ShotCoroutine ()
 	{
 		while (true) {
@@ -104,6 +107,7 @@ public class shipControl : MonoBehaviour {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
 			Pickup putype=other.gameObject.GetComponent<item>().pickType;
+
 			switch(putype){
 				case Pickup.CureS:
 					AudioController.Play ("Powerup");
@@ -114,6 +118,7 @@ public class shipControl : MonoBehaviour {
 					GUIManager.Instance.Cure (30.0f, 1500.0f);
 					break;
 			}
+
 			Destroy(other.gameObject);
 		}
 	}
