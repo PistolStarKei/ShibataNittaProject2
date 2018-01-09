@@ -7,15 +7,15 @@ public class shipControl : MonoBehaviour {
 	public GameObject explosion;
 	public GameObject shot;
 
+	public bool isOwnerShip=false;
 	void Start(){
 
-		gameObject.tag="Player";
+		//GUIManagerに機体を設定
+		if(isOwnerShip)GUIManager.Instance.SetShipControll(this);
 
 		rd = GetComponent<Rigidbody> (); 
-		//カメラに機体を設定
-		Camera.main.gameObject.GetComponent<cameraLookAt>().target=this.gameObject.transform;
-		//GUIManagerに機体を設定
-		GUIManager.Instance.shipControll=this;
+
+		gameObject.tag="Player";
 
 		StartCoroutine(ShotCoroutine());
 		isPressed=false;
@@ -27,7 +27,7 @@ public class shipControl : MonoBehaviour {
 
 	IEnumerator ShotCoroutine ()
 	{
-		while (true) {
+		while (true && isActive) {
 			// 弾をプレイヤーと同じ位置/角度で作成
 			temp = transform.forward *shotOffset;
 
@@ -63,8 +63,10 @@ public class shipControl : MonoBehaviour {
 	Vector3 tr;
 	Rigidbody rd;
 	Vector3 velocity;
-	void Update () {
 
+	public bool isActive=false;
+	void Update () {
+		if(!isActive)return;
 		tr = transform.position.normalized;
 
 		if (isPressed) {
@@ -98,8 +100,12 @@ public class shipControl : MonoBehaviour {
 
 	// 敵の弾に当たった場合
 	void OnTriggerEnter(Collider other) {
+		
+
 		if(other.gameObject.layer == LayerMask.NameToLayer("Shot")){
 //			Destroy(this.gameObject);
+
+
 			Instantiate (explosion, transform.position, transform.rotation);
 			AudioController.Play ("Explosion2");
 
@@ -108,6 +114,7 @@ public class shipControl : MonoBehaviour {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
 			Pickup putype=other.gameObject.GetComponent<item>().pickType;
+
 
 			switch(putype){
 				case Pickup.CureS:

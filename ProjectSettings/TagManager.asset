@@ -6,6 +6,8 @@ TagManager:
   tags:
   - listItem
   - listSection
+  - Boulder
+  - ShipSercher
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Ship
   - Wall
   - PickUp
-  - 
+  - MapDetecter
   - 
   - 
   - 

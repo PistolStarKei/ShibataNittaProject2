@@ -121,11 +121,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1000010267510094, guid: 738fffe0dacd7744a80d04075e86234b, type: 2}
   shot: {fileID: 1000011281995224, guid: b97c2fd1dd3cf3c4692e8568b60e7c40, type: 2}
+  isOwnerShip: 1
   shotDulation: 0.2
   shotOffset: 0.2
   isPressed: 0
   speed: 0.01
   speedCount: 0
+  isActive: 0
 --- !u!4 &106709267
 Transform:
   m_ObjectHideFlags: 0

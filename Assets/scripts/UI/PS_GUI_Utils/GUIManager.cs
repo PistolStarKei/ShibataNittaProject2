@@ -10,8 +10,20 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	}
 
-
+	[HideInInspector]
 	public shipControl shipControll;
+	public void SetShipControll(shipControl shipControll){
+		//カメラに機体を設定
+		Camera.main.gameObject.GetComponent<cameraLookAt>().target=shipControll.gameObject.transform;
+		this.shipControll=shipControll;
+
+		GameObject go=GameObject.FindGameObjectWithTag("ShipSercher");
+		if(go){
+			go.GetComponent<MapDetecterTrigger>().playerTrans=shipControll.gameObject.transform;
+		}else{
+			Debug.LogWarning("ShipSercher がありません");
+		}
+	}
 
 	/*
 	 * 

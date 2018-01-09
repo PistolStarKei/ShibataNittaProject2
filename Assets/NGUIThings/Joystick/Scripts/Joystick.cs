@@ -28,8 +28,10 @@ public class Joystick : MonoBehaviour
 	Vector3 lastPos = Vector3.zero;
 	Vector3 prevPos = Vector3.zero;
 
+	public float defaultAlpha=0.5f;
+	public float pressAlpha=0.2f;
 	public void DefaultCenter(){
-		joystickSprite.alpha=1.0f;
+		joystickSprite.alpha=defaultAlpha;
 		center.localPosition=Vector3.zero;
 		OnPress(false);
 	}
@@ -76,12 +78,12 @@ public class Joystick : MonoBehaviour
 		if(center != null)
 		{
 			if(pressed){
-				joystickSprite.alpha=0.2f;
+				joystickSprite.alpha=pressAlpha;
 				CalcPosition();
 			}else
 			{
 
-				joystickSprite.alpha=1.0f;
+				joystickSprite.alpha=defaultAlpha;
 				CalcPosition();
 				center.localPosition = Vector3.zero;
 			}
@@ -141,7 +143,15 @@ public class Joystick : MonoBehaviour
 		}
 		prevPos = newPos;
 	}
-	
+
+	public void OnJoystick(Vector2 delta){
+		Debug.Log(""+delta);
+	}
+
+	public void OnJoystickRotation(float rot){
+		Debug.Log(""+rot);
+	}
+
 	
 	/// <summary>
 	/// Converting between Cartesian coordinates and polar,
