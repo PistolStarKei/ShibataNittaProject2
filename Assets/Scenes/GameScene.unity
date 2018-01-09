@@ -127,7 +127,6 @@ MonoBehaviour:
   isPressed: 0
   speed: 0.01
   speedCount: 0
-  isActive: 0
 --- !u!4 &106709267
 Transform:
   m_ObjectHideFlags: 0
@@ -508,7 +507,7 @@ Prefab:
     - target: {fileID: 114000010052385554, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: aspectRatio
-      value: 2.6
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 114000011316117458, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
@@ -636,7 +635,7 @@ Prefab:
     - target: {fileID: 114000014168328970, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
         type: 2}
       propertyPath: aspectRatio
-      value: 3.3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 4000013089390508, guid: 1e29e6a7fe2ec4a069544c9316715c7f, type: 2}
       propertyPath: m_LocalPosition.y

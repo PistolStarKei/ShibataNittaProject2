@@ -3,7 +3,10 @@ using System.Collections;
 
 public class EarningForcaster : MonoBehaviour {
 
+	[Tooltip("1000回表示時の収益")]
 	public float ecpm=2.19f;
+
+	[Tooltip("月間のアクティブユーザー数")]
 	public int mau=1000;
 
 	[Tooltip("広告のリフレッシュレート")]
