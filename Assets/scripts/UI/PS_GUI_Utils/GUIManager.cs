@@ -35,8 +35,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	*/
 	public void OnShootBtnClicked(){
-		Debug.Log("mainweapon");
-
+		
 	}
 
 	public void OnShootBtnToggle(bool val){
@@ -105,13 +104,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
-<<<<<<< HEAD
-
-		Debug.Log("sub weapon");
-
-=======
 		//shipControll.OnUseSubWeapon(weaponType);
->>>>>>> b7a8f828ada9c25d439b3c986677bfdd792bbfef
 	}
 
 
