@@ -27,7 +27,7 @@ public class shipControl : MonoBehaviour {
 
 	IEnumerator ShotCoroutine ()
 	{
-		while (true && isActive) {
+		while (true) {
 			// 弾をプレイヤーと同じ位置/角度で作成
 			temp = transform.forward *shotOffset;
 
@@ -64,9 +64,8 @@ public class shipControl : MonoBehaviour {
 	Rigidbody rd;
 	Vector3 velocity;
 
-	public bool isActive=false;
 	void Update () {
-		if(!isActive)return;
+		
 		tr = transform.position.normalized;
 
 		if (isPressed) {
@@ -100,7 +99,6 @@ public class shipControl : MonoBehaviour {
 
 	// 敵の弾に当たった場合
 	void OnTriggerEnter(Collider other) {
-		
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("Shot")){
 //			Destroy(this.gameObject);
