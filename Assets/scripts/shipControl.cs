@@ -97,6 +97,15 @@ public class shipControl : MonoBehaviour {
 		rd.AddForce (tr, ForceMode.VelocityChange);
 	}
 
+
+	public void OnUseSubWeapon(Subweapon weaponType){
+		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
+	}
+
+	public void OnShotToggle(bool val){
+		Debug.Log("OnShotToggle "+val);
+	}
+
 	// 敵の弾に当たった場合
 	void OnTriggerEnter(Collider other) {
 

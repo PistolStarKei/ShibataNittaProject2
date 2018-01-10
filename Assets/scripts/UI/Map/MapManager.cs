@@ -6,7 +6,12 @@ public class MapManager : MonoBehaviour {
 
 
 	void Start(){
-		mapDetectTrigger=GameObject.FindGameObjectWithTag("ShipSercher").GetComponent<MapDetecterTrigger>() as MapDetecterTrigger;
+		GameObject go=GameObject.FindGameObjectWithTag("ShipSercher");
+
+		if(go){
+			mapDetectTrigger=go.GetComponent<MapDetecterTrigger>() as MapDetecterTrigger;
+		}
+
 	}
 	public List<UISprite> enemies=new List<UISprite>();
 

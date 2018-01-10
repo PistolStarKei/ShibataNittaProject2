@@ -19,7 +19,13 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 		GameObject go=GameObject.FindGameObjectWithTag("ShipSercher");
 		if(go){
-			go.GetComponent<MapDetecterTrigger>().playerTrans=shipControll.gameObject.transform;
+			MapDetecterTrigger mapTrigger=go.GetComponent<MapDetecterTrigger>();
+			if(mapTrigger){
+				mapTrigger.playerTrans=shipControll.gameObject.transform;
+			}else{
+				Debug.LogWarning("ShipSercher がありません");
+			}
+
 		}else{
 			Debug.LogWarning("ShipSercher がありません");
 		}
@@ -51,12 +57,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnShootBtnToggle(bool val){
-		//shipControll.OnShotToggle(val);
+		shipControll.OnShotToggle(val);
 	}
 		
-	
+	public Subweapon subs=Subweapon.NAPAM;
 	public void Test(){
-		ShowResult(1,12);
+		OnUseSubWeapon(subs);
 	}
 
 
@@ -116,7 +122,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
-		//shipControll.OnUseSubWeapon(weaponType);
+		shipControll.OnUseSubWeapon(weaponType);
 	}
 
 

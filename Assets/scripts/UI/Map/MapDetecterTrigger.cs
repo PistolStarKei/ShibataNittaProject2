@@ -52,6 +52,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 		if(ship)ships.Remove(ship);
 	}
 
+
 	Vector3 newPos1;
 	public Vector2 GetRelativePosition(Vector3 pos){
 		newPos1 = transform.InverseTransformPoint(pos);
