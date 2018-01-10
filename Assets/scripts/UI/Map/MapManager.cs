@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class MapManager : MonoBehaviour {
 
 
+	void Start(){
+		mapDetectTrigger=GameObject.FindGameObjectWithTag("ShipSercher").GetComponent<MapDetecterTrigger>() as MapDetecterTrigger;
+	}
 	public List<UISprite> enemies=new List<UISprite>();
 
 	[Tooltip("マップ画面のローカルポジション上の半径")]

@@ -12,6 +12,7 @@ public class GameData{
 	public int shipType =0;
 	public string username ="UNKNOWN";
 	public bool isConnectingRoom =false;
+	public string country ="";
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -35,9 +36,10 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			}
 
 		}
-
-		if(!ES2.Exists(filename+"?tag=isConnectingRoom")){
+		if(!ES2.Exists(filename+"?tag=country")){
+			
 			InitData();
+			LoadData();
 		}else{
 			LoadData();
 		}
@@ -51,6 +53,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.shipType=ES2.Load<int>(filename+"?tag=shipType");
 		gameData.username=ES2.Load<string>(filename+"?tag=username");
 		gameData.isConnectingRoom=ES2.Load<bool>(filename+"?tag=isConnectingRoom");
+		gameData.country=ES2.Load<string>(filename+"?tag=country");
 	}
 
 	public void SaveAll(){
@@ -59,8 +62,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(gameData.shipType,filename+"?tag=shipType");
 		ES2.Save(gameData.username,filename+"?tag=username");
-
 		ES2.Save(gameData.isConnectingRoom,filename+"?tag=isConnectingRoom");
+		ES2.Save(gameData.country,filename+"?tag=country");
+
 	}
 
 	private void DestroyAll(){
@@ -75,6 +79,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(0,filename+"?tag=shipType");
 		ES2.Save("UNKNOWN",filename+"?tag=username");
 		ES2.Save(false,filename+"?tag=isConnectingRoom");
+
+		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"?tag=country");
 	}
 		
 	private void DeleteAll(){

@@ -19,9 +19,13 @@ public class cameraLookAt : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		vec=target.position;
-		vec.y=target.position.y+offset;
-		if(tr!=null)tr.position = vec;
+		if(target){
+			vec=target.position;
+			vec.y=target.position.y+offset;
+			if(tr!=null)tr.position = vec;
+		}else{
+			Debug.LogError("cameraLookAt にtargetが設定されていない");
+		}
 
 	}
 }

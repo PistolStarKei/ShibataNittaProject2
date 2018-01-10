@@ -26,7 +26,7 @@ public class LobbyListManager : MonoBehaviour {
 		CheckVisible();
 	}
 
-	public void AddList(string userName,int num){
+	public void AddList(string userName,int num,string countly){
 		
 		GameObject go=Instantiate(listPrehab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity) as GameObject;
 		go.name=num.ToString();
