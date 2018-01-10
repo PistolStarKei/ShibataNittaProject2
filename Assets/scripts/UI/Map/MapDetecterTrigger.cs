@@ -37,7 +37,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 		//自分は入れない
 		if(other.transform==playerTrans)return;
 			
-		Debug.Log("OnTriggerEnter "+other.name);
+		//Debug.Log("OnTriggerEnter "+other.name);
 		ship=other.GetComponent<shipControl>();
 		if(ship)ships.Add(ship);
 	}
@@ -47,7 +47,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 		//自分は入れない
 		if(other.transform==playerTrans)return;
 	
-		Debug.Log("OnTriggerExit "+other.name);
+		//Debug.Log("OnTriggerExit "+other.name);
 		ship=other.GetComponent<shipControl>();
 		if(ship)ships.Remove(ship);
 	}
