@@ -100,10 +100,27 @@ public class shipControl : MonoBehaviour {
 
 	public void OnUseSubWeapon(Subweapon weaponType){
 		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
+
+		switch(weaponType){
+			case Subweapon.NAPAM:
+				//ナパームの処理を記述
+				break;
+			case Subweapon.NUKE:
+				break;
+			}
+
 	}
 
 	public void OnShotToggle(bool val){
 		Debug.Log("OnShotToggle "+val);
+
+		if(val){
+			//ShotがOnになったの時
+		}else{
+			//ShotがOffになったの時
+		}
+
+
 	}
 
 	// 敵の弾に当たった場合
