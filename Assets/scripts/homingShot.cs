@@ -10,10 +10,6 @@ public class homing : MonoBehaviour {
 		// 一番近い敵をターゲットにする
 		GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("enemy");
 
-		//		foreach (GameObject obj in tagobjs) {
-		//			
-		//		}
-
 		int targetNo=-1;
 		float minDis=9999f;
 		float dis=0f;
