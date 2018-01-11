@@ -10,6 +10,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	}
 
+	MapDetecterTrigger shipSearcher;
+
+	public shipControl GetNearestShip(Vector3 pos,float maxDistance){
+		return shipSearcher.GetNearestShip(pos,maxDistance);
+	}
+
 	[HideInInspector]
 	public shipControl shipControll;
 	public void SetShipControll(shipControl shipControll){
@@ -19,9 +25,9 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 		GameObject go=GameObject.FindGameObjectWithTag("ShipSercher");
 		if(go){
-			MapDetecterTrigger mapTrigger=go.GetComponent<MapDetecterTrigger>();
-			if(mapTrigger){
-				mapTrigger.playerTrans=shipControll.gameObject.transform;
+			shipSearcher=go.GetComponent<MapDetecterTrigger>();
+			if(shipSearcher){
+				shipSearcher.playerTrans=shipControll.gameObject.transform;
 			}else{
 				Debug.LogWarning("ShipSercher がありません");
 			}
@@ -56,6 +62,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		
 	}
 
+	public ShotToggleBtn shotTgl;
+	public void SetShotTgl(bool val){
+		shotTgl.SetToggle(val);
+	}
 	public void OnShootBtnToggle(bool val){
 		shipControll.OnShotToggle(val);
 	}
@@ -107,6 +117,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	*/
 
 	public SubWeaponMenu subWeaponSlot;
+	public bool ISSubweponHolderHasSpace(){
+		return  subWeaponSlot.ISHolderHasSpace();
+
+	}
 
 	/// <summary>
 	/// サブウェポン取得時にGUIを更新する　もしも最大個数であればfalseを返す
@@ -124,7 +138,9 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public void OnUseSubWeapon(Subweapon weaponType){
 		shipControll.OnUseSubWeapon(weaponType);
 	}
-
+	public void EnableSubweapon(){
+		subWeaponSlot.OnUsedSubweapon();
+	}
 
 	/*
 	 * 
