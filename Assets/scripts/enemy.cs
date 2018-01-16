@@ -12,7 +12,7 @@ public class enemy : MonoBehaviour {
 	}
 
 	Vector3 temp;
-	public float shotDulation=0.2f;
+	public float shotDulation=0.5f;
 	public float shotOffset=0.2f;
 	IEnumerator ShotCoroutine ()
 	{
