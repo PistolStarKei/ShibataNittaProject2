@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PathologicalGames;
 
 public class DisableParticle : MonoBehaviour 
 {
@@ -15,6 +16,6 @@ public class DisableParticle : MonoBehaviour
 
 		yield return new WaitWhile (() => particle.IsAlive (true));
 
-		gameObject.SetActive (false);
+		PoolManager.Pools["Particles"].Despawn(gameObject.transform);
 	}
 }

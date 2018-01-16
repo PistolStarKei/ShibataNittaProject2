@@ -28,16 +28,19 @@ namespace PSPhoton {
 		void Start () {
 			instance=this;
 
-			CreatePlayer();
+			AudioController.PlayMusic("gameBGM");
 
+			CreatePlayer();
+			return;
 			photonView.RPC ("ConfirmLoad", PhotonTargets.All);
 		}
 		
 		private void CreatePlayer() {
-			
+
+
 			/*
 			int pos = (int) PhotonNetwork.player.CustomProperties["spawn"];
-			int carNumber = (int) PhotonNetwork.player.CustomProperties["car"];
+			int carNumber = (int) PhotonNetwork.player.CustomProperties["ship"];
 			Transform spawn = spawnPoints[pos];
 
 			GameObject car = PhotonNetwork.Instantiate("Car" + carNumber, spawn.position, spawn.rotation, 0);
@@ -125,6 +128,10 @@ namespace PSPhoton {
 			gameTime = 0;
 		}
 
+		public override void OnMasterClientSwitched (PhotonPlayer newMasterClient)
+		{
+			
+		}
 
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log (disconnetedPlayer.NickName + " disconnected...");

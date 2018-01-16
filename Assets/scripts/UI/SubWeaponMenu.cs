@@ -2,27 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum Subweapon{NAPAM,NUKE,RAZER,STEALTH,WAVE,YUDOU,ZENHOUKOU,NONE}
+
 
 public class SubWeaponMenu : MonoBehaviour {
 	
 
 	public Subweapon subTest;
-	public void Test(){
-		AddSubWeaponToHolder(subTest);
+	UIWidget widget;
+	void Start(){
+		widget=gameObject.GetComponent<UIWidget>();
 	}
 
-	public void Test2(){
-		OnUseSubWeapon();
+	public void OnUsedSubweapon(){
+		widget.alpha=1.0f;
 	}
-
-
 
 	public void OnTapItem(){
 		if(GetCurrentWeapon()!=null && GetCurrentWeapon()!=Subweapon.NONE){
-			GUIManager.Instance.OnUseSubWeapon(GetCurrentWeapon());
+			if(GUIManager.Instance.shipControll!=null){
+				if(GUIManager.Instance.shipControll.currentUsing==Subweapon.NONE){
+					GUIManager.Instance.OnUseSubWeapon(GetCurrentWeapon());
+					OnUseSubWeapon();
+				}
+			}
 		}
-		OnUseSubWeapon();
+
 	}
 
 	public List<Subweapon> subWeaponHolder=new List<Subweapon>();
@@ -45,10 +49,11 @@ public class SubWeaponMenu : MonoBehaviour {
 	}
 
 	public void AddSubWeaponToHolder(Subweapon add){
+		
 		if(!ISHolderHasSpace()){
 			return;
 		}
-
+		Debug.Log("AddSubWeaponToHolder " +add);
 		subWeaponHolder.Add(add);
 		UpdateBtns();
 	}
@@ -57,7 +62,7 @@ public class SubWeaponMenu : MonoBehaviour {
 		if(subWeaponHolder.Count<=0){
 			return;
 		}
-
+		widget.alpha=0.2f;
 		subWeaponHolder.RemoveAt(subWeaponHolder.Count-1);
 
 		UpdateBtns();
