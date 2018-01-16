@@ -7,6 +7,11 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 	public UISprite subSlider;
 	public TweenAlpha ta;
 
+	public UILabel debugLb;
+	public void SetDebugVal(string str){
+		debugLb.text=str;	
+	}
+
 	void SetTween(bool isOn){
 		ta.enabled=isOn;
 
@@ -24,6 +29,10 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		}
 		initAlpa=slider.alpha;
 		SetTween(false);
+
+		if(!GUIManager.Instance.isDebugMode){
+			NGUITools.SetActive(debugLb.gameObject,false);
+		}
 	}
 
 	public float startBlinkAt=0.1f;
@@ -41,7 +50,10 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		}else{
 			SetTween(true);
 		}
+
+
 	}
+
 
 	void SetHPVal(float val){
 		if(val>1.0f)val=1.0f;

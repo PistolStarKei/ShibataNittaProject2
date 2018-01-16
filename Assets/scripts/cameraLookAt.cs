@@ -23,8 +23,6 @@ public class cameraLookAt : MonoBehaviour {
 			vec=target.position;
 			vec.y=target.position.y+offset;
 			if(tr!=null)tr.position = vec;
-		}else{
-			Debug.LogError("cameraLookAt にtargetが設定されていない");
 		}
 
 	}

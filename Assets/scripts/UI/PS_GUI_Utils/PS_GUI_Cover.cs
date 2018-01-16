@@ -6,7 +6,7 @@ public class PS_GUI_Cover : MonoBehaviour {
 
 	BoxCollider colliderObj;
 
-	void Start(){
+	void Awake(){
 		colliderObj=GetComponent<BoxCollider>();
 		isCovered=false;
 		SetCollider(false);

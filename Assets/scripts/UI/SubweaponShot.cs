@@ -32,7 +32,7 @@ public class SubweaponShot : MonoBehaviour {
 		if(ship){
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint);
+				ship.OnHit(weponType,damage,hitpoint,launcherShip);
 
 
 			}else{

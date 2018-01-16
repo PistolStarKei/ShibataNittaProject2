@@ -11,7 +11,7 @@ public class RoomUserList : MonoBehaviour {
 	}
 
 	public void SetUserCountly(string name){
-		sp.spriteName=Countly.ToCountrySPrite(name);	
+		sp.spriteName=name;	
 	}
 
 	public void Destroy(){

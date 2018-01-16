@@ -13,7 +13,7 @@ public class PS_GUI_LabelAnimation : MonoBehaviour {
 		num++;
 	}
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		label=gameObject.GetComponent<UILabel>();
 
 	}

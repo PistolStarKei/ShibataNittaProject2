@@ -4,7 +4,7 @@ using PathologicalGames;
 public class shot : MonoBehaviour {
 
 	public float damage = 100.0f;
-	public int life = 60;
+	public float life = 60.0f;
 	public float shotSpeed=1.0f;
 	public shipControl launcherShip;
 
@@ -37,7 +37,7 @@ public class shot : MonoBehaviour {
 				Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
 
 				if(ship){
-					ship.OnHit(Subweapon.NONE,damage,hitpoint);
+					ship.OnHit(Subweapon.NONE,damage,hitpoint,launcherShip);
 					KillSelf();
 				}
 			}else{

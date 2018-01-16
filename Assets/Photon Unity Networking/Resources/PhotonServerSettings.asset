@@ -14,9 +14,9 @@ MonoBehaviour:
   AppID: fe2bb7cb-0621-45d3-8632-698dabd057a0
   VoiceAppID: 
   ChatAppID: 
-  HostType: 1
-  PreferredRegion: 0
-  EnabledRegions: -1
+  HostType: 4
+  PreferredRegion: 2
+  EnabledRegions: -265
   Protocol: 0
   ServerAddress: 
   ServerPort: 5055
@@ -48,4 +48,11 @@ MonoBehaviour:
   - UpdateTrack
   - UpdateShip
   - UpdateTimer
+  - RPCInitPlayerData
+  - StartShot
+  - CureSelf
+  - TakeDamage
+  - UseSubWeapon
+  - Dead
+  - SpawnPUAt
   DisableAutoOpenWizard: 1

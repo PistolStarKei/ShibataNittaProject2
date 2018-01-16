@@ -4,10 +4,20 @@ using System.Collections.Generic;
 
 public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
-
+	public bool isDebugMode=true;
 	// Use this for initialization
-	void Start () {
+	public void OnGameAwake(){
+		SetKills(0);
+		DisableAllGUI(false);
+	}
 
+	public void OnGameStart(){
+		AbleAllGUI();
+	}
+
+	public ResultPanel resultMenu;
+	public void OnGameOver(float time,int killNum,List<shipControl> deadShips,List<shipControl> ships,shipControl playerShip){
+		resultMenu.ShowResult(time,killNum,deadShips,ships,playerShip);
 	}
 
 	MapDetecterTrigger shipSearcher;
@@ -66,8 +76,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public void SetShotTgl(bool val){
 		shotTgl.SetToggle(val);
 	}
-	public void OnShootBtnToggle(bool val){
-		shipControll.OnShotToggle(val);
+	public bool OnShootBtnToggle(bool val){
+		return shipControll.OnShotToggle(val);
 	}
 		
 	public Subweapon subs=Subweapon.NAPAM;
@@ -97,6 +107,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		}
 		hpSlider.MinusVal(damageVal/MaxHP);
 
+
+
 	}
 
 	//回復時に、最大HPと、回復割合を1-100%で与える
@@ -117,6 +129,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	*/
 
 	public SubWeaponMenu subWeaponSlot;
+
+	public int[] GetSubweaponInHolder(){
+		return  subWeaponSlot.GetAllWeaponInHolder();
+	}
 	public bool ISSubweponHolderHasSpace(){
 		return  subWeaponSlot.ISHolderHasSpace();
 
@@ -127,6 +143,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	/// </summary>
 	public bool OnGetSubWeapon(Subweapon weaponType){
 		if(!subWeaponSlot.ISHolderHasSpace()){
+			Debug.Log(" ホルダーがいっぱいでこれ以上は持てない ");
 			return false;
 		}
 
@@ -155,7 +172,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	//TODO ローカライズする。
 	public PS_GUI_LabelAnimation killLAbel;
 	public void SetKills(int killNum){
-		zankiLAbel.SetNum(killNum.ToString()+"Kills");
+		zankiLAbel.SetNum(killNum.ToString());
 	}
 
 	/*
@@ -167,6 +184,17 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public PS_GUI_DynamicInfo logger;
 	public void Log(string log){
 		logger.Log(log);
+	}
+
+	/*
+	 * 
+	 * カウントダウン
+	 * 
+	 * 
+	*/
+	public UILabel countdownLb;
+	public void SetCountdown(string str){
+		countdownLb.text=str;
 	}
 
 	/*
@@ -183,22 +211,24 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	 * 
 	*/
+	public void DisableAllGUI(bool isBlackMask){
+		if(isBlackMask){
+			guiCover.CoverWithBlackMask();
+		}else{
+			guiCover.Cover();
+		}
+	}
+	public void AbleAllGUI(){
+		guiCover.Cover();
+	}
 
 	public SettingMenu settingMenu;
 	public void SetSettingValues(bool se,bool bgm){
 		settingMenu.SetSettignValues(se,bgm);
 	}
 
-	/*
-	 * 
-	 * Result
-	 * 
-	 * 
-	*/
 
-	public ResultPanel resultMenu;
-	public void ShowResult(int rank,int kills){
-		resultMenu.ShowResult(rank,kills);
-	}
+
+
 
 }
