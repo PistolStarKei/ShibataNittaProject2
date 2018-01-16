@@ -191,6 +191,8 @@ namespace PSPhoton {
 			instance=this;
 			SetSpawnPoints();
 		}
+
+		public bool isNetworkMode=true;
 		// Use this for initialization
 		void Start () {
 			
@@ -202,7 +204,7 @@ namespace PSPhoton {
 
 			AudioController.PlayMusic("gameBGM");
 
-
+			if(!isNetworkMode)return;
 			GUIManager.Instance.OnGameAwake();
 
 			CreatePlayer();
