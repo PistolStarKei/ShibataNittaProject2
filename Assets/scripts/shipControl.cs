@@ -104,6 +104,7 @@ public class shipControl : MonoBehaviour {
 		switch(weaponType){
 			case Subweapon.NAPAM:
 				//ナパームの処理を記述
+				Debug.Log("shot");
 				break;
 			case Subweapon.NUKE:
 				break;
