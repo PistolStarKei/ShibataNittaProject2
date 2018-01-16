@@ -36,6 +36,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			}
 
 		}
+		ES2.Delete(filename+"?tag=country");
+
 		if(!ES2.Exists(filename+"?tag=country")){
 			
 			InitData();
@@ -77,7 +79,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(true,filename+"?tag=toggleBGM");
 
 		ES2.Save(0,filename+"?tag=shipType");
-		ES2.Save("UNKNOWN",filename+"?tag=username");
+		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"?tag=username");
 		ES2.Save(false,filename+"?tag=isConnectingRoom");
 
 		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"?tag=country");

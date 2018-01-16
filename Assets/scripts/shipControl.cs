@@ -3,152 +3,239 @@ using System.Collections;
 using PathologicalGames;
 
 public class shipControl : MonoBehaviour {
+	
+	public struct PlayerData {
+		public string userName;
+		public string countlyCode;
+		public int playerID;
+		public PlayerData(string name,string countly,int id){
+			userName=name;
+			countlyCode=countly;
+			playerID=id;
+		}
+	}
 
+	public PlayerData playerData;
+	public PhotonView photonView;
+	public void InitPlayerData(string name,string countly,int id){
+		object[] args = new object[]{
+			name,
+			countly,
+			id
+		};
+		photonView.RPC ("RPCInitPlayerData", PhotonTargets.AllBufferedViaServer,args);
+	}
+	[PunRPC]
+	public void RPCInitPlayerData(string name,string countly,int id) {
+		//みんなが1回ずつ呼ぶので、ロード待ち受けに使える
+		playerData=new PlayerData(name,countly,id);
+	}
 
 	public float MaxHP=1500.0f;
 	public float currentHP=1500.0f;
 	public bool isDead=false;
-	public bool isOwnerShip=false;
-
-	Vector3 newRotation = new Vector3(0,0,0);
-
-
-
-
-
-	void Start(){
-
-
-		//GUIManagerに機体を設定
-		if(isOwnerShip)GUIManager.Instance.SetShipControll(this);
-
-		rd = GetComponent<Rigidbody> (); 
-		razerLine=GetComponent<LineRenderer>();
-		gameObject.tag="Player";
-
-		isShooting=true;
-		InvokeRepeating("Shot",0.0f,shotDulation);
-
-		isPressed=false;
-		currentHP=MaxHP;
-	}
-
-	void OnDead(){
-		isDead=true;
-		gameObject.GetComponent<SphereCollider>().enabled=false;
-		gameObject.GetComponent<Rigidbody>().isKinematic=true;
-		//ここで判定
-		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
-		engine.SetActive(false);
-
-	}
-
 	public bool isOwnersShip(){
 		return GUIManager.Instance.shipControll==this?true:false;
 	}
+	public bool isControllable=false;
 
+	Vector3 newRotation = new Vector3(0,0,0);
 
-	//通常弾
+	void Start(){
+		rd = GetComponent<Rigidbody> (); 
+		razerLine=GetComponent<LineRenderer>();
+		photonTransformView = GetComponent<PhotonTransformView>();
+		gameObject.tag="Player";
+		isPressed=false;
+		currentHP=MaxHP;
+		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
+			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+		}
+
+		if(!photonTransformView){
+			GUIManager.Instance.SetShipControll(this);
+			isControllable=true;
+		}
+		isDead=false;
+
+		isShooting=true;
+		StartCoroutine(Shot());
+	}
+
+	void OnDead(shipControl killedBy){
+		//ここで判定
+		if(usingLog)Debug.Log("OnDead  killed by"+killedBy.playerData.userName);
+
+		if(!isOwnersShip())return;
+
+			isDead=true;
+			isControllable=false;
+			
+			if(photonView){
+				photonView.RPC ("Dead", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),killedBy.playerData.playerID});
+			}else{
+				Dead(GUIManager.Instance.GetSubweaponInHolder(),killedBy.playerData.playerID);
+			}
+
+	}
+
+	[PunRPC]
+	public void Dead(int[] subweaponInHolder,int killer){
+
+		if(usingLog)Debug.Log("[RPC]Dead hold"+subweaponInHolder.Length+" killer "+killer);
+
+		if(subweaponInHolder!=null){
+			//ウェポンをばらまく
+			ScatterWeapons(subweaponInHolder);
+		}
+		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
+
+		isDead=true;
+		isControllable=false;
+		gameObject.SetActive(false);
+
+		if(photonView){
+			if(PSPhoton.GameManager.instance){
+				PSPhoton.GameManager.instance.OnPlayerDead(this,killer);
+			}
+
+		}
+
+	}
+
+	void ScatterWeapons(int[] subweaponInHolder){
+		
+		Debug.LogWarning("ここでサブウェポンをばらまく");
+
+		for(int i=0;i<subweaponInHolder.Length;i++){
+			
+		}
+
+	}
+
 	public float shotDulation=0.2f;
 	public float shotOffset=0.2f;
 	public float shotOffsetX=0.1f;
 	public int shot_rensou=1;
 	public DanmakuColor shotCol;
-
 	bool stopShot=false;
-	public void Shot(){
+	bool isShooting=false;
 
-		if(currentUsing==Subweapon.YUDOU){
-			if(weaponNum%2==0){
-				PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,this.transform.position+ transform.right *0.1f,this.transform.rotation,null);
+	IEnumerator Shot(){
+		while(true && !isDead){
+			if(currentUsing==Subweapon.YUDOU){
+				if(weaponNum%2==0){
+					PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,this.transform.position+ transform.right *0.1f,this.transform.rotation,null);
+				}else{
+					PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,this.transform.position-transform.right *0.1f,this.transform.rotation,null);
+				}
+
+				weaponNum--;
+				if(weaponNum<=0){
+					OnWeaponTimerOver();
+				}
+			}
+			if(currentUsing==Subweapon.WAVE)PickupAndWeaponManager.Instance.SpawnSubweapon_Wave(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
+
+			if(currentUsing==Subweapon.ZENHOUKOU){
+				//前
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
+				//後ろ
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ -transform.forward *shotOffset,Quaternion.LookRotation(-transform.forward,transform.up),null);
+				//右
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right,transform.up),null);
+				//左
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right,transform.up),null);
+				//左前
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.forward *shotOffset)+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right+transform.forward,transform.up),null);
+				//右前
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.forward *shotOffset)+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right+transform.forward,transform.up),null);
+			
+				//右後
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.forward *shotOffset)+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right-transform.forward,transform.up),null);
+				//左後
+				PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.forward *shotOffset)+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right-transform.forward,transform.up),null);
+
+			
+			}
+
+			if(stopShot || !isShooting){
+				//通常弾の処理を停止
 			}else{
-				PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,this.transform.position-transform.right *0.1f,this.transform.rotation,null);
-			}
-
-			weaponNum--;
-			if(weaponNum<=0){
-				OnWeaponTimerOver();
-			}
-		}
-		if(currentUsing==Subweapon.WAVE)PickupAndWeaponManager.Instance.SpawnSubweapon_Wave(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
-
-		if(currentUsing==Subweapon.ZENHOUKOU){
-			//前
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
-			//後ろ
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ -transform.forward *shotOffset,Quaternion.LookRotation(-transform.forward,transform.up),null);
-			//右
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right,transform.up),null);
-			//左
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right,transform.up),null);
-			//左前
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.forward *shotOffset)+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right+transform.forward,transform.up),null);
-			//右前
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (transform.forward *shotOffset)+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right+transform.forward,transform.up),null);
-		
-			//右後
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.forward *shotOffset)+ (transform.right *shotOffsetX),Quaternion.LookRotation(transform.right-transform.forward,transform.up),null);
-			//左後
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,this.transform.position+ (-transform.forward *shotOffset)+ (-transform.right *shotOffsetX),Quaternion.LookRotation(-transform.right-transform.forward,transform.up),null);
-
-		
-		}
-
-		if(stopShot)return;
-		switch(shot_rensou){
-			case 1:
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
+				switch(shot_rensou){
+					case 1:
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
+						
+						break;
+					case 2:
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (transform.right *shotOffsetX),this.transform.rotation,null);
 				
-				break;
-			case 2:
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (transform.right *shotOffsetX),this.transform.rotation,null);
-		
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (-transform.right *shotOffsetX),this.transform.rotation,null);
-		
-				break;
-			case 3:
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (transform.right *shotOffsetX),this.transform.rotation,null);
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (-transform.right *shotOffsetX),this.transform.rotation,null);
+				
+						break;
+					case 3:
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (transform.right *shotOffsetX),this.transform.rotation,null);
 
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (-transform.right *shotOffsetX),this.transform.rotation,null);
-				PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
-				break;
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset+ (-transform.right *shotOffsetX),this.transform.rotation,null);
+						PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
+						break;
+				}
+			}
+
+			yield return new WaitForSeconds(shotDulation);
 		}
-
 
 	}
+
+
+
 
 	//ナパーム弾
 	public void ShotNapam(){
 		PickupAndWeaponManager.Instance.SpawnSubweapon_Napam(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
-		//OnWeaponTimerOver();
 	}
 
-	//ヌーく弾
+	//ヌーク弾
 	public void ShotNuke(){
 		PickupAndWeaponManager.Instance.SpawnSubweapon_Nuke(this,this.transform.position+ transform.forward *shotOffset,this.transform.rotation,null);
-		//OnWeaponTimerOver();
 	}
 
-	bool isShooting=false;
-	public void OnShotToggle(bool val){
-		Debug.Log("OnShotToggle "+val);
-		if(isDead)return;
+
+
+	public bool usingLog=true;
+
+	public bool OnShotToggle(bool val){
+		
+		if(isDead || isShooting==val)return false;
+
+		if(usingLog)Debug.Log("OnShotToggle "+val);
+
 		if(val){
-			//ShotがOnになったの時
-			if(isShooting)return;
-			if(currentUsing==Subweapon.STEALTH){
-				OnWeaponTimerOver();
+			if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH)return false;
+
+			if(currentUsing==Subweapon.STEALTH)OnWeaponTimerOver();
+
+			if(photonView){
+				photonView.RPC ("StopShot", PhotonTargets.AllViaServer,new object[]{true});
+			}else{
+				StartShot(true);
 			}
-			isShooting=true;
-			InvokeRepeating("Shot",0.0f,shotDulation);
 		}else{
-			//ShotがOffになったの時
-			if(!isShooting)return;
-			isShooting=false;
-			CancelInvoke("Shot");
+			if(photonView){
+				photonView.RPC ("StopShot", PhotonTargets.AllViaServer,new object[]{false});
+			}else{
+				StartShot(false);
+			}
 		}
 
+		return true;
+	}
 
+
+	[PunRPC]
+	public void StartShot(bool isShot){
+		if(usingLog)Debug.Log("[RPC]StartShot  "+isShot);
+		isShooting=isShot;
 	}
 
 
@@ -161,6 +248,8 @@ public class shipControl : MonoBehaviour {
 	public Subweapon currentUsing=Subweapon.NONE;
 
 	void OnWeaponTimerOver(){
+		if(usingLog)Debug.Log("サブウェポンの有効時間終了");
+
 		if(currentUsing==Subweapon.STEALTH){
 			StealthMode(false);
 		}else if(currentUsing==Subweapon.RAZER){
@@ -169,63 +258,96 @@ public class shipControl : MonoBehaviour {
 
 		currentUsing=Subweapon.NONE;
 		stopShot=false;
-		GUIManager.Instance.EnableSubweapon();
+
+		if(isOwnersShip())GUIManager.Instance.EnableSubweapon();
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
-		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
 		if(isDead || currentUsing!=Subweapon.NONE)return;
-		currentUsing=weaponType;
+
+		if(usingLog)Debug.Log("サブウェポンの使用 "+weaponType.ToString());
+
+		if(isOwnersShip()){
+			if(photonView){
+				photonView.RPC ("UseSubWeapon", PhotonTargets.AllViaServer,new object[]{(int)weaponType});
+			}else{
+				UseSubWeapon((int)weaponType);
+			}
+		}
+	}
+
+	[PunRPC]
+	public void UseSubWeapon(int weaponType){
+
+		if(usingLog)Debug.Log("[RPC]UseSubWeapon "+((Subweapon)weaponType).ToString());
+
+		currentUsing=(Subweapon)weaponType;
+
 		weaponNum=0;
 		stopShot=false;
-		switch(weaponType){
-				case Subweapon.WAVE:
-				
-					weapontimer=3.0f;
-					stopShot=true;
-					break;
-				case Subweapon.ZENHOUKOU:
-					weapontimer=3.0f;
-					stopShot=true;
-					break;
-				case Subweapon.NAPAM:
-					weapontimer=3.0f;
-					stopShot=true;
-					ShotNapam();
-					break;
-				case Subweapon.NUKE:
-					weapontimer=5.0f;
-					stopShot=true;
-					ShotNuke();
-					break;
-				case Subweapon.YUDOU:
-					weapontimer=10.0f;
-					stopShot=true;
-					//発射個数
-					weaponNum=3;
-					break;
-				case Subweapon.STEALTH:
-					GUIManager.Instance.SetShotTgl(false);
-					OnShotToggle(false);
-					StealthMode(true);
-					break;
-				case Subweapon.RAZER:
-					razerLine.enabled=true;
-					weapontimer=10.0f;
-					stopShot=false;
-					break;
-			}
+		switch(currentUsing){
+		case Subweapon.WAVE:
+
+			weapontimer=3.0f;
+			stopShot=true;
+			break;
+		case Subweapon.ZENHOUKOU:
+			weapontimer=3.0f;
+			stopShot=true;
+			break;
+		case Subweapon.NAPAM:
+			weapontimer=3.0f;
+			stopShot=true;
+			ShotNapam();
+			break;
+		case Subweapon.NUKE:
+			weapontimer=5.0f;
+			stopShot=true;
+			ShotNuke();
+			break;
+		case Subweapon.YUDOU:
+			weapontimer=10.0f;
+			stopShot=true;
+			//発射個数
+			weaponNum=3;
+			break;
+		case Subweapon.STEALTH:
+			GUIManager.Instance.SetShotTgl(false);
+			OnShotToggle(false);
+			StealthMode(true);
+			break;
+		case Subweapon.RAZER:
+			razerLine.enabled=true;
+			weapontimer=10.0f;
+			stopShot=false;
+			break;
+		}
 
 	}
 
+
 	public void StealthMode(bool isOn){
-		if(isOn){
-			engine.SetActive(false);
-			stealthEffecter.StealthMode(true);
+
+		if(isOwnersShip()){
+			//プレイヤのシップにはステルスマテリアル
+			if(isOn){
+				engine.SetActive(false);
+				stealthEffecter.StealthMode(true);
+			}else{
+				engine.SetActive(true);
+				stealthEffecter.StealthMode(false);
+			}
 		}else{
-			engine.SetActive(true);
-			stealthEffecter.StealthMode(false);
+			//相手のシップには消す
+			if(isOn){
+				engine.SetActive(false);
+				stealthEffecter.gameObject.SetActive(false);
+			}else{
+				engine.SetActive(true);
+				stealthEffecter.gameObject.SetActive(true);
+			}
 		}
+
 	}
 
 	LineRenderer razerLine;
@@ -236,62 +358,123 @@ public class shipControl : MonoBehaviour {
 
 
 
-	//サブウェポンからのダメージを受けた時
-	public void OnHit(Subweapon type,float damage,Vector3 hitPosition){
+	//通常弾　サブウェポンからのダメージを受けた時
+	public void OnHit(Subweapon type,float damage,Vector3 hitPosition,shipControl launcher){
 		if(isDead)return;
 
-		//実際は、エフェクトを出すだけ
-
-		//AudioController.Play ("Explosion");
-		ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(hitPosition.x,hitPosition.y+0.5f,hitPosition.z),Quaternion.identity,null);
+		if(usingLog)Debug.Log(playerData.userName+" にダメージ "+damage);
 
 
-		//これは、プレイヤーオブジェクトのみでやり　他のプレイヤーに告知する
-		if(isOwnerShip){
-			currentHP-=damage;
+		//実際は、音とエフェクトを出すだけ
+		switch(type){
+			case Subweapon.NONE:
+				//通常弾
+				//AudioController.Play ("Explosion");
+				ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(hitPosition.x,hitPosition.y+0.5f,hitPosition.z),Quaternion.identity,null);
+				break;
+		}
+
+		if(isOwnersShip()){
+			if(currentHP-damage<=0.0f){
+				GUIManager.Instance.Damage (damage, MaxHP);
+				OnDead(launcher);
+				return;
+			}
+			if(photonView){
+				photonView.RPC ("TakeDamage", PhotonTargets.AllViaServer,new object[]{damage});
+			}else{
+				TakeDamage(damage);
+			}
+		}
+
+
+
+
+	}
+
+	[PunRPC]
+	public void TakeDamage(float damage){
+		if(usingLog)Debug.Log("[RPC] TakeDamage"+playerData.userName+" にダメージ "+damage);
+
+		currentHP-=damage;
+		//これは、プレイヤーオブジェクトのみでやる
+		if(isOwnersShip()){
+			if(GUIManager.Instance.isDebugMode){
+				GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+			}
 			GUIManager.Instance.Damage (damage, MaxHP);
 		}
-
-		if(currentHP<=0.0f){
-			OnDead();
-		}
 	}
+
 		
 
 
 	//回復を拾った時
 	public void OnPickUp_Cure(Pickup pu){
-		if(isDead || !isOwnersShip())return;
+		if(isDead)return;
+
+		if(usingLog)Debug.Log(playerData.userName+" が回復をひろいました ");
+
+		float cureVal=0.0f;
 		switch(pu){
 			case Pickup.CureS:
-				CureSelf(10.0f);
+				AudioController.Play ("Powerup");
+				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
+				cureVal=10.0f;
 				break;
 			case Pickup.CureM:
-				CureSelf(20.0f);
+				AudioController.Play ("Powerup");
+				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
+				cureVal=20.0f;
 				break;
 			case Pickup.CureL:
-				CureSelf(30.0f);
+				AudioController.Play ("Powerup");
+				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
+				cureVal=30.0f;
 				break;
 		}
-		
+
+		if(photonView){
+			photonView.RPC ("CureSelf", PhotonTargets.All,new object[]{cureVal});
+		}else{
+			CureSelf(cureVal);
+		}
+
 	}
-	void CureSelf(float percentage){
-		AudioController.Play ("Powerup");
+
+	[PunRPC]
+	public void CureSelf(float percentage){
+
+		if(usingLog)Debug.Log("[RPC] CureSelf "+percentage+"%");
+
 		currentHP+=MaxHP*(percentage/100.0f);
-		ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
 		if(currentHP>MaxHP)currentHP=MaxHP;
-		GUIManager.Instance.Cure (percentage,MaxHP);
+
+		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
+			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+		}
+
+		if(isOwnersShip())GUIManager.Instance.Cure (percentage,MaxHP);
 	}
-		
+
+
 	//サブウェポンを拾った時
 	public void OnPickUp_Subweapon(Pickup pu){
-		if(isDead || !isOwnersShip())return;
+		if(isDead)return;
 
-		int num=(int)pu;
-		num=num-3;
-		GUIManager.Instance.OnGetSubWeapon((Subweapon)num);
+		if(usingLog)Debug.Log(playerData.userName+" がサブウェポンをひろいました ");
 
+		//PickUpのエフェクトはここで出す
+
+		if(isOwnersShip()){
+			int num=(int)pu;
+			num=num-3;
+			GUIManager.Instance.OnGetSubWeapon((Subweapon)num);
+		}
 	}
+
+
+
 
 
 	//操作系統
@@ -304,21 +487,20 @@ public class shipControl : MonoBehaviour {
 	Vector3 tr;
 	Rigidbody rd;
 	Vector3 velocity;
-
+	PhotonTransformView photonTransformView;
 	//GUIManagerからの入力受け取りメソッド
 	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
-		//Debug.Log("OnPressTapLayer"+isPress+worldPos.ToString());
 		isPressed=isPress;
 		currentTappedPos=worldPos;
 	}
 
 	public void OnUpdateTapLayer(Vector3 worldPos){
-		//Debug.Log("OnPressTapLayer"+worldPos.ToString());
 		currentTappedPos=worldPos;
 	}
+
 	void Update () {
 
-		if(isDead || !isOwnersShip())return;
+		if(isDead || !isControllable)return;
 
 		if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH){
 			weapontimer-=Time.deltaTime;
@@ -337,97 +519,45 @@ public class shipControl : MonoBehaviour {
 			}
 		}
 
-		tr = transform.position.normalized;
 
-		if (isPressed) {
-			// タップの方向に向く
-			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
-			newRotation.x = 0;
-			newRotation.z = 0;
+		if(isOwnersShip()){
+			//PlayerのShipのみで呼ばれる
+			tr = transform.position.normalized;
 
-			// 回転
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
+			if (isPressed) {
+				// タップの方向に向く
+				newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
+				newRotation.x = 0;
+				newRotation.z = 0;
 
-		} else {
+				// 回転
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
 
-			// 徐々に止める
-			velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
-			velocity = velocity - (velocity / 40);
-			rd.velocity = velocity;
-		}
+			} else {
 
-
-
-		if(rd.velocity.magnitude > maxSpeed)
-		{
-			Debug.LogWarning("Maxspeedを超えた");
-			rd.velocity = rd.velocity.normalized * maxSpeed;
-		}
-
-		tr = transform.forward * speed;
-
-		rd.AddForce (tr, ForceMode.VelocityChange);
-	}
-
-
-<<<<<<< HEAD
-	public void OnUseSubWeapon(Subweapon weaponType){
-		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
-
-		switch(weaponType){
-			case Subweapon.NAPAM:
-				//ナパームの処理を記述
-				Debug.Log("shot");
-				break;
-			case Subweapon.NUKE:
-				break;
+				// 徐々に止める
+				velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
+				velocity = velocity - (velocity / 40);
+				rd.velocity = velocity;
 			}
 
-	}
-
-	public void OnShotToggle(bool val){
-		Debug.Log("OnShotToggle "+val);
-
-		if(val){
-			//ShotがOnになったの時
-		}else{
-			//ShotがOffになったの時
-		}
 
 
-	}
 
-	// 敵の弾に当たった場合
-	void OnTriggerEnter(Collider other) {
-
-		if(other.gameObject.layer == LayerMask.NameToLayer("Shot")){
-//			Destroy(this.gameObject);
-
-
-			Instantiate (explosion, transform.position, transform.rotation);
-			AudioController.Play ("Explosion2");
-
-			GUIManager.Instance.Damage (100.0f, 1500.0f);
-		}
-
-		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
-			Pickup putype=other.gameObject.GetComponent<item>().pickType;
-
-
-			switch(putype){
-				case Pickup.CureS:
-					AudioController.Play ("Powerup");
-					GUIManager.Instance.Cure (30.0f, 1500.0f);
-					break;
-				case Pickup.CureM:
-					AudioController.Play ("Powerup");
-					GUIManager.Instance.Cure (30.0f, 1500.0f);
-					break;
+			if(rd.velocity.magnitude > maxSpeed)
+			{
+				//Debug.LogWarning("Maxspeedを超えた");
+				rd.velocity = rd.velocity.normalized * maxSpeed;
 			}
 
-			Destroy(other.gameObject);
+			tr = transform.forward * speed;
+
+			rd.AddForce (tr, ForceMode.VelocityChange);
+
+			if(photonTransformView)photonTransformView.SetSynchronizedValues(speed: rd.velocity, turnSpeed: 0);
 		}
 	}
-=======
->>>>>>> d34a7f0c10c935ed81cd50894e027da8f42f4ce5
+
+
+
 }

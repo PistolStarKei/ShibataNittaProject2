@@ -43,7 +43,8 @@ public class item : MonoBehaviour {
 
 			}
 
-
+		}else{
+			KillSelf();
 		}
 	}
 }

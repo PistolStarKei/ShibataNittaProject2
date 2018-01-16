@@ -17,9 +17,11 @@ public class ShotToggleBtn : MonoBehaviour {
 	public UISprite sp;
 
 	public void OnClickToggle(){
-		this.toggleVal=!this.toggleVal;
-		SetToggle(this.toggleVal);
-		GUIManager.Instance.OnShootBtnToggle(this.toggleVal);
+		
+		if(GUIManager.Instance.OnShootBtnToggle(!this.toggleVal)){
+			this.toggleVal=!this.toggleVal;
+			SetToggle(this.toggleVal);
+		}
 	}
 
 }

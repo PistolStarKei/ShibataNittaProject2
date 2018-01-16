@@ -48,6 +48,21 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	}
 
+	public int[] GetAllWeaponInHolder(){
+
+		if(subWeaponHolder.Count<=0){
+			return null;
+		}
+
+		List<int> ret =new List<int>();
+
+		foreach(Subweapon wep in subWeaponHolder){
+			ret.Add((int)wep);
+		}
+
+		return ret.ToArray();
+	}
+
 	public void AddSubWeaponToHolder(Subweapon add){
 		
 		if(!ISHolderHasSpace()){

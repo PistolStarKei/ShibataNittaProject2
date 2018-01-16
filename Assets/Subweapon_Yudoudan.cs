@@ -82,7 +82,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 		if(ship){
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint);
+				ship.OnHit(weponType,damage,hitpoint,launcherShip);
 
 
 			}else{

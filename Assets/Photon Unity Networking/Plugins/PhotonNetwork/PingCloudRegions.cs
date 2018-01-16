@@ -138,7 +138,7 @@ public class PhotonPingManager
 
 	private const string wssProtocolString = "wss://";
 
-    public Region BestRegion
+   public Region BestRegion
     {
         get
         {

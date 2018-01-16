@@ -9,6 +9,8 @@ namespace PSPhoton {
 	[RequireComponent (typeof (PhotonView))]
 	public class LobbyManager : PunBehaviour {
 
+		public static LobbyManager instance;
+
 		private const string APP_VERSION="v1.0";
 
 		public byte maxPlayers=4;
@@ -31,9 +33,19 @@ namespace PSPhoton {
 		public PS_GUI_DynamicInfo info;
 		public PS_GUI_Cover cover;
 
+		public PS_GUI_InputValidater nameInput;
 		// Use this for initialization
+
+
+
+		void Awake(){
+			instance=this;
+		}
 		void Start () {
+
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
+
+
 
 			//ゲームから戻った時、すでにコネクトされている leaveroomあとは　severconnected状態に
 			if (PhotonNetwork.connected) {
@@ -65,8 +77,11 @@ namespace PSPhoton {
 		//ニックネームを入力してからでは
 		public void ConnectToPUN(){
 			PhotonNetwork.player.NickName = DataManager.Instance.gameData.username;
+
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "サーバに接続中" :"Connecting Server");
-			PhotonNetwork.ConnectUsingSettings(APP_VERSION);
+			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
+			PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
+
 		}
 		public override void OnConnectedToPhoton ()
 		{
@@ -198,7 +213,7 @@ namespace PSPhoton {
 			if (PhotonNetwork.isMasterClient) {
 				int playerIndex = 0;
 				foreach (PhotonPlayer p in PhotonNetwork.playerList) {
-					SetCustomProperties(p, (int) p.CustomProperties["ship"],(string)p.CustomProperties["countly"], playerIndex++);
+					SetCustomProperties(p, (int) p.CustomProperties["shipBase"],(string)p.CustomProperties["countly"], playerIndex++);
 				}
 			}
 
@@ -208,7 +223,7 @@ namespace PSPhoton {
 
 		// sets and syncs custom properties on a network player (including masterClient)
 		private void SetCustomProperties(PhotonPlayer player, int ship,string countly, int position) {
-			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"ship", ship} };
+			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship} };
 			player.SetCustomProperties(customProperties);
 		}
 
@@ -358,10 +373,19 @@ namespace PSPhoton {
 		[PunRPC]
 		public void LoadGame () {
 			int map=(int)PhotonNetwork.room.CustomProperties["map"];
-
+			GameSceneName=GameSceneName;
 			Debug.LogWarning("ここでMapに応じて出し分ける");
+
+			sceneFader.FadeOut(OnSceneFaded,true);
+		}
+
+		public PSGUI.SceneFader sceneFader;
+
+		public void OnSceneFaded(){
 			PhotonNetwork.LoadLevel(GameSceneName);
 		}
+
+
 
 
 		private bool checkSameNameOnPlayersList(string name) {
@@ -379,6 +403,9 @@ namespace PSPhoton {
 			PhotonNetwork.LeaveRoom ();
 			//PhotonNetwork.LoadLevel ("Menu");
 		}
+
+
+	
 
 	}
 }

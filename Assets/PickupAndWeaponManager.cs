@@ -67,7 +67,7 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 	public GameObject subweaponWave_Prefab;
 	public Transform SpawnSubweapon_Wave(shipControl ship,Vector3 position,Quaternion qt,Transform parent){
 		Transform trans=Spawn(subweaponWave_Prefab,position,qt,parent);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship);
+		if(ship)trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship);
 		return trans;
 
 	}
@@ -77,8 +77,9 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 	}
 
 	public Transform SpawnShot(shipControl ship,DanmakuColor col,Vector3 position,Quaternion qt,Transform parent){
+
 		Transform trans=Spawn(danmaku[(int)col],position,qt,parent);
-		trans.gameObject.GetComponent<shot>().Spawn(ship);
+		if(ship)trans.gameObject.GetComponent<shot>().Spawn(ship);
 		return trans;
 	}
 
