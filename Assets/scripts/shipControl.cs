@@ -559,4 +559,64 @@ public class shipControl : MonoBehaviour {
 	}
 
 
+<<<<<<< HEAD
+	public void OnUseSubWeapon(Subweapon weaponType){
+		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
+
+		switch(weaponType){
+			case Subweapon.NAPAM:
+				//ナパームの処理を記述
+				Debug.Log("shot");
+				break;
+			case Subweapon.NUKE:
+				break;
+			}
+
+	}
+
+	public void OnShotToggle(bool val){
+		Debug.Log("OnShotToggle "+val);
+
+		if(val){
+			//ShotがOnになったの時
+		}else{
+			//ShotがOffになったの時
+		}
+
+
+	}
+
+	// 敵の弾に当たった場合
+	void OnTriggerEnter(Collider other) {
+
+		if(other.gameObject.layer == LayerMask.NameToLayer("Shot")){
+//			Destroy(this.gameObject);
+
+
+			Instantiate (explosion, transform.position, transform.rotation);
+			AudioController.Play ("Explosion2");
+
+			GUIManager.Instance.Damage (100.0f, 1500.0f);
+		}
+
+		if(other.gameObject.layer == LayerMask.NameToLayer("PickUp")){
+			Pickup putype=other.gameObject.GetComponent<item>().pickType;
+
+
+			switch(putype){
+				case Pickup.CureS:
+					AudioController.Play ("Powerup");
+					GUIManager.Instance.Cure (30.0f, 1500.0f);
+					break;
+				case Pickup.CureM:
+					AudioController.Play ("Powerup");
+					GUIManager.Instance.Cure (30.0f, 1500.0f);
+					break;
+			}
+
+			Destroy(other.gameObject);
+		}
+	}
+=======
+>>>>>>> d34a7f0c10c935ed81cd50894e027da8f42f4ce5
 }
