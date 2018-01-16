@@ -12,7 +12,7 @@ public class SubweaponShot : MonoBehaviour {
 		if(gameObject.layer!=LayerMask.NameToLayer("Shot"))gameObject.layer=LayerMask.NameToLayer("Shot");
 	}
 	public float damage = 100.0f;
-	public int life = 60;
+	public float life = 60;
 	public shipControl launcherShip;
 	public Subweapon weponType=Subweapon.NONE;
 
