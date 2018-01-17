@@ -44,6 +44,7 @@ public class shipControl : MonoBehaviour {
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
 		razerLine=GetComponent<LineRenderer>();
+		photonView= GetComponent<PhotonView>();
 		photonTransformView = GetComponent<PhotonTransformView>();
 		gameObject.tag="Player";
 		isPressed=false;

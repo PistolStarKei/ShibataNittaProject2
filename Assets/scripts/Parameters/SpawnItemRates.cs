@@ -5,6 +5,7 @@ using System.Linq;
 
 public static class SpawnItemRates {
 
+	//出現割合　合計で100%
 	public static Dictionary<Pickup,int> Rate_Kaifuku = new Dictionary<Pickup,int>()
 	{
 		{ Pickup.CureS, 60 },
@@ -12,6 +13,7 @@ public static class SpawnItemRates {
 		{ Pickup.CureL, 10}
 	};
 
+	//出現割合　合計で100%
 	public static readonly Dictionary<Pickup,int> Rate_Subweapon = new Dictionary<Pickup,int>()
 	{
 		{ Pickup.NAPAM, 60 },
@@ -22,6 +24,9 @@ public static class SpawnItemRates {
 		{ Pickup.YUDOU, 10},
 		{ Pickup.ZENHOUKOU, 10}
 	};
+
+	//スタート後の　スポーン間隔
+	public static readonly float spawnRepeatRate=30.0f;
 
 	//プレイヤの数１に対するスポーン数　スタート時
 	public static readonly int spawnNum_OnStartPerShip_Rate_Kaifuku=0;
