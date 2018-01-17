@@ -139,8 +139,19 @@ namespace PSPhoton {
 
 
 		public void OnClickPlayBtn(){
-			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED || DataManager.Instance.gameData.isConnectingRoom)return;
+
+			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED){
+				if(useDebugLog)Debug.LogWarning("ロビーにコネクトされていないので不可");
+				return;
+			}
+
+
+			if(DataManager.Instance.gameData.isConnectingRoom){
+					Debug.LogWarning("ここで再接続をなんとかする");
+
+			}
 		
+
 			HUDOnROOM(true);
 			//RandomJoinし、ダメなら部屋をつくる
 
@@ -410,7 +421,6 @@ namespace PSPhoton {
 		}
 
 
-	
 
 	}
 }
