@@ -36,7 +36,6 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			}
 
 		}
-		ES2.Delete(filename+"?tag=country");
 
 		if(!ES2.Exists(filename+"?tag=country")){
 			

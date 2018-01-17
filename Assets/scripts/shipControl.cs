@@ -48,6 +48,10 @@ public class shipControl : MonoBehaviour {
 		photonTransformView = GetComponent<PhotonTransformView>();
 		gameObject.tag="Player";
 		isPressed=false;
+
+
+
+
 		currentHP=MaxHP;
 		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
 			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);

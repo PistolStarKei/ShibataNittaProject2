@@ -14,12 +14,14 @@ public class PS_GUI_InputValidater : MonoBehaviour {
 	}
 
 	public void OnSubmit(){
+		Debug.Log("OnSubmit");
 		string str=input.value;
 
 		if(str==""){
 			PSPhoton.LobbyManager.instance.info.Log(Application.systemLanguage == SystemLanguage.Japanese?"何かを入力してください":"User name could not be empty");
 			SetValue(DataManager.Instance.gameData.username);
 		}else{
+			Debug.Log("name saved");
 			DataManager.Instance.gameData.username=input.value;
 			DataManager.Instance.SaveAll();
 		}

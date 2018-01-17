@@ -192,10 +192,10 @@ namespace PSPhoton {
 		// car = 0, position = last (size of player list)
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer) {
 			if(useDebugLog)Debug.Log("OnPhotonPlayerConnected "+newPlayer.NickName);
-			if (PhotonNetwork.isMasterClient) {
+			/*if (PhotonNetwork.isMasterClient) {
 				SetCustomProperties (newPlayer, 0,"JP", PhotonNetwork.playerList.Length - 1);
 				//photonView.RPC("UpdateTrack", PhotonTargets.All, trackIndex);
-			}
+			}*/
 			info.Log(Application.systemLanguage == SystemLanguage.Japanese? newPlayer.NickName+"が参戦決定しました" :newPlayer.NickName+" joins this battle");
 		}
 
@@ -223,6 +223,7 @@ namespace PSPhoton {
 
 		// sets and syncs custom properties on a network player (including masterClient)
 		private void SetCustomProperties(PhotonPlayer player, int ship,string countly, int position) {
+			if(useDebugLog)Debug.Log("SetCustomProperties "+player.NickName+" ship" + ship+" "+countly+" poisition "+position);
 			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship} };
 			player.SetCustomProperties(customProperties);
 		}
