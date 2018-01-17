@@ -18,6 +18,8 @@ public class shipControl : MonoBehaviour {
 	public PlayerData playerData;
 	public PhotonView photonView;
 	public void InitPlayerData(string name,string countly,int id){
+		if(!photonView)photonView= GetComponent<PhotonView>();
+
 		object[] args = new object[]{
 			name,
 			countly,

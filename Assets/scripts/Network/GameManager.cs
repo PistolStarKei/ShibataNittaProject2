@@ -215,9 +215,12 @@ namespace PSPhoton {
 		
 		private void CreatePlayer() {
 
+
 			int pos = (int) PhotonNetwork.player.CustomProperties["spawn"];
 			int shipBaseNumber = (int) PhotonNetwork.player.CustomProperties["shipBase"];
 			Transform spawn = spawnPoints[pos];
+
+			Debug.Log("プレイヤの作成　position "+pos +" ship="+shipBaseNumber);
 
 			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber, spawn.position, spawn.rotation, 0);
 			playerShip=go.GetComponent<shipControl>();

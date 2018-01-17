@@ -347,6 +347,9 @@ namespace PSPhoton {
 			CallUpdateTimer(_timerFlag);
 
 		}
+
+
+
 		public void CallUpdateTimer(float time) {
 			object[] args = new object[]{
 				checkTimeOnRoom-time,
