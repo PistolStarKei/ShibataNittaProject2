@@ -23,6 +23,7 @@ public class SubweaponShot : MonoBehaviour {
 	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
+		lastellapsedTime=0.0f;
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;
 
@@ -54,14 +55,18 @@ public class SubweaponShot : MonoBehaviour {
 		KillSelf();
 	}
 
-
+	public bool needPrediction=true;
+	float lastellapsedTime=0.0f;
 	void Update(){
 		ellapsedTime=GetEllapsedTime();
+		if(ellapsedTime==lastellapsedTime){
+			if(needPrediction)ellapsedTime=ellapsedTime+Time.deltaTime;
+		}
 		if(ellapsedTime>life){
 			KillSelf();
 			return;
 		}
-
+		lastellapsedTime=ellapsedTime;
 		Move();
 	}
 

@@ -197,7 +197,11 @@ namespace PSPhoton {
 		public override void OnCreatedRoom () {
 			isMasterClient=true;
 			if(useDebugLog)Debug.Log("OnCreatedRoom successed");
+			_timerFlag=0.0f;
+			_timerFrequency=0.0f;
+
 			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1);
+
 		}
 		// If master client, for every newly connected player, sets the custom properties for him
 		// car = 0, position = last (size of player list)
@@ -243,6 +247,8 @@ namespace PSPhoton {
 			if(useDebugLog)Debug.Log("OnPhotonPlayerPropertiesChanged ");
 			UpdatePlayerList ();
 		}
+			
+
 
 		// self-explainable
 		public void UpdatePlayerList() {
@@ -342,10 +348,14 @@ namespace PSPhoton {
 
 
 		float _timerFlag=0.0f;
+		float _timerFrequency=0.0f;
 
 		void Update(){
 			if(!isMasterClient || !timer.gameObject.activeSelf)return;
+
+
 			_timerFlag+=Time.deltaTime;
+			_timerFrequency+=Time.deltaTime;
 
 			if(_timerFlag>checkTimeOnRoom){
 				_timerFlag=0.0f;
@@ -356,7 +366,11 @@ namespace PSPhoton {
 					return;
 				}
 			}
-			CallUpdateTimer(_timerFlag);
+
+			if(_timerFrequency>0.5f){
+				_timerFrequency=0.0f;
+				CallUpdateTimer(_timerFlag);
+			}
 
 		}
 
@@ -382,8 +396,6 @@ namespace PSPhoton {
 			PhotonNetwork.room.IsOpen = false;
 			photonView.RPC("LoadGame", PhotonTargets.All);
 		}
-
-
 		public string GameSceneName;
 
 		[PunRPC]

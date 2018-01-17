@@ -14,7 +14,17 @@ public class shipControl : MonoBehaviour {
 			playerID=id;
 		}
 	}
+	//[HideInInspector]
+	public float MaxHP=1500.0f;
+	//[HideInInspector]
+	public float currentHP=1500.0f;
+	public bool usingLog=true;
+	public bool isControllable=false;
 
+	Vector3 newRotation = new Vector3(0,0,0);
+
+
+	#region Init Data
 	public PlayerData playerData;
 	public PhotonView photonView;
 	public void InitPlayerData(string name,string countly,int id){
@@ -32,20 +42,6 @@ public class shipControl : MonoBehaviour {
 		//みんなが1回ずつ呼ぶので、ロード待ち受けに使える
 		playerData=new PlayerData(name,countly,id);
 	}
-
-	//[HideInInspector]
-	public float MaxHP=1500.0f;
-	//[HideInInspector]
-	public float currentHP=1500.0f;
-
-	public bool isDead=false;
-	public bool isOwnersShip(){
-		return GUIManager.Instance.shipControll==this?true:false;
-	}
-	public bool isControllable=false;
-
-	Vector3 newRotation = new Vector3(0,0,0);
-
 
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
@@ -79,8 +75,11 @@ public class shipControl : MonoBehaviour {
 		isShooting=true;
 		if(isOwnersShip())StartCoroutine(Shot());
 	}
-		
+	#endregion
 
+
+	#region On Dead
+	public bool isDead=false;
 	void OnDead(shipControl killedBy){
 		//ここで判定
 		if(usingLog)Debug.Log("OnDead  killed by"+killedBy.playerData.userName);
@@ -131,7 +130,10 @@ public class shipControl : MonoBehaviour {
 		}
 
 	}
+	#endregion
 
+
+	#region shots and subweapons
 	//[HideInInspector]
 	public float shotDulation=0.2f;
 	//[HideInInspector]
@@ -143,8 +145,6 @@ public class shipControl : MonoBehaviour {
 	public DanmakuColor shotCol;
 	bool stopShot=false;
 	bool isShooting=false;
-
-
 
 	IEnumerator Shot(){
 		while(true && !isDead){
@@ -275,7 +275,7 @@ public class shipControl : MonoBehaviour {
 	}
 
 
-	#region RPCCall for shots and subweapons
+
 		[PunRPC]
 		public void RPC_Subweapon_Napam(Vector3 position,Vector3 rotation,float spawnTime){
 			PickupAndWeaponManager.Instance.SpawnSubweapon_Napam(this,position,Quaternion.Euler(rotation),spawnTime);
@@ -319,12 +319,8 @@ public class shipControl : MonoBehaviour {
 			}
 		}
 
-	#endregion
 
 
-
-
-	public bool usingLog=true;
 
 	public bool OnShotToggle(bool val){
 		
@@ -359,9 +355,9 @@ public class shipControl : MonoBehaviour {
 		//if(usingLog)Debug.Log("[RPC]StartShot  "+isShot);
 		isShooting=isShot;
 	}
+	#endregion
 
-
-
+	#region use subweapons
 	public StealthEffecter stealthEffecter;
 	public GameObject engine;
 
@@ -509,9 +505,9 @@ public class shipControl : MonoBehaviour {
 	void SetRazerTarget(Vector3 pos){
 		razerLine.SetPosition(1,pos);
 	}
+	#endregion
 
-
-
+	#region damage
 	//通常弾　サブウェポンからのダメージを受けた時
 	public void OnHit(Subweapon type,float damage,Vector3 hitPosition,shipControl launcher){
 		if(isDead)return;
@@ -559,10 +555,10 @@ public class shipControl : MonoBehaviour {
 			GUIManager.Instance.Damage (damage, MaxHP);
 		}
 	}
-
+	#endregion
 		
 
-
+	#region on pick up st
 	//回復を拾った時
 	public void OnPickUp_Cure(Pickup pu){
 		if(isDead)return;
@@ -626,11 +622,11 @@ public class shipControl : MonoBehaviour {
 			GUIManager.Instance.OnGetSubWeapon((Subweapon)num);
 		}
 	}
+	#endregion
 
 
 
-
-
+	#region controll
 	//操作系統
 	Vector3 temp;
 	bool isPressed=false;
@@ -716,7 +712,9 @@ public class shipControl : MonoBehaviour {
 			if(photonTransformView)photonTransformView.SetSynchronizedValues(speed: rd.velocity, turnSpeed: 0);
 		}
 	}
+	#endregion
 
-
-
+	public bool isOwnersShip(){
+		return GUIManager.Instance.shipControll==this?true:false;
+	}
 }

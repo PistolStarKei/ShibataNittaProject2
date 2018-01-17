@@ -13,7 +13,7 @@ namespace PSPhoton {
 
 		public static GameManager instance;
 
-
+		#region item spawn
 		//アイテムのスポーン
 		public PS_Util.RandomPointGenerater randomPointGenerater;
 	
@@ -108,6 +108,9 @@ namespace PSPhoton {
 				i++;
 			}
 		}
+		#endregion
+
+
 
 		[Tooltip("ロード時点のプレイヤ数")]
 		public int loadedPlayers=0;
@@ -157,6 +160,9 @@ namespace PSPhoton {
 			}
 			return "";
 		}
+
+
+
 
 		public List<shipControl> deadShips=new List<shipControl>();
 		public void OnPlayerDead(shipControl ship,int killed){

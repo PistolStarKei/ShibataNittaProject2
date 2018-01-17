@@ -23,19 +23,25 @@ public class shot : MonoBehaviour {
 		this.spawnTime=spawnTime;
 		this.spawnPos=spawnPos;
 		ellapsedTime=0.0f;
-
+		lastellapsedTime=0.0f;
 		life=PSParams.GameParameters.shot_life[(int)type];
 		damage=PSParams.GameParameters.shot_damage[(int)type];
 		shotSpeed=PSParams.GameParameters.shot_speed[(int)type];
 
 	}
 
+	public bool needPrediction=true;
+	float lastellapsedTime=0.0f;
 	void Update(){
 		ellapsedTime=GetEllapsedTime();
+		if(ellapsedTime==lastellapsedTime){
+			if(needPrediction)ellapsedTime=ellapsedTime+Time.deltaTime;
+		}
 		if(ellapsedTime>life){
 			KillSelf();
 			return;
 		}
+		lastellapsedTime=ellapsedTime;
 
 		Move();
 	}

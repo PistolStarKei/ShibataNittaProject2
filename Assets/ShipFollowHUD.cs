@@ -48,6 +48,9 @@ public class ShipFollowHUD : FollowGUI {
 			widget.transform.localPosition=vec;
 		}
 	}
+
+
+
 	[Header( "CustomOffset")]
 	public float offset_Left=176.01f;
 	public float offset_Right=-176.01f;
