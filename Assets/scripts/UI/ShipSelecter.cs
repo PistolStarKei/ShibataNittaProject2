@@ -16,13 +16,16 @@ public class ShipSelecter : MonoBehaviour {
 			itemFlags[i]=false;
 		}
 		int num=DataManager.Instance.gameData.shipType;
+
 		if(num>=itemFlags.Length){
 			Debug.LogError("num==over Length");
 		}else{
+			currentSelect=num;
+			itemFlags[num]=true;
+			UpdateItems();
 		}
 
-		itemFlags[num]=true;
-		UpdateItems();
+
 	}
 
 	void ClearAll(){
