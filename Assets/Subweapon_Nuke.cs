@@ -5,7 +5,7 @@ public class Subweapon_Nuke : SubweaponShot {
 
 	public float shotSpeed=1.0f;
 	public override void Move(){
-		transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
+		transform.position=spawnPos+(transform.forward*(ellapsedTime*shotSpeed));
 
 	}
 

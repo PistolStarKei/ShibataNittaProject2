@@ -55,4 +55,14 @@ MonoBehaviour:
   - UseSubWeapon
   - Dead
   - SpawnPUAt
+  - RPC_SpawnShot
+  - RPC_SpawnShotDouble
+  - RPC_SpawnShotTripple
+  - RPC_SpawnSubweapon_Wave
+  - RPC_SpawnSubweapon_Yudoudan
+  - RPC_SpawnSubweapon_Zenhoukou
+  - RPC_Subweapon_Napam
+  - RPC_Subweapon_Nuke
+  - RazerMode
+  - StealthMode
   DisableAutoOpenWizard: 1

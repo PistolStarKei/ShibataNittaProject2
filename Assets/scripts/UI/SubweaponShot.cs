@@ -16,14 +16,20 @@ public class SubweaponShot : MonoBehaviour {
 	public shipControl launcherShip;
 	public Subweapon weponType=Subweapon.NONE;
 
-	public virtual void Spawn(shipControl launcherShip){
+	internal float spawnTime=0.0f;
+	internal Vector3 spawnPos;
+	internal float ellapsedTime=0.0f;
+
+	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
 		this.launcherShip=launcherShip;
+		ellapsedTime=0.0f;
+		this.spawnPos=spawnPos;
+		this.spawnTime=spawnTime;
 
 		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
 		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];
-
-		if(life>0.0f)Invoke("KillTimer",life);
 	}
+
 	public virtual void Move(){
 	}
 
@@ -36,13 +42,12 @@ public class SubweaponShot : MonoBehaviour {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				ship.OnHit(weponType,damage,hitpoint,launcherShip);
-
+				KillSelf();
 
 			}else{
 				//自機であった場合
 			}
 		}
-		KillSelf();
 	}
 
 	public virtual void OnCollideWall(){
@@ -51,13 +56,24 @@ public class SubweaponShot : MonoBehaviour {
 
 
 	void Update(){
+		ellapsedTime=GetEllapsedTime();
+		if(ellapsedTime>life){
+			KillSelf();
+			return;
+		}
+
 		Move();
 	}
 
-
+	float GetEllapsedTime(){
+		if(!PSPhoton.GameManager.instance.isNetworkMode){
+			return Time.realtimeSinceStartup-spawnTime;
+		}else{
+			return PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time-spawnTime));
+		}
+	}
 
 	public void KillSelf(){
-		CancelInvoke("KillTimer");
 		PoolManager.Pools["Weapons"].Despawn(gameObject.transform);
 	}
 

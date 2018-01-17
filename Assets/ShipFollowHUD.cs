@@ -17,7 +17,7 @@ public class ShipFollowHUD : FollowGUI {
 			Show(false);
 			return;
 		}
-		if(ship && ship.currentUsing==Subweapon.STEALTH){
+		if(ship && ship.isStealthMode){
 			//ステルス状態でも表示しない
 			Show(false);
 			return;

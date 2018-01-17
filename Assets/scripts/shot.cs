@@ -14,26 +14,46 @@ public class shot : MonoBehaviour {
 	public shipControl launcherShip;
 	public shotType type;
 
-	public void Spawn(shipControl launcherShip){
+	float spawnTime=0.0f;
+	Vector3 spawnPos;
+	float ellapsedTime=0.0f;
+	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
 		this.launcherShip=launcherShip;
+
+		this.spawnTime=spawnTime;
+		this.spawnPos=spawnPos;
+		ellapsedTime=0.0f;
 
 		life=PSParams.GameParameters.shot_life[(int)type];
 		damage=PSParams.GameParameters.shot_damage[(int)type];
 		shotSpeed=PSParams.GameParameters.shot_speed[(int)type];
 
-		Invoke("KillSelf",life);
 	}
 
 	void Update(){
+		ellapsedTime=GetEllapsedTime();
+		if(ellapsedTime>life){
+			KillSelf();
+			return;
+		}
+
 		Move();
 	}
 
 	void Move(){
-		transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
+		transform.position=spawnPos+(transform.forward*(ellapsedTime*shotSpeed));
 	}
 
+	float GetEllapsedTime(){
+		if(!PSPhoton.GameManager.instance.isNetworkMode){
+			return Time.realtimeSinceStartup-spawnTime;
+		}else{
+			return PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time-spawnTime));
+		}
+	}
+
+
 	void KillSelf(){
-		CancelInvoke("KillSelf");
 		PoolManager.Pools["Weapons"].Despawn(gameObject.transform);
 	}
 

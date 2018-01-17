@@ -120,6 +120,30 @@ namespace PSPhoton {
 
 		public List<shipControl> shipControllers=new List<shipControl>();
 
+		/// <summary>
+		/// 自機から一番近いshipを探します。
+		/// 自分しかいない場合にはnullを返します。
+		/// </summary>
+		public shipControl GetNearestShip(){
+			if(shipControllers.Count<=1)return null;
+
+			float distance=float.MaxValue;
+			float temp=0.0f;
+			shipControl nearest=playerShip;
+
+			foreach(shipControl ship in shipControllers){
+				if(ship!=playerShip && !ship.isDead){
+					temp=Vector3.Distance(playerShip.transform.position,ship.transform.position);
+					if(distance>temp){
+						nearest=ship;
+					}
+				}
+			}
+
+			if(nearest==playerShip)return null;
+			return nearest;
+		}
+
 		int killNum=0;
 
 		string GetNameById(int id){
