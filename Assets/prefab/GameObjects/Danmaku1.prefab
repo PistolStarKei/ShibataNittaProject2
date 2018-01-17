@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  life: 60
-  shotSpeed: 2
+  life: 2
+  shotSpeed: 4
   launcherShip: {fileID: 0}
 --- !u!135 &135000012318174682
 SphereCollider:
