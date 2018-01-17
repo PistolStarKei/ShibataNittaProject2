@@ -43,7 +43,7 @@ GameObject:
   - 114: {fileID: 114000013080350530}
   - 114: {fileID: 114000014084165318}
   m_Layer: 11
-  m_Name: Ship6
+  m_Name: Ship5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

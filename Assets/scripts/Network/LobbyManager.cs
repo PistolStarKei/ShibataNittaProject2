@@ -318,10 +318,11 @@ namespace PSPhoton {
 
 
 		public void OnShipChanged(int num){
-
+			Debug.Log("On Ship Chnaged 1 "+num);
 			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
-
+				Debug.Log("On Ship Chnaged 2 "+num);
 				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
+					Debug.Log("On Ship Chnaged 3"+num);
 					SetCustomProperties(PhotonNetwork.player, num,(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"]);
 				}
 			}
