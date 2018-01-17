@@ -20,7 +20,7 @@ namespace PSPhoton {
 		Pickup GetRandomPU_Kaifuku(){
 			int rand=Random.Range(0,101);
 
-			var sorted = SpawnItemRates.Rate_Kaifuku.OrderBy((x) => x.Value);  
+			var sorted = PSParams.SpawnItemRates.Rate_Kaifuku.OrderBy((x) => x.Value);  
 			int sum=0;
 			foreach(var s in sorted){
 				sum+=s.Value;
@@ -32,7 +32,7 @@ namespace PSPhoton {
 		}
 		Pickup GetRandomPU_Subweapon(){
 			int rand=Random.Range(0,101);
-			var sorted = SpawnItemRates.Rate_Subweapon.OrderBy((x) => x.Value);  
+			var sorted = PSParams.SpawnItemRates.Rate_Subweapon.OrderBy((x) => x.Value);  
 
 			int sum=0;
 			foreach(var s in sorted){
@@ -87,12 +87,12 @@ namespace PSPhoton {
 		}
 
 		void OnItemSpawnUpdate(){
-			if(gameTime>SpawnItemRates.spawnTimeStart_Rate_Kaifuku && gameTime<SpawnItemRates.spawnTimeEnd_Rate_Kaifuku){
-				if(PhotonNetwork.isMasterClient)if(SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Kaifuku>0)SpawnKaihukus(SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
+			if(gameTime>PSParams.SpawnItemRates.spawnTimeStart_Rate_Kaifuku && gameTime<PSParams.SpawnItemRates.spawnTimeEnd_Rate_Kaifuku){
+				if(PhotonNetwork.isMasterClient)if(PSParams.SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
 			}
 
-			if(gameTime>SpawnItemRates.spawnTimeStart_Rate_Subweapon && gameTime<SpawnItemRates.spawnTimeEnd_Rate_Subweapon){
-				if(PhotonNetwork.isMasterClient)if(SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Subweapon>0)SpawnSubweapons(SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
+			if(gameTime>PSParams.SpawnItemRates.spawnTimeStart_Rate_Subweapon && gameTime<PSParams.SpawnItemRates.spawnTimeEnd_Rate_Subweapon){
+				if(PhotonNetwork.isMasterClient)if(PSParams.SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnUpdatePerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
 			}
 		}
 
@@ -198,8 +198,8 @@ namespace PSPhoton {
 			
 
 			if(PhotonNetwork.isMasterClient){
-				if(SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
-				if(SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
 			}
 
 			AudioController.PlayMusic("gameBGM");
@@ -303,7 +303,7 @@ namespace PSPhoton {
 
 			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
 
-			this.itemSpawnTime=SpawnItemRates.spawnRepeatRate;
+			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
 
 			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
 

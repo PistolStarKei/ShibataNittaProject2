@@ -33,8 +33,11 @@ public class shipControl : MonoBehaviour {
 		playerData=new PlayerData(name,countly,id);
 	}
 
+	//[HideInInspector]
 	public float MaxHP=1500.0f;
+	//[HideInInspector]
 	public float currentHP=1500.0f;
+
 	public bool isDead=false;
 	public bool isOwnersShip(){
 		return GUIManager.Instance.shipControll==this?true:false;
@@ -42,6 +45,7 @@ public class shipControl : MonoBehaviour {
 	public bool isControllable=false;
 
 	Vector3 newRotation = new Vector3(0,0,0);
+
 
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
@@ -52,6 +56,13 @@ public class shipControl : MonoBehaviour {
 		isPressed=false;
 
 
+		//パラメータを参照してセットする
+		this.MaxHP=PSParams.GameParameters.MaxHP;
+		this.shotDulation=PSParams.GameParameters.shotDulation;
+		this.shotOffset=PSParams.GameParameters.shotOffset;
+		this.shotOffsetX=PSParams.GameParameters.shotOffsetX;
+		this.maxSpeed=PSParams.GameParameters.maxSpeed;
+		this.speed=PSParams.GameParameters.speed;
 
 
 		currentHP=MaxHP;
@@ -68,6 +79,7 @@ public class shipControl : MonoBehaviour {
 		isShooting=true;
 		StartCoroutine(Shot());
 	}
+		
 
 	void OnDead(shipControl killedBy){
 		//ここで判定
@@ -89,7 +101,7 @@ public class shipControl : MonoBehaviour {
 	[PunRPC]
 	public void Dead(int[] subweaponInHolder,int killer){
 
-		if(usingLog)Debug.Log("[RPC]Dead hold"+subweaponInHolder.Length+" killer "+killer);
+		if(usingLog)Debug.Log("[RPC]Dead hold killer "+killer);
 
 		if(subweaponInHolder!=null){
 			//ウェポンをばらまく
@@ -120,9 +132,13 @@ public class shipControl : MonoBehaviour {
 
 	}
 
+	//[HideInInspector]
 	public float shotDulation=0.2f;
+	//[HideInInspector]
 	public float shotOffset=0.2f;
+	//[HideInInspector]
 	public float shotOffsetX=0.1f;
+
 	public int shot_rensou=1;
 	public DanmakuColor shotCol;
 	bool stopShot=false;
@@ -427,17 +443,17 @@ public class shipControl : MonoBehaviour {
 			case Pickup.CureS:
 				AudioController.Play ("Powerup");
 				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
-				cureVal=10.0f;
+				cureVal=PSParams.GameParameters.curePersentageS;
 				break;
 			case Pickup.CureM:
 				AudioController.Play ("Powerup");
 				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
-				cureVal=20.0f;
+				cureVal=PSParams.GameParameters.curePersentageM;
 				break;
 			case Pickup.CureL:
 				AudioController.Play ("Powerup");
 				ParticleManager.Instance.ShowCureSAt(transform.position,Quaternion.identity,transform);
-				cureVal=30.0f;
+				cureVal=PSParams.GameParameters.curePersentageL;
 				break;
 		}
 
@@ -488,9 +504,14 @@ public class shipControl : MonoBehaviour {
 	Vector3 temp;
 	bool isPressed=false;
 	Vector3 currentTappedPos;
+
 	// 移動スピード
+	//[HideInInspector]
 	public float maxSpeed = 2.0f;
+	//[HideInInspector]
 	public float speed = 0.01f;
+
+
 	Vector3 tr;
 	Rigidbody rd;
 	Vector3 velocity;

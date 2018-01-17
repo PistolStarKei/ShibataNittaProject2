@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using PathologicalGames;
+public enum shotType{WHITE,BLUE,YELLOW,GREEN,RED}
 public class shot : MonoBehaviour {
 
+	[HideInInspector]
 	public float damage = 100.0f;
+	[HideInInspector]
 	public float life = 60.0f;
+	[HideInInspector]
 	public float shotSpeed=1.0f;
+
 	public shipControl launcherShip;
+	public shotType type;
 
 	public void Spawn(shipControl launcherShip){
 		this.launcherShip=launcherShip;
+
+		life=PSParams.GameParameters.shot_life[(int)type];
+		damage=PSParams.GameParameters.shot_damage[(int)type];
+		shotSpeed=PSParams.GameParameters.shot_speed[(int)type];
 
 		Invoke("KillSelf",life);
 	}

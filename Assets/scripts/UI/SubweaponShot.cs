@@ -19,6 +19,9 @@ public class SubweaponShot : MonoBehaviour {
 	public virtual void Spawn(shipControl launcherShip){
 		this.launcherShip=launcherShip;
 
+		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
+		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];
+
 		if(life>0.0f)Invoke("KillTimer",life);
 	}
 	public virtual void Move(){
