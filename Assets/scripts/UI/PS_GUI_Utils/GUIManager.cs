@@ -219,7 +219,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		}
 	}
 	public void AbleAllGUI(){
-		guiCover.Cover();
+		guiCover.Uncover();
 	}
 
 	public SettingMenu settingMenu;
