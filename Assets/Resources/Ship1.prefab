@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db8778676538cc4abf88736ae3b2e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 114000011327715688}
+  photonView: {fileID: 0}
   MaxHP: 1500
   currentHP: 1500
   isDead: 0

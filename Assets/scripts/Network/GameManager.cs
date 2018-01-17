@@ -230,7 +230,8 @@ namespace PSPhoton {
 			//みんなが1回ずつ呼ぶので、ロード待ち受けに使える
 			loadedPlayers++;
 		}
-		public float itemSpawnTime=30.0f;
+
+		float itemSpawnTime=30.0f;
 		float repeatedTime=0.0f;
 		void Update () {
 			gameTime += Time.deltaTime;
@@ -299,6 +300,7 @@ namespace PSPhoton {
 
 			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
 
+			this.itemSpawnTime=SpawnItemRates.spawnRepeatRate;
 
 			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
 
