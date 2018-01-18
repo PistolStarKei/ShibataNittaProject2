@@ -29,7 +29,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	/// 近いshipをランダムで返します。shipは、マップに入っているものの中から、死んでいないものを返します。maxDistanceには、最大範囲を指定します。
 	/// </summary>
 	public shipControl GetRandomNearShip(float maxDistance){
-		return shipSearcher.GetNearestShip(maxDistance);
+		return shipSearcher.GetRandomNearShip(maxDistance);
 	}
 
 	[HideInInspector]
