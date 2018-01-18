@@ -6,12 +6,12 @@ public class MapDetecterTrigger : MonoBehaviour {
 
 	public List<shipControl> ships=new List<shipControl>();
 
-	public shipControl GetRandomNearShip(Vector3 pos,float maxDistance){
+	public shipControl GetRandomNearShip(float maxDistance){
 		if(ships.Count<=0)return null;
 
 		shipControl nearest=ships[0];
 
-		float dist=GetDistanceFromMe(nearest.transform.position,pos);
+		float dist=GetDistanceFromMe(nearest.transform.position,playerTrans.position);
 
 		if(ships.Count==1){
 			if(dist>maxDistance || nearest.isDead){
@@ -23,7 +23,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 			List<shipControl> shipsTemp=new List<shipControl>();
 
 			for(int i=1;i<ships.Count;i++){
-				dist=GetDistanceFromMe(ships[i].transform.position,pos);
+				dist=GetDistanceFromMe(ships[i].transform.position,playerTrans.position);
 				if(dist<maxDistance && !nearest.isDead){
 					shipsTemp.Add(ships[i]);
 				}
