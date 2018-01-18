@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011706066160}
   - 135: {fileID: 135000013012563614}
   - 54: {fileID: 54000013863141924}
-  - 114: {fileID: 114000013397427444}
+  - 114: {fileID: 114000010297518010}
   m_Layer: 10
   m_Name: SubWeapon_Zenhoukou
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &114000013397427444
+--- !u!114 &114000010297518010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -132,13 +132,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011654481700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c2809f40308d40e3950242674b531ce, type: 3}
+  m_Script: {fileID: 11500000, guid: e36b2bda269d048a79cd9ceec0c2906d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
   launcherShip: {fileID: 0}
   weponType: 6
+  needPrediction: 1
   shotSpeed: 2
 --- !u!135 &135000013012563614
 SphereCollider:

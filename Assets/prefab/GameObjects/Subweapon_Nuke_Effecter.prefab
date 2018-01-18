@@ -91,7 +91,7 @@ GameObject:
   - 135: {fileID: 135000013888929286}
   - 111: {fileID: 111000013182803670}
   - 54: {fileID: 54000013548262344}
-  - 114: {fileID: 114000014260691834}
+  - 114: {fileID: 114000013337194960}
   m_Layer: 10
   m_Name: Subweapon_Nuke_Effecter
   m_TagString: Untagged
@@ -299,7 +299,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114000014260691834
+--- !u!114 &114000013337194960
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013483305684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6afdcd8747184265b74823735048b09, type: 3}
+  m_Script: {fileID: 11500000, guid: fa841feeea34e40e59d80a34e481c56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100

@@ -38,9 +38,9 @@ GameObject:
   - 4: {fileID: 4000010595015552}
   - 33: {fileID: 33000012608855790}
   - 23: {fileID: 23000012015509402}
-  - 114: {fileID: 114000010379375652}
   - 65: {fileID: 65000010965587292}
   - 54: {fileID: 54000011316228324}
+  - 114: {fileID: 114000011224425552}
   m_Layer: 10
   m_Name: Subweapon_Napam
   m_TagString: Untagged
@@ -138,7 +138,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.028, y: 0.1, z: 0.15867871}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010379375652
+--- !u!114 &114000011224425552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,14 +146,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000014013712760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8864798703bb743bda413abb48af3012, type: 3}
+  m_Script: {fileID: 11500000, guid: b9f18b702f9ff484baa46cd48725290e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  life: 3
+  life: 60
   launcherShip: {fileID: 0}
   weponType: 0
-  shotSpeed: 2
+  needPrediction: 1
+  shotSpeed: 1
 --- !u!198 &198000012683154120
 ParticleSystem:
   m_ObjectHideFlags: 1

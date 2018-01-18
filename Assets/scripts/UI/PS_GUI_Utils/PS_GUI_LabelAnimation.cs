@@ -41,6 +41,7 @@ public class PS_GUI_LabelAnimation : MonoBehaviour {
 	}
 
 	public void SetNum(string str){
+		Debug.Log("SetNum "+str+" "+gameObject.name);
 		label.text=str;
 		LabelAnime();
 	}

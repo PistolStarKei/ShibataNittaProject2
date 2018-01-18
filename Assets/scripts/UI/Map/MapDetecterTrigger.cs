@@ -6,6 +6,46 @@ public class MapDetecterTrigger : MonoBehaviour {
 
 	public List<shipControl> ships=new List<shipControl>();
 
+	public shipControl GetRandomNearShip(Vector3 pos,float maxDistance){
+		if(ships.Count<=0)return null;
+
+		shipControl nearest=ships[0];
+
+		float dist=GetDistanceFromMe(nearest.transform.position,pos);
+
+		if(ships.Count==1){
+			if(dist>maxDistance || nearest.isDead){
+				return null;
+			}else{
+				return nearest;
+			}
+		}else{
+			List<shipControl> shipsTemp=new List<shipControl>();
+
+			for(int i=1;i<ships.Count;i++){
+				dist=GetDistanceFromMe(ships[i].transform.position,pos);
+				if(dist<maxDistance && !nearest.isDead){
+					shipsTemp.Add(ships[i]);
+				}
+			}
+			if(shipsTemp.Count<=0 || shipsTemp==null)
+			{
+				return null;
+			}else{
+				if(shipsTemp.Count==1){
+					nearest=shipsTemp[0];
+				}else{
+					nearest=shipsTemp[Random.Range(0,shipsTemp.Count)];
+				}
+			}
+
+		}
+
+		return nearest;
+
+	}
+
+
 	public shipControl GetNearestShip(Vector3 pos,float maxDistance){
 		if(ships.Count<=0)return null;
 		shipControl nearest=ships[0];

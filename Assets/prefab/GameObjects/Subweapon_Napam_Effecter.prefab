@@ -57,7 +57,7 @@ GameObject:
   - 135: {fileID: 135000012672639094}
   - 111: {fileID: 111000014075710840}
   - 54: {fileID: 54000011641741830}
-  - 114: {fileID: 114000011578398146}
+  - 114: {fileID: 114000013893559100}
   m_Layer: 10
   m_Name: Subweapon_Napam_Effecter
   m_TagString: Untagged
@@ -174,7 +174,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114000011578398146
+--- !u!114 &114000013893559100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013160509824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff0f4169aae54e5aa86abf7e4f4045f, type: 3}
+  m_Script: {fileID: 11500000, guid: 901148fac64a44c87b415bd42c52d0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100

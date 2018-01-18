@@ -14,7 +14,7 @@ public class shot : MonoBehaviour {
 	public shipControl launcherShip;
 	public shotType type;
 
-	float spawnTime=0.0f;
+	public float spawnTime=0.0f;
 	Vector3 spawnPos;
 	float ellapsedTime=0.0f;
 	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
@@ -43,11 +43,30 @@ public class shot : MonoBehaviour {
 		}
 		lastellapsedTime=ellapsedTime;
 
+	
+
 		Move();
 	}
 
+	Vector3 GetEllapsedPosition(Vector3 spawnAt,Vector3 vector,float ellapsedTime){
+		return spawnAt+vector*(ellapsedTime*shotSpeed);
+	}
+	Vector3 temp_normalPos;
+	Vector3 temp_VisiblePos;
+	float lerpRate = 2;
+	public bool needLerp=false;
 	void Move(){
-		transform.position=spawnPos+(transform.forward*(ellapsedTime*shotSpeed));
+		
+		if(needLerp && launcherShip	&& !launcherShip.isDead){
+			temp_normalPos=GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
+			temp_VisiblePos=GetEllapsedPosition(launcherShip.transform.position,launcherShip.transform.forward,ellapsedTime);
+			transform.position= Vector3.Lerp(temp_VisiblePos,temp_normalPos, ellapsedTime * lerpRate);
+		}else{
+			temp_normalPos=GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
+			transform.position= temp_normalPos;
+		}
+
+
 	}
 
 	float GetEllapsedTime(){
@@ -66,6 +85,12 @@ public class shot : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
+			
+			if(!launcherShip || launcherShip.isDead){
+				KillSelf();
+				return;
+			}
+
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
 
 			if(ship!=launcherShip){

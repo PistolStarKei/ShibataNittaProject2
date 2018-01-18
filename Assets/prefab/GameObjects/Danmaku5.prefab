@@ -139,6 +139,10 @@ MonoBehaviour:
   life: 60
   shotSpeed: 2
   launcherShip: {fileID: 0}
+  type: 4
+  spawnTime: 0
+  needPrediction: 1
+  needLerp: 0
 --- !u!135 &135000012290824806
 SphereCollider:
   m_ObjectHideFlags: 1

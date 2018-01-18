@@ -40,6 +40,10 @@ public class SubweaponShot : MonoBehaviour {
 
 	public virtual void OnCollideShip(shipControl ship,Vector3 hitpoint){
 		if(ship){
+			if(!launcherShip || launcherShip.isDead){
+				KillSelf();
+				return;
+			}
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				ship.OnHit(weponType,damage,hitpoint,launcherShip);
@@ -58,6 +62,8 @@ public class SubweaponShot : MonoBehaviour {
 	public bool needPrediction=true;
 	float lastellapsedTime=0.0f;
 	void Update(){
+
+
 		ellapsedTime=GetEllapsedTime();
 		if(ellapsedTime==lastellapsedTime){
 			if(needPrediction)ellapsedTime=ellapsedTime+Time.deltaTime;

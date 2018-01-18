@@ -25,6 +25,12 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public shipControl GetNearestShip(Vector3 pos,float maxDistance){
 		return shipSearcher.GetNearestShip(pos,maxDistance);
 	}
+	/// <summary>
+	/// 近いshipをランダムで返します。shipは、マップに入っているものの中から、死んでいないものを返します。posには、現在の発射したshipのポジションを、maxDistanceには、最大範囲を指定します。
+	/// </summary>
+	public shipControl GetRandomNearShip(Vector3 pos,float maxDistance){
+		return shipSearcher.GetNearestShip(pos,maxDistance);
+	}
 
 	[HideInInspector]
 	public shipControl shipControll;
@@ -172,7 +178,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	//TODO ローカライズする。
 	public PS_GUI_LabelAnimation killLAbel;
 	public void SetKills(int killNum){
-		zankiLAbel.SetNum(killNum.ToString());
+		Debug.Log("SetKills"+killNum);
+		killLAbel.SetNum(killNum.ToString());
 	}
 
 	/*

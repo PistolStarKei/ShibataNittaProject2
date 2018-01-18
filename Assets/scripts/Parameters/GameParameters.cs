@@ -12,12 +12,12 @@ namespace PSParams{
 		public static readonly float MaxHP=1500.0f;
 
 		//ショット
-		public static readonly float shotDulation=0.1f;
+		public static readonly float shotDulation=0.3f;
 		public static readonly float shotOffset=0.2f;
 		public static readonly float shotOffsetX=0.1f;
 
 		//スピード
-		public static readonly float maxSpeed = 5.0f;
+		public static readonly float maxSpeed = 1.0f;
 		public static readonly float speed = 0.01f;
 		#endregion
 
@@ -34,8 +34,8 @@ namespace PSParams{
 		#region normal shots
 		//通常弾の  WHITE BLUE YELLOW GREEN RED
 		public static readonly float[] shot_damage=new float[5]{100.0f,100.0f,100.0f,100.0f,100.0f};
-		public static readonly float[] shot_life=new float[5]{1.0f,1.0f,1.0f,1.0f,1.0f};
-		public static readonly float[] shot_speed=new float[5]{4.0f,4.0f,4.0f,4.0f,4.0f};
+		public static readonly float[] shot_life=new float[5]{5.0f,5.0f,5.0f,5.0f,5.0f};
+		public static readonly float[] shot_speed=new float[5]{2.0f,2.0f,4.0f,4.0f,4.0f};
 		#endregion
 
 		#region subweapons
