@@ -6265,16 +6265,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cover: {fileID: 513192051}
-  userName: {fileID: 0}
-  userTime: {fileID: 0}
-  userRank: {fileID: 0}
-  userKill: {fileID: 0}
-  userFlag: {fileID: 0}
-  listItem: {fileID: 0}
-  grid: {fileID: 0}
+  userName: {fileID: 379101603}
+  userTime: {fileID: 1642270815}
+  userRank: {fileID: 1097654496}
+  userKill: {fileID: 1834720801}
+  userFlag: {fileID: 1293067318}
+  listItem: {fileID: 1000011183553404, guid: 9fcfab421dc5f43919feec111f406ac3, type: 2}
+  grid: {fileID: 345836366}
   isShowing: 0
   ta_panel: {fileID: 940711355}
-  backButton: {fileID: 0}
+  backButton: {fileID: 1525600705}
 --- !u!114 &513192054
 MonoBehaviour:
   m_ObjectHideFlags: 0
