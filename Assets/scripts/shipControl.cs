@@ -147,6 +147,8 @@ public class shipControl : MonoBehaviour {
 	bool isShooting=false;
 
 	IEnumerator Shot(){
+		Debug.Log("ローカル発射コルーチン　"+this.playerData.userName);
+
 		while(true && !isDead){
 			if(currentUsing==Subweapon.YUDOU){
 				if(weaponNum%2==0){
@@ -217,8 +219,10 @@ public class shipControl : MonoBehaviour {
 				switch(shot_rensou){
 					case 1:
 						if(photonView){
+							
 							photonView.RPC ("RPC_SpawnShot", PhotonTargets.AllViaServer,new object[]{
 							this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
+							Debug.Log("ローカル発射コルーチン　1連　発射"+this.playerData.userName);
 						}else{
 							RPC_SpawnShot(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 						}
