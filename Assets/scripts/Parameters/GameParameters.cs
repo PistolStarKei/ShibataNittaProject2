@@ -34,7 +34,7 @@ namespace PSParams{
 		#region normal shots
 		//通常弾の  WHITE BLUE YELLOW GREEN RED
 		public static readonly float[] shot_damage=new float[5]{100.0f,100.0f,100.0f,100.0f,100.0f};
-		public static readonly float[] shot_life=new float[5]{20.0f,20.0f,20.0f,20.0f,20.0f};
+		public static readonly float[] shot_life=new float[5]{1.0f,1.0f,1.0f,1.0f,1.0f};
 		public static readonly float[] shot_speed=new float[5]{4.0f,4.0f,4.0f,4.0f,4.0f};
 		#endregion
 
