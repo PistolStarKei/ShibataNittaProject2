@@ -29,10 +29,22 @@ public class SubweaponEffecter : MonoBehaviour {
 
 	public virtual void OnShipEnter(shipControl ship){
 		if(ship){
+			if(!launcherShip){
+				KillSelf();
+				return;
+			}
+
+
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,launcherShip);
+				ship.OnHit(launcherShip,Subweapon.NONE,damage);
 
+				if(ship && !ship.isDead){
+
+					launcherShip.OnHitEnemy(ship,Subweapon.NONE,damage);
+
+				}
+				KillSelf();
 			}else{
 				//自機であった場合
 			}

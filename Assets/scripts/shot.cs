@@ -75,7 +75,7 @@ public class shot : MonoBehaviour {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 			
-			if(!launcherShip || launcherShip.isDead){
+			if(!launcherShip){
 				KillSelf();
 				return;
 			}
@@ -84,10 +84,14 @@ public class shot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				if(ship){
-					ship.OnHit(Subweapon.NONE,damage,launcherShip);
-					KillSelf();
+				ship.OnHit(launcherShip,Subweapon.NONE,damage);
+
+				if(ship && !ship.isDead){
+					
+					launcherShip.OnHitEnemy(ship,Subweapon.NONE,damage);
+
 				}
+				KillSelf();
 			}else{
 				//自機であった場合
 			}

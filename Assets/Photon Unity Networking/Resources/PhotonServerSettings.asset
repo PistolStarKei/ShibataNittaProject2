@@ -67,4 +67,6 @@ MonoBehaviour:
   - StealthMode
   - RPC_SpawnSubweapon_YudoudanLeft
   - RPC_SpawnSubweapon_YudoudanRight
+  - OnDead
+  - ScatterWeapons
   DisableAutoOpenWizard: 1

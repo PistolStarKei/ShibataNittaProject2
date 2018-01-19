@@ -41,15 +41,21 @@ public class SubweaponShot : MonoBehaviour {
 
 	public virtual void OnCollideShip(shipControl ship){
 		if(ship){
-			if(!launcherShip || launcherShip.isDead){
+			
+			if(!launcherShip){
 				KillSelf();
 				return;
 			}
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,launcherShip);
-				KillSelf();
+				ship.OnHit(launcherShip,Subweapon.NONE,damage);
 
+				if(ship && !ship.isDead){
+
+					launcherShip.OnHitEnemy(ship,Subweapon.NONE,damage);
+
+				}
+				KillSelf();
 			}else{
 				//自機であった場合
 			}

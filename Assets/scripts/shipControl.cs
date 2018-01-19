@@ -84,50 +84,40 @@ public class shipControl : MonoBehaviour {
 
 	#region On Dead
 	public bool isDead=false;
+	[PunRPC]
 	void OnDead(int killedBy){
+
+		if(isDead)return;
 		//ここで判定
 		if(usingLog)Debug.Log("OnDead  killed by"+PSPhoton.GameManager.instance.GetNameById(killedBy));
 
-		if(!isOwnersShip())return;
-
-			isDead=true;
-			isControllable=false;
-			
-			if(photonView){
-				photonView.RPC ("Dead", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),killedBy});
-			}else{
-				Dead(GUIManager.Instance.GetSubweaponInHolder(),killedBy);
-			}
-
-	}
-
-	[PunRPC]
-	public void Dead(int[] subweaponInHolder,int killer){
-
-		if(usingLog)Debug.Log("[RPC]Dead hold killer "+killer);
-
-		if(subweaponInHolder!=null){
-			//ウェポンをばらまく
-			ScatterWeapons(subweaponInHolder);
-		}
-		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
-
 		isDead=true;
 		isControllable=false;
-		gameObject.SetActive(false);
 
+		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
+		gameObject.SetActive(false);
 		if(photonView){
 			if(PSPhoton.GameManager.instance){
-				PSPhoton.GameManager.instance.OnPlayerDead(this,killer);
+				PSPhoton.GameManager.instance.OnPlayerDead(this,killedBy);
 			}
 
 		}
 
-	}
+		if(!isOwnersShip())return;
 
-	void ScatterWeapons(int[] subweaponInHolder){
+			if(photonView){
+				photonView.RPC ("ScatterWeapons", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder()});
+			}else{
+				ScatterWeapons(GUIManager.Instance.GetSubweaponInHolder());
+			}
+
+	}
+		
+	[PunRPC]
+	public void ScatterWeapons(int[] subweaponInHolder){
 		
 		Debug.LogWarning("ここでサブウェポンをばらまく");
+		if(subweaponInHolder==null)return;
 
 		for(int i=0;i<subweaponInHolder.Length;i++){
 			
@@ -592,37 +582,40 @@ public class shipControl : MonoBehaviour {
 	#region damage
 
 
+	//通常弾　サブウェポン食らった場合
+	public void OnHit(shipControl enemy,Subweapon type,float damage){
+		if(!isDead){
+
+			//音とエフェクトを出す
+			switch(type){
+				case Subweapon.NONE:
+					//通常弾
+					//AudioController.Play ("Explosion");
+					ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z),Quaternion.identity,null);
+					break;
+			}
 
 
-	//通常弾　サブウェポンに当てられた時　エフェクトだけを出す
-	public void OnHit(Subweapon type,float damage,shipControl launcher){
-		if(isDead)return;
-
-		if(usingLog)Debug.Log(playerData.userName+" が"+launcher.playerData.userName+" の"+type.ToString()+"に当たる ");
-
-
-		//実際は、音とエフェクトを出す
-		switch(type){
-			case Subweapon.NONE:
-				//通常弾
-				//AudioController.Play ("Explosion");
-			ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z),Quaternion.identity,null);
-				break;
 		}
-
-
-		if(launcher.isOwnersShip())launcher.Hit(this,type,damage);
 	}
 
+
 	//通常弾　サブウェポンを自分が当てた時
-	public void Hit(shipControl enemy,Subweapon type,float damage){
+	public void OnHitEnemy(shipControl enemy,Subweapon type,float damage){
+
+		if(usingLog)Debug.Log(playerData.userName+" が"+enemy.playerData.userName+" に"+type.ToString()+"を当てた！ ");
+
 		//当てたのが自機の場合のみの処理
-		if(isOwnersShip()){
+		if(isOwnersShip() && !isDead){
 			
 			if(usingLog)Debug.Log("当てたのは自分　"+enemy.playerData.userName+" にダメージを与えます");
 
 			if(enemy.photonView){
-				enemy.photonView.RPC ("TakeDamage", PhotonTargets.AllViaServer,new object[]{playerData.playerID,damage});
+				if(enemy.currentHP-damage<=0.0f){
+					enemy.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID});
+				}
+
+				enemy.photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
 			}else{
 				enemy.TakeDamage(playerData.playerID,damage);
 			}
@@ -641,11 +634,7 @@ public class shipControl : MonoBehaviour {
 
 		//これは、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
-			if(currentHP-damage<=0.0f){
-				GUIManager.Instance.Damage (damage, MaxHP);
-				OnDead(enemyID);
-				return;
-			}
+			
 
 			if(GUIManager.Instance.isDebugMode){
 				GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
