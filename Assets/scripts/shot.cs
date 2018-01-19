@@ -84,10 +84,8 @@ public class shot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-
 				if(ship){
-					ship.OnHit(Subweapon.NONE,damage,hitpoint,launcherShip);
+					ship.OnHit(Subweapon.NONE,damage,launcherShip);
 					KillSelf();
 				}
 			}else{

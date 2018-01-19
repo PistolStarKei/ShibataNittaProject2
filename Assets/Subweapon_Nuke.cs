@@ -19,7 +19,7 @@ public class Subweapon_Nuke : SubweaponShot {
 		KillSelf();
 	}
 
-	public  override void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public  override void OnCollideShip(shipControl ship){
 		if(ship){
 			if(ship!=launcherShip){
 				//発射した機体以外の場合

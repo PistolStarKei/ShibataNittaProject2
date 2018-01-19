@@ -13,8 +13,8 @@ public class Subweapon_Wave : SubweaponShot {
 		return spawnAt+vector*(ellapsedTime*shotSpeed);
 	}
 
-	public  override void OnCollideShip(shipControl ship,Vector3 hitpoint){
-		base.OnCollideShip(ship,hitpoint);
+	public  override void OnCollideShip(shipControl ship){
+		base.OnCollideShip(ship);
 	}
 
 	public override  void OnCollideWall(){

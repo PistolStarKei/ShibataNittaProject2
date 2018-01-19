@@ -78,11 +78,11 @@ public class Subweapon_Yudoudan : SubweaponShot {
 		KillSelf();
 	}
 
-	public  override void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public  override void OnCollideShip(shipControl ship){
 		if(ship){
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint,launcherShip);
+				ship.OnHit(weponType,damage,launcherShip);
 
 
 			}else{

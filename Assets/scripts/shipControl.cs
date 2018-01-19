@@ -84,9 +84,9 @@ public class shipControl : MonoBehaviour {
 
 	#region On Dead
 	public bool isDead=false;
-	void OnDead(shipControl killedBy){
+	void OnDead(int killedBy){
 		//ここで判定
-		if(usingLog)Debug.Log("OnDead  killed by"+killedBy.playerData.userName);
+		if(usingLog)Debug.Log("OnDead  killed by"+PSPhoton.GameManager.instance.GetNameById(killedBy));
 
 		if(!isOwnersShip())return;
 
@@ -94,9 +94,9 @@ public class shipControl : MonoBehaviour {
 			isControllable=false;
 			
 			if(photonView){
-				photonView.RPC ("Dead", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),killedBy.playerData.playerID});
+				photonView.RPC ("Dead", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),killedBy});
 			}else{
-				Dead(GUIManager.Instance.GetSubweaponInHolder(),killedBy.playerData.playerID);
+				Dead(GUIManager.Instance.GetSubweaponInHolder(),killedBy);
 			}
 
 	}
@@ -590,47 +590,63 @@ public class shipControl : MonoBehaviour {
 	#endregion
 
 	#region damage
-	//通常弾　サブウェポンからのダメージを受けた時
-	public void OnHit(Subweapon type,float damage,Vector3 hitPosition,shipControl launcher){
+
+
+
+
+	//通常弾　サブウェポンに当てられた時　エフェクトだけを出す
+	public void OnHit(Subweapon type,float damage,shipControl launcher){
 		if(isDead)return;
 
-		if(usingLog)Debug.Log(playerData.userName+" にダメージ "+damage);
+		if(usingLog)Debug.Log(playerData.userName+" が"+launcher.playerData.userName+" の"+type.ToString()+"に当たる ");
 
 
-		//実際は、音とエフェクトを出すだけ
+		//実際は、音とエフェクトを出す
 		switch(type){
 			case Subweapon.NONE:
 				//通常弾
 				//AudioController.Play ("Explosion");
-				ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(hitPosition.x,hitPosition.y+0.5f,hitPosition.z),Quaternion.identity,null);
+			ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z),Quaternion.identity,null);
 				break;
 		}
 
-		if(isOwnersShip()){
-			if(currentHP-damage<=0.0f){
-				GUIManager.Instance.Damage (damage, MaxHP);
-				OnDead(launcher);
-				return;
-			}
-			if(photonView){
-				photonView.RPC ("TakeDamage", PhotonTargets.AllViaServer,new object[]{damage});
-			}else{
-				TakeDamage(damage);
-			}
-		}
 
-
-
-
+		if(launcher.isOwnersShip())launcher.Hit(this,type,damage);
 	}
 
+	//通常弾　サブウェポンを自分が当てた時
+	public void Hit(shipControl enemy,Subweapon type,float damage){
+		//当てたのが自機の場合のみの処理
+		if(isOwnersShip()){
+			
+			if(usingLog)Debug.Log("当てたのは自分　"+enemy.playerData.userName+" にダメージを与えます");
+
+			if(enemy.photonView){
+				enemy.photonView.RPC ("TakeDamage", PhotonTargets.AllViaServer,new object[]{playerData.playerID,damage});
+			}else{
+				enemy.TakeDamage(playerData.playerID,damage);
+			}
+		}
+	}
+
+
+
+
 	[PunRPC]
-	public void TakeDamage(float damage){
+	public void TakeDamage(int enemyID,float damage){
+		
 		if(usingLog)Debug.Log("[RPC] TakeDamage"+playerData.userName+" にダメージ "+damage);
 
 		currentHP-=damage;
+
 		//これは、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
+			if(currentHP-damage<=0.0f){
+				GUIManager.Instance.Damage (damage, MaxHP);
+				OnDead(enemyID);
+				return;
+			}
+
 			if(GUIManager.Instance.isDebugMode){
 				GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
 			}

@@ -149,7 +149,7 @@ namespace PSPhoton {
 
 		int killNum=0;
 
-		string GetNameById(int id){
+		public string GetNameById(int id){
 			string name="";
 			foreach(shipControl ship in shipControllers){
 				if(id==ship.playerData.playerID){

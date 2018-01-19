@@ -39,7 +39,7 @@ public class SubweaponShot : MonoBehaviour {
 		KillSelf();
 	}
 
-	public virtual void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public virtual void OnCollideShip(shipControl ship){
 		if(ship){
 			if(!launcherShip || launcherShip.isDead){
 				KillSelf();
@@ -47,7 +47,7 @@ public class SubweaponShot : MonoBehaviour {
 			}
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint,launcherShip);
+				ship.OnHit(weponType,damage,launcherShip);
 				KillSelf();
 
 			}else{
@@ -96,8 +96,7 @@ public class SubweaponShot : MonoBehaviour {
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
 
-			Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-			OnCollideShip(ship,hitpoint);
+			OnCollideShip(ship);
 
 
 		}

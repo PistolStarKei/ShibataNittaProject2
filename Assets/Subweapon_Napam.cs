@@ -19,7 +19,7 @@ public class Subweapon_Napam : SubweaponShot {
 		KillSelf();
 	}
 
-	public  override void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public  override void OnCollideShip(shipControl ship){
 		if(ship){
 			if(!launcherShip || launcherShip.isDead){
 				KillSelf();
