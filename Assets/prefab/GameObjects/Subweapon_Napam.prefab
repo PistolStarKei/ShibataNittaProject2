@@ -154,7 +154,7 @@ MonoBehaviour:
   launcherShip: {fileID: 0}
   weponType: 0
   needPrediction: 1
-  shotSpeed: 1
+  shotSpeed: 2
 --- !u!198 &198000012683154120
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using PathologicalGames;
 
+public enum ShipOffset{Forward,ForwardRight,ForwardLeft,Right,Left,Back,BackLeft,BackRight};
 public class shipControl : MonoBehaviour {
 	
 	public struct PlayerData {
@@ -69,14 +70,17 @@ public class shipControl : MonoBehaviour {
 		if(!photonTransformView){
 			GUIManager.Instance.SetShipControll(this);
 			isControllable=true;
+			StartShooting();
 		}
 		isDead=false;
 
 		isShooting=true;
-		if(isOwnersShip())StartCoroutine(Shot());
 	}
 	#endregion
 
+	public void StartShooting(){
+		if(isOwnersShip())StartCoroutine(Shot());
+	}
 
 	#region On Dead
 	public bool isDead=false;
@@ -170,17 +174,17 @@ public class shipControl : MonoBehaviour {
 			if(currentUsing==Subweapon.YUDOU){
 				if(weaponNum%2==0){
 					if(photonView){
-						photonView.RPC ("RPC_SpawnSubweapon_Yudoudan", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ transform.right *0.1f,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+						photonView.RPC ("RPC_SpawnSubweapon_YudoudanRight", PhotonTargets.AllViaServer,new object[]{
+							this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 					}else{
-						RPC_SpawnSubweapon_Yudoudan(this.transform.position+ transform.right *0.1f,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+						RPC_SpawnSubweapon_YudoudanRight(this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 					}
 				}else{
 					if(photonView){
-						photonView.RPC ("RPC_SpawnSubweapon_Yudoudan", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position- transform.right *0.1f,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+						photonView.RPC ("RPC_SpawnSubweapon_YudoudanLeft", PhotonTargets.AllViaServer,new object[]{
+							this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 					}else{
-						RPC_SpawnSubweapon_Yudoudan(this.transform.position- transform.right *0.1f,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+						RPC_SpawnSubweapon_YudoudanLeft(this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 					}
 				}
 
@@ -193,9 +197,9 @@ public class shipControl : MonoBehaviour {
 			if(currentUsing==Subweapon.WAVE){
 				if(photonView){
 					photonView.RPC ("RPC_SpawnSubweapon_Wave", PhotonTargets.AllViaServer,new object[]{
-						this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+						this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 				}else{
-					RPC_SpawnSubweapon_Wave(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+					RPC_SpawnSubweapon_Wave(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 				}
 
 			}
@@ -203,28 +207,41 @@ public class shipControl : MonoBehaviour {
 			if(currentUsing==Subweapon.ZENHOUKOU){
 				Vector3[] pos=new Vector3[8];
 				Vector3[] rot=new Vector3[8];
-					pos[0]=this.transform.position+ transform.forward *shotOffset;
+				int[] offsets=new int[8];
+					pos[0]=this.transform.position+ GetShotOffset(ShipOffset.Forward);
 					rot[0]=this.transform.rotation.eulerAngles;
-					pos[1]=this.transform.position+ -transform.forward *shotOffset;
+					offsets[0]=(int)ShipOffset.Forward;
+					pos[1]=this.transform.position+ GetShotOffset(ShipOffset.Back);
 					rot[1]=Quaternion.LookRotation(-transform.forward,transform.up).eulerAngles;
-					pos[2]=this.transform.position+ (transform.right *shotOffsetX);
+					offsets[1]=(int)ShipOffset.Back;
+					pos[2]=this.transform.position+ GetShotOffset(ShipOffset.Right);
 					rot[2]=Quaternion.LookRotation(transform.right,transform.up).eulerAngles;
-					pos[3]=this.transform.position+ (-transform.right *shotOffsetX);
+					offsets[2]=(int)ShipOffset.Right;
+					pos[3]=this.transform.position+ GetShotOffset(ShipOffset.Left);
 					rot[3]=Quaternion.LookRotation(-transform.right,transform.up).eulerAngles;
-					pos[4]=this.transform.position+ (transform.forward *shotOffset)+ (-transform.right *shotOffsetX);
+					offsets[3]=(int)ShipOffset.Left;
+
+					pos[4]=this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft);
 					rot[4]=Quaternion.LookRotation(-transform.right+transform.forward,transform.up).eulerAngles;
-					pos[5]=this.transform.position+ (transform.forward *shotOffset)+ (transform.right *shotOffsetX);
+					offsets[4]=(int)ShipOffset.ForwardLeft;
+
+					pos[5]=this.transform.position+ GetShotOffset(ShipOffset.ForwardRight);
 					rot[5]=Quaternion.LookRotation(transform.right+transform.forward,transform.up).eulerAngles;
-					pos[6]=this.transform.position+ (-transform.forward *shotOffset)+ (transform.right *shotOffsetX);
+					offsets[5]=(int)ShipOffset.ForwardRight;
+
+					pos[6]=this.transform.position+ GetShotOffset(ShipOffset.BackRight);
 					rot[6]=Quaternion.LookRotation(transform.right-transform.forward,transform.up).eulerAngles;
-					pos[7]=this.transform.position+ (-transform.forward *shotOffset)+ (-transform.right *shotOffsetX);
+					offsets[6]=(int)ShipOffset.BackRight;
+
+					pos[7]=this.transform.position+ GetShotOffset(ShipOffset.BackLeft);
 					rot[7]=Quaternion.LookRotation(-transform.right-transform.forward,transform.up).eulerAngles;
+					offsets[7]=(int)ShipOffset.BackLeft;
 
 				if(photonView){
 					photonView.RPC ("RPC_SpawnSubweapon_Zenhoukou", PhotonTargets.AllViaServer,new object[]{
-						pos,rot,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+						pos,rot,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),offsets});
 				}else{
-					RPC_SpawnSubweapon_Zenhoukou(pos,rot,Time.realtimeSinceStartup);
+					RPC_SpawnSubweapon_Zenhoukou(pos,rot,Time.realtimeSinceStartup,offsets);
 				}
 
 			
@@ -238,27 +255,31 @@ public class shipControl : MonoBehaviour {
 						if(photonView){
 							
 							photonView.RPC ("RPC_SpawnShot", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+							this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 
 						}else{
-							RPC_SpawnShot(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+							RPC_SpawnShot(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 						}
 						
 						break;
 					case 2:
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotDouble", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+							this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),
+							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 						}else{
-							RPC_SpawnShotDouble(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+							RPC_SpawnShotDouble(this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),
+							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 						}
 						break;
 					case 3:
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotTripple", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
+							this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
+							,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime)});
 						}else{
-							RPC_SpawnShotTripple(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+						RPC_SpawnShotTripple(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
+							,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 						}
 						break;
 				}
@@ -272,15 +293,46 @@ public class shipControl : MonoBehaviour {
 	}
 
 
+	public Vector3 GetShotOffset(ShipOffset offset){
+		Vector3 off=Vector3.zero;
+		switch(offset){
+			case ShipOffset.Forward:
+				off=transform.forward *shotOffset;
+				break;
+			case ShipOffset.ForwardRight:
+				off=transform.forward *shotOffset+(transform.right *shotOffsetX);
+				break;
+			case ShipOffset.ForwardLeft:
+				off=transform.forward *shotOffset-(transform.right *shotOffsetX);
+				break;
+			case ShipOffset.Right:
+				off=transform.right *shotOffsetX;
+				break;
+			case ShipOffset.Left:
+				off=-transform.right *shotOffsetX;
+				break;
+			case ShipOffset.Back:
+				off=-transform.forward *shotOffset;
+				break;
+			case ShipOffset.BackRight:
+				off=-transform.forward *shotOffset+(transform.right *shotOffsetX);
+				break;
+			case ShipOffset.BackLeft:
+				off=-transform.forward *shotOffset-(transform.right *shotOffsetX);
+				break;
+		}
+		return off;
+	}
+
 
 
 	//ナパーム弾
 	public void ShotNapam(){
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Napam", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
+				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
 		}else{
-			RPC_Subweapon_Napam(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+			RPC_Subweapon_Napam(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 		}
 	}
 
@@ -289,57 +341,62 @@ public class shipControl : MonoBehaviour {
 
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Nuke", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
+				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
 		}else{
-			RPC_Subweapon_Nuke(this.transform.position+ transform.forward *shotOffset,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
+			RPC_Subweapon_Nuke(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 		}
 
 
 	}
 
-
+		[PunRPC]
+		public void RPC_SpawnSubweapon_YudoudanRight(Vector3 position,Vector3 rotation,float spawnTime){
+			PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Right);
+		}
+		[PunRPC]
+		public void RPC_SpawnSubweapon_YudoudanLeft(Vector3 position,Vector3 rotation,float spawnTime){
+			PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Left);
+		}
 		[PunRPC]
 		public void RPC_Subweapon_Napam(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Napam(this,position,Quaternion.Euler(rotation),spawnTime);
+			PickupAndWeaponManager.Instance.SpawnSubweapon_Napam(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
 		}
 		[PunRPC]
 		public void RPC_Subweapon_Nuke(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Nuke(this,position,Quaternion.Euler(rotation),spawnTime);
+			PickupAndWeaponManager.Instance.SpawnSubweapon_Nuke(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
 		}
 
 		[PunRPC]
 		public void RPC_SpawnShot(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime);
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
+		PickupAndWeaponManager.Instance.SpawnShot(this,DanmakuColor.Blue,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
 		}
 
 		[PunRPC]
-		public void RPC_SpawnShotDouble(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position+ (transform.right *shotOffsetX),Quaternion.Euler(rotation),spawnTime);
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position+ (-transform.right *shotOffsetX),Quaternion.Euler(rotation),spawnTime);
+		public void RPC_SpawnShotDouble(Vector3 position1,Vector3 position2,Vector3 rotation,float spawnTime){
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight);
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft);
 		}
 
 		[PunRPC]
-		public void RPC_SpawnShotTripple(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position+ (transform.right *shotOffsetX),Quaternion.Euler(rotation),spawnTime);
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position+ (-transform.right *shotOffsetX),Quaternion.Euler(rotation),spawnTime);
-			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime);
+		public void RPC_SpawnShotTripple(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime){
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight);
+			PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft);
 		}
 
-		[PunRPC]
-		public void RPC_SpawnSubweapon_Yudoudan(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime);
-		}
+		
 		[PunRPC]
 		public void RPC_SpawnSubweapon_Wave(Vector3 position,Vector3 rotation,float spawnTime){
-			PickupAndWeaponManager.Instance.SpawnSubweapon_Wave(this,position,Quaternion.Euler(rotation),spawnTime);
+		PickupAndWeaponManager.Instance.SpawnSubweapon_Wave(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward);
 		}
 		[PunRPC]
-		public void RPC_SpawnSubweapon_Zenhoukou(Vector3[] position,Vector3[] rotation,float spawnTime){
+	public void RPC_SpawnSubweapon_Zenhoukou(Vector3[] position,Vector3[] rotation,float spawnTime,int[] shipOffset){
 			if(position.Length!=rotation.Length){
 				Debug.LogError("全方向の配列の個数が違う");
 			}else{
 				for(int i=0;i<position.Length;i++){
-					PickupAndWeaponManager.Instance.SpawnSubweapon_Wave(this,position[i],Quaternion.Euler(rotation[i]),spawnTime);
+					PickupAndWeaponManager.Instance.SpawnSubweapon_Zenhoukou(this,position[i],Quaternion.Euler(rotation[i]),spawnTime,(ShipOffset)shipOffset[i]);
 				}
 			}
 		}
@@ -463,7 +520,7 @@ public class shipControl : MonoBehaviour {
 			weapontimer=10.0f;
 			stopShot=true;
 			//発射個数
-			weaponNum=3;
+			weaponNum=PSParams.GameParameters.yudoudanShots;
 			break;
 		case Subweapon.STEALTH:
 			GUIManager.Instance.SetShotTgl(false);

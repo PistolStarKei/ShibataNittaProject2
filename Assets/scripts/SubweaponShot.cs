@@ -20,12 +20,13 @@ public class SubweaponShot : MonoBehaviour {
 	internal Vector3 spawnPos;
 	internal float ellapsedTime=0.0f;
 
-	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
+	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
 		lastellapsedTime=0.0f;
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;
+		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
 
 		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
 		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];

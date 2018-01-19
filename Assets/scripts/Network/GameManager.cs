@@ -353,7 +353,7 @@ namespace PSPhoton {
 
 			//ここで操作系をEnableする
 			playerShip.isControllable=true;
-			//playerShip.StartShooting();
+			playerShip.StartShooting();
 
 			GUIManager.Instance.OnGameAwake();
 			GUIManager.Instance.OnGameStart();
