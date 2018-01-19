@@ -20,12 +20,13 @@ public class SubweaponShot : MonoBehaviour {
 	internal Vector3 spawnPos;
 	internal float ellapsedTime=0.0f;
 
-	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
+	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
 		lastellapsedTime=0.0f;
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;
+		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
 
 		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
 		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];
@@ -38,7 +39,7 @@ public class SubweaponShot : MonoBehaviour {
 		KillSelf();
 	}
 
-	public virtual void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public virtual void OnCollideShip(shipControl ship){
 		if(ship){
 			if(!launcherShip || launcherShip.isDead){
 				KillSelf();
@@ -46,7 +47,7 @@ public class SubweaponShot : MonoBehaviour {
 			}
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint,launcherShip);
+				ship.OnHit(weponType,damage,launcherShip);
 				KillSelf();
 
 			}else{
@@ -93,8 +94,7 @@ public class SubweaponShot : MonoBehaviour {
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
 
-			Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-			OnCollideShip(ship,hitpoint);
+			OnCollideShip(ship);
 
 
 		}

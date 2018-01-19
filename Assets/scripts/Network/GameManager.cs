@@ -149,7 +149,7 @@ namespace PSPhoton {
 
 		int killNum=0;
 
-		string GetNameById(int id){
+		public string GetNameById(int id){
 			string name="";
 			foreach(shipControl ship in shipControllers){
 				if(id==ship.playerData.playerID){
@@ -353,7 +353,7 @@ namespace PSPhoton {
 
 			//ここで操作系をEnableする
 			playerShip.isControllable=true;
-			//playerShip.StartShooting();
+			playerShip.StartShooting();
 
 			GUIManager.Instance.OnGameAwake();
 			GUIManager.Instance.OnGameStart();

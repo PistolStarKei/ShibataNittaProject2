@@ -17,8 +17,10 @@ public class shot : MonoBehaviour {
 	public float spawnTime=0.0f;
 	Vector3 spawnPos;
 	float ellapsedTime=0.0f;
-	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
+	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
 		this.launcherShip=launcherShip;
+
+		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
 
 		this.spawnTime=spawnTime;
 		this.spawnPos=spawnPos;
@@ -51,22 +53,9 @@ public class shot : MonoBehaviour {
 	Vector3 GetEllapsedPosition(Vector3 spawnAt,Vector3 vector,float ellapsedTime){
 		return spawnAt+vector*(ellapsedTime*shotSpeed);
 	}
-	Vector3 temp_normalPos;
-	Vector3 temp_VisiblePos;
-	float lerpRate = 2;
-	public bool needLerp=false;
+
 	void Move(){
-		
-		if(needLerp && launcherShip	&& !launcherShip.isDead){
-			temp_normalPos=GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
-			temp_VisiblePos=GetEllapsedPosition(launcherShip.transform.position,launcherShip.transform.forward,ellapsedTime);
-			transform.position= Vector3.Lerp(temp_VisiblePos,temp_normalPos, ellapsedTime * lerpRate);
-		}else{
-			temp_normalPos=GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
-			transform.position= temp_normalPos;
-		}
-
-
+			transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
 	}
 
 	float GetEllapsedTime(){
@@ -95,10 +84,8 @@ public class shot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-
 				if(ship){
-					ship.OnHit(Subweapon.NONE,damage,hitpoint,launcherShip);
+					ship.OnHit(Subweapon.NONE,damage,launcherShip);
 					KillSelf();
 				}
 			}else{

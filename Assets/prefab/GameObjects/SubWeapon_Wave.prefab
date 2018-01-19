@@ -140,7 +140,7 @@ MonoBehaviour:
   launcherShip: {fileID: 0}
   weponType: 4
   needPrediction: 1
-  shotSpeed: 1
+  shotSpeed: 2
 --- !u!135 &135000013299731898
 SphereCollider:
   m_ObjectHideFlags: 1

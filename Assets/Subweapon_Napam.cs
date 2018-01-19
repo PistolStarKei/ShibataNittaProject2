@@ -6,7 +6,11 @@ public class Subweapon_Napam : SubweaponShot {
 	public float shotSpeed=1.0f;
 	public override void Move(){
 		//transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
-		transform.position=spawnPos+(transform.forward*(ellapsedTime*shotSpeed));
+		transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
+	}
+
+	Vector3 GetEllapsedPosition(Vector3 spawnAt,Vector3 vector,float ellapsedTime){
+		return spawnAt+vector*(ellapsedTime*shotSpeed);
 	}
 
 	public override void KillTimer(){
@@ -15,7 +19,7 @@ public class Subweapon_Napam : SubweaponShot {
 		KillSelf();
 	}
 
-	public  override void OnCollideShip(shipControl ship,Vector3 hitpoint){
+	public  override void OnCollideShip(shipControl ship){
 		if(ship){
 			if(!launcherShip || launcherShip.isDead){
 				KillSelf();

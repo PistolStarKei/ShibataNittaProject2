@@ -8115,11 +8115,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cover: {fileID: 114000010190731688}
-  rankLb: {fileID: 114000010229022288}
-  killLb: {fileID: 114000011950823432}
+  userName: {fileID: 0}
+  userTime: {fileID: 0}
+  userRank: {fileID: 0}
+  userKill: {fileID: 0}
+  userFlag: {fileID: 0}
+  listItem: {fileID: 0}
+  grid: {fileID: 0}
   isShowing: 0
   ta_panel: {fileID: 114000012544696312}
-  tp_panel: {fileID: 114000011573206462}
+  backButton: {fileID: 0}
 --- !u!114 &114000012740950258
 MonoBehaviour:
   m_ObjectHideFlags: 1

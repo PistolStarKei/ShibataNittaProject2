@@ -8,11 +8,21 @@ namespace PSParams{
 
 		//Shipの値
 		#region shipControl
+		//デフォルトのチケットの個数
+		public static readonly int DefaultTicketsNum=3;
+		//次のチケット追加までの間隔　秒で
+		public static readonly float TimeForNextTicket=600.0f;
+		#endregion
+
+
+
+		//Shipの値
+		#region shipControl
 		//最大HP値
 		public static readonly float MaxHP=1500.0f;
 
 		//ショット
-		public static readonly float shotDulation=0.3f;
+		public static readonly float shotDulation=0.5f;
 		public static readonly float shotOffset=0.2f;
 		public static readonly float shotOffsetX=0.1f;
 
@@ -35,13 +45,16 @@ namespace PSParams{
 		//通常弾の  WHITE BLUE YELLOW GREEN RED
 		public static readonly float[] shot_damage=new float[5]{100.0f,100.0f,100.0f,100.0f,100.0f};
 		public static readonly float[] shot_life=new float[5]{5.0f,5.0f,5.0f,5.0f,5.0f};
-		public static readonly float[] shot_speed=new float[5]{2.0f,2.0f,4.0f,4.0f,4.0f};
+		public static readonly float[] shot_speed=new float[5]{2.0f,2.0f,2.0f,2.0f,2.0f};
 		#endregion
 
 		#region subweapons
-		//通常弾の  NAPAM NUKE RAZER STEALTH WAVE YUDOU ZENHOUKOU
+		//サブウェポンの  NAPAM NUKE RAZER STEALTH WAVE YUDOU ZENHOUKOU
 		public static readonly float[] sw_damage=new float[7]{100.0f,100.0f,100.0f,100.0f,100.0f,100.0f,100.0f};
 		public static readonly float[] sw_life=new float[7]{20.0f,20.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
+		//誘導弾の発射個数
+		public static readonly int yudoudanShots=3;
+
 		#endregion
 	}
 	public static class SpawnItemRates {

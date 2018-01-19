@@ -13,6 +13,9 @@ public class GameData{
 	public string username ="UNKNOWN";
 	public bool isConnectingRoom =false;
 	public string country ="";
+	public string lastTime ="";
+	public int gameTickets =0;
+	public float timeForNextTickets =0.0f;
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -37,7 +40,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		}
 
-		if(!ES2.Exists(filename+"?tag=country")){
+		if(!ES2.Exists(filename+"?tag=timeForNextTickets")){
 			
 			InitData();
 			LoadData();
@@ -55,6 +58,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.username=ES2.Load<string>(filename+"?tag=username");
 		gameData.isConnectingRoom=ES2.Load<bool>(filename+"?tag=isConnectingRoom");
 		gameData.country=ES2.Load<string>(filename+"?tag=country");
+		gameData.lastTime=ES2.Load<string>(filename+"?tag=lastTime");
+
+		gameData.gameTickets=ES2.Load<int>(filename+"?tag=gameTickets");
+		gameData.timeForNextTickets=ES2.Load<float>(filename+"?tag=timeForNextTickets");
+
 	}
 
 	public void SaveAll(){
@@ -65,7 +73,10 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(gameData.username,filename+"?tag=username");
 		ES2.Save(gameData.isConnectingRoom,filename+"?tag=isConnectingRoom");
 		ES2.Save(gameData.country,filename+"?tag=country");
+		ES2.Save(gameData.lastTime,filename+"?tag=lastTime");
 
+		ES2.Save(gameData.gameTickets,filename+"?tag=gameTickets");
+		ES2.Save(gameData.timeForNextTickets,filename+"?tag=timeForNextTickets");
 	}
 
 	private void DestroyAll(){
@@ -82,6 +93,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(false,filename+"?tag=isConnectingRoom");
 
 		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"?tag=country");
+		ES2.Save(TimeManager.GetCurrentTime(),filename+"?tag=lastTime");
+		ES2.Save(PSParams.GameParameters.DefaultTicketsNum,filename+"?tag=gameTickets");
+		ES2.Save(-1.0f,filename+"?tag=timeForNextTickets");
 	}
 		
 	private void DeleteAll(){
@@ -89,4 +103,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			ES2.DeleteDefaultFolder();
 		#endif
 	}
+	void OnApplicationQuit(){
+		DataManager.Instance.gameData.lastTime=TimeManager.GetCurrentTime();
+		DataManager.Instance.SaveAll();
+	}
+
 }

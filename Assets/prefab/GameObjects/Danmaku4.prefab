@@ -142,7 +142,6 @@ MonoBehaviour:
   type: 3
   spawnTime: 0
   needPrediction: 1
-  needLerp: 0
 --- !u!135 &135000014097824210
 SphereCollider:
   m_ObjectHideFlags: 1

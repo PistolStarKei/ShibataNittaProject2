@@ -65,4 +65,6 @@ MonoBehaviour:
   - RPC_Subweapon_Nuke
   - RazerMode
   - StealthMode
+  - RPC_SpawnSubweapon_YudoudanLeft
+  - RPC_SpawnSubweapon_YudoudanRight
   DisableAutoOpenWizard: 1

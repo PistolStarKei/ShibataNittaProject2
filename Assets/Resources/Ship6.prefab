@@ -304,20 +304,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db8778676538cc4abf88736ae3b2e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
   MaxHP: 1500
   currentHP: 1500
-  isDead: 0
+  usingLog: 1
   isControllable: 0
+  photonView: {fileID: 0}
+  isDead: 0
   shotDulation: 0.5
   shotOffset: 0.2
-  shotOffsetX: 0.1
+  shotOffsetX: 0.2
   shot_rensou: 1
   shotCol: 0
-  usingLog: 1
   stealthEffecter: {fileID: 114000010448981564}
   engine: {fileID: 1000010108843850}
   currentUsing: 7
+  isStealthMode: 0
   razerMaxdistance: 5
   maxSpeed: 1
   speed: 0.01

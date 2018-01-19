@@ -27,11 +27,11 @@ public class SubweaponEffecter : MonoBehaviour {
 		this.launcherShip=launcherShip;
 	}
 
-	public virtual void OnShipEnter(shipControl ship,Vector3 hitpoint){
+	public virtual void OnShipEnter(shipControl ship){
 		if(ship){
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(weponType,damage,hitpoint,launcherShip);
+				ship.OnHit(weponType,damage,launcherShip);
 
 			}else{
 				//自機であった場合
@@ -43,8 +43,7 @@ public class SubweaponEffecter : MonoBehaviour {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
-			Vector3 hitpoint=other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
-			OnShipEnter(ship,hitpoint);
+			OnShipEnter(ship);
 
 
 		}
