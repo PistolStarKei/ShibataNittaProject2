@@ -88,8 +88,6 @@ public class SubweaponShot : MonoBehaviour {
 		PoolManager.Pools["Weapons"].Despawn(gameObject.transform);
 	}
 
-
-
 	void OnTriggerEnter(Collider other) {
 
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){

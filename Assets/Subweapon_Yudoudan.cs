@@ -12,7 +12,6 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	Quaternion rotation;
 	public float serchingDistance=5.0f;
 
-
 	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos){
 		base.Spawn(launcherShip,spawnTime,spawnPos);
 		SearchTarget();
@@ -20,6 +19,18 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	void SearchTarget(){
 		//近い敵から候補を見つける
+
+		shipControl go = GUIManager.Instance.GetRandomNearShip (serchingDistance);
+
+		if (go != null) {
+			target = go.transform;
+		} else {
+			// いない場合は飛んでいくだけ
+
+
+		}
+
+		/*
 		GameObject[] go=GameObject.FindGameObjectsWithTag("Player");
 		target=null;
 		if(go.Length>0){
@@ -35,31 +46,26 @@ public class Subweapon_Yudoudan : SubweaponShot {
 				float cul=0.0f;
 
 				for(int i=1;i<go.Length;i++){
-							cul=GetDistanceFromMe(go[i].transform.position);
-							if(dist>cul){
-								dist=cul;
-								nearest=go[i];
-							}
-
-
-				}
-					if(dist<serchingDistance){
-						target=nearest.transform;
-					}else{
-						target=null;
+					cul=GetDistanceFromMe(go[i].transform.position);
+					if(dist>cul){
+						dist=cul;
+						nearest=go[i];
 					}
-					
+				}
+				if(dist<serchingDistance){
+					target=nearest.transform;
+				}else{
+					target=null;
+				}
 			}
-
 		}
-
+		*/
 	}
 
 	float GetDistanceFromMe(Vector3 pos){
 		return Vector3.Distance(transform.position,pos);
 	}
 	public override void Move(){
-		
 
 		if(target){
 			transform.Translate(Vector3.forward * Time.deltaTime * chasingSpeed);
@@ -67,9 +73,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
 		}else{
 			transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
-
 		}
-
 	}
 
 	public override void KillTimer(){
@@ -83,8 +87,6 @@ public class Subweapon_Yudoudan : SubweaponShot {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				ship.OnHit(weponType,damage,hitpoint,launcherShip);
-
-
 			}else{
 				//自機であった場合
 			}
@@ -94,8 +96,6 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public override  void OnCollideWall(){
 		ParticleManager.Instance.ShowExplosionSmallAt(transform.position,Quaternion.identity,null);
-
 		KillSelf();
-
 	}
 }

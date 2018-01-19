@@ -24,6 +24,7 @@ GameObject:
   - 65: {fileID: 65000014269227660}
   - 54: {fileID: 54000010334318766}
   - 114: {fileID: 114000011884935110}
+  - 96: {fileID: 96000013636663228}
   m_Layer: 10
   m_Name: Subweapon_Yudoudan
   m_TagString: Untagged
@@ -56,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1000010971750728}
   m_LocalRotation: {x: 0, y: 0.0056722895, z: 0, w: 0.9999839}
   m_LocalPosition: {x: 0, y: 0, z: 0.587}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011859756940}
@@ -138,6 +139,56 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.028, y: 0.1, z: 0.15867871}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!96 &96000013636663228
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010971750728}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3b0d9b2a38982334b97d73193df2fb80, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: 1
+  m_StartWidth: 0.05
+  m_EndWidth: 0.01
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 4294961121
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 4294949287
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 4294935395
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 13781543
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
 --- !u!114 &114000011884935110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,10 +205,10 @@ MonoBehaviour:
   launcherShip: {fileID: 0}
   weponType: 5
   needPrediction: 1
-  shotSpeed: 1
+  shotSpeed: 2
   target: {fileID: 0}
-  damping: 1
-  chasingSpeed: 2
+  damping: 3
+  chasingSpeed: 3
   serchingDistance: 5
 --- !u!198 &198000011545673530
 ParticleSystem:
