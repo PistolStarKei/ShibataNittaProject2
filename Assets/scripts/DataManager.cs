@@ -16,6 +16,7 @@ public class GameData{
 	public string lastTime ="";
 	public int gameTickets =0;
 	public float timeForNextTickets =0.0f;
+	public string userID ="";
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -40,7 +41,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		}
 
-		if(!ES2.Exists(filename+"?tag=timeForNextTickets")){
+		if(!ES2.Exists(filename+"?tag=userID")){
 			
 			InitData();
 			LoadData();
@@ -63,6 +64,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.gameTickets=ES2.Load<int>(filename+"?tag=gameTickets");
 		gameData.timeForNextTickets=ES2.Load<float>(filename+"?tag=timeForNextTickets");
 
+		gameData.userID=ES2.Load<string>(filename+"?tag=userID");
+
+
 	}
 
 	public void SaveAll(){
@@ -77,6 +81,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(gameData.gameTickets,filename+"?tag=gameTickets");
 		ES2.Save(gameData.timeForNextTickets,filename+"?tag=timeForNextTickets");
+		ES2.Save(gameData.userID,filename+"?tag=userID");
 	}
 
 	private void DestroyAll(){
@@ -96,6 +101,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(TimeManager.GetCurrentTime(),filename+"?tag=lastTime");
 		ES2.Save(PSParams.GameParameters.DefaultTicketsNum,filename+"?tag=gameTickets");
 		ES2.Save(-1.0f,filename+"?tag=timeForNextTickets");
+		ES2.Save(GetUUID (),filename+"?tag=userID");
 	}
 		
 	private void DeleteAll(){
@@ -108,4 +114,12 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		DataManager.Instance.SaveAll();
 	}
 
+	public static string GetUUID ()
+	{
+			// Global Unique IDentifier
+			System.Guid guid = System.Guid.NewGuid ();
+			string uuid = guid.ToString ().Replace("-", "");
+			Debug.Log (uuid);
+			return uuid;
+	}
 }

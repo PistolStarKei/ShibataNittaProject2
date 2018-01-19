@@ -12,6 +12,11 @@ public class ShipFollowHUD : FollowGUI {
 	}
 
 	public override void OverlayPosition(){
+		if(PSPhoton.GameManager.instance.playerShip.isDead){
+			Show(false);
+			return;
+		}
+
 		if(ship && ship.isDead){
 			//死亡したら表示しない
 			Show(false);

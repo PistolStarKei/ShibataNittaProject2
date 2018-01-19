@@ -29,6 +29,7 @@ namespace PSParams{
 		//スピード
 		public static readonly float maxSpeed = 1.0f;
 		public static readonly float speed = 0.01f;
+
 		#endregion
 
 		//回復の効果

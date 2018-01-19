@@ -44,6 +44,7 @@ public class shipControl : MonoBehaviour {
 		playerData=new PlayerData(name,countly,id);
 	}
 
+	public bool debugPlayership=false;
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
 		razerLine=GetComponent<LineRenderer>();
@@ -67,7 +68,7 @@ public class shipControl : MonoBehaviour {
 			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
 		}
 
-		if(!photonTransformView){
+		if(!photonTransformView && debugPlayership){
 			GUIManager.Instance.SetShipControll(this);
 			isControllable=true;
 			StartShooting();
@@ -606,7 +607,7 @@ public class shipControl : MonoBehaviour {
 		if(usingLog)Debug.Log(playerData.userName+" が"+enemy.playerData.userName+" に"+type.ToString()+"を当てた！ ");
 
 		//当てたのが自機の場合のみの処理
-		if(isOwnersShip() && !isDead){
+		if(isOwnersShip() && !enemy.isDead){
 			
 			if(usingLog)Debug.Log("当てたのは自分　"+enemy.playerData.userName+" にダメージを与えます");
 
