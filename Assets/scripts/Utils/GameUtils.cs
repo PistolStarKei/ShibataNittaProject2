@@ -7,6 +7,7 @@ namespace PSGameUtils{
 		public static float ConvertToFloat(float val){
 			if (float.IsPositiveInfinity(val))
 			{
+				Debug.LogWarning("Max Value");
 				val = float.MaxValue;
 			} else if (float.IsNegativeInfinity(val))
 			{

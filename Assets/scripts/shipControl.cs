@@ -73,6 +73,7 @@ public class shipControl : MonoBehaviour {
 			isControllable=true;
 			StartShooting();
 		}
+
 		isDead=false;
 
 		isShooting=true;
@@ -143,13 +144,16 @@ public class shipControl : MonoBehaviour {
 
 	double lastShotTime=0.0d;
 	double photonTime=0.0d;
+
+	double RTTExpectation=0.1d;
+
 	IEnumerator Shot(){
 		Debug.Log("ローカル発射コルーチン　"+this.playerData.userName);
 
 		while(true && !isDead){
 
 			if(photonView){
-				photonTime=PhotonNetwork.time;
+				photonTime=PhotonNetwork.time+RTTExpectation;
 				if(lastShotTime!=0.0f){
 					//shotCoroutineのdulationと合わせるため、時間を調整する。
 					//結果、shotで受け取った時に、実際よりも時間が進んでいる可能性がある。
@@ -161,6 +165,7 @@ public class shipControl : MonoBehaviour {
 					}
 				}
 			}
+
 
 			if(currentUsing==Subweapon.YUDOU){
 				if(weaponNum%2==0){
@@ -276,8 +281,7 @@ public class shipControl : MonoBehaviour {
 				}
 			}
 
-			lastShotTime=PhotonNetwork.time;
-
+			lastShotTime=PhotonNetwork.time+RTTExpectation;
 			yield return new WaitForSeconds(shotDulation);
 		}
 
@@ -321,7 +325,7 @@ public class shipControl : MonoBehaviour {
 	public void ShotNapam(){
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Napam", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
+				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation))});
 		}else{
 			RPC_Subweapon_Napam(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 		}
@@ -332,7 +336,7 @@ public class shipControl : MonoBehaviour {
 
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Nuke", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)PhotonNetwork.time)});
+				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation))});
 		}else{
 			RPC_Subweapon_Nuke(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup);
 		}

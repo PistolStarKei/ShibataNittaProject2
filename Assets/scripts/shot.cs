@@ -18,6 +18,7 @@ public class shot : MonoBehaviour {
 	Vector3 spawnPos;
 	float ellapsedTime=0.0f;
 	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
+		
 		this.launcherShip=launcherShip;
 
 		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
@@ -55,7 +56,7 @@ public class shot : MonoBehaviour {
 	}
 
 	void Move(){
-			transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
+		if(ellapsedTime>0.0f)transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
 	}
 
 	float GetEllapsedTime(){
