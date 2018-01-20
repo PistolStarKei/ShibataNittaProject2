@@ -13,8 +13,8 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	public float serchingDistance=5.0f;
 
 
-	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
-		base.Spawn(launcherShip,spawnTime,spawnPos,offset);
+	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
+		base.Spawn(launcherShip,spawnTime,spawnPos,offset,ID);
 		SearchTarget();
 	}
 

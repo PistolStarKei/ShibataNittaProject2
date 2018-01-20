@@ -8,19 +8,21 @@ public enum Subweapon{NAPAM,NUKE,RAZER,STEALTH,WAVE,YUDOU,ZENHOUKOU,NONE}
 [RequireComponent (typeof (Collider))]
 public class SubweaponShot : MonoBehaviour {
 
+	public float damage = 100.0f;
+	public float life = 60;
+
 	void Start(){
 		if(gameObject.layer!=LayerMask.NameToLayer("Shot"))gameObject.layer=LayerMask.NameToLayer("Shot");
 	}
-	public float damage = 100.0f;
-	public float life = 60;
+
 	public shipControl launcherShip;
 	public Subweapon weponType=Subweapon.NONE;
 
 	internal float spawnTime=0.0f;
 	internal Vector3 spawnPos;
 	internal float ellapsedTime=0.0f;
-
-	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
+	public string ID;
+	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
 		lastellapsedTime=0.0f;
@@ -62,7 +64,7 @@ public class SubweaponShot : MonoBehaviour {
 	}
 
 	public bool needPrediction=true;
-	float lastellapsedTime=0.0f;
+	internal float lastellapsedTime=0.0f;
 	void Update(){
 
 
@@ -95,7 +97,7 @@ public class SubweaponShot : MonoBehaviour {
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
 
-			OnCollideShip(ship);
+			if(ship)OnCollideShip(ship);
 
 
 		}

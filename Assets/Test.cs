@@ -3,23 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Test : MonoBehaviour {
+public class Test : SubweaponShot {
 
+	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
+		this.launcherShip=launcherShip;
+		this.ID=ID;
 
-	// Use this for initialization
-	void Update () {
-		
-		Debug.Log(""+Camera.main.WorldToViewportPoint(transform.position));
+		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
+		weponType=Subweapon.NONE;
+		this.spawnTime=spawnTime;
+		this.spawnPos=spawnPos;
+		ellapsedTime=0.0f;
+		lastellapsedTime=0.0f;
+		life=PSParams.GameParameters.shot_life[(int)weponType];
+		damage=PSParams.GameParameters.shot_damage[(int)weponType];
+		shotSpeed=PSParams.GameParameters.shot_speed[(int)weponType];
 	}
 
-	Vector3 vec;
-	bool IsInsideView(Vector3 position){
-		vec=Camera.main.WorldToViewportPoint(position);
-		if(vec.x<0.0f)return false;
-		if(vec.y<0.0f)return false;
-		if(vec.x>1.0f)return false;
-		if(vec.y>1.0f)return false;
-		return true;
+	public float shotSpeed=1.0f;
+	public override void Move(){
+		//transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
+		if(ellapsedTime>0.0f)transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
+	}
+
+	Vector3 GetEllapsedPosition(Vector3 spawnAt,Vector3 vector,float ellapsedTime){
+		return spawnAt+vector*(ellapsedTime*shotSpeed);
+	}
+
+	public  override void OnCollideShip(shipControl ship){
+		base.OnCollideShip(ship);
+	}
+
+	public override  void OnCollideWall(){
+		base.OnCollideWall();
 
 	}
 
