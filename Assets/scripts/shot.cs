@@ -85,14 +85,14 @@ public class shot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(launcherShip,Subweapon.NONE,damage);
-
-				if(ship && !ship.isDead){
-					
-					launcherShip.OnHitEnemy(ship,Subweapon.NONE,damage);
-
+				if(!ship.isDead){
+					ship.OnHit(launcherShip,Subweapon.NONE,damage);
+					KillSelf();
+				}else{
+					//死んだ機体の場合
 				}
-				KillSelf();
+
+
 			}else{
 				//自機であった場合
 			}

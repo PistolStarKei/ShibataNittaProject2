@@ -589,46 +589,38 @@ public class shipControl : MonoBehaviour {
 
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage){
-		if(!isDead){
+		
+		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！");
 
-			//音とエフェクトを出す
-			switch(type){
-				case Subweapon.NONE:
-					//通常弾
-					//AudioController.Play ("Explosion");
-					ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z),Quaternion.identity,null);
-					break;
-			}
+		if(isDead)return;
 
-
+		//音とエフェクトを出す
+		switch(type){
+			case Subweapon.NONE:
+				//通常弾
+				//AudioController.Play ("Explosion");
+				ParticleManager.Instance.ShowExplosionSmallAt(new Vector3(transform.position.x,transform.position.y+0.5f,transform.position.z),Quaternion.identity,null);
+				break;
 		}
-	}
 
+		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
+		if(isOwnersShip()){
 
-	//通常弾　サブウェポンを自分が当てた時
-	public void OnHitEnemy(shipControl enemy,Subweapon type,float damage){
-
-		if(usingLog)Debug.Log(playerData.userName+" が"+enemy.playerData.userName+" に"+type.ToString()+"を当てた！ ");
-
-		//当てたのが自機の場合のみの処理
-		if(isOwnersShip() && !enemy.isDead){
-			
-			if(usingLog)Debug.Log("当てたのは自分　"+enemy.playerData.userName+" にダメージを与えます");
-
-			if(enemy.photonView){
-				if(enemy.currentHP-damage<=0.0f){
-					enemy.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID});
+			if(photonView){
+				if(currentHP-damage<=0.0f){
+					photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID});
+				}else{
+					photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
 				}
 
-				enemy.photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
+
 			}else{
-				enemy.TakeDamage(playerData.playerID,damage);
+				TakeDamage(playerData.playerID,damage);
 			}
 		}
 	}
-
-
-
+		
 
 	[PunRPC]
 	public void TakeDamage(int enemyID,float damage){
@@ -637,7 +629,7 @@ public class shipControl : MonoBehaviour {
 
 		currentHP-=damage;
 
-		//これは、プレイヤーオブジェクトのみでやる
+		//HPバーの更新、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
 			
 
