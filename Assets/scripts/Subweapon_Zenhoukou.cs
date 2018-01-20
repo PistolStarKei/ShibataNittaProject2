@@ -14,6 +14,11 @@ public class Subweapon_Zenhoukou : SubweaponShot {
 		return spawnAt+vector*(ellapsedTime*shotSpeed);
 	}
 
+	public override void EffectAndDead(Vector3 effectPosition){
+		ParticleManager.Instance.ShowExplosionSmallAt(effectPosition,Quaternion.identity,this.transform);
+		KillSelf();
+	}
+
 	public  override void OnCollideShip(shipControl ship){
 		base.OnCollideShip(ship);
 	}

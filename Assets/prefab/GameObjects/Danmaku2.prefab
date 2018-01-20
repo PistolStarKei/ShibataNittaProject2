@@ -137,11 +137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
-  shotSpeed: 2
   launcherShip: {fileID: 0}
-  type: 1
-  spawnTime: 0
+  weponType: 7
+  ID: 
   needPrediction: 1
+  shotCol: 1
+  shotSpeed: 2
 --- !u!135 &135000011835831566
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -69,4 +69,5 @@ MonoBehaviour:
   - RPC_SpawnSubweapon_YudoudanRight
   - OnDead
   - ScatterWeapons
+  - RPCDestroyWeaponByID
   DisableAutoOpenWizard: 1

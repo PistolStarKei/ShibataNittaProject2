@@ -3,7 +3,7 @@ using System.Collections;
 using PathologicalGames;
 
 public class shot : SubweaponShot {
-
+	public DanmakuColor shotCol;
 	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
 		this.launcherShip=launcherShip;
 		this.ID=ID;
@@ -14,9 +14,15 @@ public class shot : SubweaponShot {
 		this.spawnPos=spawnPos;
 		ellapsedTime=0.0f;
 		lastellapsedTime=0.0f;
-		life=PSParams.GameParameters.shot_life[(int)weponType];
-		damage=PSParams.GameParameters.shot_damage[(int)weponType];
-		shotSpeed=PSParams.GameParameters.shot_speed[(int)weponType];
+		life=PSParams.GameParameters.shot_life[(int)shotCol];
+		damage=PSParams.GameParameters.shot_damage[(int)shotCol];
+		shotSpeed=PSParams.GameParameters.shot_speed[(int)shotCol];
+	}
+
+	public override void EffectAndDead(Vector3 effectPosition){
+
+		ParticleManager.Instance.ShowExplosionSmallAt(effectPosition,Quaternion.identity,this.transform);
+		KillSelf();
 	}
 
 	public float shotSpeed=1.0f;

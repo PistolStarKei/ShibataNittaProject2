@@ -16,20 +16,16 @@ public class Subweapon_Nuke : SubweaponShot {
 	public override void KillTimer(){
 		//爆破オブジェクトをスポーンして居なくなる
 		PickupAndWeaponManager.Instance.SpawnSubweapon_NukeEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		launcherShip.RemoveWeaponHolder(this);
 		KillSelf();
 	}
 
+	public override void EffectAndDead(Vector3 effectPosition){
+		KillTimer();
+	}
+
 	public  override void OnCollideShip(shipControl ship){
-		if(ship){
-			if(ship!=launcherShip){
-				//発射した機体以外の場合
-				KillTimer();
-
-
-			}else{
-				//自機であった場合
-			}
-		}
+		return;
 	}
 
 	public override  void OnCollideWall(){

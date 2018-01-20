@@ -15,25 +15,17 @@ public class Subweapon_Napam : SubweaponShot {
 
 	public override void KillTimer(){
 		//爆破オブジェクトをスポーンして居なくなる
-		if(launcherShip && !launcherShip.isDead)PickupAndWeaponManager.Instance.SpawnSubweapon_NapamEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		PickupAndWeaponManager.Instance.SpawnSubweapon_NapamEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		launcherShip.RemoveWeaponHolder(this);
 		KillSelf();
 	}
 
+	public override void EffectAndDead(Vector3 effectPosition){
+		KillTimer();
+	}
+
 	public  override void OnCollideShip(shipControl ship){
-		if(ship){
-			if(!launcherShip || launcherShip.isDead){
-				KillSelf();
-				return;
-			}
-			if(ship!=launcherShip){
-				//発射した機体以外の場合
-				KillTimer();
-
-
-			}else{
-				//自機であった場合
-			}
-		}
+		return;
 	}
 
 	public override  void OnCollideWall(){

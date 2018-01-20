@@ -37,6 +37,10 @@ public class SubweaponShot : MonoBehaviour {
 	public virtual void Move(){
 	}
 
+	public virtual void EffectAndDead(Vector3 effectPosition){
+
+	}
+
 	public virtual void KillTimer(){
 		KillSelf();
 	}
@@ -50,9 +54,8 @@ public class SubweaponShot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				if(!ship.isDead)ship.OnHit(launcherShip,Subweapon.NONE,damage);
+				if(!ship.isDead)ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
 
-				KillSelf();
 			}else{
 				//自機であった場合
 			}
@@ -89,6 +92,7 @@ public class SubweaponShot : MonoBehaviour {
 	}
 
 	public void KillSelf(){
+		launcherShip.RemoveWeaponHolder(this);
 		PoolManager.Pools["Weapons"].Despawn(gameObject.transform);
 	}
 

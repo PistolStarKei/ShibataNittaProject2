@@ -160,6 +160,16 @@ namespace PSPhoton {
 			}
 			return "";
 		}
+		public Vector3 GetShipPositionById(int id){
+			foreach(shipControl ship in shipControllers){
+				if(id==ship.playerData.playerID){
+					return ship.transform.position;
+					break;
+
+				}
+			}
+			return Vector3.zero;
+		}
 
 
 

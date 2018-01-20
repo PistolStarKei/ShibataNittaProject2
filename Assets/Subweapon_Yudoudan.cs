@@ -74,6 +74,11 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public override void KillTimer(){
 		//ここでエフェクトをだす
+		EffectAndDead(transform.position);
+	}
+
+	public override void EffectAndDead(Vector3 effectPosition){
+
 		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,null);
 		KillSelf();
 	}
@@ -88,8 +93,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				if(!ship.isDead){
-					ship.OnHit(launcherShip,Subweapon.NONE,damage);
-					KillSelf();
+					//ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
 				}else{
 					//死んだ機体の場合
 				}
@@ -101,9 +105,6 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	}
 
 	public override  void OnCollideWall(){
-		ParticleManager.Instance.ShowExplosionSmallAt(transform.position,Quaternion.identity,null);
-
-		KillSelf();
-
+		EffectAndDead(transform.position);
 	}
 }
