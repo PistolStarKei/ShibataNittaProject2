@@ -23,6 +23,7 @@ public class PS_GUI_InputValidater : MonoBehaviour {
 		}else{
 			Debug.Log("name saved");
 			DataManager.Instance.gameData.username=input.value;
+			PSPhoton.LobbyManager.instance.OnUserNameChanged(input.value);
 			DataManager.Instance.SaveAll();
 		}
 
