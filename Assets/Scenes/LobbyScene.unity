@@ -1340,7 +1340,7 @@ Transform:
   m_GameObject: {fileID: 118353396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.0017777778, y: 0.0017777778, z: 0.0017777778}
+  m_LocalScale: {x: 0.0014760147, y: 0.0014760147, z: 0.0014760147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2004210058}
@@ -11336,7 +11336,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 2061435691}
   mFG: {fileID: 506954110}
-  mValue: 0.024821376
+  mValue: 0.024821067
   mFill: 3
   numberOfSteps: 0
   onChange: []
@@ -11344,7 +11344,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: 0.4259565
+  mSize: 0.42595655
   mScroll: 0
   mDir: 2
 --- !u!4 &1030135984
@@ -13708,7 +13708,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1391297926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -562, z: 0}
+  m_LocalPosition: {x: 0, y: -678.0001, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -13771,7 +13771,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: 0.93709266
+  mSize: 0.93709254
   mScroll: 0
   mDir: 2
 --- !u!4 &1406161396
@@ -14981,7 +14981,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666273509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 45, z: 0}
+  m_LocalPosition: {x: 0, y: 53.999977, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -16952,7 +16952,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: checkTimeOnRoom
-      value: 2
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -16967,7 +16967,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
@@ -18672,14 +18672,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.10299523, g: 0.55036443, b: 0.9338235, a: 0.722}
   mPivot: 4
-  mWidth: 598
+  mWidth: 608
   mHeight: 50
   mDepth: 4
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 11.96
+  aspectRatio: 12.16
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
