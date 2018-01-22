@@ -16,11 +16,6 @@ public class PS_GUI_TimerSlider : MonoBehaviour {
 
 		sp.fillAmount=lastTime/maxTime;
 	}
-
-
-	public UILabel tittleLb;
-	public void SetTittle(string str){
-		tittleLb.text=str;
-	}
+		
 
 }

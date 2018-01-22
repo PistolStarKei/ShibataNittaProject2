@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: bg_1
     x: 0
-    y: 99
+    y: 1123
     width: 748
     height: 925
     borderLeft: 413
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 51
     paddingBottom: 48
   - name: bg_2
-    x: 749
-    y: 103
+    x: 0
+    y: 201
     width: 743
     height: 921
     borderLeft: 409
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 121
     paddingBottom: 54
   - name: bg_3
-    x: 1709
-    y: 302
+    x: 181
+    y: 50
     width: 185
     height: 150
     borderLeft: 46
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 53
     paddingBottom: 32
   - name: bg_waku
-    x: 1709
-    y: 141
+    x: 367
+    y: 40
     width: 167
     height: 160
     borderLeft: 53
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 44
     paddingBottom: 29
   - name: bg_waku2
-    x: 1946
-    y: 730
+    x: 635
+    y: 87
     width: 98
     height: 113
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 21
   - name: bg_waku3
-    x: 1846
-    y: 730
+    x: 535
+    y: 87
     width: 99
     height: 113
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 27
     paddingBottom: 20
   - name: bg_wakubold
-    x: 1493
-    y: 237
+    x: 1502
+    y: 1536
     width: 215
     height: 215
     borderLeft: 61
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 43
     paddingBottom: 31
   - name: bg_wakumid
-    x: 1493
-    y: 25
+    x: 1718
+    y: 1540
     width: 211
     height: 211
     borderLeft: 51
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 45
     paddingBottom: 33
   - name: btn_play
-    x: 1493
-    y: 453
+    x: 1378
+    y: 1774
     width: 274
     height: 274
     borderLeft: 0
@@ -171,21 +171,60 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 19
   - name: btn_play_cover
-    x: 1768
-    y: 467
+    x: 1653
+    y: 1788
     width: 259
     height: 260
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 38
-    paddingRight: 28
-    paddingTop: 54
+    paddingLeft: 44
+    paddingRight: 44
+    paddingTop: 44
     paddingBottom: 44
+  - name: btn_timer
+    x: 1261
+    y: 1511
+    width: 240
+    height: 240
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 39
+    paddingRight: 21
+    paddingTop: 22
+    paddingBottom: 15
+  - name: btn_timerbg
+    x: 1102
+    y: 1774
+    width: 275
+    height: 274
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 30
+    paddingRight: 35
+    paddingTop: 35
+    paddingBottom: 21
+  - name: circ
+    x: 749
+    y: 1495
+    width: 256
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 19
+    paddingTop: 41
+    paddingBottom: 25
   - name: close
-    x: 165
-    y: 54
+    x: 181
+    y: 5
     width: 46
     height: 44
     borderLeft: 0
@@ -196,9 +235,22 @@ MonoBehaviour:
     paddingRight: 43
     paddingTop: 54
     paddingBottom: 54
+  - name: HUD_Map
+    x: 1006
+    y: 1497
+    width: 254
+    height: 254
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 43
+    paddingTop: 61
+    paddingBottom: 45
   - name: indecater
-    x: 89
-    y: 24
+    x: 0
+    y: 4
     width: 38
     height: 15
     borderLeft: 0
@@ -210,8 +262,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 32
   - name: input_waku
-    x: 89
-    y: 40
+    x: 535
+    y: 28
     width: 75
     height: 58
     borderLeft: 23
@@ -223,8 +275,8 @@ MonoBehaviour:
     paddingTop: 52
     paddingBottom: 19
   - name: lobbyPlayBtn
-    x: 1493
-    y: 728
+    x: 749
+    y: 1752
     width: 352
     height: 296
     borderLeft: 0
@@ -236,8 +288,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 59
   - name: serverState
-    x: 0
-    y: 10
+    x: 1913
+    y: 1960
     width: 88
     height: 88
     borderLeft: 0
@@ -249,8 +301,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 16
   - name: serverstateicon
-    x: 128
-    y: 15
+    x: 228
+    y: 25
     width: 21
     height: 24
     borderLeft: 0
@@ -262,8 +314,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 16
   - name: white
-    x: 1846
-    y: 844
+    x: 0
+    y: 20
     width: 180
     height: 180
     borderLeft: 18

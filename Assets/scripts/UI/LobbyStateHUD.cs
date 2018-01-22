@@ -16,6 +16,7 @@ public class LobbyStateHUD : MonoBehaviour {
 
 	public GameObject PlayBtn;
 	public TweenRotation PlayBtnRot;
+	public GameObject TimerBtn;
 
 	string animeString="";
 	string animeString2="";
@@ -65,6 +66,8 @@ public class LobbyStateHUD : MonoBehaviour {
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
 				NGUITools.SetActive(PlayBtn,false);
+				NGUITools.SetActive(TimerBtn,false);
+				//timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
 				break;
 			case NetworkState.SERVERCONNECTED:
 				state1.color=normalC;
@@ -72,6 +75,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
 				NGUITools.SetActive(PlayBtn,false);
+				NGUITools.SetActive(TimerBtn,false);
 				break;
 			case NetworkState.LOBBYCONNECTED:
 				state1.color=normalC;
@@ -79,13 +83,15 @@ public class LobbyStateHUD : MonoBehaviour {
 				state3.color=normalC;
 				PlayBtnRot.enabled=true;
 				NGUITools.SetActive(PlayBtn,true);
+				NGUITools.SetActive(TimerBtn,false);
 				break;
 			case NetworkState.ROOMCONNECTED:
 				state1.color=normalC;
 				state2.color=normalC;
 				state3.color=normalC;
 				PlayBtnRot.enabled=false;
-				NGUITools.SetActive(PlayBtn,true);
+				NGUITools.SetActive(PlayBtn,false);
+				NGUITools.SetActive(TimerBtn,true);
 				break;
 		}
 

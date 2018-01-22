@@ -20,7 +20,6 @@ namespace PSPhoton {
 		public int playerTTL=60000;
 		public float checkTimeOnRoom;
 		public PS_GUI_TimerSlider timer;
-		public GameObject TimerBtn;
 
 		public bool useDebugLog=false;
 
@@ -323,13 +322,10 @@ namespace PSPhoton {
 				isMasterClient=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=true;
-				TimerBtn.SetActive(true);
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
-				timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
 			}else{
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=false;
-				TimerBtn.SetActive(false);
 			}
 		}
 
