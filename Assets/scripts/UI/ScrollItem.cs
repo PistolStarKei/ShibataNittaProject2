@@ -16,13 +16,13 @@ public class ScrollItem : MonoBehaviour {
 
 	public void SetState(bool isOn){
 		if(isOn){
-			if(!bgSp.enabled)return;
-			shipSp.alpha=selecter.enableAlpha;
-			bgSp.enabled=false;
-		}else{
 			if(bgSp.enabled)return;
-			shipSp.alpha=selecter.disbleAlpha;
+			shipSp.alpha=selecter.enableAlpha;
 			bgSp.enabled=true;
+		}else{
+			if(!bgSp.enabled)return;
+			shipSp.alpha=selecter.disbleAlpha;
+			bgSp.enabled=false;
 		}
 	}
 

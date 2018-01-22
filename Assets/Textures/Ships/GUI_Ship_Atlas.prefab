@@ -170,6 +170,19 @@ MonoBehaviour:
     paddingRight: 98
     paddingTop: 155
     paddingBottom: 67
+  - name: white
+    x: 1055
+    y: 257
+    width: 180
+    height: 180
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000013383196578}
+  m_IsPrefabParent: 1
+--- !u!1 &1000013383196578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013473426422}
+  - 114: {fileID: 114000014084083940}
+  m_Layer: 0
+  m_Name: New_UI_Space
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000013473426422
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013383196578}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000014084083940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013383196578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: e2ce8d1831a674425973f3cd83eb1245, type: 2}
+  mSprites:
+  - name: bg_1
+    x: 0
+    y: 99
+    width: 748
+    height: 925
+    borderLeft: 413
+    borderRight: 238
+    borderTop: 640
+    borderBottom: 114
+    paddingLeft: 98
+    paddingRight: 170
+    paddingTop: 51
+    paddingBottom: 48
+  - name: bg_2
+    x: 749
+    y: 103
+    width: 743
+    height: 921
+    borderLeft: 409
+    borderRight: 228
+    borderTop: 629
+    borderBottom: 113
+    paddingLeft: 119
+    paddingRight: 56
+    paddingTop: 121
+    paddingBottom: 54
+  - name: bg_3
+    x: 1493
+    y: 361
+    width: 185
+    height: 150
+    borderLeft: 46
+    borderRight: 44
+    borderTop: 40
+    borderBottom: 42
+    paddingLeft: 73
+    paddingRight: 72
+    paddingTop: 53
+    paddingBottom: 32
+  - name: bg_waku
+    x: 1493
+    y: 200
+    width: 167
+    height: 160
+    borderLeft: 53
+    borderRight: 53
+    borderTop: 53
+    borderBottom: 53
+    paddingLeft: 46
+    paddingRight: 39
+    paddingTop: 44
+    paddingBottom: 29
+  - name: bg_waku2
+    x: 1946
+    y: 730
+    width: 98
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 21
+    paddingRight: 23
+    paddingTop: 20
+    paddingBottom: 21
+  - name: bg_waku3
+    x: 1846
+    y: 730
+    width: 99
+    height: 113
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 51
+    paddingRight: 6
+    paddingTop: 27
+    paddingBottom: 20
+  - name: bg_wakubold
+    x: 1493
+    y: 512
+    width: 215
+    height: 215
+    borderLeft: 61
+    borderRight: 60
+    borderTop: 51
+    borderBottom: 56
+    paddingLeft: 79
+    paddingRight: 48
+    paddingTop: 43
+    paddingBottom: 31
+  - name: bg_wakumid
+    x: 1709
+    y: 516
+    width: 211
+    height: 211
+    borderLeft: 51
+    borderRight: 49
+    borderTop: 59
+    borderBottom: 56
+    paddingLeft: 81
+    paddingRight: 50
+    paddingTop: 45
+    paddingBottom: 33
+  - name: close
+    x: 165
+    y: 54
+    width: 46
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 51
+    paddingRight: 43
+    paddingTop: 54
+    paddingBottom: 54
+  - name: indecater
+    x: 89
+    y: 24
+    width: 38
+    height: 15
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 23
+    paddingTop: 36
+    paddingBottom: 32
+  - name: input_waku
+    x: 89
+    y: 40
+    width: 75
+    height: 58
+    borderLeft: 23
+    borderRight: 20
+    borderTop: 16
+    borderBottom: 14
+    paddingLeft: 43
+    paddingRight: 50
+    paddingTop: 52
+    paddingBottom: 19
+  - name: lobbyPlayBtn
+    x: 1493
+    y: 728
+    width: 352
+    height: 296
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 30
+    paddingRight: 30
+    paddingTop: 61
+    paddingBottom: 59
+  - name: serverState
+    x: 0
+    y: 10
+    width: 88
+    height: 88
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 17
+    paddingTop: 18
+    paddingBottom: 16
+  - name: serverstateicon
+    x: 128
+    y: 15
+    width: 21
+    height: 24
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 15
+    paddingRight: 14
+    paddingTop: 14
+    paddingBottom: 16
+  - name: white
+    x: 1846
+    y: 844
+    width: 180
+    height: 180
+    borderLeft: 18
+    borderRight: 27
+    borderTop: 20
+    borderBottom: 24
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+  mCoordinates: 0
+  sprites: []
