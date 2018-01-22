@@ -13,8 +13,8 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	public float serchingDistance=5.0f;
 
 
-	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset){
-		base.Spawn(launcherShip,spawnTime,spawnPos,offset);
+	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
+		base.Spawn(launcherShip,spawnTime,spawnPos,offset,ID);
 		SearchTarget();
 	}
 
@@ -74,6 +74,11 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public override void KillTimer(){
 		//ここでエフェクトをだす
+		EffectAndDead(transform.position);
+	}
+
+	public override void EffectAndDead(Vector3 effectPosition){
+
 		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,null);
 		KillSelf();
 	}
@@ -81,21 +86,17 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	public  override void OnCollideShip(shipControl ship){
 		if(ship){
 			if(!launcherShip){
-				KillSelf();
 				return;
 			}
 
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				ship.OnHit(launcherShip,Subweapon.NONE,damage);
-
-				if(ship && !ship.isDead){
-
-					launcherShip.OnHitEnemy(ship,Subweapon.NONE,damage);
-
+				if(!ship.isDead){
+					//ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
+				}else{
+					//死んだ機体の場合
 				}
-				KillSelf();
 			}else{
 				//自機であった場合
 			}
@@ -104,9 +105,6 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	}
 
 	public override  void OnCollideWall(){
-		ParticleManager.Instance.ShowExplosionSmallAt(transform.position,Quaternion.identity,null);
-
-		KillSelf();
-
+		EffectAndDead(transform.position);
 	}
 }

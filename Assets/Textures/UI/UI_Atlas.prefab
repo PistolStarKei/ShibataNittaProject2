@@ -786,10 +786,10 @@ MonoBehaviour:
     y: 124
     width: 101
     height: 101
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 32
+    borderRight: 31
+    borderTop: 34
+    borderBottom: 35
     paddingLeft: 2
     paddingRight: 2
     paddingTop: 2

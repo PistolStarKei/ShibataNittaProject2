@@ -13,9 +13,9 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 	public GameObject[] danmaku;
 
 	public GameObject subweaponYudoudan_Prefab;
-	public Transform SpawnSubweapon_Yudoudan(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnSubweapon_Yudoudan(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 		Transform trans=Spawn(subweaponYudoudan_Prefab,position,qt,null);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset);
+		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 
 	}
@@ -31,9 +31,9 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 
 
 	public GameObject subweaponNuke_Prefab;
-	public Transform SpawnSubweapon_Nuke(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnSubweapon_Nuke(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 		Transform trans=Spawn(subweaponNuke_Prefab,position,qt,null);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset);
+		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 
 	}
@@ -49,25 +49,25 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 
 
 	public GameObject subweaponNapam_Prefab;
-	public Transform SpawnSubweapon_Napam(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnSubweapon_Napam(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 		Transform trans=Spawn(subweaponNapam_Prefab,position,qt,null);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset);
+		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 
 	}
 
 	public GameObject subweaponZenhoukou_Prefab;
-	public Transform SpawnSubweapon_Zenhoukou(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnSubweapon_Zenhoukou(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 		Transform trans=Spawn(subweaponZenhoukou_Prefab,position,qt,null);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset);
+		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 
 	}
 
 	public GameObject subweaponWave_Prefab;
-	public Transform SpawnSubweapon_Wave(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnSubweapon_Wave(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 		Transform trans=Spawn(subweaponWave_Prefab,position,qt,null);
-		if(ship)trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset);
+		if(ship)trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 
 	}
@@ -76,10 +76,10 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 		return Spawn(pu_prefabs[(int)putype],position,qt,parent);
 	}
 
-	public Transform SpawnShot(shipControl ship,DanmakuColor col,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset){
+	public Transform SpawnShot(shipControl ship,DanmakuColor col,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
 
 		Transform trans=Spawn(danmaku[(int)col],position,qt,null);
-		if(ship)trans.gameObject.GetComponent<shot>().Spawn(ship,spawnTime,position,offset);
+		if(ship)trans.gameObject.GetComponent<shot>().Spawn(ship,spawnTime,position,offset,ID);
 		return trans;
 	}
 

@@ -8120,8 +8120,6 @@ MonoBehaviour:
   userRank: {fileID: 0}
   userKill: {fileID: 0}
   userFlag: {fileID: 0}
-  listItem: {fileID: 0}
-  grid: {fileID: 0}
   isShowing: 0
   ta_panel: {fileID: 114000012544696312}
   backButton: {fileID: 0}

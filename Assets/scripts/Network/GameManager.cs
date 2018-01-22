@@ -74,17 +74,20 @@ namespace PSPhoton {
 		}
 
 		void SpawnPUInvoke(int pu,Vector3 position){
+
+			PhotonNetwork.InstantiateSceneObject("PU" + pu, position, Quaternion.identity,0,null);
+			/*
 			object[] args = new object[]{
 				pu,
 				position
 			};
-			photonView.RPC ("SpawnPUAt", PhotonTargets.AllBufferedViaServer,args);
+			photonView.RPC ("SpawnPUAt", PhotonTargets.AllBufferedViaServer,args);*/
 		}
 
-		[PunRPC]
+		/*[PunRPC]
 		void SpawnPUAt(int pu,Vector3 position){
 			PickupAndWeaponManager.Instance.SpawnPickUpItem((Pickup)pu,position,Quaternion.identity,null);
-		}
+		}*/
 
 		void OnItemSpawnUpdate(){
 			if(gameTime>PSParams.SpawnItemRates.spawnTimeStart_Rate_Kaifuku && gameTime<PSParams.SpawnItemRates.spawnTimeEnd_Rate_Kaifuku){
@@ -160,6 +163,16 @@ namespace PSPhoton {
 			}
 			return "";
 		}
+		public Vector3 GetShipPositionById(int id){
+			foreach(shipControl ship in shipControllers){
+				if(id==ship.playerData.playerID){
+					return ship.transform.position;
+					break;
+
+				}
+			}
+			return Vector3.zero;
+		}
 
 
 
@@ -215,7 +228,7 @@ namespace PSPhoton {
 			GUIManager.Instance.SetZanki((shipControllers.Count-deadShips.Count)+"/"+shipControllers.Count);
 		}
 
-		shipControl playerShip;
+		public shipControl playerShip;
 
 		void Awake(){
 			instance=this;
@@ -254,7 +267,7 @@ namespace PSPhoton {
 
 			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber, spawn.position, spawn.rotation, 0);
 			playerShip=go.GetComponent<shipControl>();
-			playerShip.InitPlayerData(PhotonNetwork.player.NickName,(string)PhotonNetwork.player.CustomProperties["countly"],PhotonNetwork.player.ID);
+			playerShip.InitPlayerData((string)PhotonNetwork.player.CustomProperties["userName"],(string)PhotonNetwork.player.CustomProperties["countly"],PhotonNetwork.player.ID);
 			GUIManager.Instance.SetShipControll(playerShip);
 		}
 
@@ -369,7 +382,9 @@ namespace PSPhoton {
 		}
 
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
-			Debug.Log (disconnetedPlayer.NickName + " disconnected...");
+			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
+
+
 
 			/*shipControl toRemove = null;
 			foreach (shipControl rc in carControllers) {

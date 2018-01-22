@@ -20,6 +20,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		resultMenu.ShowResult(time,killNum,deadShips,ships,playerShip);
 	}
 
+
 	MapDetecterTrigger shipSearcher;
 
 	public shipControl GetNearestShip(Vector3 pos,float maxDistance){

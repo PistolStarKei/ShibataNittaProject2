@@ -20,8 +20,6 @@ namespace PSPhoton {
 		public int playerTTL=60000;
 		public float checkTimeOnRoom;
 		public PS_GUI_TimerSlider timer;
-		public GameObject TimerBtn;
-		public GameObject PlayBtn;
 
 		public bool useDebugLog=false;
 
@@ -35,6 +33,7 @@ namespace PSPhoton {
 
 		public PS_GUI_InputValidater nameInput;
 		// Use this for initialization
+
 
 
 
@@ -52,11 +51,13 @@ namespace PSPhoton {
 				
 				Debug.LogWarning("コネクト済");
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
+				JoinLobby();
 				return;
 			}
 
 			ConnectToPUN();
 		}
+
 
 
 		public override void OnReceivedRoomListUpdate () {
@@ -76,7 +77,7 @@ namespace PSPhoton {
 
 		//ニックネームを入力してからでは
 		public void ConnectToPUN(){
-			PhotonNetwork.player.NickName = DataManager.Instance.gameData.username;
+			PhotonNetwork.player.NickName = DataManager.Instance.gameData.userID;
 
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "サーバに接続中" :"Connecting Server");
 			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
@@ -200,18 +201,21 @@ namespace PSPhoton {
 			_timerFlag=0.0f;
 			_timerFrequency=0.0f;
 
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1);
+			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 
 		}
 		// If master client, for every newly connected player, sets the custom properties for him
 		// car = 0, position = last (size of player list)
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer) {
-			if(useDebugLog)Debug.Log("OnPhotonPlayerConnected "+newPlayer.NickName);
+			if(useDebugLog)Debug.Log("OnPhotonPlayerConnected "+(string)newPlayer.CustomProperties["userName"]);
 			/*if (PhotonNetwork.isMasterClient) {
 				SetCustomProperties (newPlayer, 0,"JP", PhotonNetwork.playerList.Length - 1);
 				//photonView.RPC("UpdateTrack", PhotonTargets.All, trackIndex);
 			}*/
-			info.Log(Application.systemLanguage == SystemLanguage.Japanese? newPlayer.NickName+"が参戦決定しました" :newPlayer.NickName+" joins this battle");
+
+
+
+			info.Log(Application.systemLanguage == SystemLanguage.Japanese? (string)newPlayer.CustomProperties["userName"]+"が参戦決定しました" :(string)newPlayer.CustomProperties["userName"]+" joins this battle");
 		}
 
 		public override void OnMasterClientSwitched (PhotonPlayer newMasterClient)
@@ -224,22 +228,22 @@ namespace PSPhoton {
 		}
 		// when a player disconnects from the room, update the spawn/position order for all
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
-			if(useDebugLog)Debug.Log("OnPhotonPlayerDisconnected "+disconnetedPlayer.NickName);
+			if(useDebugLog)Debug.Log("OnPhotonPlayerDisconnected "+(string)disconnetedPlayer.CustomProperties["userName"]);
 			if (PhotonNetwork.isMasterClient) {
 				int playerIndex = 0;
 				foreach (PhotonPlayer p in PhotonNetwork.playerList) {
-					SetCustomProperties(p, (int) p.CustomProperties["shipBase"],(string)p.CustomProperties["countly"], playerIndex++);
+					SetCustomProperties(p, (int) p.CustomProperties["shipBase"],(string)p.CustomProperties["countly"], playerIndex++,(string)p.CustomProperties["userName"]);
 				}
 			}
 
-			info.Log(Application.systemLanguage == SystemLanguage.Japanese? disconnetedPlayer.NickName+"が撤退しました" :disconnetedPlayer.NickName+" leaves this battle");
+			info.Log(Application.systemLanguage == SystemLanguage.Japanese? (string)disconnetedPlayer.CustomProperties["userName"]+"が撤退しました" :(string)disconnetedPlayer.CustomProperties["userName"]+" leaves this battle");
 
 		}
 
 		// sets and syncs custom properties on a network player (including masterClient)
-		private void SetCustomProperties(PhotonPlayer player, int ship,string countly, int position) {
-			if(useDebugLog)Debug.Log("SetCustomProperties "+player.NickName+" ship" + ship+" "+countly+" poisition "+position);
-			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship} };
+		private void SetCustomProperties(PhotonPlayer player, int ship,string countly, int position,string name) {
+			if(useDebugLog)Debug.Log("SetCustomProperties "+name+" ship" + ship+" "+countly+" poisition "+position);
+			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship},{"userName", name} };
 			player.SetCustomProperties(customProperties);
 		}
 
@@ -263,11 +267,11 @@ namespace PSPhoton {
 					lobbyList.ClearList();
 
 
-					if (p.CustomProperties.ContainsKey("countly")) {
-						lobbyList.AddList(p.NickName.Trim(),i,(string) p.CustomProperties["countly"]);
+					if (p.CustomProperties.ContainsKey("userName") && p.CustomProperties.ContainsKey("countly")) {
+						lobbyList.AddList((string)p.CustomProperties["userName"],i,(string) p.CustomProperties["countly"]);
 
 					}else{
-						lobbyList.AddList(p.NickName.Trim(),i,"UN");
+						lobbyList.AddList("",i,"UN");
 					}
 
 					i++;
@@ -297,7 +301,7 @@ namespace PSPhoton {
 		{
 			if(useDebugLog)Debug.Log("OnJoindRoom successed");
 			stateHUD.SetStateHUD(NetworkState.ROOMCONNECTED);
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1);
+			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 			base.OnJoinedRoom ();
 		}
 
@@ -318,29 +322,28 @@ namespace PSPhoton {
 				isMasterClient=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=true;
-				stateHUD.PlayBtnRot.enabled=false;
-				PlayBtn.SetActive(false);
-				TimerBtn.SetActive(true);
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
-				timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
 			}else{
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=false;
-				stateHUD.PlayBtnRot.enabled=true;
-				PlayBtn.SetActive(true);
-				TimerBtn.SetActive(false);
 			}
 		}
 
 
 
 		public void OnShipChanged(int num){
-			Debug.Log("On Ship Chnaged 1 "+num);
 			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
-				Debug.Log("On Ship Chnaged 2 "+num);
 				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
-					Debug.Log("On Ship Chnaged 3"+num);
-					SetCustomProperties(PhotonNetwork.player, num,(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"]);
+					SetCustomProperties(PhotonNetwork.player, num,(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"],(string)PhotonNetwork.player.CustomProperties["userName"]);
+				}
+			}
+
+		}
+
+		public void OnUserNameChanged(string name){
+			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
+					SetCustomProperties(PhotonNetwork.player, (int)PhotonNetwork.player.CustomProperties["shipBase"],(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"],name);
 				}
 			}
 
