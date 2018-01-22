@@ -21,7 +21,6 @@ namespace PSPhoton {
 		public float checkTimeOnRoom;
 		public PS_GUI_TimerSlider timer;
 		public GameObject TimerBtn;
-		public GameObject PlayBtn;
 
 		public bool useDebugLog=false;
 
@@ -324,16 +323,12 @@ namespace PSPhoton {
 				isMasterClient=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=true;
-				stateHUD.PlayBtnRot.enabled=false;
-				PlayBtn.SetActive(false);
 				TimerBtn.SetActive(true);
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
 				timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
 			}else{
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=false;
-				stateHUD.PlayBtnRot.enabled=true;
-				PlayBtn.SetActive(true);
 				TimerBtn.SetActive(false);
 			}
 		}

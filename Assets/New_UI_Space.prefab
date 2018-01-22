@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 121
     paddingBottom: 54
   - name: bg_3
-    x: 1493
-    y: 361
+    x: 1709
+    y: 302
     width: 185
     height: 150
     borderLeft: 46
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 53
     paddingBottom: 32
   - name: bg_waku
-    x: 1493
-    y: 200
+    x: 1709
+    y: 141
     width: 167
     height: 160
     borderLeft: 53
@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 20
   - name: bg_wakubold
     x: 1493
-    y: 512
+    y: 237
     width: 215
     height: 215
     borderLeft: 61
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 43
     paddingBottom: 31
   - name: bg_wakumid
-    x: 1709
-    y: 516
+    x: 1493
+    y: 25
     width: 211
     height: 211
     borderLeft: 51
@@ -157,6 +157,32 @@ MonoBehaviour:
     paddingRight: 50
     paddingTop: 45
     paddingBottom: 33
+  - name: btn_play
+    x: 1493
+    y: 453
+    width: 274
+    height: 274
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 18
+    paddingRight: 29
+    paddingTop: 41
+    paddingBottom: 19
+  - name: btn_play_cover
+    x: 1768
+    y: 467
+    width: 259
+    height: 260
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 38
+    paddingRight: 28
+    paddingTop: 54
+    paddingBottom: 44
   - name: close
     x: 165
     y: 54

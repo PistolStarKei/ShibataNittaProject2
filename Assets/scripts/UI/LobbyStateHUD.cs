@@ -14,7 +14,7 @@ public class LobbyStateHUD : MonoBehaviour {
 	public Color normalC;
 	public Color abnormalC;
 
-
+	public GameObject PlayBtn;
 	public TweenRotation PlayBtnRot;
 
 	string animeString="";
@@ -64,24 +64,28 @@ public class LobbyStateHUD : MonoBehaviour {
 				state2.color=abnormalC;
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
+				NGUITools.SetActive(PlayBtn,false);
 				break;
 			case NetworkState.SERVERCONNECTED:
 				state1.color=normalC;
 				state2.color=normalC;
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
+				NGUITools.SetActive(PlayBtn,false);
 				break;
 			case NetworkState.LOBBYCONNECTED:
 				state1.color=normalC;
 				state2.color=normalC;
 				state3.color=normalC;
 				PlayBtnRot.enabled=true;
+				NGUITools.SetActive(PlayBtn,true);
 				break;
 			case NetworkState.ROOMCONNECTED:
 				state1.color=normalC;
 				state2.color=normalC;
 				state3.color=normalC;
 				PlayBtnRot.enabled=false;
+				NGUITools.SetActive(PlayBtn,true);
 				break;
 		}
 
