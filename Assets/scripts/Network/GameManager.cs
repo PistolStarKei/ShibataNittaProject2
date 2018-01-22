@@ -74,17 +74,20 @@ namespace PSPhoton {
 		}
 
 		void SpawnPUInvoke(int pu,Vector3 position){
+
+			PhotonNetwork.InstantiateSceneObject("PU" + pu, position, Quaternion.identity,0,null);
+			/*
 			object[] args = new object[]{
 				pu,
 				position
 			};
-			photonView.RPC ("SpawnPUAt", PhotonTargets.AllBufferedViaServer,args);
+			photonView.RPC ("SpawnPUAt", PhotonTargets.AllBufferedViaServer,args);*/
 		}
 
-		[PunRPC]
+		/*[PunRPC]
 		void SpawnPUAt(int pu,Vector3 position){
 			PickupAndWeaponManager.Instance.SpawnPickUpItem((Pickup)pu,position,Quaternion.identity,null);
-		}
+		}*/
 
 		void OnItemSpawnUpdate(){
 			if(gameTime>PSParams.SpawnItemRates.spawnTimeStart_Rate_Kaifuku && gameTime<PSParams.SpawnItemRates.spawnTimeEnd_Rate_Kaifuku){

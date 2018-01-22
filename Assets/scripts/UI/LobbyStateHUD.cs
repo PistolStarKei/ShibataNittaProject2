@@ -65,7 +65,8 @@ public class LobbyStateHUD : MonoBehaviour {
 				state2.color=abnormalC;
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
-				NGUITools.SetActive(PlayBtn,false);
+				PlayBtnRot.enabled=false;
+				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
 				//timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
 				break;
@@ -74,7 +75,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				state2.color=normalC;
 				state3.color=abnormalC;
 				PlayBtnRot.enabled=false;
-				NGUITools.SetActive(PlayBtn,false);
+				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
 				break;
 			case NetworkState.LOBBYCONNECTED:

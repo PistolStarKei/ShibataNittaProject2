@@ -24,8 +24,9 @@ GameObject:
   - 114: {fileID: 114000013345655318}
   - 114: {fileID: 114000010513039056}
   - 135: {fileID: 135000012738436964}
+  - 114: {fileID: 114000012651228054}
   m_Layer: 13
-  m_Name: PU_Kaifuku_R
+  m_Name: PU1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,6 +93,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickType: 2
+  SentPickup: 0
+--- !u!114 &114000012651228054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012395423602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents: []
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &114000013345655318
 MonoBehaviour:
   m_ObjectHideFlags: 1

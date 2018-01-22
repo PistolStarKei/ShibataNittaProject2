@@ -27,6 +27,8 @@ public class FlagSelecter : MonoBehaviour {
 
 	FlagItem currentSelected;
 
+	public UISprite flagSp;
+
 	void Start(){
 
 		string defaultCountly=DataManager.Instance.gameData.country;
@@ -48,6 +50,7 @@ public class FlagSelecter : MonoBehaviour {
 			item.SetState(true);
 			currentSelected=item;
 			DataManager.Instance.gameData.country=item.name;
+			flagSp.spriteName=DataManager.Instance.gameData.country=item.name;
 			DataManager.Instance.SaveAll();
 		}
 	}

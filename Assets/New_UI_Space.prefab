@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 121
     paddingBottom: 54
   - name: bg_3
-    x: 181
-    y: 50
+    x: 1091
+    y: 1013
     width: 185
     height: 150
     borderLeft: 46
@@ -92,9 +92,22 @@ MonoBehaviour:
     paddingRight: 72
     paddingTop: 53
     paddingBottom: 32
+  - name: bg_lobby
+    x: 749
+    y: 1425
+    width: 590
+    height: 623
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 44
+    paddingTop: 31
+    paddingBottom: 43
   - name: bg_waku
-    x: 367
-    y: 40
+    x: 1277
+    y: 1003
     width: 167
     height: 160
     borderLeft: 53
@@ -106,8 +119,8 @@ MonoBehaviour:
     paddingTop: 44
     paddingBottom: 29
   - name: bg_waku2
-    x: 635
-    y: 87
+    x: 1708
+    y: 1050
     width: 98
     height: 113
     borderLeft: 0
@@ -119,8 +132,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 21
   - name: bg_waku3
-    x: 535
-    y: 87
+    x: 1608
+    y: 1050
     width: 99
     height: 113
     borderLeft: 0
@@ -132,8 +145,8 @@ MonoBehaviour:
     paddingTop: 27
     paddingBottom: 20
   - name: bg_wakubold
-    x: 1502
-    y: 1536
+    x: 1762
+    y: 1209
     width: 215
     height: 215
     borderLeft: 61
@@ -145,8 +158,8 @@ MonoBehaviour:
     paddingTop: 43
     paddingBottom: 31
   - name: bg_wakumid
-    x: 1718
-    y: 1540
+    x: 749
+    y: 784
     width: 211
     height: 211
     borderLeft: 51
@@ -158,7 +171,7 @@ MonoBehaviour:
     paddingTop: 45
     paddingBottom: 33
   - name: btn_play
-    x: 1378
+    x: 1693
     y: 1774
     width: 274
     height: 274
@@ -171,8 +184,8 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 19
   - name: btn_play_cover
-    x: 1653
-    y: 1788
+    x: 749
+    y: 1164
     width: 259
     height: 260
     borderLeft: 0
@@ -183,9 +196,22 @@ MonoBehaviour:
     paddingRight: 44
     paddingTop: 44
     paddingBottom: 44
+  - name: btn_small_bg
+    x: 961
+    y: 798
+    width: 220
+    height: 197
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: btn_timer
-    x: 1261
-    y: 1511
+    x: 1521
+    y: 1184
     width: 240
     height: 240
     borderLeft: 0
@@ -197,8 +223,8 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 15
   - name: btn_timerbg
-    x: 1102
-    y: 1774
+    x: 1340
+    y: 1477
     width: 275
     height: 274
     borderLeft: 0
@@ -210,8 +236,8 @@ MonoBehaviour:
     paddingTop: 35
     paddingBottom: 21
   - name: circ
-    x: 749
-    y: 1495
+    x: 1009
+    y: 1168
     width: 256
     height: 256
     borderLeft: 0
@@ -222,9 +248,22 @@ MonoBehaviour:
     paddingRight: 19
     paddingTop: 41
     paddingBottom: 25
+  - name: circ1
+    x: 1693
+    y: 1514
+    width: 260
+    height: 259
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 38
+    paddingRight: 17
+    paddingTop: 40
+    paddingBottom: 23
   - name: close
-    x: 181
-    y: 5
+    x: 688
+    y: 156
     width: 46
     height: 44
     borderLeft: 0
@@ -235,9 +274,22 @@ MonoBehaviour:
     paddingRight: 43
     paddingTop: 54
     paddingBottom: 54
+  - name: GUI_Button_Shot_Cover
+    x: 749
+    y: 996
+    width: 341
+    height: 167
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 30
+    paddingRight: 29
+    paddingTop: 200
+    paddingBottom: 33
   - name: HUD_Map
-    x: 1006
-    y: 1497
+    x: 1266
+    y: 1170
     width: 254
     height: 254
     borderLeft: 0
@@ -248,9 +300,35 @@ MonoBehaviour:
     paddingRight: 43
     paddingTop: 61
     paddingBottom: 45
+  - name: ic_ranking
+    x: 1445
+    y: 1021
+    width: 162
+    height: 142
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 84
+    paddingRight: 42
+    paddingTop: 23
+    paddingBottom: 45
+  - name: ic_ticket
+    x: 1968
+    y: 1971
+    width: 79
+    height: 77
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 36
+    paddingTop: 47
+    paddingBottom: 22
   - name: indecater
     x: 0
-    y: 4
+    y: 10
     width: 38
     height: 15
     borderLeft: 0
@@ -262,8 +340,8 @@ MonoBehaviour:
     paddingTop: 36
     paddingBottom: 32
   - name: input_waku
-    x: 535
-    y: 28
+    x: 1616
+    y: 1693
     width: 75
     height: 58
     borderLeft: 23
@@ -275,7 +353,7 @@ MonoBehaviour:
     paddingTop: 52
     paddingBottom: 19
   - name: lobbyPlayBtn
-    x: 749
+    x: 1340
     y: 1752
     width: 352
     height: 296
@@ -287,9 +365,48 @@ MonoBehaviour:
     paddingRight: 30
     paddingTop: 61
     paddingBottom: 59
+  - name: patern_check
+    x: 1908
+    y: 1069
+    width: 94
+    height: 94
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: patern_shape
+    x: 688
+    y: 121
+    width: 34
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 2
+    paddingBottom: 2
+  - name: patern_stripe
+    x: 1807
+    y: 1063
+    width: 100
+    height: 100
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: serverState
-    x: 1913
-    y: 1960
+    x: 1693
+    y: 1425
     width: 88
     height: 88
     borderLeft: 0
@@ -301,8 +418,8 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 16
   - name: serverstateicon
-    x: 228
-    y: 25
+    x: 39
+    y: 1
     width: 21
     height: 24
     borderLeft: 0
@@ -313,9 +430,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 14
     paddingBottom: 16
-  - name: white
+  - name: uerholder
     x: 0
-    y: 20
+    y: 26
+    width: 687
+    height: 174
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 39
+    paddingTop: 0
+    paddingBottom: 0
+  - name: white
+    x: 749
+    y: 603
     width: 180
     height: 180
     borderLeft: 18
