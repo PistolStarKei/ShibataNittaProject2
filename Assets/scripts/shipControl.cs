@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using PathologicalGames;
 
 public enum ShipOffset{Forward,ForwardRight,ForwardLeft,Right,Left,Back,BackLeft,BackRight};
-public class shipControl : MonoBehaviour {
+public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	
 	public struct PlayerData {
 		public string userName;
@@ -357,7 +357,7 @@ public class shipControl : MonoBehaviour {
 		for(int i=0;i<shottedWeaponsHolder.Count;i++){
 			if(shottedWeaponsHolder[i]!=null){
 				if(shottedWeaponsHolder[i].ID==ID){
-					shottedWeaponsHolder[i].EffectAndDead(PSPhoton.GameManager.instance.GetShipPositionById(playerID));
+					shottedWeaponsHolder[i].EffectAndDead(PSPhoton.GameManager.instance.GetShipById(playerID));
 				}
 			}
 		}
@@ -634,7 +634,7 @@ public class shipControl : MonoBehaviour {
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage,string ID){
 		
-		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！");
+		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+ID);
 
 		if(isDead)return;
 
@@ -644,40 +644,52 @@ public class shipControl : MonoBehaviour {
 				ID,playerData.playerID});
 		}
 
+		//デバグ用　
+		if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""){
+			for(int i=0;i<enemy.shottedWeaponsHolder.Count;i++){
+				if(enemy.shottedWeaponsHolder[i]!=null){
+					if(enemy.shottedWeaponsHolder[i].ID==ID){
+						enemy.shottedWeaponsHolder[i].EffectAndDead(this);
+					}
+				}
+			}
+
+		}
+
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
 
 			if(photonView){
+
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+					GUIManager.Instance.ShakeCamera();
+					currentHP-=damage;
+					if(GUIManager.Instance.isDebugMode){
+						GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					}
+					GUIManager.Instance.Damage (damage, MaxHP);
+				
 				if(currentHP-damage<=0.0f){
-					photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
 					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID});
-				}else{
-					photonView.RPC ("TakeDamage", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,damage});
 				}
+
+					
 
 
 			}else{
-				TakeDamage(playerData.playerID,damage);
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+					GUIManager.Instance.ShakeCamera();
+					currentHP-=damage;
+					if(GUIManager.Instance.isDebugMode){
+						GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					}
+					GUIManager.Instance.Damage (damage, MaxHP);
+					if(currentHP-damage<=0.0f){
+						Debug.Log("shipは死亡！");
+					}
+
+
 			}
-		}
-	}
-		
-
-	[PunRPC]
-	public void TakeDamage(int enemyID,float damage){
-		
-		if(usingLog)Debug.Log("[RPC] TakeDamage"+playerData.userName+" にダメージ "+damage);
-
-		currentHP-=damage;
-
-		//HPバーの更新、プレイヤーオブジェクトのみでやる
-		if(isOwnersShip()){
-			
-
-			if(GUIManager.Instance.isDebugMode){
-				GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
-			}
-			GUIManager.Instance.Damage (damage, MaxHP);
 		}
 	}
 	#endregion
@@ -748,6 +760,29 @@ public class shipControl : MonoBehaviour {
 		}
 	}
 	#endregion
+
+
+	#region sync manually   HP isDead
+	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		// read the description in SecondsBeforeRespawn
+
+		if (stream.isWriting)
+		{
+			stream.SendNext(this.currentHP);
+			stream.SendNext(this.isDead);
+		}
+		else
+		{
+			// this will directly apply the last received position for this PickupItem. No smoothing. Usually not needed though.
+			float  current = (float)stream.ReceiveNext();
+			this.currentHP = current;
+			bool lastIsDead = (bool)stream.ReceiveNext();
+			this.isDead = lastIsDead ;
+		}
+	}
+	#endregion
+
 
 
 

@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Subweapon_Zenhoukou : SubweaponShot {
-
+public class Subweapon_Wave : SubweaponShot {
 
 	public float shotSpeed=1.0f;
 	public override void Move(){
-		//transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
 		if(ellapsedTime>0.0f)transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
 	}
 
@@ -14,8 +12,9 @@ public class Subweapon_Zenhoukou : SubweaponShot {
 		return spawnAt+vector*(ellapsedTime*shotSpeed);
 	}
 
-	public override void EffectAndDead(Vector3 effectPosition){
-		ParticleManager.Instance.ShowExplosionSmallAt(effectPosition,Quaternion.identity,this.transform);
+	public override void EffectAndDead(shipControl ship){
+		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
+
 		KillSelf();
 	}
 
@@ -27,4 +26,6 @@ public class Subweapon_Zenhoukou : SubweaponShot {
 		base.OnCollideWall();
 
 	}
+
+
 }

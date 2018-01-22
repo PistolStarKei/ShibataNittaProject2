@@ -5982,7 +5982,7 @@ MonoBehaviour:
   pixelSnap: 1
   onClick:
   - mTarget: {fileID: 567988358}
-    mMethodName: Test
+    mMethodName: ShakeCamera
     mParameters: []
     oneShot: 0
 --- !u!65 &496789555
@@ -9827,6 +9827,27 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1000001029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1000001022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4411356d2874c9d90eb7a566af53a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Cameras: []
+  m_ShakeType: 0
+  m_NumberOfShakes: 1
+  m_ShakeAmount: {x: 0.2, y: 0, z: 0.2}
+  m_RotationAmount: {x: 0.2, y: 0, z: 0.2}
+  m_Distance: 0.1
+  m_Speed: 50
+  m_Decay: 0.2
+  m_UiShakeModifier: 1
+  m_MultiplyByTimeScale: 1
 --- !u!1 &1000516208
 GameObject:
   m_ObjectHideFlags: 0
@@ -10103,6 +10124,11 @@ Prefab:
       propertyPath: countdownLb
       value: 
       objectReference: {fileID: 2008907477}
+    - target: {fileID: 114000012173805336, guid: 03d28708dd7474dbc95d51fdefce67df,
+        type: 2}
+      propertyPath: cameraShaker
+      value: 
+      objectReference: {fileID: 1000001029}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03d28708dd7474dbc95d51fdefce67df, type: 2}
   m_IsPrefabParent: 0

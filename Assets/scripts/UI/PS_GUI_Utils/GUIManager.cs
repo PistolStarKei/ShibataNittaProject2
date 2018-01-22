@@ -4,6 +4,19 @@ using System.Collections.Generic;
 
 public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
+	public Thinksquirrel.CShake.CameraShake cameraShaker;
+
+	public void ShakeCamera(){
+		cameraShaker.shakeAmount=new Vector3(0.2f,0.0f,0.2f);
+		cameraShaker.rotationAmount=new Vector3(0.2f,0.0f,0.2f);
+		cameraShaker.Shake();
+	}
+	public void ShakeCameraBig(){
+		cameraShaker.shakeAmount=new Vector3(0.4f,0.0f,0.4f);
+		cameraShaker.rotationAmount=new Vector3(0.4f,0.0f,0.4f);
+		cameraShaker.Shake();
+	}
+
 	public bool isDebugMode=true;
 	// Use this for initialization
 	public void OnGameAwake(){

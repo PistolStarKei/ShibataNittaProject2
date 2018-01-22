@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Subweapon_Napam : SubweaponShot {
+public class Subweapon_Nuke : SubweaponShot {
 
 	public float shotSpeed=1.0f;
 	public override void Move(){
@@ -15,12 +15,12 @@ public class Subweapon_Napam : SubweaponShot {
 
 	public override void KillTimer(){
 		//爆破オブジェクトをスポーンして居なくなる
-		PickupAndWeaponManager.Instance.SpawnSubweapon_NapamEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		PickupAndWeaponManager.Instance.SpawnSubweapon_NukeEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
 		launcherShip.RemoveWeaponHolder(this);
 		KillSelf();
 	}
 
-	public override void EffectAndDead(Vector3 effectPosition){
+	public override void EffectAndDead(shipControl ship){
 		KillTimer();
 	}
 

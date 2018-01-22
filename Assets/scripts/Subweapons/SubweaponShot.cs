@@ -37,7 +37,7 @@ public class SubweaponShot : MonoBehaviour {
 	public virtual void Move(){
 	}
 
-	public virtual void EffectAndDead(Vector3 effectPosition){
+	public virtual void EffectAndDead(shipControl ship){
 
 	}
 

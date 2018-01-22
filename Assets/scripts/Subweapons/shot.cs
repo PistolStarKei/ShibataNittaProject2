@@ -19,9 +19,8 @@ public class shot : SubweaponShot {
 		shotSpeed=PSParams.GameParameters.shot_speed[(int)shotCol];
 	}
 
-	public override void EffectAndDead(Vector3 effectPosition){
-
-		ParticleManager.Instance.ShowExplosionSmallAt(effectPosition,Quaternion.identity,this.transform);
+	public override void EffectAndDead(shipControl ship){
+		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
 		KillSelf();
 	}
 

@@ -138,7 +138,7 @@ namespace PSPhoton {
 			shipControl nearest=playerShip;
 
 			foreach(shipControl ship in shipControllers){
-				if(ship!=playerShip && !ship.isDead){
+				if(ship && ship!=playerShip && !ship.isDead){
 					temp=Vector3.Distance(playerShip.transform.position,ship.transform.position);
 					if(distance>temp){
 						nearest=ship;
@@ -155,7 +155,7 @@ namespace PSPhoton {
 		public string GetNameById(int id){
 			string name="";
 			foreach(shipControl ship in shipControllers){
-				if(id==ship.playerData.playerID){
+				if(ship && id==ship.playerData.playerID){
 					return ship.playerData.userName;
 					break;
 
@@ -165,13 +165,24 @@ namespace PSPhoton {
 		}
 		public Vector3 GetShipPositionById(int id){
 			foreach(shipControl ship in shipControllers){
-				if(id==ship.playerData.playerID){
+				if(ship && id==ship.playerData.playerID){
 					return ship.transform.position;
 					break;
 
 				}
 			}
 			return Vector3.zero;
+		}
+
+		public shipControl GetShipById(int id){
+			foreach(shipControl ship in shipControllers){
+				if(ship && id==ship.playerData.playerID){
+					return ship;
+					break;
+
+				}
+			}
+			return null;
 		}
 
 

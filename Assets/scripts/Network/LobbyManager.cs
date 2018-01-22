@@ -51,7 +51,10 @@ namespace PSPhoton {
 				
 				Debug.LogWarning("コネクト済");
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
+				if(useDebugLog)Debug.Log("ロビーに再接続");
+
 				JoinLobby();
+
 				return;
 			}
 
@@ -127,6 +130,7 @@ namespace PSPhoton {
 
 
 		public void JoinLobby(){
+			if(useDebugLog)Debug.Log("JoinLobby");
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "ロビーに接続中" :"Entering Lobby");
 			PhotonNetwork.JoinLobby ();
 		}
