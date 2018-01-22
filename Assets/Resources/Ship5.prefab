@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010430010318}
   - 114: {fileID: 114000013767589360}
+  - 114: {fileID: 114000013080350530}
   - 54: {fileID: 54000011454385802}
   - 135: {fileID: 135000013163816664}
   - 120: {fileID: 120000011102276022}
-  - 114: {fileID: 114000013080350530}
   - 114: {fileID: 114000014084165318}
   m_Layer: 11
   m_Name: Ship5
@@ -227,6 +227,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114000014084165318}
+  - {fileID: 114000013767589360}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -248,12 +249,14 @@ MonoBehaviour:
   usingLog: 1
   isControllable: 0
   photonView: {fileID: 0}
+  debugPlayership: 0
   isDead: 0
   shotDulation: 0.5
   shotOffset: 0.2
   shotOffsetX: 0.2
   shot_rensou: 1
   shotCol: 0
+  shottedWeaponsHolder: []
   stealthEffecter: {fileID: 114000012676330504}
   engine: {fileID: 1000012246096798}
   currentUsing: 7

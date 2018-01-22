@@ -2506,7 +2506,7 @@ GameObject:
   - 114: {fileID: 263818921}
   - 114: {fileID: 263818922}
   m_Layer: 5
-  m_Name: LeftSideSelecter
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3970,13 +3970,13 @@ MonoBehaviour:
   mColor: {r: 0.1102941, g: 0.1788553, b: 0.2205882, a: 0.372}
   mPivot: 0
   mWidth: 1735
-  mHeight: 959
+  mHeight: 969
   mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.8091762
+  aspectRatio: 1.7905056
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -7954,7 +7954,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.08012543, g: 0.14059877, b: 0.19117647, a: 0.747}
+  mColor: {r: 0.078431375, g: 0.13725491, b: 0.1882353, a: 0.74509805}
   mPivot: 4
   mWidth: 1706
   mHeight: 878
@@ -14089,7 +14089,7 @@ Transform:
   m_GameObject: {fileID: 1354910118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -860, y: 0, z: 0}
-  m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1482714164}
@@ -14127,7 +14127,7 @@ MonoBehaviour:
   mPivot: 3
   mWidth: 1693
   mHeight: 874
-  mDepth: 5
+  mDepth: 8
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -16065,7 +16065,7 @@ GameObject:
   - 4: {fileID: 1535590860}
   - 114: {fileID: 1535590861}
   m_Layer: 5
-  m_Name: CoverPanael
+  m_Name: Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17902,13 +17902,13 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 0.416}
   mPivot: 0
   mWidth: 1836
-  mHeight: 887
-  mDepth: 4
+  mHeight: 895
+  mDepth: 5
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2.0698986
+  aspectRatio: 2.0513966
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -18550,7 +18550,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 0.728}
   mPivot: 5
   mWidth: 244
   mHeight: 34
@@ -19626,7 +19626,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: checkTimeOnRoom
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

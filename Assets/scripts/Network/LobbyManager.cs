@@ -7,7 +7,7 @@ using Photon;
 namespace PSPhoton {
 	
 	[RequireComponent (typeof (PhotonView))]
-	public class LobbyManager : PunBehaviour {
+	public class LobbyManager : PunBehaviour{
 
 		public static LobbyManager instance;
 
@@ -44,12 +44,12 @@ namespace PSPhoton {
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
 
-
+			Debug.LogWarning("ここでランキングがあれば見せる");
 
 			//ゲームから戻った時、すでにコネクトされている leaveroomあとは　severconnected状態に
 			if (PhotonNetwork.connected) {
 				
-				Debug.LogWarning("コネクト済");
+
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
 

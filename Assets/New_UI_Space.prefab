@@ -119,7 +119,7 @@ MonoBehaviour:
     paddingTop: 44
     paddingBottom: 29
   - name: bg_waku2
-    x: 1708
+    x: 1928
     y: 1050
     width: 98
     height: 113
@@ -132,7 +132,7 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 21
   - name: bg_waku3
-    x: 1608
+    x: 1828
     y: 1050
     width: 99
     height: 113
@@ -287,6 +287,19 @@ MonoBehaviour:
     paddingRight: 29
     paddingTop: 200
     paddingBottom: 33
+  - name: GUI_Corner_Round
+    x: 1340
+    y: 1434
+    width: 82
+    height: 42
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 33
+    paddingRight: 32
+    paddingTop: 34
+    paddingBottom: 30
   - name: HUD_Map
     x: 1266
     y: 1170
@@ -300,6 +313,19 @@ MonoBehaviour:
     paddingRight: 43
     paddingTop: 61
     paddingBottom: 45
+  - name: ic_kill
+    x: 1608
+    y: 1048
+    width: 108
+    height: 115
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 59
+    paddingRight: 59
+    paddingTop: 37
+    paddingBottom: 52
   - name: ic_ranking
     x: 1445
     y: 1021
@@ -326,6 +352,19 @@ MonoBehaviour:
     paddingRight: 36
     paddingTop: 47
     paddingBottom: 22
+  - name: ic_time
+    x: 1717
+    y: 1054
+    width: 110
+    height: 109
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 65
+    paddingRight: 35
+    paddingTop: 40
+    paddingBottom: 17
   - name: indecater
     x: 0
     y: 10
@@ -366,8 +405,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 59
   - name: patern_check
-    x: 1908
-    y: 1069
+    x: 850
+    y: 508
     width: 94
     height: 94
     borderLeft: 0
@@ -392,8 +431,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: patern_stripe
-    x: 1807
-    y: 1063
+    x: 749
+    y: 502
     width: 100
     height: 100
     borderLeft: 0

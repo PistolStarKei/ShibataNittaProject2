@@ -409,15 +409,17 @@ namespace PSPhoton {
 			*/
 		}
 
-		// Use this to go back to the menu, without leaving the lobby
-		public void ResetToMenu () {
-			PhotonNetwork.LeaveRoom ();
-			//PhotonNetwork.LoadLevel ("Menu");
-		}
 
 		public void BackToMain(){
+			PhotonNetwork.LeaveRoom ();
+
+		}
+
+		void OnLeftLobby(){ 
 			PhotonNetwork.LoadLevel ("LobbyScene");
 		}
+
+
 
 	}
 }

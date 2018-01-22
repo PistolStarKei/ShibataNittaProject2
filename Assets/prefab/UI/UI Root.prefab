@@ -8114,12 +8114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6d25eb0ba9d42acadee328fb251301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blurEffect: {fileID: 0}
   cover: {fileID: 114000010190731688}
   userName: {fileID: 0}
   userTime: {fileID: 0}
   userRank: {fileID: 0}
   userKill: {fileID: 0}
   userFlag: {fileID: 0}
+  sceneFader: {fileID: 0}
   isShowing: 0
   ta_panel: {fileID: 114000012544696312}
   backButton: {fileID: 0}

@@ -55,10 +55,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011712909480}
   - 114: {fileID: 114000010374492534}
+  - 114: {fileID: 114000014115918770}
   - 54: {fileID: 54000010486475218}
   - 135: {fileID: 135000011737872252}
   - 120: {fileID: 120000011526593922}
-  - 114: {fileID: 114000014115918770}
   - 114: {fileID: 114000010613758304}
   m_Layer: 11
   m_Name: Ship8
@@ -206,12 +206,14 @@ MonoBehaviour:
   usingLog: 1
   isControllable: 0
   photonView: {fileID: 0}
+  debugPlayership: 0
   isDead: 0
   shotDulation: 0.5
   shotOffset: 0.2
   shotOffsetX: 0.2
   shot_rensou: 1
   shotCol: 0
+  shottedWeaponsHolder: []
   stealthEffecter: {fileID: 114000012762582258}
   engine: {fileID: 1000013187718238}
   currentUsing: 7
@@ -316,6 +318,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114000010613758304}
+  - {fileID: 114000010374492534}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

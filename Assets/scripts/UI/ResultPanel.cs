@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Colorful;
 public class ResultPanel : MonoBehaviour {
 
-
+	public GaussianBlur blurEffect;
 	public PS_GUI_Cover cover;
 
 	public void ShowResult(float time,int killNum,List<shipControl> deadShips,List<shipControl> ships,shipControl playerShip){
 		isShowing=true;
-
+		blurEffect.enabled=true;
+		cover.Cover();
 		//全参加者数
 		int players=ships.Count;
 
@@ -29,7 +30,6 @@ public class ResultPanel : MonoBehaviour {
 
 	public void Show(){
 		ta_panel.PlayForward();
-		cover.CoverWithBlackMask();
 	}
 
 	public UILabel userName;
@@ -64,7 +64,13 @@ public class ResultPanel : MonoBehaviour {
 		ta_panel.PlayReverse();
 	}
 
+
+	public PSGUI.SceneFader sceneFader;
 	public void OnCliclMain(){
+		sceneFader.FadeIn(BackToMain,true);
+	}
+
+	public void BackToMain(){
 		PSPhoton.GameManager.instance.BackToMain();
 	}
 
