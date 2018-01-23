@@ -109,7 +109,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 			
 		//Debug.Log("OnTriggerEnter "+other.name);
 		ship=other.GetComponent<shipControl>();
-		if(ship)ships.Add(ship);
+		if(ship && !ship.isStealthMode && !ship.isDead)ships.Add(ship);
 	}
 
 	void OnTriggerExit(Collider other)
@@ -119,7 +119,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 	
 		//Debug.Log("OnTriggerExit "+other.name);
 		ship=other.GetComponent<shipControl>();
-		if(ship)ships.Remove(ship);
+		if(ship && ships.Contains(ship))ships.Remove(ship);
 	}
 
 

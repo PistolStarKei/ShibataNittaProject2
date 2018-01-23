@@ -10,61 +10,27 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	public float chasingSpeed = 15.0f;
 
 	Quaternion rotation;
-	public float serchingDistance=5.0f;
+	public float stillTime = 2.0f;
 
+	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID,int shipID){
 
-	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
+		Debug.Log("Spawn"+ID);
 		base.Spawn(launcherShip,spawnTime,spawnPos,offset,ID);
-		SearchTarget();
-	}
-
-	void SearchTarget(){
-		//近い敵から候補を見つける
-		GameObject[] go=GameObject.FindGameObjectsWithTag("Player");
-		target=null;
-		if(go.Length>0){
-			GameObject nearest=go[0];
-			float dist=GetDistanceFromMe(go[0].transform.position);
-			if(go.Length==1){
-				if(dist<serchingDistance){
-					target=nearest.transform;
-				}else{
-					target=null;
-				}
-			}else{
-				float cul=0.0f;
-
-				for(int i=1;i<go.Length;i++){
-							cul=GetDistanceFromMe(go[i].transform.position);
-							if(dist>cul){
-								dist=cul;
-								nearest=go[i];
-							}
-
-
-				}
-					if(dist<serchingDistance){
-						target=nearest.transform;
-					}else{
-						target=null;
-					}
-					
-			}
-
-		}
+		shipControl ship=PSPhoton.GameManager.instance.GetShipById(shipID);
+		if(ship)target=ship.transform;
 
 	}
-
-	float GetDistanceFromMe(Vector3 pos){
-		return Vector3.Distance(transform.position,pos);
-	}
+			
 	public override void Move(){
 		
-
+		if(ellapsedTime<stillTime)return;
+			
 		if(target){
-			transform.Translate(Vector3.forward * Time.deltaTime * chasingSpeed);
+			
 			rotation = Quaternion.LookRotation(target.position - transform.position);
-			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
+			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, (ellapsedTime-stillTime) * damping);
+			transform.Translate(Vector3.forward * Time.deltaTime * chasingSpeed);
+
 		}else{
 			transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
 
@@ -79,7 +45,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	}
 
 	public override void EffectAndDead(shipControl ship){
-
+		
 		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
 		KillSelf();
 	}
@@ -94,7 +60,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				if(!ship.isDead){
-					//ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
+					ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
 				}else{
 					//死んだ機体の場合
 				}

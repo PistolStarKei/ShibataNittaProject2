@@ -459,6 +459,7 @@ namespace PSPhoton {
 		int minutes;
 		int seconds;
 		void Update () {
+			if(!isNetworkMode)return;
 			gameTime += Time.deltaTime;
 
 			minutes = Mathf.FloorToInt(gameTime / 60F);

@@ -26,7 +26,21 @@ public class MapManager : MonoBehaviour {
 	void LateUpdate(){
 		
 		if(mapDetectTrigger && mapDetectTrigger.playerTrans){
-			
+
+			if(enemies.Count>0){
+				foreach(shipControl ship in mapDetectTrigger.ships){
+					if(ship!=null){
+						if( ship.isDead || ship.isStealthMode){
+							mapDetectTrigger.ships.Remove(ship);
+						}
+					}else{
+						
+					}
+
+
+				}
+			}
+
 			//足りない分を作り、余った分は消す
 			if(enemies.Count!=mapDetectTrigger.ships.Count){
 				int sabun=mapDetectTrigger.ships.Count-enemies.Count;
@@ -45,12 +59,15 @@ public class MapManager : MonoBehaviour {
 			if(enemies.Count>0){
 				int num=0;
 				foreach(shipControl ship in mapDetectTrigger.ships){
-					UpdateEnemyPosition(enemies[num],mapDetectTrigger.GetRelativePosition(ship.transform.position));
-					num++;
+						
+						UpdateEnemyPosition(enemies[num],mapDetectTrigger.GetRelativePosition(ship.transform.position));
+						num++;
+					
 				}
 			}
 		}
 
+		//自機の表示
 		if(GUIManager.Instance.shipControll){
 			transform.localRotation=Quaternion.Euler(new Vector3(0.0f,0.0f,-GUIManager.Instance.shipControll.transform.eulerAngles.y));
 		}

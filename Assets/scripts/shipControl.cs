@@ -183,20 +183,26 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 
 
+
+
 			if(currentUsing==Subweapon.YUDOU){
 				if(weaponNum%2==0){
+					shipControl ship=GUIManager.Instance.GetRandomNearShip(PSParams.GameParameters.yudoudanMaxDistance);
+
 					if(photonView){
 						photonView.RPC ("RPC_SpawnSubweapon_YudoudanRight", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
 					}else{
-						RPC_SpawnSubweapon_YudoudanRight(this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
+						RPC_SpawnSubweapon_YudoudanRight(this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1);
 					}
 				}else{
+					shipControl ship=GUIManager.Instance.GetRandomNearShip(PSParams.GameParameters.yudoudanMaxDistance);
+
 					if(photonView){
 						photonView.RPC ("RPC_SpawnSubweapon_YudoudanLeft", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
 					}else{
-						RPC_SpawnSubweapon_YudoudanLeft(this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
+						RPC_SpawnSubweapon_YudoudanLeft(this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1);
 					}
 				}
 
@@ -390,15 +396,17 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	}
 
 		[PunRPC]
-		public void RPC_SpawnSubweapon_YudoudanRight(Vector3 position,Vector3 rotation,float spawnTime,string ID){
-			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Right,ID);
+		public void RPC_SpawnSubweapon_YudoudanRight(Vector3 position,Vector3 rotation,float spawnTime,string ID,int shipID){
+			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Right,ID,shipID);
 			AddWeaponHolder(tr);
 		}
 		[PunRPC]
-		public void RPC_SpawnSubweapon_YudoudanLeft(Vector3 position,Vector3 rotation,float spawnTime,string ID){
-			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Left,ID);
+		public void RPC_SpawnSubweapon_YudoudanLeft(Vector3 position,Vector3 rotation,float spawnTime,string ID,int shipID){
+			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Yudoudan(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Left,ID,shipID);
 			AddWeaponHolder(tr);
 		}
+
+
 		[PunRPC]
 		public void RPC_Subweapon_Napam(Vector3 position,Vector3 rotation,float spawnTime,string ID){
 			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Napam(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
@@ -574,6 +582,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			break;
 		case Subweapon.STEALTH:
 			GUIManager.Instance.SetShotTgl(false);
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.STEALTH];
 			OnShotToggle(false);
 			if(photonView){
 				photonView.RPC ("StealthMode", PhotonTargets.AllViaServer,new object[]{true});
@@ -717,9 +726,13 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		//デバグ用　
 		if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""){
+	
 			for(int i=0;i<enemy.shottedWeaponsHolder.Count;i++){
+				
 				if(enemy.shottedWeaponsHolder[i]!=null){
+
 					if(enemy.shottedWeaponsHolder[i].ID==ID){
+						
 						enemy.shottedWeaponsHolder[i].EffectAndDead(this);
 					}
 				}
@@ -894,7 +907,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(!isOwnersShip())return;
 
 			//PlayerのShipのみで呼ばれる
-			if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH){
+			if(currentUsing!=Subweapon.NONE){
 				weapontimer-=Time.deltaTime;
 				if(weapontimer<0.0f){
 					OnWeaponTimerOver();

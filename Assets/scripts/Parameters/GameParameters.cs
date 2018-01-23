@@ -62,6 +62,7 @@ namespace PSParams{
 
 		//誘導弾の発射個数
 		public static readonly int yudoudanShots=3;
+		public static readonly float yudoudanMaxDistance=5.0f;
 
 		//レーザーの有効射程距離
 		public static readonly float razerMaxDistance=5.0f;

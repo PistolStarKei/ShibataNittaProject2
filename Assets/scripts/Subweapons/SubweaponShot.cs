@@ -25,6 +25,7 @@ public class SubweaponShot : MonoBehaviour {
 	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
+		this.ID=ID;
 		lastellapsedTime=0.0f;
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;

@@ -13,9 +13,9 @@ public class PickupAndWeaponManager : PS_SingletonBehaviour<PickupAndWeaponManag
 	public GameObject[] danmaku;
 
 	public GameObject subweaponYudoudan_Prefab;
-	public Transform SpawnSubweapon_Yudoudan(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID){
+	public Transform SpawnSubweapon_Yudoudan(shipControl ship,Vector3 position,Quaternion qt,float spawnTime,ShipOffset offset,string ID,int shipID){
 		Transform trans=Spawn(subweaponYudoudan_Prefab,position,qt,null);
-		trans.gameObject.GetComponent<SubweaponShot>().Spawn(ship,spawnTime,position,offset,ID);
+		trans.gameObject.GetComponent<Subweapon_Yudoudan>().Spawn(ship,spawnTime,position,offset,ID,shipID);
 		return trans;
 
 	}
