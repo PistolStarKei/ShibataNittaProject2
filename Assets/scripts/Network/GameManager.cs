@@ -343,6 +343,8 @@ namespace PSPhoton {
 
 		public bool isNetworkMode=true;
 		// Use this for initialization
+		public UILabel nameLB;
+		public UISprite countlySP;
 		void Start () {
 			
 
@@ -364,6 +366,8 @@ namespace PSPhoton {
 		
 		private void CreatePlayer() {
 
+			nameLB.text=(string)PhotonNetwork.player.CustomProperties["userName"];
+			countlySP.spriteName=(string)PhotonNetwork.player.CustomProperties["countly"];
 
 			int pos = (int) PhotonNetwork.player.CustomProperties["spawn"];
 			int shipBaseNumber = (int) PhotonNetwork.player.CustomProperties["shipBase"];
@@ -451,8 +455,15 @@ namespace PSPhoton {
 
 		float itemSpawnTime=30.0f;
 		float repeatedTime=0.0f;
+		public UILabel timeLabel;
+		int minutes;
+		int seconds;
 		void Update () {
 			gameTime += Time.deltaTime;
+
+			minutes = Mathf.FloorToInt(gameTime / 60F);
+			seconds = Mathf.FloorToInt(gameTime - minutes * 60);
+			timeLabel.text=string.Format("{0:00}:{1:00}", minutes, seconds);
 
 			switch (state) {
 				case GameState.PRE_START:
