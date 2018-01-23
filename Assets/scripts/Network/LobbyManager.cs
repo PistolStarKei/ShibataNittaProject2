@@ -40,7 +40,13 @@ namespace PSPhoton {
 		void Awake(){
 			instance=this;
 		}
+		public GameObject audioControllerObj;
 		void Start () {
+			GameObject audio=GameObject.FindGameObjectWithTag("AudioController");
+			if(!audio){
+				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
+			}
+
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
 

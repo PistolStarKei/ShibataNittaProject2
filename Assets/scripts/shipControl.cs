@@ -10,8 +10,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		public string userName;
 		public string countlyCode;
 		public int playerID;
+		public bool connected;
 		public bool dead;
 		public float alive;
+		public void SetConnected(bool connect){
+			connected=connect;
+		}
 		public void SetAlive(float time){
 			alive=time;
 		}
@@ -22,6 +26,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			userName=name;
 			countlyCode=countly;
 			playerID=id;
+			connected=true;
 			dead=false;
 			alive=0.0f;
 		}
@@ -105,6 +110,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		isDead=true;
 		isControllable=false;
+		rd.isKinematic=true;
 
 		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
 		gameObject.SetActive(false);

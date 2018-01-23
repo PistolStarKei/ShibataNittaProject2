@@ -8,6 +8,7 @@ TagManager:
   - listSection
   - Boulder
   - ShipSercher
+  - AudioController
   layers:
   - Default
   - TransparentFX

@@ -4513,7 +4513,7 @@ Prefab:
     - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
         type: 2}
       propertyPath: _currentInspectorSelection.currentCategoryIndex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
         type: 2}
@@ -5660,12 +5660,6 @@ MonoBehaviour:
   isStartTween: 1
   startBlinkAt: 0.1
   tweenTime: 0.1
---- !u!114 &475195220 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012173805336, guid: 03d28708dd7474dbc95d51fdefce67df,
-    type: 2}
-  m_PrefabInternal: {fileID: 1024036643}
-  m_Script: {fileID: 11500000, guid: 1994a344f6e804a22b28be47f0d33899, type: 3}
 --- !u!1 &490054386
 GameObject:
   m_ObjectHideFlags: 0
@@ -6067,7 +6061,7 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
   onClick:
-  - mTarget: {fileID: 475195220}
+  - mTarget: {fileID: 1386132707}
     mMethodName: Test
     mParameters: []
     oneShot: 0
@@ -14731,7 +14725,7 @@ Prefab:
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4000012720504528, guid: e2d70ba06e0c74bd1ac8dfd9783b799f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -14823,27 +14817,27 @@ Prefab:
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[0].alive
-      value: 1100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[0].playerID
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[1].playerID
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[2].playerID
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[2].alive
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
@@ -14858,11 +14852,37 @@ Prefab:
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
       propertyPath: playerDatas.Array.data[1].alive
-      value: 300
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: playerDatas.Array.data[0].connected
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: playerDatas.Array.data[1].connected
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: playerDatas.Array.data[2].connected
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: playerDatas.Array.data[3].connected
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2d70ba06e0c74bd1ac8dfd9783b799f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1386132707 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1386132706}
+  m_Script: {fileID: 11500000, guid: d113054e428d74a4d84dd80719a53e75, type: 3}
 --- !u!1 &1391313925
 GameObject:
   m_ObjectHideFlags: 0

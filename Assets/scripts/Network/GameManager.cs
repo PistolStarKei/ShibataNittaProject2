@@ -121,7 +121,6 @@ namespace PSPhoton {
 		#endregion
 
 
-
 		[Tooltip("ロード時点のプレイヤ数")]
 		public int loadedPlayers=0;
 		[Tooltip("生存時間")]
@@ -131,9 +130,11 @@ namespace PSPhoton {
 		public double startTimestamp = 0;
 		private GameState state = GameState.PRE_START;
 
+		#region all ships stateus
 		List<shipControl> shipControllers=new List<shipControl>();
 
-		List<shipControl.PlayerData>   playerDatas=new List<shipControl.PlayerData>();
+		//[SerializeField]
+		public List<shipControl.PlayerData>   playerDatas=new List<shipControl.PlayerData>();
 		void AddPlayerData(shipControl.PlayerData data){
 			playerDatas.Add(data);
 		}
@@ -141,6 +142,13 @@ namespace PSPhoton {
 			foreach(shipControl.PlayerData data in playerDatas){
 				if(data.playerID==id){
 					playerDatas.Remove(data);
+				}
+			}
+		}
+		void SetPlayerConnected(bool con,int id){
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(data.playerID==id){
+					data.SetConnected(con);
 				}
 			}
 		}
@@ -161,7 +169,7 @@ namespace PSPhoton {
 		int GetAlivePlayerCount(){
 			int count=0;
 			foreach(shipControl.PlayerData data in playerDatas){
-				if(!data.dead){
+				if(!data.dead && data.connected){
 					count++;
 				}
 			}
@@ -171,19 +179,26 @@ namespace PSPhoton {
 			
 
 			playerDatas.Sort(delegate(shipControl.PlayerData a, shipControl.PlayerData b) {
-				if (a.dead && b.dead){
-					if(a.alive==b.alive){
-						return 0;
-					}else{
-						if(a.alive>b.alive){
-							return -1;
+
+				if(a.connected && b.connected){
+					if (a.dead && b.dead){
+						if(a.alive==b.alive){
+							return 0;
 						}else{
-							return 1;
+							if(a.alive>b.alive){
+								return -1;
+							}else{
+								return 1;
+							}
 						}
-					}
-				} 
-				else if (a.dead) return 1;
-				else if (b.dead) return -1;
+					} 
+					else if (a.dead) return 1;
+					else if (b.dead) return -1;
+				}else{
+					if(a.connected)return -1;
+					if(b.connected)return 1;
+				}
+
 
 				return 0;
 			});
@@ -211,8 +226,6 @@ namespace PSPhoton {
 			}
 			return "";
 		}
-
-
 
 
 		/// <summary>
@@ -263,7 +276,7 @@ namespace PSPhoton {
 			}
 			return null;
 		}
-
+		#endregion
 
 
 
@@ -322,6 +335,7 @@ namespace PSPhoton {
 
 		public shipControl playerShip;
 
+		#region init methods
 		void Awake(){
 			instance=this;
 			SetSpawnPoints();
@@ -368,6 +382,72 @@ namespace PSPhoton {
 			//みんなが1回ずつ呼ぶので、ロード待ち受けに使える
 			loadedPlayers++;
 		}
+		private void CheckCountdown() {
+			bool takingTooLong = gameTime >= 5;
+			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
+			if (takingTooLong || finishedLoading) {
+				photonView.RPC ("StartCountdown", PhotonTargets.All, PhotonNetwork.time + 4);
+			}
+		}
+
+		[PunRPC]
+		public void StartCountdown(double startTimestamp) {
+			state = GameState.COUNTDOWN;
+			// sets local timestamp to the desired server timestamp (will be checked every frame)
+			this.startTimestamp = startTimestamp;
+		}
+
+
+
+
+		public void StartGame() {
+
+
+			if (PhotonNetwork.isMasterClient) {
+				//ここでアイテムをスポーンする
+
+			}
+
+			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
+
+			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
+
+			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
+
+			shipControl ship;
+			foreach (GameObject go in ships) {
+				ship=go.GetComponent<shipControl>();
+				if(ship){
+					if(ship!=playerShip){
+						shiphud.SetFollowhipHud(ship);
+
+					}
+					shipControl.PlayerData data=new shipControl.PlayerData(ship.playerData.userName,ship.playerData.countlyCode,ship.playerData.playerID);
+					AddPlayerData(data);
+					shipControllers.Add(ship);
+
+				}else{
+					Debug.LogError("shipControllerがアタッチされていない");
+				}
+
+			}
+
+			UpdateZanki();
+
+			//ここで操作系をEnableする
+			playerShip.isControllable=true;
+			playerShip.StartShooting();
+
+			GUIManager.Instance.OnGameAwake();
+			GUIManager.Instance.OnGameStart();
+
+			state = GameState.FIGHTING;
+			gameTime = 0;
+		}
+		#endregion
+
+
+
 
 		float itemSpawnTime=30.0f;
 		float repeatedTime=0.0f;
@@ -410,68 +490,13 @@ namespace PSPhoton {
 
 		}
 
-		private void CheckCountdown() {
-			bool takingTooLong = gameTime >= 5;
-			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
-			if (takingTooLong || finishedLoading) {
-				photonView.RPC ("StartCountdown", PhotonTargets.All, PhotonNetwork.time + 4);
-			}
-		}
-
-		[PunRPC]
-		public void StartCountdown(double startTimestamp) {
-			state = GameState.COUNTDOWN;
-			// sets local timestamp to the desired server timestamp (will be checked every frame)
-			this.startTimestamp = startTimestamp;
-		}
 
 
 
 
-		public void StartGame() {
-
-
-			if (PhotonNetwork.isMasterClient) {
-				//ここでアイテムをスポーンする
-
-			}
-
-			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
-
-			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
-
-			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
-
-			shipControl ship;
-			foreach (GameObject go in ships) {
-				ship=go.GetComponent<shipControl>();
-				if(ship){
-					if(ship!=playerShip){
-						shiphud.SetFollowhipHud(ship);
-
-					}
-					AddPlayerData(ship.playerData);
-					shipControllers.Add(ship);
-
-				}else{
-					Debug.LogError("shipControllerがアタッチされていない");
-				}
-
-			}
-
-			UpdateZanki();
-
-			//ここで操作系をEnableする
-			playerShip.isControllable=true;
-			playerShip.StartShooting();
-
-			GUIManager.Instance.OnGameAwake();
-			GUIManager.Instance.OnGameStart();
-
-			state = GameState.FIGHTING;
-			gameTime = 0;
-		}
 		public ShipFollowHudManager shiphud;
+
+
 
 		public override void OnMasterClientSwitched (PhotonPlayer newMasterClient)
 		{
@@ -480,7 +505,7 @@ namespace PSPhoton {
 
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
-
+			SetPlayerConnected(false,disconnetedPlayer.ID);
 			SetPlayerDead(disconnetedPlayer.ID);
 		}
 

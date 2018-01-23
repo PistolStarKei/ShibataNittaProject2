@@ -19643,6 +19643,12 @@ Prefab:
       propertyPath: minPlayers
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
+        type: 2}
+      propertyPath: audioControllerObj
+      value: 
+      objectReference: {fileID: 1000013942904874, guid: f1b87771072314c4e9987c0b745fca70,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
   m_IsPrefabParent: 0
