@@ -5,15 +5,25 @@ using PathologicalGames;
 
 public enum ShipOffset{Forward,ForwardRight,ForwardLeft,Right,Left,Back,BackLeft,BackRight};
 public class shipControl : Photon.MonoBehaviour, IPunObservable {
-	
+	[System.Serializable]
 	public struct PlayerData {
 		public string userName;
 		public string countlyCode;
 		public int playerID;
+		public bool dead;
+		public float alive;
+		public void SetAlive(float time){
+			alive=time;
+		}
+		public void SetDead(bool isDead){
+			dead=isDead;
+		}
 		public PlayerData(string name,string countly,int id){
 			userName=name;
 			countlyCode=countly;
 			playerID=id;
+			dead=false;
+			alive=0.0f;
 		}
 	}
 	//[HideInInspector]
@@ -88,7 +98,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	#region On Dead
 	public bool isDead=false;
 	[PunRPC]
-	void OnDead(int killedBy){
+	void OnDead(int killedBy,float aliveTime){
 
 		if(isDead)return;
 		//ここで判定
@@ -101,7 +111,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		gameObject.SetActive(false);
 		if(photonView){
 			if(PSPhoton.GameManager.instance){
-				PSPhoton.GameManager.instance.OnPlayerDead(this,killedBy);
+				PSPhoton.GameManager.instance.OnPlayerDead(playerData.playerID,killedBy,aliveTime);
 			}
 
 		}
@@ -670,7 +680,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					GUIManager.Instance.Damage (damage, MaxHP);
 				
 				if(currentHP-damage<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID});
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
 				}
 
 					

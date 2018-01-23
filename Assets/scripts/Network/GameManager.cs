@@ -11,6 +11,13 @@ public enum GameState {
 namespace PSPhoton {
 	public class GameManager : PunBehaviour {
 
+
+		public void Test(){
+		
+			Debug.Log(""+GetPlayerRank(1));
+		}
+
+
 		public static GameManager instance;
 
 		#region item spawn
@@ -124,7 +131,89 @@ namespace PSPhoton {
 		public double startTimestamp = 0;
 		private GameState state = GameState.PRE_START;
 
-		public List<shipControl> shipControllers=new List<shipControl>();
+		List<shipControl> shipControllers=new List<shipControl>();
+
+		List<shipControl.PlayerData>   playerDatas=new List<shipControl.PlayerData>();
+		void AddPlayerData(shipControl.PlayerData data){
+			playerDatas.Add(data);
+		}
+		void RemovePlayerData(int id){
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(data.playerID==id){
+					playerDatas.Remove(data);
+				}
+			}
+		}
+		void SetPlayerDead(int id){
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(data.playerID==id){
+					data.SetDead(true);
+				}
+			}
+		}
+		void SetPlayerAlive(int id,float alive){
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(data.playerID==id){
+					data.SetAlive(alive);
+				}
+			}
+		}	
+		int GetAlivePlayerCount(){
+			int count=0;
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(!data.dead){
+					count++;
+				}
+			}
+			return count;
+		}
+		int GetPlayerRank(int id){
+			
+
+			playerDatas.Sort(delegate(shipControl.PlayerData a, shipControl.PlayerData b) {
+				if (a.dead && b.dead){
+					if(a.alive==b.alive){
+						return 0;
+					}else{
+						if(a.alive>b.alive){
+							return -1;
+						}else{
+							return 1;
+						}
+					}
+				} 
+				else if (a.dead) return 1;
+				else if (b.dead) return -1;
+
+				return 0;
+			});
+
+			int count=1;
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(data.playerID==id){
+					return count;
+				}
+				count++;
+			}
+
+
+			return count;
+		}
+
+		public string GetNameById(int id){
+			string name="";
+			foreach(shipControl.PlayerData data in playerDatas){
+				if(id==data.playerID){
+					return data.userName;
+					break;
+
+				}
+			}
+			return "";
+		}
+
+
+
 
 		/// <summary>
 		/// 自機から一番近いshipを探します。
@@ -152,17 +241,7 @@ namespace PSPhoton {
 
 		int killNum=0;
 
-		public string GetNameById(int id){
-			string name="";
-			foreach(shipControl ship in shipControllers){
-				if(ship && id==ship.playerData.playerID){
-					return ship.playerData.userName;
-					break;
 
-				}
-			}
-			return "";
-		}
 		public Vector3 GetShipPositionById(int id){
 			foreach(shipControl ship in shipControllers){
 				if(ship && id==ship.playerData.playerID){
@@ -188,10 +267,12 @@ namespace PSPhoton {
 
 
 
-		public List<shipControl> deadShips=new List<shipControl>();
-		public void OnPlayerDead(shipControl ship,int killed){
-			
-			deadShips.Add(ship);
+
+		public void OnPlayerDead(int shipID,int killed,float aliveTime){
+
+			SetPlayerDead(shipID);
+			SetPlayerAlive(shipID,aliveTime);
+
 			UpdateZanki();
 
 			//kill数を追加
@@ -200,7 +281,7 @@ namespace PSPhoton {
 				GUIManager.Instance.SetKills(killNum);
 			}
 
-			if (playerShip==ship) {
+			if (PhotonNetwork.player.ID==shipID) {
 				Debug.Log("プレイヤが死亡しました");
 
 				string info=Application.systemLanguage == SystemLanguage.Japanese?  "Playerが"+GetNameById(killed)+"にキルされました"
@@ -210,25 +291,25 @@ namespace PSPhoton {
 
 				state = GameState.FINISHED;
 				// enable panel
-				GUIManager.Instance.OnGameOver(gameTime,killNum,deadShips,shipControllers,playerShip);
+				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
 			}else{
-				Debug.Log("誰かが死にました"+ship.name);
+				Debug.Log("誰かが死にました"+GetNameById(shipID));
 
-				string info=Application.systemLanguage == SystemLanguage.Japanese? ship.playerData.userName+"が"+GetNameById(killed)+"にキルされました"
-					:ship.playerData.userName+" was killed by"+GetNameById(killed);
+				string info=Application.systemLanguage == SystemLanguage.Japanese? GetNameById(shipID)+"が"+GetNameById(killed)+"にキルされました"
+					:GetNameById(shipID)+" was killed by"+GetNameById(killed);
 
 				GUIManager.Instance.Log(info);
 
-				if(shipControllers.Count-deadShips.Count<=1){
+				if(GetAlivePlayerCount()<=1){
 					
 					playerShip.isDead=true;
 					playerShip.isControllable=false;
 
-					deadShips.Add(playerShip);
+					SetPlayerDead(playerShip.playerData.playerID);
 
 					state = GameState.FINISHED;
 					// 勝ち残りゲームオーバー
-					GUIManager.Instance.OnGameOver(gameTime,killNum,deadShips,shipControllers,playerShip);
+					GUIManager.Instance.OnGameOver(gameTime,killNum,1,playerDatas.Count,playerShip);
 				}
 			}
 
@@ -236,7 +317,7 @@ namespace PSPhoton {
 		}
 
 		void UpdateZanki(){
-			GUIManager.Instance.SetZanki((shipControllers.Count-deadShips.Count)+"/"+shipControllers.Count);
+			GUIManager.Instance.SetZanki(GetAlivePlayerCount().ToString()+"/"+shipControllers.Count);
 		}
 
 		public shipControl playerShip;
@@ -317,7 +398,7 @@ namespace PSPhoton {
 						GUIManager.Instance.SetCountdown("");
 					} else {
 						repeatedTime=0.0f;
-						GUIManager.Instance.SetCountdown("Fight!");
+						GUIManager.Instance.SetCountdown("Start");
 					}
 					break;
 				case GameState.FINISHED:
@@ -365,8 +446,13 @@ namespace PSPhoton {
 			foreach (GameObject go in ships) {
 				ship=go.GetComponent<shipControl>();
 				if(ship){
-					if(ship!=playerShip)shiphud.SetFollowhipHud(ship);
+					if(ship!=playerShip){
+						shiphud.SetFollowhipHud(ship);
+
+					}
+					AddPlayerData(ship.playerData);
 					shipControllers.Add(ship);
+
 				}else{
 					Debug.LogError("shipControllerがアタッチされていない");
 				}
@@ -395,18 +481,7 @@ namespace PSPhoton {
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
 
-
-
-			/*shipControl toRemove = null;
-			foreach (shipControl rc in carControllers) {
-				//Debug.Log (rc.photonView.owner);
-				if (rc.photonView.owner == null) {
-					toRemove = rc;
-				}
-			}
-			// remove car controller of disconnected player from the list
-			shipControllers.Remove (toRemove);
-			*/
+			SetPlayerDead(disconnetedPlayer.ID);
 		}
 
 

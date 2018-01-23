@@ -5,6 +5,17 @@ public class LobbyListManager : MonoBehaviour {
 
 	public List<RoomUserList> userList=new List<RoomUserList>();
 
+	public bool isUserContains(int id){
+		bool contains=false;
+		foreach(RoomUserList list in userList){
+			if(list.id==id){
+				contains=true;
+			}
+		}
+
+		return contains;
+	}
+
 	public GameObject listPrehab;
 	public UIGrid grid;
 
@@ -26,7 +37,7 @@ public class LobbyListManager : MonoBehaviour {
 		CheckVisible();
 	}
 
-	public void AddList(string userName,int num,string countly){
+	public void AddList(string userName,int num,string countly,int id){
 		
 		GameObject go=Instantiate(listPrehab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity) as GameObject;
 		go.name=num.ToString();
@@ -36,7 +47,7 @@ public class LobbyListManager : MonoBehaviour {
 		go.transform.localScale= new Vector3(0.7195626f, 0.7195626f, 0.7195626f);
 
 		RoomUserList list=go.GetComponent<RoomUserList>();
-		list.SetUserName(userName);
+		list.SetUserName(userName,id);
 		userList.Add(list);
 		grid.Reposition();
 		CheckVisible();

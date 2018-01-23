@@ -219,7 +219,6 @@ namespace PSPhoton {
 
 
 
-			info.Log(Application.systemLanguage == SystemLanguage.Japanese? (string)newPlayer.CustomProperties["userName"]+"が参戦決定しました" :(string)newPlayer.CustomProperties["userName"]+" joins this battle");
 		}
 
 		public override void OnMasterClientSwitched (PhotonPlayer newMasterClient)
@@ -262,30 +261,42 @@ namespace PSPhoton {
 		public void UpdatePlayerList() {
 			if(useDebugLog)Debug.Log("UpdatePlayerList "+PhotonNetwork.playerList.Length);
 
+
+
 			int i=0;
 			foreach (PhotonPlayer p in PhotonNetwork.playerList) {
+
+
+				if(!lobbyList.isUserContains(p.ID))info.Log(Application.systemLanguage == SystemLanguage.Japanese? (string)p.CustomProperties["userName"]+"が参戦決定しました" :(string)p.CustomProperties["userName"]+" joins this battle");
+
 				// enable car choose option for local player
-				if (p == PhotonNetwork.player) {
+				/*if (p == PhotonNetwork.player) {
 					//自分です
-				}else{
+				}else{*/
 					lobbyList.ClearList();
 
 
 					if (p.CustomProperties.ContainsKey("userName") && p.CustomProperties.ContainsKey("countly")) {
-						lobbyList.AddList((string)p.CustomProperties["userName"],i,(string) p.CustomProperties["countly"]);
+						lobbyList.AddList((string)p.CustomProperties["userName"],i,(string) p.CustomProperties["countly"],p.ID);
 
 					}else{
-						lobbyList.AddList("",i,"UN");
+						lobbyList.AddList("",i,"UN",p.ID);
 					}
 
 					i++;
-				}
+				//}
+
 
 				if(isMasterClient){
 					if(PhotonNetwork.playerList.Length==maxPlayers){
 						if(useDebugLog)Debug.Log("最大人数に達したため、プレイ開始します");
+
+						info.Log(Application.systemLanguage == SystemLanguage.Japanese? "最大人数でバトル開始します" :"battle starts with max users");
+
+
 						isMasterClient=false;
-						CallStartGame();
+						PhotonNetwork.room.IsOpen = false;
+						Invoke("CallStartGame",2.0f);
 						return;
 					}
 				}
@@ -368,8 +379,13 @@ namespace PSPhoton {
 				_timerFlag=0.0f;
 				if(PhotonNetwork.playerList.Length>=minPlayers){
 					if(useDebugLog)Debug.Log("最低人数に達したため、プレイ開始します");
+
+					info.Log(Application.systemLanguage == SystemLanguage.Japanese? "最小人数でバトル開始します" :"battle starts with min users");
+
+
 					isMasterClient=false;
-					CallStartGame();
+					PhotonNetwork.room.IsOpen = false;
+					Invoke("CallStartGame",2.0f);
 					return;
 				}
 			}
@@ -400,7 +416,7 @@ namespace PSPhoton {
 
 		// masterClient only. Calls an RPC to start the race on all clients. Called from GUI
 		public void CallStartGame() {
-			PhotonNetwork.room.IsOpen = false;
+			
 			photonView.RPC("LoadGame", PhotonTargets.All);
 		}
 		public string GameSceneName;

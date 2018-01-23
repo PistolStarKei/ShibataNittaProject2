@@ -7,15 +7,15 @@ public class ResultPanel : MonoBehaviour {
 	public GaussianBlur blurEffect;
 	public PS_GUI_Cover cover;
 
-	public void ShowResult(float time,int killNum,List<shipControl> deadShips,List<shipControl> ships,shipControl playerShip){
+	public void ShowResult(float time,int killNum,int rank,int playerNumber,shipControl playerShip){
 		isShowing=true;
-		blurEffect.enabled=true;
+
 		cover.Cover();
 		//全参加者数
-		int players=ships.Count;
+		int players=playerNumber;
 
 		//プレイヤの順位
-		string playerRank=GetRank(deadShips,ships,playerShip)+"/"+players.ToString();
+		string playerRank=rank.ToString()+"/"+players.ToString();
 		//プレイヤの生存時間
 		int minutes = Mathf.FloorToInt(time / 60F);
 		int seconds = Mathf.FloorToInt(time - minutes * 60);
@@ -24,11 +24,11 @@ public class ResultPanel : MonoBehaviour {
 		string kills=killNum.ToString();
 
 		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills);
-
-		Invoke("Show",3.0f);
+		Invoke("Show",2.0f);
 	}
 
 	public void Show(){
+		blurEffect.enabled=true;
 		ta_panel.PlayForward();
 	}
 
@@ -43,19 +43,6 @@ public class ResultPanel : MonoBehaviour {
 		userRank.text=rank;
 		userKill.text=kill;
 		userFlag.spriteName=flag;
-	}
-
-
-	string GetRank(List<shipControl> deadShips,List<shipControl> ships,shipControl playerShip){
-		//参加者数
-		int i=ships.Count;
-
-		foreach(shipControl ship in deadShips){
-			if(ship==playerShip)return i.ToString();
-			i--;
-		}
-
-		return "";
 	}
 
 

@@ -7,13 +7,15 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public Thinksquirrel.CShake.CameraShake cameraShaker;
 
 	public void ShakeCamera(){
-		cameraShaker.shakeAmount=new Vector3(0.2f,0.0f,0.2f);
-		cameraShaker.rotationAmount=new Vector3(0.2f,0.0f,0.2f);
+		cameraShaker.numberOfShakes=3;
+		cameraShaker.shakeAmount=new Vector3(0.4f,0.0f,0.4f);
+		cameraShaker.rotationAmount=new Vector3(0.4f,0.4f,0.4f);
 		cameraShaker.Shake();
 	}
 	public void ShakeCameraBig(){
-		cameraShaker.shakeAmount=new Vector3(0.4f,0.0f,0.4f);
-		cameraShaker.rotationAmount=new Vector3(0.4f,0.0f,0.4f);
+		cameraShaker.numberOfShakes=5;
+		cameraShaker.shakeAmount=new Vector3(0.8f,0.0f,0.8f);
+		cameraShaker.rotationAmount=new Vector3(0.8f,0.8f,0.8f);
 		cameraShaker.Shake();
 	}
 
@@ -29,8 +31,8 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public ResultPanel resultMenu;
-	public void OnGameOver(float time,int killNum,List<shipControl> deadShips,List<shipControl> ships,shipControl playerShip){
-		resultMenu.ShowResult(time,killNum,deadShips,ships,playerShip);
+	public void OnGameOver(float time,int killNum,int playerRank,int playerCount,shipControl playerShip){
+		resultMenu.ShowResult(time,killNum,playerRank,playerCount,playerShip);
 	}
 
 

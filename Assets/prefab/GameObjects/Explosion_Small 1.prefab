@@ -165,7 +165,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -991827503
+  randomSeed: 604332850
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -331,12 +331,12 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 3
     startSize:
-      scalar: 0.03
+      scalar: 0.12
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.6666667
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -347,7 +347,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0.8333334
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1899,7 +1899,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: 1142352397
+  randomSeed: 1440815044
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -2065,12 +2065,12 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.03
+      scalar: 0.12
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.6666667
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2081,7 +2081,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0.8333334
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -2261,9 +2261,9 @@ ParticleSystem:
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     type: 0
-    radius: 4
+    radius: 8
     angle: 25
     length: 5
     boxX: 1
@@ -3633,7 +3633,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -403568160
+  randomSeed: -400277004
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -3799,12 +3799,12 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.03
+      scalar: 0.12
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.6666667
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3815,7 +3815,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0.8333334
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -3997,7 +3997,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: 6
+    radius: 12
     angle: 25
     length: 5
     boxX: 1
