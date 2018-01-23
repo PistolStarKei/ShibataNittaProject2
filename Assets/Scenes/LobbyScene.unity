@@ -504,7 +504,7 @@ MonoBehaviour:
   Symmetry: 0.418
   Offset: 0.556
   Inverse: 0
-  StarCount: 15000
+  StarCount: 3000
   StarRadiusMin: 0
   StarRadiusMax: 0.3
   StarPulseMax: 1
@@ -2099,7 +2099,7 @@ MonoBehaviour:
   keyboardType: 0
   hideInput: 0
   validation: 0
-  characterLimit: 20
+  characterLimit: 10
   savedAs: 
   selectOnTab: {fileID: 0}
   activeTextColor: {r: 1, g: 1, b: 1, a: 1}

@@ -58,7 +58,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	public bool debugPlayership=false;
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
-		razerLine=GetComponent<LineRenderer>();
 		photonView= GetComponent<PhotonView>();
 		photonTransformView = GetComponent<PhotonTransformView>();
 		gameObject.tag="Player";
@@ -72,7 +71,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		this.shotOffsetX=PSParams.GameParameters.shotOffsetX;
 		this.maxSpeed=PSParams.GameParameters.maxSpeed;
 		this.speed=PSParams.GameParameters.speed;
-
+		this.razerMaxdistance=PSParams.GameParameters.razerMaxDistance;
 
 		currentHP=MaxHP;
 		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
@@ -523,23 +522,17 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
+		if(usingLog)Debug.Log("サブウェポンの使用 "+weaponType.ToString());
 		if(isDead || currentUsing!=Subweapon.NONE)return;
 
 		if(usingLog)Debug.Log("サブウェポンの使用 "+weaponType.ToString());
 
 		if(isOwnersShip()){
-			//if(photonView){
-				//photonView.RPC ("UseSubWeapon", PhotonTargets.AllViaServer,new object[]{(int)weaponType});
-			//}else{
 				UseSubWeapon((int)weaponType);
-			//}
 		}
 	}
 
-	//[PunRPC]
 	public void UseSubWeapon(int weaponType){
-
-		//if(usingLog)Debug.Log("[RPC]UseSubWeapon "+((Subweapon)weaponType).ToString());
 
 		currentUsing=(Subweapon)weaponType;
 
@@ -548,26 +541,28 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		switch(currentUsing){
 		case Subweapon.WAVE:
 
-			weapontimer=3.0f;
-			stopShot=true;
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.WAVE];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.WAVE];
 			break;
 		case Subweapon.ZENHOUKOU:
-			weapontimer=3.0f;
-			stopShot=true;
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.ZENHOUKOU];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.ZENHOUKOU];
 			break;
 		case Subweapon.NAPAM:
-			weapontimer=3.0f;
-			stopShot=true;
+
+
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.NAPAM];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.NAPAM];
 			ShotNapam();
 			break;
 		case Subweapon.NUKE:
-			weapontimer=5.0f;
-			stopShot=true;
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.NUKE];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.NUKE];
 			ShotNuke();
 			break;
 		case Subweapon.YUDOU:
-			weapontimer=10.0f;
-			stopShot=true;
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.YUDOU];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.YUDOU];
 			//発射個数
 			weaponNum=PSParams.GameParameters.yudoudanShots;
 			break;
@@ -583,8 +578,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			break;
 		case Subweapon.RAZER:
 			
-			weapontimer=10.0f;
-			stopShot=false;
+			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.RAZER];
+			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.RAZER];
 			if(photonView){
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{true});
 			}else{
@@ -622,24 +617,84 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	}
 
-	LineRenderer razerLine;
+	public Razer razerSysytem;
+	public shipControl razerTarget;
 	[PunRPC]
 	public void RazerMode(bool isOn){
 		if(isOn){
-			razerLine.enabled=true;
+			razerTarget=null;
+			razerSysytem.ShowLine(null,this);
 		}else{
-			razerLine.enabled=false;
+			razerTarget=null;
+			razerSysytem.HideLine();
 		}
 	}
 
-	public float razerMaxdistance=5.0f;
-	void SetRazerTarget(Vector3 pos){
-		razerLine.SetPosition(1,pos);
+	float razerMaxdistance=1.0f;
+
+	[PunRPC]
+	public void OnRazerTargetChanged(int id){
+		
+		razerTarget=PSPhoton.GameManager.instance.GetShipById(id);
 	}
+	[PunRPC]
+	public void OnRazerTargetNull(){
+
+		razerTarget=null;
+
+	}
+
 	#endregion
 
 	#region damage
 
+	public bool isRazerTArgeted=false;
+	[PunRPC]
+	public void OnRazerTargeted(bool isOn){
+		if(isOwnersShip()){
+			isRazerTArgeted=isOn;
+			if(isOn){
+				
+				InvokeRepeating("ConstantRazerDamage",PSParams.GameParameters.razerDamageDulation,PSParams.GameParameters.razerDamageDulation);
+			}else{
+				CancelInvoke("ConstantRazerDamage");
+			}
+		}
+	}
+
+	public void ConstantRazerDamage(){
+		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
+		if(isOwnersShip()){
+
+			if(photonView){
+
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+
+				currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
+				if(GUIManager.Instance.isDebugMode){
+					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+				}
+				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
+
+				if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
+				}
+
+			}else{
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+				currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
+				if(GUIManager.Instance.isDebugMode){
+					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+				}
+				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
+				if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
+					Debug.Log("shipは死亡！");
+				}
+
+
+			}
+		}
+	}
 
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage,string ID){
@@ -827,21 +882,52 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		if(isDead || !isControllable)return;
 
-		if(isOwnersShip()){
+
+
+
+		if(!isOwnersShip())return;
+
 			//PlayerのShipのみで呼ばれる
 			if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH){
 				weapontimer-=Time.deltaTime;
 				if(weapontimer<0.0f){
 					OnWeaponTimerOver();
 				}
+				
 				if(currentUsing==Subweapon.RAZER){
-					shipControl razerTarget=GUIManager.Instance.GetNearestShip(transform.position,razerMaxdistance);
-					if(razerTarget){
-						SetRazerTarget(razerTarget.gameObject.transform.position);
-						//ここでターゲットになったshipにダメージを与える
+					if(razerTarget==null){
+						shipControl near=GUIManager.Instance.GetNearestShip(transform.position,razerMaxdistance);
+						if(razerTarget){
+							if(photonView){
+								photonView.RPC ("OnRazerTargetChanged", PhotonTargets.AllViaServer,new object[]{near.playerData.playerID});
+								near.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{true});
+							}else{
+								OnRazerTargetChanged(near.playerData.playerID);
+							}
+						}
 					}else{
-						SetRazerTarget(transform.position+transform.forward*0.5f);
+						if(razerTarget.isDead){
+							if(photonView){
+								if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+								photonView.RPC ("OnRazerTargetNull", PhotonTargets.AllViaServer,null);
+							}else{
+								OnRazerTargetNull();
+							}
+						}else{
+							//ここで射程範囲の確認
+							if(Vector3.Distance(razerTarget.transform.position,transform.position)>razerMaxdistance){
+								if(photonView){
+									if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+									photonView.RPC ("OnRazerTargetNull", PhotonTargets.AllViaServer,null);
+								}else{
+									OnRazerTargetNull();
+								}
+							}
+						}
 					}
+
+					
+
 
 				}
 			}
@@ -880,7 +966,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			rd.AddForce (tr, ForceMode.VelocityChange);
 
 			if(photonTransformView)photonTransformView.SetSynchronizedValues(speed: rd.velocity, turnSpeed: 0);
-		}
+		
 	}
 	#endregion
 

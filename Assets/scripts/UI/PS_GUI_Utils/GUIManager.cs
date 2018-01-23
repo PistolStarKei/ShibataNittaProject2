@@ -175,6 +175,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	}
 
 	public void OnUseSubWeapon(Subweapon weaponType){
+		Debug.Log("OnUseSubWeapon "+weaponType.ToString());
 		shipControll.OnUseSubWeapon(weaponType);
 	}
 	public void EnableSubweapon(){

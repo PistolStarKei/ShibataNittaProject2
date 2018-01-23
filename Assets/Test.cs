@@ -3,41 +3,42 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Test : SubweaponShot {
+public class Test :MonoBehaviour {
+		public int _uvTieX = 1;
+		public int _uvTieY = 1;
+		public int _fps = 10;
 
-	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
-		this.launcherShip=launcherShip;
-		this.ID=ID;
+		private Vector2 _size;
+		private Renderer _myRenderer;
+		private int _lastIndex = -1;
 
-		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
-		weponType=Subweapon.NONE;
-		this.spawnTime=spawnTime;
-		this.spawnPos=spawnPos;
-		ellapsedTime=0.0f;
-		lastellapsedTime=0.0f;
-		life=PSParams.GameParameters.shot_life[(int)weponType];
-		damage=PSParams.GameParameters.shot_damage[(int)weponType];
-		shotSpeed=PSParams.GameParameters.shot_speed[(int)weponType];
-	}
+		void Start () 
+		{
+			_size = new Vector2 (1.0f / _uvTieX , 1.0f / _uvTieY);
+			_myRenderer = GetComponent<Renderer>();
+			if(_myRenderer == null)
+				enabled = false;
+		}
+		// Update is called once per frame
+		void Update()
+		{
+			// Calculate index
+			int index = (int)(Time.timeSinceLevelLoad * _fps) % (_uvTieX * _uvTieY);
+			if(index != _lastIndex)
+			{
+				// split into horizontal and vertical index
+				int uIndex = index % _uvTieX;
+				int vIndex = index / _uvTieY;
 
-	public float shotSpeed=1.0f;
-	public override void Move(){
-		//transform.Translate(Vector3.forward * Time.deltaTime*shotSpeed);
-		if(ellapsedTime>0.0f)transform.position= GetEllapsedPosition(spawnPos,transform.forward,ellapsedTime);
-	}
+				// build offset
+				// v coordinate is the bottom of the image in opengl so we need to invert.
+				Vector2 offset = new Vector2 (uIndex * _size.x, 1.0f - _size.y - vIndex * _size.y);
 
-	Vector3 GetEllapsedPosition(Vector3 spawnAt,Vector3 vector,float ellapsedTime){
-		return spawnAt+vector*(ellapsedTime*shotSpeed);
-	}
+				_myRenderer.material.SetTextureOffset ("_MainTex", offset);
+				_myRenderer.material.SetTextureScale ("_MainTex", _size);
 
-	public  override void OnCollideShip(shipControl ship){
-		base.OnCollideShip(ship);
-	}
-
-	public override  void OnCollideWall(){
-		base.OnCollideWall();
-
-	}
-
+				_lastIndex = index;
+			}
+		}
 
 }

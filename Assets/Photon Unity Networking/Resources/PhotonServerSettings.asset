@@ -70,4 +70,7 @@ MonoBehaviour:
   - OnDead
   - ScatterWeapons
   - RPCDestroyWeaponByID
+  - OnRazerTargetChanged
+  - OnRazerTargetNull
+  - OnRazerTargeted
   DisableAutoOpenWizard: 1
