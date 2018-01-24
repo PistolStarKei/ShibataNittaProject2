@@ -22,7 +22,7 @@ public class SafeZone : MonoBehaviour {
 	public IntVector2 GetNextDangerZoneRandom(){
 		List<IntVector2> vect=new List<IntVector2>();
 
-
+		//候補の格納
 		for(int r=0;r<PSParams.GameParameters.mapMasuXY;r++){
 			for(int v=0;v<PSParams.GameParameters.mapMasuXY;v++){
 				if(isSafeZone(r,v)){
@@ -34,9 +34,30 @@ public class SafeZone : MonoBehaviour {
 			}
 		}
 
+		//すでに全てがデンジャーゾーン
 		if(vect.Count<=0)return null;
+		//残りのひとマス
+		if(vect.Count==1)return vect[0];
 
-		return vect[Random.Range(0,vect.Count)];
+
+		IntVector2 kouho=new IntVector2();
+		kouho.x=-100;
+		while(vect.Count>0){
+
+			kouho=vect[Random.Range(0,vect.Count)];
+			//評価する
+			if(IsReachable(kouho)){
+				break;
+			}else{
+				vect.Remove(kouho);
+			}
+		}
+
+		if(kouho.x==-100){
+			return null;
+		}
+
+		return kouho;
 
 	}
 
@@ -88,9 +109,6 @@ public class SafeZone : MonoBehaviour {
 	}
 
 
-
-
-
 	//[SerializeField]
 	Vector3[] centers;
 	void SetCenters(int x,int y,Vector3 centerPos){
@@ -120,7 +138,94 @@ public class SafeZone : MonoBehaviour {
 
 
 
+	#region 次の候補の検索
+	bool[] safezoneTemp;
+	void SetSafeZoneTemp(int x,int y,bool isSafeZone){
+		safezoneTemp[x*PSParams.GameParameters.mapMasuXY+y]=isSafeZone;
+	}
+	bool isSafeZoneTemp(int x,int y){
+		return safezoneTemp[x*PSParams.GameParameters.mapMasuXY+y];
+	}
 
+	//いかがメソッド ランダムの基礎になる
+	public bool IsReachable(IntVector2 kouho){
+		if(!isSafeZone(kouho.x,kouho.y)){
+			//すでに危険地帯なので候補外
+			return false;
+		}
+
+		//仮に写す。
+		safezoneTemp=new bool[safezone.Length];
+		int safeZoneNum=0;
+		IntVector2 startPoint=new IntVector2();
+		startPoint.x=-100;
+
+		for(int r=0;r<PSParams.GameParameters.mapMasuXY;r++){
+			for(int v=0;v<PSParams.GameParameters.mapMasuXY;v++){
+
+				if(isSafeZone(r,v))safeZoneNum++;
+
+				if(kouho.x==r && kouho.y==v){
+					//候補を危険地帯に設定
+					SetSafeZoneTemp(kouho.x,kouho.y,false);
+				}else{
+					if(isSafeZone(r,v)){
+						if(startPoint.x==-100){
+							startPoint=new IntVector2();
+							startPoint.x=r;
+							startPoint.y=v;
+						}
+					}
+
+					SetSafeZoneTemp(r,v,isSafeZone(r,v));
+				}
+			}
+		}
+		if(safeZoneNum<=0){
+			//すでに全部危険地帯
+			return false;
+		}
+
+
+		//startPoint;で探索開始
+		reachedPoints.Clear();
+
+		FloodFill(startPoint.x,startPoint.y);
+
+		//safeZoneNum-1と到達リストカウントが同じならば良い。
+		if(reachedPoints.Count==safeZoneNum-1){
+			return true;
+		}
+
+
+		return false;
+	}
+
+
+	//到達した領域をここに保存する
+	List<int> reachedPoints=new List<int>();
+	void AddReached(int x,int y){
+		reachedPoints.Add(x*PSParams.GameParameters.mapMasuXY+y);
+	}
+
+	IntVector2 intVec;
+	void FloodFill(int x, int y)
+	{
+
+		if(x<0 || x>=PSParams.GameParameters.mapMasuXY)return;
+		if(y<0 || y>=PSParams.GameParameters.mapMasuXY)return;
+
+		if(isSafeZoneTemp(x,y) && !reachedPoints.Contains(x*PSParams.GameParameters.mapMasuXY+y)){
+			AddReached(x,y);
+			FloodFill(x+1,y);
+			FloodFill(x,y+1);
+			FloodFill(x-1,y);
+			FloodFill(x,y-1);
+		}
+
+
+	}
+	#endregion
 
 
 

@@ -99,8 +99,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 43550712}
   - 114: {fileID: 43550715}
-  - 114: {fileID: 43550714}
-  - 114: {fileID: 43550713}
   m_Layer: 5
   m_Name: mapRect (6)
   m_TagString: Untagged
@@ -121,59 +119,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 6
---- !u!114 &43550713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 43550711}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &43550714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 43550711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &43550715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,8 +182,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 110792440}
   - 114: {fileID: 110792443}
-  - 114: {fileID: 110792442}
-  - 114: {fileID: 110792441}
   m_Layer: 5
   m_Name: mapRect (2)
   m_TagString: Untagged
@@ -259,59 +202,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 2
---- !u!114 &110792441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 110792439}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &110792442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 110792439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &110792443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,8 +265,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 277671070}
   - 114: {fileID: 277671071}
-  - 114: {fileID: 277671072}
-  - 114: {fileID: 277671073}
   m_Layer: 5
   m_Name: mapRect
   m_TagString: Untagged
@@ -451,59 +339,6 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: white
   mFillCenter: 1
---- !u!114 &277671072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 277671069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
---- !u!114 &277671073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 277671069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
 --- !u!1 &315108335
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +454,7 @@ Transform:
   m_Children:
   - {fileID: 632101462}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &335950582
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,8 +464,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 335950583}
   - 114: {fileID: 335950586}
-  - 114: {fileID: 335950585}
-  - 114: {fileID: 335950584}
   m_Layer: 5
   m_Name: mapRect (9)
   m_TagString: Untagged
@@ -651,59 +484,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 9
---- !u!114 &335950584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 335950582}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &335950585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 335950582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &335950586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,8 +724,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 585017556}
   - 114: {fileID: 585017559}
-  - 114: {fileID: 585017558}
-  - 114: {fileID: 585017557}
   m_Layer: 5
   m_Name: mapRect (10)
   m_TagString: Untagged
@@ -966,59 +744,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 10
---- !u!114 &585017557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 585017555}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &585017558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 585017555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &585017559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,8 +914,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 657233105}
   - 114: {fileID: 657233108}
-  - 114: {fileID: 657233107}
-  - 114: {fileID: 657233106}
   m_Layer: 5
   m_Name: mapRect (5)
   m_TagString: Untagged
@@ -1211,59 +934,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 5
---- !u!114 &657233106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 657233104}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &657233107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 657233104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &657233108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,8 +1080,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 753738839}
   - 114: {fileID: 753738842}
-  - 114: {fileID: 753738841}
-  - 114: {fileID: 753738840}
   m_Layer: 5
   m_Name: mapRect (4)
   m_TagString: Untagged
@@ -1432,59 +1100,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 4
---- !u!114 &753738840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 753738838}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &753738841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 753738838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &753738842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1548,8 +1163,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 767345019}
   - 114: {fileID: 767345022}
-  - 114: {fileID: 767345021}
-  - 114: {fileID: 767345020}
   m_Layer: 5
   m_Name: mapRect (12)
   m_TagString: Untagged
@@ -1570,59 +1183,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 12
---- !u!114 &767345020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 767345018}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &767345021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 767345018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &767345022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1731,16 +1291,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046905458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92501bee86fda46089500841accd5d74, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a986986ca59844cbb8becbbf52ea16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sps: []
   grid: {fileID: 1046905461}
-  tweenFlom: 0.1
-  tweenTo: 0.5
-  tweenDulation: 0.9
-  colDefault: {r: 0.4044118, g: 0.9014198, b: 1, a: 0.391}
-  colDanger: {r: 1, g: 0.33823532, b: 0.33823532, a: 0.547}
+  centers: []
+  safezone: 
+  safezoneTemp: 
+  reachedPoints: 
 --- !u!114 &1046905461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,8 +1330,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1090199073}
   - 114: {fileID: 1090199076}
-  - 114: {fileID: 1090199075}
-  - 114: {fileID: 1090199074}
   m_Layer: 5
   m_Name: mapRect (3)
   m_TagString: Untagged
@@ -1793,59 +1350,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 3
---- !u!114 &1090199074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1090199072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1090199075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1090199072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1090199076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,8 +1413,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1163067617}
   - 114: {fileID: 1163067620}
-  - 114: {fileID: 1163067619}
-  - 114: {fileID: 1163067618}
   m_Layer: 5
   m_Name: mapRect (1)
   m_TagString: Untagged
@@ -1931,59 +1433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 1
---- !u!114 &1163067618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1163067616}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1163067619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1163067616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1163067620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,8 +1496,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1190002703}
   - 114: {fileID: 1190002706}
-  - 114: {fileID: 1190002705}
-  - 114: {fileID: 1190002704}
   m_Layer: 5
   m_Name: mapRect (13)
   m_TagString: Untagged
@@ -2069,59 +1516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 13
---- !u!114 &1190002704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1190002702}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1190002705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1190002702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1190002706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,12 +1657,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1387455098 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
-    type: 2}
-  m_PrefabInternal: {fileID: 1644734772}
-  m_Script: {fileID: 11500000, guid: 62f9fa562ef63437abf0e911b3beeb51, type: 3}
 --- !u!1 &1440167342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,8 +1666,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1440167343}
   - 114: {fileID: 1440167346}
-  - 114: {fileID: 1440167345}
-  - 114: {fileID: 1440167344}
   m_Layer: 5
   m_Name: mapRect (7)
   m_TagString: Untagged
@@ -2300,59 +1686,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 7
---- !u!114 &1440167344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1440167342}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1440167345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1440167342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1440167346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2416,8 +1749,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1447245220}
   - 114: {fileID: 1447245223}
-  - 114: {fileID: 1447245222}
-  - 114: {fileID: 1447245221}
   m_Layer: 5
   m_Name: mapRect (15)
   m_TagString: Untagged
@@ -2438,59 +1769,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 15
---- !u!114 &1447245221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447245219}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1447245222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447245219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1447245223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2629,8 +1907,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1601869342}
   - 114: {fileID: 1601869345}
-  - 114: {fileID: 1601869344}
-  - 114: {fileID: 1601869343}
   m_Layer: 5
   m_Name: mapRect (8)
   m_TagString: Untagged
@@ -2651,59 +1927,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 8
---- !u!114 &1601869343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601869341}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1601869344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1601869341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1601869345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2758,68 +1981,6 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: white
   mFillCenter: 1
---- !u!1001 &1644734772
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000011357909206, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
-        type: 2}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 1046905460}
-    - target: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
-        type: 2}
-      propertyPath: masuXY
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
-        type: 2}
-      propertyPath: debug.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
-        type: 2}
-      propertyPath: debug.z
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9bde49d419720499e93c5257059537ef, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1654458179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,8 +1990,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1654458180}
   - 114: {fileID: 1654458183}
-  - 114: {fileID: 1654458182}
-  - 114: {fileID: 1654458181}
   m_Layer: 5
   m_Name: mapRect (11)
   m_TagString: Untagged
@@ -2851,59 +2010,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 11
---- !u!114 &1654458181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1654458179}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1654458182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1654458179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1654458183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2967,8 +2073,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1707387124}
   - 114: {fileID: 1707387127}
-  - 114: {fileID: 1707387126}
-  - 114: {fileID: 1707387125}
   m_Layer: 5
   m_Name: mapRect (14)
   m_TagString: Untagged
@@ -2989,59 +2093,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046905459}
   m_RootOrder: 14
---- !u!114 &1707387125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1707387123}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  method: 0
-  style: 2
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 1
-  steeperCurves: 0
-  tweenGroup: 0
-  useFixedUpdate: 0
-  onFinished: []
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: 0.315
-  to: 1
---- !u!114 &1707387126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1707387123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2927732a3c7d4193a8613bb822c0367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  mapParent: {fileID: 0}
 --- !u!114 &1707387127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3154,8 +2205,8 @@ MonoBehaviour:
   disabledSprite2D: {fileID: 0}
   pixelSnap: 1
   onClick:
-  - mTarget: {fileID: 1387455098}
-    mMethodName: Test
+  - mTarget: {fileID: 1046905460}
+    mMethodName: TestInvoke
     mParameters: []
     oneShot: 0
 --- !u!114 &2004563958
