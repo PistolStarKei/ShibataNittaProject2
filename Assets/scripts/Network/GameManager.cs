@@ -415,6 +415,8 @@ namespace PSPhoton {
 			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
 
 			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
+			this.safeZone_SetDulation=PSParams.GameParameters.safeZone_SetDulation;
+			this.safeZone_Dulation=PSParams.GameParameters.safeZone_Dulation;
 
 			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
 
@@ -453,6 +455,54 @@ namespace PSPhoton {
 
 
 
+		#region 安全地帯
+		public SafeZone safeZone;
+		public SafeZoneMap safeZoneMap;
+		float safeZone_SetDulation=30.0f;
+		float safeZone_timer=0.0f;
+		float safeZone_Dulation=30.0f;
+		IntVector2 nextDanzerZone;
+
+		public void OnSetNextDanzerZoneUpdate(){
+			if (PhotonNetwork.isMasterClient) {
+
+				IntVector2 invec=safeZone.GetNextDangerZoneRandom();
+				if(invec!=null){
+					
+					object[] args = new object[]{
+						invec.x,
+						invec.y
+					};
+					photonView.RPC ("RPC_SetNextDanzerZone", PhotonTargets.AllBufferedViaServer,args);
+				}
+
+			}
+		}
+		public void OnNextDanzerZoneUpdate(){
+			if (PhotonNetwork.isMasterClient) {
+				photonView.RPC ("RPC_AffectNextDanzerZone", PhotonTargets.AllBufferedViaServer,null);
+			}
+		}
+		[PunRPC]
+		public void RPC_SetNextDanzerZone(int x,int y){
+			safeZone_timer=0.0f;
+			nextDanzerZone=new IntVector2();
+			nextDanzerZone.x=x;nextDanzerZone.y=y;
+			//TODO ここで危険地帯を告知開始する
+			safeZoneMap.SetState(nextDanzerZone.x,nextDanzerZone.y,PSParams.GameParameters.mapMasuXY,ZoneState.Pending);
+		}
+		[PunRPC]
+		public void RPC_AffectNextDanzerZone(){
+			safeZone_timer=0.0f;
+			//TODO ここで危険地帯をアフェクトする
+			safeZone.SetSafeZone(nextDanzerZone.x,nextDanzerZone.y,false);
+			safeZoneMap.SetState(nextDanzerZone.x,nextDanzerZone.y,PSParams.GameParameters.mapMasuXY,ZoneState.Fixed);
+			nextDanzerZone=null;
+		}
+
+		#endregion
+
+
 		float itemSpawnTime=30.0f;
 		float repeatedTime=0.0f;
 		public UILabel timeLabel;
@@ -488,6 +538,21 @@ namespace PSPhoton {
 							OnItemSpawnUpdate();
 						}
 						GUIManager.Instance.SetCountdown("");
+						
+						safeZone_timer+=Time.deltaTime;
+						if(nextDanzerZone==null){
+							if(safeZone_timer>safeZone_SetDulation){
+								safeZone_timer=0.0f;
+								OnSetNextDanzerZoneUpdate();
+							}
+						}else{
+							if(safeZone_timer>safeZone_Dulation){
+								safeZone_timer=0.0f;
+								OnNextDanzerZoneUpdate();
+							}
+						}
+						
+
 					} else {
 						repeatedTime=0.0f;
 						GUIManager.Instance.SetCountdown("Start");

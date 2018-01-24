@@ -73,4 +73,6 @@ MonoBehaviour:
   - OnRazerTargetChanged
   - OnRazerTargetNull
   - OnRazerTargeted
+  - RPC_AffectNextDanzerZone
+  - RPC_SetNextDanzerZone
   DisableAutoOpenWizard: 1

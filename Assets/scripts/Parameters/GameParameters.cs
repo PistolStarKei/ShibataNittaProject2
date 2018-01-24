@@ -6,12 +6,19 @@ using System.Linq;
 namespace PSParams{
 	public static class GameParameters {
 
-		//Shipの値
-		#region shipControl
+		//ゲーム全体の
+		#region Game
 		//デフォルトのチケットの個数
 		public static readonly int DefaultTicketsNum=3;
 		//次のチケット追加までの間隔　秒で
 		public static readonly float TimeForNextTicket=600.0f;
+
+		//安全地帯の分割数
+		public static readonly int mapMasuXY=4;
+		//安全地帯決定間隔
+		public static readonly float safeZone_SetDulation=60.0f;
+		//安全地帯決定後にアフェクトされるまでの猶予時間
+		public static readonly float safeZone_Dulation=30.0f;
 		#endregion
 
 
