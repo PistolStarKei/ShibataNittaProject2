@@ -77,7 +77,7 @@ public class SubweaponShot : MonoBehaviour {
 			if(needPrediction)ellapsedTime=ellapsedTime+Time.deltaTime;
 		}
 		if(ellapsedTime>life){
-			KillSelf();
+			KillTimer();
 			return;
 		}
 		lastellapsedTime=ellapsedTime;

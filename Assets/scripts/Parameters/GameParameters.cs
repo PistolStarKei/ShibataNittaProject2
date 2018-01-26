@@ -64,8 +64,10 @@ namespace PSParams{
 		//サブウェポンの  NAPAM NUKE RAZER STEALTH WAVE YUDOU ZENHOUKOU
 		//注意：レーザーはダメージ間隔に与えるダメージ
 		public static readonly float[] sw_damage=new float[7]{100.0f,100.0f,1.0f,100.0f,100.0f,100.0f,100.0f};
+
 		//ショットの生存時間
-		public static readonly float[] sw_life=new float[7]{20.0f,20.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
+		public static readonly float[] sw_life=new float[7]{1.0f,1.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
+
 		//効果の継続時間
 		public static readonly float[] sw_timer=new float[7]{3.0f,5.0f,20.0f,5.0f,3.0f,10.0f,3.0f};
 		//継続時間内でショットをオフにするか？
