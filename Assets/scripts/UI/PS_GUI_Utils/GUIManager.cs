@@ -113,6 +113,10 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		}
 	}
 
+	public Subweapon usesubweapon=Subweapon.NAPAM;
+	public void Test2(){
+		shipControll.OnUseSubWeapon(usesubweapon);
+	}
 
 
 

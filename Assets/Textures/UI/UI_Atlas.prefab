@@ -93,7 +93,7 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 8
   - name: check
-    x: 624
+    x: 636
     y: 1573
     width: 11
     height: 11
@@ -106,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 3
   - name: checkbox
-    x: 636
+    x: 624
     y: 1573
     width: 11
     height: 11
@@ -847,8 +847,8 @@ MonoBehaviour:
     paddingTop: 17
     paddingBottom: 16
   - name: UI_Napam
-    x: 525
-    y: 7
+    x: 918
+    y: 330
     width: 102
     height: 102
     borderLeft: 0
@@ -873,8 +873,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Razer
-    x: 628
-    y: 7
+    x: 786
+    y: 31
     width: 102
     height: 102
     borderLeft: 0
@@ -886,8 +886,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Stealth
-    x: 786
-    y: 31
+    x: 628
+    y: 7
     width: 102
     height: 102
     borderLeft: 0
@@ -912,8 +912,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Yudou
-    x: 918
-    y: 330
+    x: 525
+    y: 7
     width: 102
     height: 102
     borderLeft: 0
