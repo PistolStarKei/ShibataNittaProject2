@@ -145,7 +145,6 @@ GameObject:
   - 65: {fileID: 29695015}
   - 114: {fileID: 29695014}
   - 114: {fileID: 29695013}
-  - 114: {fileID: 29695012}
   m_Layer: 5
   m_Name: Tgl_Shoot (1)
   m_TagString: Untagged
@@ -169,20 +168,6 @@ Transform:
   - {fileID: 962494243}
   m_Father: {fileID: 814167838}
   m_RootOrder: 3
---- !u!114 &29695012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000010687668790, guid: 1e29e6a7fe2ec4a069544c9316715c7f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 29695010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d9b8ff3a02db45378b341a4f0ee2467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggleVal: 1
-  sp: {fileID: 0}
 --- !u!114 &29695013
 MonoBehaviour:
   m_ObjectHideFlags: 0
