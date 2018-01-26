@@ -18,6 +18,10 @@ public class ShipFollowHUD : FollowGUI {
 			return;
 		}
 
+		if(!ship){
+			Show(false);
+			return;
+		}
 		if(ship && ship.isDead){
 			//死亡したら表示しない
 			Show(false);

@@ -15,7 +15,7 @@ public class Subweapon_Nuke : SubweaponShot {
 
 	public override void KillTimer(){
 		//爆破オブジェクトをスポーンして居なくなる
-		PickupAndWeaponManager.Instance.SpawnSubweapon_NukeEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		launcherShip.ShotNuke_Effect(transform.position);
 		launcherShip.RemoveWeaponHolder(this);
 		KillSelf();
 	}

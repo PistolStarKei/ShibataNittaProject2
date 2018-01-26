@@ -16,7 +16,8 @@ public class Subweapon_Napam : SubweaponShot {
 	public override void KillTimer(){
 		//爆破オブジェクトをスポーンして居なくなる
 		Debug.Log("Napam kill timer");
-		PickupAndWeaponManager.Instance.SpawnSubweapon_NapamEffecter(launcherShip,this.transform.position,Quaternion.identity,null);
+		launcherShip.ShotNapam_Effect(transform.position);
+
 		launcherShip.RemoveWeaponHolder(this);
 		KillSelf();
 	}

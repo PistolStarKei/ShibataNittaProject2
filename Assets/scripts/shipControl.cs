@@ -357,6 +357,16 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			RPC_Subweapon_Napam(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
 		}
 	}
+	public void ShotNapam_Effect(Vector3 position){
+		if(photonView){
+			photonView.RPC ("RPC_SpawnNapamEffecter", PhotonTargets.AllViaServer,new object[]{
+				position});
+		}else{
+			RPC_SpawnNapamEffecter(position);
+		}
+
+
+	}
 
 	//ヌーク弾
 	public void ShotNuke(){
@@ -367,9 +377,19 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}else{
 			RPC_Subweapon_Nuke(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
 		}
+	}
+
+	public void ShotNuke_Effect(Vector3 position){
+		if(photonView){
+			photonView.RPC ("RPC_SpawnNukeEffecter", PhotonTargets.AllViaServer,new object[]{
+				position});
+		}else{
+			RPC_SpawnNukeEffecter(position);
+		}
 
 
 	}
+
 
 	public List<SubweaponShot> shottedWeaponsHolder=new List<SubweaponShot>();
 	[PunRPC]
@@ -463,8 +483,14 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 			}
 		}
-
-
+		[PunRPC]
+		public void RPC_SpawnNapamEffecter(Vector3 position){
+			PickupAndWeaponManager.Instance.SpawnSubweapon_NapamEffecter(this,position,Quaternion.identity,null);
+		}
+		[PunRPC]
+		public void RPC_SpawnNukeEffecter(Vector3 position){
+			PickupAndWeaponManager.Instance.SpawnSubweapon_NukeEffecter(this,position,Quaternion.identity,null);
+		}
 
 
 	public bool OnShotToggle(bool val){

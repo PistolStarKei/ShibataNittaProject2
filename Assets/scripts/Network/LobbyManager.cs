@@ -268,8 +268,7 @@ namespace PSPhoton {
 		public void UpdatePlayerList() {
 			if(useDebugLog)Debug.Log("UpdatePlayerList "+PhotonNetwork.playerList.Length);
 
-
-
+			lobbyList.ClearList();
 			int i=0;
 			foreach (PhotonPlayer p in PhotonNetwork.playerList) {
 
@@ -280,7 +279,7 @@ namespace PSPhoton {
 				//if (p == PhotonNetwork.player) {
 					//自分です
 				//}else{
-					lobbyList.ClearList();
+					
 
 
 					if (p.CustomProperties.ContainsKey("userName") && p.CustomProperties.ContainsKey("countly")) {

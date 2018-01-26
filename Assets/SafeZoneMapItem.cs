@@ -12,14 +12,14 @@ public class SafeZoneMapItem : MonoBehaviour {
 	// Use this for initialization
 	void Awake() {
 		sp=gameObject.GetComponent<UISprite>();
-		ta=gameObject.GetComponent<TweenAlpha>();
+		ta=gameObject.GetComponent<TweenColor>();
 
 	}
-	TweenAlpha ta;
+	TweenColor ta;
 	void Start(){
 		SetStateTo(ZoneState.None);
-		ta.from=mapParent.tweenFlom;
-		ta.to=mapParent.tweenTo;
+		ta.from=mapParent.colDefault;
+		ta.to=mapParent.colDanger;
 		ta.duration=mapParent.tweenDulation;
 	}
 	public void SetStateTo(ZoneState state){
