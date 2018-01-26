@@ -23,6 +23,7 @@ public class SubweaponShot : MonoBehaviour {
 	internal float ellapsedTime=0.0f;
 	public string ID;
 	public virtual void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
+		
 		this.launcherShip=launcherShip;
 		ellapsedTime=0.0f;
 		this.ID=ID;

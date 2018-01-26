@@ -47,11 +47,15 @@ public class MapDetecterTrigger : MonoBehaviour {
 
 
 	public shipControl GetNearestShip(Vector3 pos,float maxDistance){
-		if(ships.Count<=0)return null;
+		if(ships.Count<=0){
+			Debug.Log("捜索　対象なし");
+			return null;
+		}
 		shipControl nearest=ships[0];
 		float dist=GetDistanceFromMe(nearest.transform.position,pos);
 		if(ships.Count==1){
 			if(dist>maxDistance){
+				Debug.Log("捜索　１機　範囲外");
 				nearest=null;
 			}
 		}else{

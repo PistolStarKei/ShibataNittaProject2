@@ -360,7 +360,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	//ヌーク弾
 	public void ShotNuke(){
-
+		
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Nuke", PhotonTargets.AllViaServer,new object[]{
 				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation)),PSGameUtils.GameUtils.uniqueID()});
@@ -414,6 +414,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 		[PunRPC]
 		public void RPC_Subweapon_Nuke(Vector3 position,Vector3 rotation,float spawnTime,string ID){
+		
 			Transform tr=PickupAndWeaponManager.Instance.SpawnSubweapon_Nuke(this,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
 			AddWeaponHolder(tr);
 		}
@@ -764,7 +765,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage,string ID){
 		
-		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+ID);
+		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+damage);
 
 		if(isDead)return;
 
@@ -964,15 +965,20 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 				
 				if(currentUsing==Subweapon.RAZER){
+				
 					if(razerTarget==null){
+						Debug.Log("レザーモード ターゲットなし");
 						shipControl near=GUIManager.Instance.GetNearestShip(transform.position,razerMaxdistance);
-						if(razerTarget){
+						if(near){
+							Debug.Log("ターゲット捜索　あり");
 							if(photonView){
 								photonView.RPC ("OnRazerTargetChanged", PhotonTargets.AllViaServer,new object[]{near.playerData.playerID});
 								near.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{true});
 							}else{
 								OnRazerTargetChanged(near.playerData.playerID);
 							}
+						}else{
+							Debug.Log("ターゲット捜索　なし");
 						}
 					}else{
 						if(razerTarget.isDead){
