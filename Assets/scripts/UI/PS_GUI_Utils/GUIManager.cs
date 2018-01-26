@@ -102,9 +102,15 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		return shipControll.OnShotToggle(val);
 	}
 		
-	public Subweapon subs=Subweapon.NAPAM;
+	public Pickup subs=Pickup.NAPAM;
+
+
 	public void Test(){
-		OnUseSubWeapon(subs);
+		if(subs==Pickup.CureL || subs==Pickup.CureM || subs==Pickup.CureS){
+			shipControll.OnPickUp_Cure(subs);
+		}else{
+			shipControll.OnPickUp_Subweapon(subs);
+		}
 	}
 
 
