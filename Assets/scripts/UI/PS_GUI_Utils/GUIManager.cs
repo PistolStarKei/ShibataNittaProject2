@@ -22,11 +22,13 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public bool isDebugMode=true;
 	// Use this for initialization
 	public void OnGameAwake(){
+		Debug.Log("OnGameAwake");
 		SetKills(0);
 		DisableAllGUI(false);
 	}
 
 	public void OnGameStart(){
+		Debug.Log("OnGameStart");
 		AbleAllGUI();
 	}
 
