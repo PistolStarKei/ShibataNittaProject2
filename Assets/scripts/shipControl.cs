@@ -723,6 +723,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(isOwnersShip()){
 			
 			if(isRazerTArgeted==isOn)return;
+			isRazerTArgeted=isOn;
 			Debug.Log("OnRazerTargeted"+isOn);
 			if(isOn){
 				InvokeRepeating("ConstantRazerDamage",PSParams.GameParameters.razerDamageDulation,PSParams.GameParameters.razerDamageDulation);
