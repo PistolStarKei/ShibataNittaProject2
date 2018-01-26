@@ -524,6 +524,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		}else if(currentUsing==Subweapon.RAZER){
 			if(photonView){
+				if(razerTarget && razerTarget.photonView){
+					razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+				}
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{false});
 			}else{
 				RazerMode(false);
@@ -597,9 +600,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.RAZER];
 			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.RAZER];
 			if(photonView){
-				if(razerTarget && razerTarget.photonView){
-					razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
-				}
+				
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{true});
 			}else{
 				RazerMode(true);
