@@ -663,6 +663,55 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	#region damage
 
+
+	public bool isInDanzerZone=false;
+	public void OnEnterDangerZone(bool isOn){
+		if(isOwnersShip()){
+			isInDanzerZone=isOn;
+			if(isOn){
+
+				InvokeRepeating("ConstantDangerZoneDamage",PSParams.GameParameters.razerDamageDulation,PSParams.GameParameters.razerDamageDulation);
+			}else{
+				CancelInvoke("ConstantDangerZoneDamage");
+			}
+		}
+	}
+
+	public void ConstantDangerZoneDamage(){
+		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
+		if(isOwnersShip()){
+
+			if(photonView){
+
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+
+				currentHP-=PSParams.GameParameters.dangerZoneDamage;
+				if(GUIManager.Instance.isDebugMode){
+					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+				}
+				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
+
+				if(currentHP<=0.0f){
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
+				}
+
+			}else{
+				//HPバーの更新、プレイヤーオブジェクトのみでやる
+				currentHP-=PSParams.GameParameters.dangerZoneDamage;
+				if(GUIManager.Instance.isDebugMode){
+					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+				}
+				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
+				if(currentHP<=0.0f){
+					Debug.Log("shipは死亡！");
+				}
+
+
+			}
+		}
+	}
+
+
 	public bool isRazerTArgeted=false;
 	[PunRPC]
 	public void OnRazerTargeted(bool isOn){
@@ -691,7 +740,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
 
-				if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
+				if(currentHP<=0.0f){
 					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
 				}
 
@@ -702,7 +751,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
-				if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
+				if(currentHP<=0.0f){
 					Debug.Log("shipは死亡！");
 				}
 
@@ -952,6 +1001,13 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 
 
+			if(!isInDanzerZone && !PSPhoton.GameManager.instance.safeZone.IsInSafeZone(transform.position)){
+				OnEnterDangerZone(true);
+			}else{
+				if(isInDanzerZone)OnEnterDangerZone(false);
+			}
+			
+			
 			tr = transform.position.normalized;
 
 			if (isPressed) {

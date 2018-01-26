@@ -47,6 +47,7 @@ namespace PSPhoton {
 				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
 			}
 
+			PhotonNetwork.CrcCheckEnabled = true;
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
 

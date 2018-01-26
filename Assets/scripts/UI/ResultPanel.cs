@@ -23,6 +23,8 @@ public class ResultPanel : MonoBehaviour {
 		//プレイヤのキル数
 		string kills=killNum.ToString();
 
+		DataManager.Instance.gameData.isConnectingRoom=false;
+		DataManager.Instance.SaveAll();
 		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills);
 		Invoke("Show",2.0f);
 	}

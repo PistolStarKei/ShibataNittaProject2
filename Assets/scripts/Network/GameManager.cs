@@ -401,7 +401,7 @@ namespace PSPhoton {
 			this.startTimestamp = startTimestamp;
 		}
 
-
+		public AlertLog alert;
 
 
 		public void StartGame() {
@@ -489,12 +489,17 @@ namespace PSPhoton {
 			nextDanzerZone=new IntVector2();
 			nextDanzerZone.x=x;nextDanzerZone.y=y;
 			//TODO ここで危険地帯を告知開始する
+			string text=Mathf.FloorToInt(PSParams.GameParameters.safeZone_SetDulation).ToString();
+			text+=Application.systemLanguage == SystemLanguage.Japanese? "秒後　安全地帯が制限されます。" :" sec before restriction on safe area";
+			alert.UpdateLog(text);
+
 			safeZoneMap.SetState(nextDanzerZone.x,nextDanzerZone.y,PSParams.GameParameters.mapMasuXY,ZoneState.Pending);
 		}
 		[PunRPC]
 		public void RPC_AffectNextDanzerZone(){
 			safeZone_timer=0.0f;
 			//TODO ここで危険地帯をアフェクトする
+			alert.Hide();
 			safeZone.SetSafeZone(nextDanzerZone.x,nextDanzerZone.y,false);
 			safeZoneMap.SetState(nextDanzerZone.x,nextDanzerZone.y,PSParams.GameParameters.mapMasuXY,ZoneState.Fixed);
 			nextDanzerZone=null;
@@ -546,6 +551,10 @@ namespace PSPhoton {
 								OnSetNextDanzerZoneUpdate();
 							}
 						}else{
+							string text=Mathf.FloorToInt(PSParams.GameParameters.safeZone_SetDulation-safeZone_timer).ToString();
+							text+=Application.systemLanguage == SystemLanguage.Japanese? "秒後　安全地帯が制限されます。" :" sec before restriction on safe area";
+
+							alert.UpdateLog(text);
 							if(safeZone_timer>safeZone_Dulation){
 								safeZone_timer=0.0f;
 								OnNextDanzerZoneUpdate();
@@ -564,29 +573,58 @@ namespace PSPhoton {
 			}
 
 
-
+			// Here are both PlayerManager scripts 
+			if (shipControllers.Count > 1) { 
+				foreach (shipControl.PlayerData data in   playerDatas) { 
+					// Check for each playerManager if the PhotonPlayer is connected
+					bool isConnected = false; 
+					foreach (PhotonPlayer pPlayer in PhotonNetwork.playerList) { 
+						if (!pPlayer.IsInactive && pPlayer.ID == PhotonNetwork.player.ID) {
+							isConnected = true; 
+						}
+							
+					} 
+					// If player is not connected we need to react 
+					if (!isConnected) { 
+						OnTmeOutError();
+					} 
+				} 
+			}  
+				
 		}
 
 
+		#region タイムアウトエラー
 
+		bool reconnecting=false;
+		public void OnTmeOutError(){
+			if(reconnecting)return;
+		}
 
-
-		public ShipFollowHudManager shiphud;
-
-
-
-		public override void OnMasterClientSwitched (PhotonPlayer newMasterClient)
+		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 		{
-			
+			base.OnPhotonPlayerConnected (newPlayer);
 		}
+
+
+
+
 
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
 			SetPlayerConnected(false,disconnetedPlayer.ID);
-			SetPlayerDead(disconnetedPlayer.ID);
+			string info=Application.systemLanguage == SystemLanguage.Japanese? (string)disconnetedPlayer.CustomProperties["userName"] +"との通信が途絶えました"
+				:(string)disconnetedPlayer.CustomProperties["userName"] +"was left rooom";
+
+			GUIManager.Instance.Log(info);
+
+
 		}
+		#endregion
 
 
+
+		public ShipFollowHudManager shiphud;
 		public void BackToMain(){
 			PhotonNetwork.LeaveRoom ();
 

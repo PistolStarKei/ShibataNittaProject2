@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 121
     paddingBottom: 54
   - name: bg_3
-    x: 749
-    y: 162
+    x: 1091
+    y: 1013
     width: 185
     height: 150
     borderLeft: 46
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 16
   - name: bg_waku
-    x: 749
-    y: 1
+    x: 1277
+    y: 1003
     width: 167
     height: 160
     borderLeft: 53
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 44
     paddingBottom: 29
   - name: bg_waku2
-    x: 1514
-    y: 1051
+    x: 1608
+    y: 1050
     width: 98
     height: 113
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 27
     paddingBottom: 20
   - name: bg_wakubold
-    x: 1763
-    y: 1209
+    x: 749
+    y: 780
     width: 215
     height: 215
     borderLeft: 61
@@ -172,7 +172,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: bg_wakumid
     x: 749
-    y: 692
+    y: 568
     width: 211
     height: 211
     borderLeft: 51
@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 19
   - name: btn_play_cover
     x: 749
-    y: 904
+    y: 1164
     width: 259
     height: 260
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 44
     paddingBottom: 44
   - name: btn_small_bg
-    x: 749
-    y: 494
+    x: 965
+    y: 798
     width: 220
     height: 197
     borderLeft: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: btn_timer
-    x: 1522
+    x: 1782
     y: 1184
     width: 240
     height: 240
@@ -249,7 +249,7 @@ MonoBehaviour:
     paddingTop: 35
     paddingBottom: 21
   - name: circ
-    x: 1010
+    x: 1270
     y: 1168
     width: 256
     height: 256
@@ -262,7 +262,7 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 25
   - name: circ1
-    x: 749
+    x: 1009
     y: 1165
     width: 260
     height: 259
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 54
     paddingBottom: 54
   - name: GUI_Button_Shot_Cover
-    x: 1009
-    y: 997
+    x: 749
+    y: 996
     width: 341
     height: 167
     borderLeft: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
     paddingTop: 34
     paddingBottom: 30
   - name: HUD_Map
-    x: 1267
+    x: 1527
     y: 1170
     width: 254
     height: 254
@@ -326,6 +326,19 @@ MonoBehaviour:
     paddingRight: 43
     paddingTop: 61
     paddingBottom: 45
+  - name: ic_alert
+    x: 1903
+    y: 996
+    width: 87
+    height: 78
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 8
+    paddingRight: 6
+    paddingTop: 5
+    paddingBottom: 10
   - name: ic_kill
     x: 1693
     y: 1435
@@ -340,8 +353,8 @@ MonoBehaviour:
     paddingTop: 37
     paddingBottom: 52
   - name: ic_ranking
-    x: 1351
-    y: 1022
+    x: 1445
+    y: 1021
     width: 162
     height: 142
     borderLeft: 0
@@ -404,6 +417,19 @@ MonoBehaviour:
     paddingRight: 50
     paddingTop: 52
     paddingBottom: 19
+  - name: line
+    x: 744
+    y: 1117
+    width: 4
+    height: 5
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 58
+    paddingRight: 32
+    paddingTop: 44
+    paddingBottom: 28
   - name: lobbyPlayBtn
     x: 1340
     y: 1752
@@ -418,8 +444,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 59
   - name: patern_check
-    x: 1714
-    y: 1070
+    x: 1808
+    y: 1069
     width: 94
     height: 94
     borderLeft: 0
@@ -444,8 +470,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: patern_stripe
-    x: 1613
-    y: 1064
+    x: 1707
+    y: 1063
     width: 100
     height: 100
     borderLeft: 0
@@ -457,8 +483,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: serverState
-    x: 917
-    y: 73
+    x: 1903
+    y: 1075
     width: 88
     height: 88
     borderLeft: 0
@@ -497,7 +523,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: white
     x: 749
-    y: 313
+    y: 387
     width: 180
     height: 180
     borderLeft: 18

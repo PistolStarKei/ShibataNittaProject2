@@ -19,6 +19,10 @@ namespace PSParams{
 		public static readonly float safeZone_SetDulation=60.0f;
 		//安全地帯決定後にアフェクトされるまでの猶予時間
 		public static readonly float safeZone_Dulation=30.0f;
+		//危険地帯でのダメージ間隔
+		public static readonly float dangerDamage_Dulation=0.3f;
+		//危険地帯でのダメージ間隔毎のダメージ
+		public static readonly float dangerZoneDamage=2.0f;
 		#endregion
 
 
@@ -58,7 +62,7 @@ namespace PSParams{
 
 		#region subweapons
 		//サブウェポンの  NAPAM NUKE RAZER STEALTH WAVE YUDOU ZENHOUKOU
-		//注意：レーザーは１フレームに与えるダメージ
+		//注意：レーザーはダメージ間隔に与えるダメージ
 		public static readonly float[] sw_damage=new float[7]{100.0f,100.0f,1.0f,100.0f,100.0f,100.0f,100.0f};
 		//ショットの生存時間
 		public static readonly float[] sw_life=new float[7]{20.0f,20.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
