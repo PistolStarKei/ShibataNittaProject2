@@ -597,6 +597,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.RAZER];
 			stopShot=PSParams.GameParameters.sw_isShotOff[(int)Subweapon.RAZER];
 			if(photonView){
+				if(razerTarget && razerTarget.photonView){
+					razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+				}
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{true});
 			}else{
 				RazerMode(true);
@@ -967,10 +970,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				if(currentUsing==Subweapon.RAZER){
 				
 					if(razerTarget==null){
-						Debug.Log("レザーモード ターゲットなし");
 						shipControl near=GUIManager.Instance.GetNearestShip(transform.position,razerMaxdistance);
 						if(near){
-							Debug.Log("ターゲット捜索　あり");
 							if(photonView){
 								photonView.RPC ("OnRazerTargetChanged", PhotonTargets.AllViaServer,new object[]{near.playerData.playerID});
 								near.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{true});
@@ -978,7 +979,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 								OnRazerTargetChanged(near.playerData.playerID);
 							}
 						}else{
-							Debug.Log("ターゲット捜索　なし");
 						}
 					}else{
 						if(razerTarget.isDead){

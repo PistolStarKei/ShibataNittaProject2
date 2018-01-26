@@ -277,9 +277,9 @@ namespace PSPhoton {
 				if(!lobbyList.isUserContains(p.ID))info.Log(Application.systemLanguage == SystemLanguage.Japanese? (string)p.CustomProperties["userName"]+"が参戦決定しました" :(string)p.CustomProperties["userName"]+" joins this battle");
 
 				// enable car choose option for local player
-				/*if (p == PhotonNetwork.player) {
+				//if (p == PhotonNetwork.player) {
 					//自分です
-				}else{*/
+				//}else{
 					lobbyList.ClearList();
 
 
@@ -292,22 +292,19 @@ namespace PSPhoton {
 
 					i++;
 				//}
+			}
+			if(isMasterClient){
+				if(PhotonNetwork.playerList.Length==maxPlayers){
+					if(useDebugLog)Debug.Log("最大人数に達したため、プレイ開始します");
+
+					info.Log(Application.systemLanguage == SystemLanguage.Japanese? "最大人数でバトル開始します" :"battle starts with max users");
 
 
-				if(isMasterClient){
-					if(PhotonNetwork.playerList.Length==maxPlayers){
-						if(useDebugLog)Debug.Log("最大人数に達したため、プレイ開始します");
-
-						info.Log(Application.systemLanguage == SystemLanguage.Japanese? "最大人数でバトル開始します" :"battle starts with max users");
-
-
-						isMasterClient=false;
-						PhotonNetwork.room.IsOpen = false;
-						Invoke("CallStartGame",2.0f);
-						return;
-					}
+					isMasterClient=false;
+					PhotonNetwork.room.IsOpen = false;
+					Invoke("CallStartGame",2.0f);
+					return;
 				}
-
 			}
 		}
 
