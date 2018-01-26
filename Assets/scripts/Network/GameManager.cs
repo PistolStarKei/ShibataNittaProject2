@@ -454,7 +454,7 @@ namespace PSPhoton {
 			playerShip.isControllable=true;
 			playerShip.StartShooting();
 
-			GUIManager.Instance.OnGameAwake();
+
 			GUIManager.Instance.OnGameStart();
 
 			state = GameState.FIGHTING;
@@ -618,10 +618,6 @@ namespace PSPhoton {
 			base.OnPhotonPlayerConnected (newPlayer);
 		}
 
-
-
-
-
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
 			SetPlayerConnected(false,disconnetedPlayer.ID);
@@ -644,10 +640,36 @@ namespace PSPhoton {
 
 		public override void OnLeftRoom(){ 
 			Debug.Log("OnLeftLobby was called");
-			PhotonNetwork.LoadLevel ("LobbyScene");
+
+			if(state == GameState.FINISHED){
+				PhotonNetwork.LoadLevel ("LobbyScene");
+			}else{
+				
+
+				if(isRoomExists(DataManager.Instance.gameData.lastRoomName)){
+					PhotonNetwork.ReconnectAndRejoin();
+				}else{
+					//部屋が存在しない
+					Debug.LogWarning("部屋が存在しない");
+					BackToMain();
+				}
+			}
+
 		}
 
+		public override void OnFailedToConnectToPhoton (DisconnectCause cause)
+		{
+			Debug.Log("OnFailedToConnectToPhoton");
+			base.OnFailedToConnectToPhoton (cause);
+		}
+		bool isRoomExists(string roomName){
+			Debug.Log("isRoomExists"+roomName);
+			List<RoomInfo> roomList = PhotonNetwork.GetRoomList().ToList();
+			RoomInfo room  = roomList.FirstOrDefault(r => r.Name == roomName);
+			bool exists = (room != null);
 
+			return exists;
+		}
 
 	}
 }

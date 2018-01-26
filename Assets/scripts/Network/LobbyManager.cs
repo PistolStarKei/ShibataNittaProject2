@@ -18,6 +18,7 @@ namespace PSPhoton {
 
 		[Tooltip("接続切れの場合何ミリ秒間プレイヤインスタンスを破棄せずに待つか")]
 		public int playerTTL=60000;
+		public int roomTTL=0;
 		public float checkTimeOnRoom;
 		public PS_GUI_TimerSlider timer;
 
@@ -60,6 +61,11 @@ namespace PSPhoton {
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
 
+
+				if(DataManager.Instance.gameData.isConnectingRoom){
+					info.Log(Application.systemLanguage == SystemLanguage.Japanese? "すでにバトルは終了しています" :"Privious battle is ended already");
+				}
+
 				JoinLobby();
 
 				return;
@@ -89,7 +95,7 @@ namespace PSPhoton {
 		public void ConnectToPUN(){
 			PhotonNetwork.player.NickName = DataManager.Instance.gameData.userID;
 
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "サーバに接続中" :"Connecting Server");
+			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Connecting");
 			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
 			PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
 
@@ -106,6 +112,7 @@ namespace PSPhoton {
 			if(useDebugLog)Debug.Log("OnFailedToConnectToPhoton retry in seconds");
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
+			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Reconneting");
 			base.OnFailedToConnectToPhoton (cause);
 		}
 
@@ -122,7 +129,7 @@ namespace PSPhoton {
 			if(useDebugLog)Debug.Log("OnDisconnectedFromPhoton");
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
 
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "再接続中" :"Reconneting");
+			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Reconneting");
 			Invoke("ConnectToPUN",2.0f);
 
 			base.OnDisconnectedFromPhoton();
@@ -140,7 +147,7 @@ namespace PSPhoton {
 
 		public void JoinLobby(){
 			if(useDebugLog)Debug.Log("JoinLobby");
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "ロビーに接続中" :"Entering Lobby");
+			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "ロビー接続中" :"Entering Lobby");
 			PhotonNetwork.JoinLobby ();
 		}
 
@@ -185,7 +192,7 @@ namespace PSPhoton {
 			RoomOptions options = new RoomOptions();
 			options.MaxPlayers = maxPlayers;
 			options.PlayerTtl = playerTTL;
-
+			options.EmptyRoomTtl=roomTTL;
 			//ここでマップをランダムに設定する
 			int mapNum=0;
 			options.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable() { { "map",mapNum} };
@@ -213,7 +220,8 @@ namespace PSPhoton {
 			if(useDebugLog)Debug.Log("OnCreatedRoom successed");
 			_timerFlag=0.0f;
 			_timerFrequency=0.0f;
-
+			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
+			DataManager.Instance.SaveAll();
 			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 
 		}
@@ -322,6 +330,9 @@ namespace PSPhoton {
 		{
 			if(useDebugLog)Debug.Log("OnJoindRoom successed");
 			stateHUD.SetStateHUD(NetworkState.ROOMCONNECTED);
+			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
+			DataManager.Instance.SaveAll();
+
 			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 			base.OnJoinedRoom ();
 		}
@@ -343,6 +354,7 @@ namespace PSPhoton {
 				isMasterClient=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=true;
+
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
 			}else{
 				lobbyList.ClearList();
@@ -396,7 +408,7 @@ namespace PSPhoton {
 				}
 			}
 
-			if(_timerFrequency>0.5f){
+			if(_timerFrequency>0.3f){
 				_timerFrequency=0.0f;
 				CallUpdateTimer(_timerFlag);
 			}

@@ -406,7 +406,7 @@ MonoBehaviour:
     paddingBottom: 32
   - name: input_waku
     x: 1616
-    y: 1693
+    y: 1622
     width: 75
     height: 58
     borderLeft: 23
@@ -484,7 +484,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: patern_shape
     x: 688
-    y: 121
+    y: 93
     width: 34
     height: 34
     borderLeft: 0
@@ -534,6 +534,71 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 14
     paddingBottom: 16
+  - name: status1
+    x: 716
+    y: 65
+    width: 27
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 37
+    paddingTop: 8
+    paddingBottom: 36
+  - name: status2
+    x: 688
+    y: 65
+    width: 27
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 40
+    paddingRight: 7
+    paddingTop: 8
+    paddingBottom: 36
+  - name: status3
+    x: 688
+    y: 128
+    width: 57
+    height: 27
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 7
+    paddingTop: 39
+    paddingBottom: 5
+  - name: statusBG
+    x: 1616
+    y: 1681
+    width: 76
+    height: 70
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 14
+    paddingTop: 19
+    paddingBottom: 13
+  - name: statusBG2
+    x: 1616
+    y: 1557
+    width: 63
+    height: 64
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 13
+    paddingRight: 8
+    paddingTop: 10
+    paddingBottom: 5
   - name: uerholder
     x: 0
     y: 26
