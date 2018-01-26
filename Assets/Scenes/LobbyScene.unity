@@ -2328,6 +2328,7 @@ MonoBehaviour:
   switcher: {fileID: 2093217538}
   lobby: {fileID: 1982778692}
   currentSelect: 0
+  currentSelectColor: 0
   enableAlpha: 0.3
   disbleAlpha: 1
 --- !u!1 &281537200 stripped
@@ -8480,11 +8481,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrangement: 1
   sorting: 0
-  pivot: 0
+  pivot: 1
   maxPerLine: 0
   cellWidth: 20
-  cellHeight: 70
-  animateSmoothly: 0
+  cellHeight: 80
+  animateSmoothly: 1
   hideInactive: 0
   keepWithinPanel: 0
   sorted: 0
@@ -15205,7 +15206,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

@@ -112,7 +112,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		isControllable=false;
 		rd.isKinematic=true;
 
-		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,this.transform);
+		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,null);
+
 		gameObject.SetActive(false);
 		if(photonView){
 			if(PSPhoton.GameManager.instance){
@@ -544,8 +545,20 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(currentUsing==Subweapon.STEALTH){
 			if(photonView){
 				photonView.RPC ("StealthMode", PhotonTargets.AllViaServer,new object[]{false});
+				currentUsing=Subweapon.NONE;
+				if(isShooting){
+					OnShotToggle(true);
+					GUIManager.Instance.SetShotTgl(true);
+				}
+				stopShot=false;
 			}else{
 				StealthMode(false);
+				currentUsing=Subweapon.NONE;
+				if(isShooting){
+					OnShotToggle(true);
+					GUIManager.Instance.SetShotTgl(true);
+				}
+				stopShot=false;
 			}
 
 		}else if(currentUsing==Subweapon.RAZER){
@@ -647,7 +660,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				engine.SetActive(false);
 				stealthEffecter.StealthMode(true);
 			}else{
-				OnShotToggle(true);
+				
 				engine.SetActive(true);
 				stealthEffecter.StealthMode(false);
 			}
@@ -711,7 +724,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	public void ConstantDangerZoneDamage(){
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
-		if(isOwnersShip()){
+		if(isOwnersShip() && !isDead){
 
 			if(photonView){
 
@@ -719,19 +732,19 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 				currentHP-=PSParams.GameParameters.dangerZoneDamage;
 				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
 
 				if(currentHP<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{null,PSPhoton.GameManager.instance.gameTime});
 				}
 
 			}else{
 				//HPバーの更新、プレイヤーオブジェクトのみでやる
 				currentHP-=PSParams.GameParameters.dangerZoneDamage;
 				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
 				if(currentHP<=0.0f){
@@ -745,10 +758,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 
 	public bool isRazerTArgeted=false;
+
+	int targettedBy=0;
 	[PunRPC]
-	public void OnRazerTargeted(bool isOn){
+	public void OnRazerTargeted(bool isOn,int tagettedBy){
 		if(isOwnersShip()){
-			
+			this.targettedBy=tagettedBy;
 			if(isRazerTArgeted==isOn)return;
 			isRazerTArgeted=isOn;
 			Debug.Log("OnRazerTargeted"+isOn);
@@ -762,7 +777,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	public void ConstantRazerDamage(){
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
-		if(isOwnersShip()){
+		if(isOwnersShip() && !isDead){
 
 			if(photonView){
 
@@ -770,19 +785,19 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 				currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
 				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
 
 				if(currentHP<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{playerData.playerID,PSPhoton.GameManager.instance.gameTime});
+					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
 				}
 
 			}else{
 				//HPバーの更新、プレイヤーオブジェクトのみでやる
 				currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
 				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
 				if(currentHP<=0.0f){
@@ -797,7 +812,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage,string ID){
 		
-		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+damage);
+		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+ID);
 
 		if(isDead)return;
 
@@ -806,6 +821,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			enemy.photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
 				ID,playerData.playerID});
 		}
+
 
 		//デバグ用　
 		if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""){
@@ -826,13 +842,14 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
 
+		
 			if(photonView){
 
 				//HPバーの更新、プレイヤーオブジェクトのみでやる
 					GUIManager.Instance.ShakeCamera();
 					currentHP-=damage;
 					if(GUIManager.Instance.isDebugMode){
-						GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 					}
 					GUIManager.Instance.Damage (damage, MaxHP);
 				
@@ -848,7 +865,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					GUIManager.Instance.ShakeCamera();
 					currentHP-=damage;
 					if(GUIManager.Instance.isDebugMode){
-						GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
+					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 					}
 					GUIManager.Instance.Damage (damage, MaxHP);
 					if(currentHP-damage<=0.0f){
@@ -1003,7 +1020,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 						if(near){
 							if(photonView){
 								photonView.RPC ("OnRazerTargetChanged", PhotonTargets.AllViaServer,new object[]{near.playerData.playerID});
-								near.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{true});
+							near.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{true,playerData.playerID});
 							}else{
 								OnRazerTargetChanged(near.playerData.playerID);
 							}
@@ -1037,10 +1054,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 
 
-			if(!isInDanzerZone && !PSPhoton.GameManager.instance.safeZone.IsInSafeZone(transform.position)){
-				OnEnterDangerZone(true);
+			if(!isInDanzerZone){
+				if(!PSPhoton.GameManager.instance.safeZone.IsInSafeZone(transform.position))OnEnterDangerZone(true);
 			}else{
-				if(isInDanzerZone)OnEnterDangerZone(false);
+				if(PSPhoton.GameManager.instance.safeZone.IsInSafeZone(transform.position))OnEnterDangerZone(false);
 			}
 			
 			

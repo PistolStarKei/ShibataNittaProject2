@@ -26,7 +26,7 @@ public class ResultPanel : MonoBehaviour {
 		DataManager.Instance.gameData.isConnectingRoom=false;
 		DataManager.Instance.SaveAll();
 		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills);
-		Invoke("Show",2.0f);
+		Invoke("Show",3.0f);
 	}
 
 	public void Show(){
@@ -56,7 +56,7 @@ public class ResultPanel : MonoBehaviour {
 
 	public PSGUI.SceneFader sceneFader;
 	public void OnCliclMain(){
-		sceneFader.FadeIn(BackToMain,true);
+		sceneFader.FadeOut(BackToMain,true);
 	}
 
 	public void BackToMain(){

@@ -297,8 +297,14 @@ namespace PSPhoton {
 			if (PhotonNetwork.player.ID==shipID) {
 				Debug.Log("プレイヤが死亡しました");
 
-				string info=Application.systemLanguage == SystemLanguage.Japanese?  "Playerが"+GetNameById(killed)+"にキルされました"
-					:"Player was killed by"+GetNameById(killed);
+					string info="";
+					if(GetNameById(killed)!=""){
+						info=Application.systemLanguage == SystemLanguage.Japanese?  "あなたが"+GetNameById(killed)+"にキルされました"
+							:"You were killed by"+GetNameById(killed);
+					}else{
+						info=Application.systemLanguage == SystemLanguage.Japanese?  "あなたは危険エリアで死亡しました"
+							:"You were dead in danger area";
+					}
 
 				GUIManager.Instance.Log(info);
 
@@ -307,10 +313,14 @@ namespace PSPhoton {
 				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
 			}else{
 				Debug.Log("誰かが死にました"+GetNameById(shipID));
-
-				string info=Application.systemLanguage == SystemLanguage.Japanese? GetNameById(shipID)+"が"+GetNameById(killed)+"にキルされました"
+				string info="";
+				if(GetNameById(killed)!=""){
+					info=Application.systemLanguage == SystemLanguage.Japanese? GetNameById(shipID)+"が"+GetNameById(killed)+"にキルされました"
 					:GetNameById(shipID)+" was killed by"+GetNameById(killed);
-
+				}else{
+					info=Application.systemLanguage == SystemLanguage.Japanese? GetNameById(shipID)+ "は危険エリアで死亡しました"
+						:GetNameById(shipID)+"was dead in danger area";
+				}
 				GUIManager.Instance.Log(info);
 
 				if(GetAlivePlayerCount()<=1){
@@ -485,14 +495,11 @@ namespace PSPhoton {
 		}
 		[PunRPC]
 		public void RPC_SetNextDanzerZone(int x,int y){
+			
 			safeZone_timer=0.0f;
 			nextDanzerZone=new IntVector2();
 			nextDanzerZone.x=x;nextDanzerZone.y=y;
-			//TODO ここで危険地帯を告知開始する
-			string text=Mathf.FloorToInt(PSParams.GameParameters.safeZone_SetDulation).ToString();
-			text+=Application.systemLanguage == SystemLanguage.Japanese? "秒後　安全地帯が制限されます。" :" sec before restriction on safe area";
-			alert.UpdateLog(text);
-
+			Debug.Log("NextDangerZone= "+x+" "+y);
 			safeZoneMap.SetState(nextDanzerZone.x,nextDanzerZone.y,PSParams.GameParameters.mapMasuXY,ZoneState.Pending);
 		}
 		[PunRPC]
@@ -551,13 +558,17 @@ namespace PSPhoton {
 								OnSetNextDanzerZoneUpdate();
 							}
 						}else{
-							string text=Mathf.FloorToInt(PSParams.GameParameters.safeZone_SetDulation-safeZone_timer).ToString();
-							text+=Application.systemLanguage == SystemLanguage.Japanese? "秒後　安全地帯が制限されます。" :" sec before restriction on safe area";
-
-							alert.UpdateLog(text);
+							
 							if(safeZone_timer>safeZone_Dulation){
 								safeZone_timer=0.0f;
 								OnNextDanzerZoneUpdate();
+							}else{
+								if(PSParams.GameParameters.safeZone_SetDulation>=safeZone_timer){
+									string text=Mathf.FloorToInt(PSParams.GameParameters.safeZone_SetDulation-safeZone_timer).ToString();
+									text+=Application.systemLanguage == SystemLanguage.Japanese? "秒後　安全地帯が制限されます。" :" sec before restriction on safe area";
+
+									alert.UpdateLog(text);
+								}
 							}
 						}
 						
@@ -599,6 +610,7 @@ namespace PSPhoton {
 		bool reconnecting=false;
 		public void OnTmeOutError(){
 			if(reconnecting)return;
+			Debug.Log("OnTimeOueError");
 		}
 
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
@@ -630,7 +642,8 @@ namespace PSPhoton {
 
 		}
 
-		void OnLeftLobby(){ 
+		public override void OnLeftRoom(){ 
+			Debug.Log("OnLeftLobby was called");
 			PhotonNetwork.LoadLevel ("LobbyScene");
 		}
 

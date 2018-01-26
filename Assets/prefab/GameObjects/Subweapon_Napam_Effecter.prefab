@@ -251,7 +251,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -56512048
+  randomSeed: -1794796600
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -417,7 +417,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.4745098, b: 0, a: 1}
       minMaxState: 2
     startSize:
-      scalar: 0.2
+      scalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -428,7 +428,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -439,7 +439,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startSizeY:
       scalar: 1
@@ -607,7 +607,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 3
     randomizeRotationDirection: 0
-    gravityModifier: -0.2
+    gravityModifier: -0.1
     maxNumParticles: 100
     size3D: 0
     rotation3D: 0
@@ -615,7 +615,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: 4
+    radius: 15
     angle: 25
     length: 5
     boxX: 1
@@ -1914,7 +1914,7 @@ ParticleSystem:
   serializedVersion: 4
   lengthInSec: 0.5
   startDelay:
-    scalar: 0.5
+    scalar: 0.2
     maxCurve:
       serializedVersion: 2
       m_Curve:
@@ -1955,7 +1955,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: 1334806657
+  randomSeed: -1256129710
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -2121,18 +2121,18 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.22745098, b: 0.22745098, a: 1}
       minMaxState: 2
     startSize:
-      scalar: 0.2
+      scalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.5
+          value: 0.8
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2143,7 +2143,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startSizeY:
       scalar: 1
@@ -2311,7 +2311,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 3
     randomizeRotationDirection: 0
-    gravityModifier: -0.4
+    gravityModifier: -0.2
     maxNumParticles: 100
     size3D: 0
     rotation3D: 0
@@ -2319,7 +2319,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: 6
+    radius: 15
     angle: 25
     length: 5
     boxX: 1
@@ -3659,7 +3659,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -848691174
+  randomSeed: -11959773
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -3825,7 +3825,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.56078434, b: 0.56078434, a: 1}
       minMaxState: 2
     startSize:
-      scalar: 0.1
+      scalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3836,18 +3836,18 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.5
+          value: 0.6666666
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minMaxState: 3
     startSizeY:
       scalar: 1
@@ -4026,9 +4026,9 @@ ParticleSystem:
     radius: 6
     angle: 25
     length: 5
-    boxX: 10
-    boxY: 1
-    boxZ: 10
+    boxX: 30
+    boxY: 2
+    boxZ: 30
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}

@@ -121,6 +121,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 
 
+
 	/*
 	 * 
 	 * HP スライダー
@@ -149,6 +150,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 			Debug.LogError("persentage not within 1-100%");
 			persentage=1.0f;
 		}
+
 		hpSlider.AddVal((MaxHP*(persentage/100.0f))/MaxHP);
 
 	}
