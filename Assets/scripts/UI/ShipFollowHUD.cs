@@ -7,6 +7,7 @@ public class ShipFollowHUD : FollowGUI {
 	public shipControl ship;
 	public void SetTarget(shipControl ship){
 		this.target=ship.transform;
+		this.ship=ship;
 		name.text=ship.playerData.userName;
 		countly.spriteName=ship.playerData.countlyCode;
 	}
@@ -24,6 +25,7 @@ public class ShipFollowHUD : FollowGUI {
 		}
 		if(ship && ship.isStealthMode){
 			//ステルス状態でも表示しない
+			Debug.Log("ステルス状態なので表示しない");
 			Show(false);
 			return;
 		}else{

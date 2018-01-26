@@ -520,7 +520,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}else{
 				StealthMode(false);
 			}
-			StealthMode(false);
+
 		}else if(currentUsing==Subweapon.RAZER){
 			if(photonView){
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{false});
@@ -616,6 +616,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				engine.SetActive(false);
 				stealthEffecter.StealthMode(true);
 			}else{
+				OnShotToggle(true);
 				engine.SetActive(true);
 				stealthEffecter.StealthMode(false);
 			}
