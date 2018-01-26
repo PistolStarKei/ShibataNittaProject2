@@ -152,7 +152,8 @@ MonoBehaviour:
   damage: 100
   life: 60
   launcherShip: {fileID: 0}
-  weponType: 7
+  weponType: 1
+  ID: 
   needPrediction: 1
   shotSpeed: 2
 --- !u!198 &198000011881081238
