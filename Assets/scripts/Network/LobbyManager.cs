@@ -284,6 +284,7 @@ namespace PSPhoton {
 
 
 					if (p.CustomProperties.ContainsKey("userName") && p.CustomProperties.ContainsKey("countly")) {
+						if(useDebugLog)Debug.Log("Add Lists ");
 						lobbyList.AddList((string)p.CustomProperties["userName"],i,(string) p.CustomProperties["countly"],p.ID);
 
 					}else{
