@@ -68,14 +68,14 @@ namespace PSParams{
 		public static readonly float[] sw_life=new float[7]{1.0f,1.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
 
 		//効果の継続時間
-		public static readonly float[] sw_timer=new float[7]{3.0f,5.0f,10.0f,5.0f,3.0f,10.0f,3.0f};
+		public static readonly float[] sw_timer=new float[7]{3.0f,5.0f,10.0f,10.0f,3.0f,10.0f,3.0f};
 
 		//継続時間内でショットをオフにするか？
 		public static readonly bool[] sw_isShotOff=new bool[7]{true,true,true,true,true,true,true};
 
 		//誘導弾の発射個数
 		public static readonly int yudoudanShots=5;
-		public static readonly float yudoudanMaxDistance=1.0f;
+		public static readonly float yudoudanMaxDistance=5.0f;
 
 		//レーザーの有効射程距離
 		public static readonly float razerMaxDistance=5.0f;
