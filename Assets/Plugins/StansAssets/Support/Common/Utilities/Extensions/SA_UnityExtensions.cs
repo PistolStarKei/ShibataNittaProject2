@@ -8,7 +8,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 using UnityEngine;
-using System.Collections;
+
+using System;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 
 public static class SA_UnityExtensions  {
@@ -190,6 +193,14 @@ public static class SA_UnityExtensions  {
 		return Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f)); 
 	}
 
+
+		
+	public static Texture2D Rotate (this Texture2D texture, float angle){
+		return SA.Common.Util.IconManager.Rotate (texture, angle);
+	}
+
+
+
 	//--------------------------------------
 	// Vector3
 	//--------------------------------------
@@ -220,6 +231,31 @@ public static class SA_UnityExtensions  {
 		return newVec;
 	}
 
+	public static Vector3 Average(this Vector3[] f) {
+		var temp = Vector3.zero;
+		var validValues = 0;
+
+		for (int i = 0; i < f.Length - 1; i++)
+		{
+			// If a value is 0.0f it means we didn't collect that sample yet, therefore, we'll ignore it in our average
+			if (f[i] != Vector3.zero)
+			{
+				temp += f[i];
+				validValues++;
+			}
+		}
+
+		// Prevent divisions by 0, and as such, the destruction of the world
+		validValues = (validValues > 0) ? validValues : 1;
+
+		temp.x = temp.x / validValues;
+		temp.y = temp.y / validValues;
+		temp.z = temp.z / validValues;
+
+		return temp;
+
+	}
+
 
 	//--------------------------------------
 	// String
@@ -238,6 +274,37 @@ public static class SA_UnityExtensions  {
 		if(count >= source.Length)
 			return source;
 		return source.Substring (0, count);
+	}
+
+	public static void CopyToClipboard(this string source) {
+#if UNITY_2017
+		TextEditor te = new TextEditor();
+		te.text = source;
+		te.SelectAll();
+		te.Copy();
+#endif
+	}
+
+
+	public static System.Uri CovertToURI(this string source) {
+		return new System.Uri (source);
+	}
+
+
+
+	//--------------------------------------
+	// Uri
+	//--------------------------------------
+
+	private static readonly Regex _regex = new Regex(@"[?|&]([\w\.]+)=([^?|^&]+)");
+	public static Dictionary<string, string> ParseQueryString(this Uri uri) {
+		var match = _regex.Match(uri.PathAndQuery);
+		var paramaters = new Dictionary<string, string>();
+		while (match.Success) {
+			paramaters.Add(match.Groups[1].Value, match.Groups[2].Value);
+			match = match.NextMatch();
+		}
+		return paramaters;
 	}
 
 

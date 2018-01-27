@@ -277,7 +277,7 @@ namespace PSPhoton {
 		// self-explainable
 		public void UpdatePlayerList() {
 			if(useDebugLog)Debug.Log("UpdatePlayerList "+PhotonNetwork.playerList.Length);
-
+			stateHUD.SetLabel(PhotonNetwork.playerList.Length.ToString()+"/"+maxPlayers.ToString(),false);
 			lobbyList.ClearList();
 			int i=0;
 			foreach (PhotonPlayer p in PhotonNetwork.playerList) {

@@ -18,6 +18,8 @@ namespace SA.Common {
 	
 	public class Config  {
 
+        public const string LIB_VERSION = "24";
+
 		public const int VERSION_UNDEFINED = 0;
 		public const string VERSION_UNDEFINED_STRING 	= "Undefined";
 		public const string SUPPORT_EMAIL 				= "support@stansassets.com";

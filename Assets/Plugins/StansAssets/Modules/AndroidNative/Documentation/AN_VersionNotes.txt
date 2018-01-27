@@ -1,3 +1,15 @@
+9.10/24
+NEW!
+SignOut API added for Google Play Services Connect
+Google Play Services updated to version 11.4.2
+
+Fixes:
+Android billing errors fix
+Google Play OAuth Token request fix
+
+Overall performance improvements
+Compatibility updates & fixes
+
 9.9/22
 NEW!
 Facebook SDK v7.10.0 compatibility update

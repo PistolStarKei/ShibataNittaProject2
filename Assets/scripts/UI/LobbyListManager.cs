@@ -20,21 +20,11 @@ public class LobbyListManager : MonoBehaviour {
 	public UIGrid grid;
 
 
-	public UISprite bg;
-	void CheckVisible(){
-		if(userList.Count<=0){
-			bg.enabled=false;
-		}else{
-			bg.enabled=true;
-		}	
-	}
-
 	public void ClearList(){
 		foreach(RoomUserList list in userList){
 			list.Destroy();
 		}
 		userList.Clear();
-		CheckVisible();
 	}
 
 	public void AddList(string userName,int num,string countly,int id){
@@ -50,7 +40,6 @@ public class LobbyListManager : MonoBehaviour {
 		list.SetUserName(userName,id);
 		userList.Add(list);
 		grid.Reposition();
-		CheckVisible();
 	}
 		
 

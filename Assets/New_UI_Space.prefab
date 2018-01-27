@@ -159,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 20
   - name: bg_wakubold
     x: 1244
-    y: 784
+    y: 684
     width: 215
     height: 215
     borderLeft: 61
@@ -172,7 +172,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: bg_wakumid
     x: 1460
-    y: 788
+    y: 688
     width: 211
     height: 211
     borderLeft: 51
@@ -211,7 +211,7 @@ MonoBehaviour:
     paddingBottom: 44
   - name: btn_small_bg
     x: 1672
-    y: 802
+    y: 702
     width: 220
     height: 197
     borderLeft: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
     paddingTop: 200
     paddingBottom: 33
   - name: GUI_Corner_Round
-    x: 1340
+    x: 1495
     y: 1434
     width: 82
     height: 42
@@ -313,6 +313,32 @@ MonoBehaviour:
     paddingRight: 32
     paddingTop: 34
     paddingBottom: 30
+  - name: GUI_Cover3
+    x: 1340
+    y: 1427
+    width: 154
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 52
+    paddingRight: 32
+    paddingTop: 55
+    paddingBottom: 14
+  - name: header
+    x: 1244
+    y: 900
+    width: 555
+    height: 99
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 16
+    paddingRight: 23
+    paddingTop: 23
+    paddingBottom: 18
   - name: HUD_Map
     x: 1501
     y: 1170
@@ -327,8 +353,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 45
   - name: ic_alert
-    x: 1893
-    y: 832
+    x: 1889
+    y: 921
     width: 87
     height: 78
     borderLeft: 0
@@ -509,7 +535,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: patern_shape
-    x: 1423
+    x: 1578
     y: 1442
     width: 34
     height: 34
@@ -535,7 +561,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: serverState
-    x: 1893
+    x: 1800
     y: 911
     width: 88
     height: 88
@@ -561,8 +587,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 16
   - name: status1
-    x: 1458
-    y: 1449
+    x: 1616
+    y: 1529
     width: 27
     height: 27
     borderLeft: 0
@@ -574,8 +600,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 36
   - name: status2
-    x: 1486
-    y: 1449
+    x: 1644
+    y: 1529
     width: 27
     height: 27
     borderLeft: 0

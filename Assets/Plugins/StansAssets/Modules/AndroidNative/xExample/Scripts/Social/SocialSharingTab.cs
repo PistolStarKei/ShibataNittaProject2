@@ -13,6 +13,7 @@ public class SocialSharingTab : FeatureTab {
 	public void ShareText() {
 		AndroidSocialGate.OnShareIntentCallback += HandleOnShareIntentCallback;
 		AndroidSocialGate.StartShareIntent("Hello Share Intent", "This is my text to share https://d45nf.app.goo.gl/QcRv");
+		//AndroidSocialGate.StartVideoPickerAndShareIntent("message for video", "share the video");
 	}
 
 	public void RequestDynamicLink() {

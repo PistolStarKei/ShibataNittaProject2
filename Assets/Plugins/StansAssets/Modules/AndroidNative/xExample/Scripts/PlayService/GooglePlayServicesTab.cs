@@ -117,7 +117,7 @@ public class GooglePlayServicesTab : FeatureTab {
 		Debug.Log("GooglePlayManager State  -> " + GooglePlayConnection.State.ToString());
 		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
 			SA_StatusBar.text = "Disconnecting from Play Service...";
-			GooglePlayConnection.Instance.Disconnect ();
+			GooglePlayConnection.Instance.SignOut();
 		} else {
 			SA_StatusBar.text = "Connecting to Play Service...";
 			GooglePlayConnection.Instance.Connect ();
@@ -253,7 +253,7 @@ public class GooglePlayServicesTab : FeatureTab {
 		
 		string title = "Connect";
 		if(GooglePlayConnection.State == GPConnectionState.STATE_CONNECTED) {
-			title = "Disconnect";
+			title = "Sign Out";
 			
 			foreach(Button btn in ConnectionDependedntButtons) {
 				btn.interactable = true;

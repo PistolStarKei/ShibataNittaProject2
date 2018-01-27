@@ -8,7 +8,7 @@ public class ShipFollowHUD : FollowGUI {
 	public void SetTarget(shipControl ship){
 		this.target=ship.transform;
 		this.ship=ship;
-		name.text=ship.playerData.userName;
+		nameLB.text=ship.playerData.userName;
 		countly.spriteName=ship.playerData.countlyCode;
 	}
 
@@ -29,7 +29,7 @@ public class ShipFollowHUD : FollowGUI {
 
 		if(isInsideView()){
 			if(yajirusi.enabled)yajirusi.enabled=false;
-			if(!name.enabled)name.enabled=true;
+			if(!nameLB.enabled)nameLB.enabled=true;
 			if(!countly.enabled)countly.enabled=true;
 
 			vec=BalidateInView(GetViewPortPointOfTarget());
@@ -39,7 +39,7 @@ public class ShipFollowHUD : FollowGUI {
 		}else{
 			//画面外に出た場合
 			if(!yajirusi.enabled)yajirusi.enabled=true;
-			if(name.enabled)name.enabled=false;
+			if(nameLB.enabled)nameLB.enabled=false;
 			if(countly.enabled)countly.enabled=false;
 			SetYajirushiColor();
 			vec=Balidate(GetViewPortPointOfTarget());
@@ -204,7 +204,7 @@ public class ShipFollowHUD : FollowGUI {
 
 	[Space(20.0f)]
 	public UISprite yajirusi;
-	public UILabel name;
+	public UILabel nameLB;
 	public UISprite countly;
 
 

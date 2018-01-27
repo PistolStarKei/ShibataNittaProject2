@@ -33,7 +33,11 @@ public class AN_GMSGeneralProxy : MonoBehaviour {
 	
 	public static void clearDefaultAccount() {
 		CallActivityFunction("clearDefaultAccount");
-	}	
+	}
+
+	public static void signOut() {
+		CallActivityFunction("signOut");
+	}
 	
 	public static void playServiceInit (string scopes) {
 		CallActivityFunction("playServiceInit", scopes);

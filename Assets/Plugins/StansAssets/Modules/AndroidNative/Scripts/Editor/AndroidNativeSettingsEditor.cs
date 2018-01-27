@@ -1151,6 +1151,7 @@ public class AndroidNativeSettingsEditor : Editor {
 			
 			AdActivity.SetValue ("android:configChanges", "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize");
 			AdActivity.SetValue ("android:theme", "@android:style/Theme.Translucent");
+			AdActivity.SetValue ("android:exported", "false");
 		} else {
 			application.RemoveActivity(AdActivity);
 		}
@@ -1824,7 +1825,11 @@ public class AndroidNativeSettingsEditor : Editor {
 					product.IsOpen 	= EditorGUILayout.Foldout(product.IsOpen, product.Title);
 					
 					
-					EditorGUILayout.LabelField(product.Price + "$");
+					string tmpPrice = EditorGUILayout.TextField(product.Price + "$");
+					if(tmpPrice.Length > 0) {
+						product.LocalizedPrice = tmpPrice.Trim ();
+						product.PriceAmountMicros = (long)System.Convert.ToDouble(tmpPrice.Replace("$", "").Trim());
+					}
 					bool ItemWasRemoved = DrawSortingButtons((object) product, AndroidNativeSettings.Instance.InAppProducts);
 					if(ItemWasRemoved) {
 						return;
