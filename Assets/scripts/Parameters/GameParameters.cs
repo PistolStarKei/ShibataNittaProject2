@@ -74,8 +74,8 @@ namespace PSParams{
 		public static readonly bool[] sw_isShotOff=new bool[7]{true,true,true,true,true,true,true};
 
 		//誘導弾の発射個数
-		public static readonly int yudoudanShots=3;
-		public static readonly float yudoudanMaxDistance=5.0f;
+		public static readonly int yudoudanShots=5;
+		public static readonly float yudoudanMaxDistance=1.0f;
 
 		//レーザーの有効射程距離
 		public static readonly float razerMaxDistance=5.0f;
