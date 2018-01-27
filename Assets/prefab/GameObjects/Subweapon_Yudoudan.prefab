@@ -210,12 +210,12 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1185751531
+  randomSeed: -1280014208
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 0.45
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -250,7 +250,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: -0.2
+      scalar: -4.69
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -372,16 +372,16 @@ ParticleSystem:
         atime7: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 0.69803923, b: 0.69803923, a: 0.6666667}
-      maxColor: {r: 1, g: 0.1254902, b: 0.1254902, a: 0.59607846}
+      minColor: {r: 0.4862745, g: 0.49019608, b: 1, a: 0.47058824}
+      maxColor: {r: 0.7294118, g: 0.9098039, b: 1, a: 1}
       minMaxState: 2
     startSize:
-      scalar: 0.1
+      scalar: 0.64
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.90000004
+          value: 0.203125
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -577,7 +577,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 20
+    maxNumParticles: 50
     size3D: 0
     rotation3D: 0
   ShapeModule:
@@ -605,7 +605,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 20
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -880,10 +880,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 3674210303
+          rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 2566914047
+          rgba: 4294967295
         key2:
           serializedVersion: 2
           rgba: 16777215
@@ -903,22 +903,22 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 6361
-        ctime2: 59753
+        ctime1: 60138
+        ctime2: 65535
         ctime3: 65535
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 49537
+        atime1: 43947
         atime2: 65535
         atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 4
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 3
       minGradient:
         key0:
