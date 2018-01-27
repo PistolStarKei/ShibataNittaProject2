@@ -564,7 +564,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}else if(currentUsing==Subweapon.RAZER){
 			if(photonView){
 				if(razerTarget && razerTarget.photonView){
-					razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+					razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false,playerData.playerID});
 				}
 				photonView.RPC ("RazerMode", PhotonTargets.AllViaServer,new object[]{false});
 			}else{
@@ -1029,7 +1029,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					}else{
 						if(razerTarget.isDead){
 							if(photonView){
-								if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+							if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false,playerData.playerID});
 								photonView.RPC ("OnRazerTargetNull", PhotonTargets.AllViaServer,null);
 							}else{
 								OnRazerTargetNull();
@@ -1038,7 +1038,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 							//ここで射程範囲の確認
 							if(Vector3.Distance(razerTarget.transform.position,transform.position)>razerMaxdistance){
 								if(photonView){
-									if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false});
+								if(razerTarget.photonView)razerTarget.photonView.RPC("OnRazerTargeted", PhotonTargets.AllViaServer,new object[]{false,playerData.playerID});
 									photonView.RPC ("OnRazerTargetNull", PhotonTargets.AllViaServer,null);
 								}else{
 									OnRazerTargetNull();

@@ -14,7 +14,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID,int shipID){
 
-		Debug.Log("Spawn"+ID);
+		Debug.Log("誘導弾　"+ID);
 		base.Spawn(launcherShip,spawnTime,spawnPos,offset,ID);
 		shipControl ship=PSPhoton.GameManager.instance.GetShipById(shipID);
 		if(ship)target=ship.transform;
