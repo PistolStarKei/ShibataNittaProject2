@@ -474,10 +474,10 @@ MonoBehaviour:
     y: 1117
     width: 4
     height: 5
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 1
+    borderRight: 1
+    borderTop: 2
+    borderBottom: 2
     paddingLeft: 58
     paddingRight: 32
     paddingTop: 44

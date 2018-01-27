@@ -22,7 +22,7 @@ namespace PSGUI{
 
 		internal Vector3 vec;
 		void LateUpdate () {
-			if(widget){
+			if(widget!=null){
 				OverlayPosition();
 			}
 		}
@@ -71,7 +71,8 @@ namespace PSGUI{
 		}
 
 		internal void Show(bool isShow){
-			if(gameObject.activeSelf!=isShow)NGUITools.SetActive(gameObject,isShow);
+				widget.alpha=!isShow?0.0f:1.0f;
+
 		}
 	}
 }

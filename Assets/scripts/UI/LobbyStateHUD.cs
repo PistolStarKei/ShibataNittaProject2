@@ -9,6 +9,7 @@ public class LobbyStateHUD : MonoBehaviour {
 	public UILabel stateLb;
 	public void SetLabel(string text,bool isAbnormal){
 		stateLb.color=!isAbnormal? normalC:abnormalC;
+		stateLb.effectColor=!isAbnormal? normalC:abnormalC;
 		stateLb.text=text;
 	}
 	public UISprite state1;

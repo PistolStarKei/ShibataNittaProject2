@@ -649,7 +649,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	}
 
-	[HideInInspector]
 	public bool isStealthMode=false;
 	[PunRPC]
 	public void StealthMode(bool isOn){

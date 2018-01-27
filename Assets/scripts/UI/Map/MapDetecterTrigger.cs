@@ -104,7 +104,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 		if(ships.Count>0){
 			temp=ships.ToArray();
 			for(int i=0;i<temp.Length;i++){
-					if( temp[i].isDead || temp[i].isStealthMode){
+					if( temp[i].isDead){
 						if(ships.Contains(temp[i]))ships.Remove(temp[i]);
 					}
 			}
@@ -125,7 +125,7 @@ public class MapDetecterTrigger : MonoBehaviour {
 			
 		//Debug.Log("OnTriggerEnter "+other.name);
 		ship=other.GetComponent<shipControl>();
-		if(ship && !ship.isStealthMode && !ship.isDead)ships.Add(ship);
+		if(ship && !ship.isDead)ships.Add(ship);
 	}
 
 	void OnTriggerExit(Collider other)
@@ -133,7 +133,6 @@ public class MapDetecterTrigger : MonoBehaviour {
 		//自分は入れない
 		if(other.transform==playerTrans)return;
 	
-		//Debug.Log("OnTriggerExit "+other.name);
 		ship=other.GetComponent<shipControl>();
 		if(ship && ships.Contains(ship))ships.Remove(ship);
 	}
