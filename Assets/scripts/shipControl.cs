@@ -852,7 +852,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 					}
 					GUIManager.Instance.Damage (damage, MaxHP);
-				
+
 				if(currentHP-damage<=0.0f){
 					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{enemy.playerData.playerID,PSPhoton.GameManager.instance.gameTime});
 				}

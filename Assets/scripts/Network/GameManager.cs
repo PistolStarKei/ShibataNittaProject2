@@ -147,23 +147,35 @@ namespace PSPhoton {
 			}
 		}
 		void SetPlayerConnected(bool con,int id){
-			foreach(shipControl.PlayerData data in playerDatas){
-				if(data.playerID==id){
-					data.SetConnected(con);
+
+			shipControl.PlayerData temp;
+			for(int i=0;i<playerDatas.Count;i++){
+				if(playerDatas[i].playerID==id){
+					temp=playerDatas[i];
+					temp.connected=con;
+					playerDatas[i]=temp;
 				}
 			}
 		}
 		void SetPlayerDead(int id){
-			foreach(shipControl.PlayerData data in playerDatas){
-				if(data.playerID==id){
-					data.SetDead(true);
+
+			shipControl.PlayerData temp;
+			for(int i=0;i<playerDatas.Count;i++){
+				if(playerDatas[i].playerID==id){
+					temp=playerDatas[i];
+					temp.dead=true;
+					playerDatas[i]=temp;
 				}
 			}
 		}
 		void SetPlayerAlive(int id,float alive){
-			foreach(shipControl.PlayerData data in playerDatas){
-				if(data.playerID==id){
-					data.SetAlive(alive);
+
+			shipControl.PlayerData temp;
+			for(int i=0;i<playerDatas.Count;i++){
+				if(playerDatas[i].playerID==id){
+					temp=playerDatas[i];
+					temp.alive=alive;
+					playerDatas[i]=temp;
 				}
 			}
 		}	
@@ -174,6 +186,7 @@ namespace PSPhoton {
 					count++;
 				}
 			}
+			Debug.Log("GetAlivePlayerCount "+count);
 			return count;
 		}
 		int GetPlayerRank(int id){
