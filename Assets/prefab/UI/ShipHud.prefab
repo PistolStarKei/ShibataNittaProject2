@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012154348146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.07, y: 8.08, z: 0}
+  m_LocalPosition: {x: -20, y: 48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012154348146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
@@ -265,16 +265,16 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0.4705882, b: 0.9634889, a: 0.809}
-  mPivot: 4
-  mWidth: 80
-  mHeight: 79
+  mColor: {r: 1, g: 0.625, b: 0.8810344, a: 0.809}
+  mPivot: 1
+  mWidth: 102
+  mHeight: 123
   mDepth: 9
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.0126582
+  aspectRatio: 0.8292683
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -288,8 +288,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114000013970074830, guid: cb5bfb68fea7449049430fb4897f9f35, type: 2}
-  mSpriteName: map_ic_player
+  mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
+  mSpriteName: ic_sercher
   mFillCenter: 1
 --- !u!114 &114000013182320328
 MonoBehaviour:
@@ -359,6 +359,9 @@ MonoBehaviour:
   target: {fileID: 0}
   offset: {x: 58.33, y: 0, z: 0}
   ship: {fileID: 0}
+  minDistance: 50
+  minAlpha: 0.1
+  maxAlpha: 1
   offset_Left: 176.01
   offset_Right: -140.73
   offset_Top: -63
@@ -366,10 +369,10 @@ MonoBehaviour:
   offset_normalY: -63
   offset_normalX: 20
   customOffsetRect: 0.1
-  offset_Left_yajirusi: 58.33
-  offset_Right_yajirusi: -32.8
-  offset_Top_yajirusi: -29.23
-  offset_Btm_yajirusi: 34.88
+  offset_Left_yajirusi: 21.4
+  offset_Right_yajirusi: 21.4
+  offset_Top_yajirusi: -56.6
+  offset_Btm_yajirusi: -56.6
   yajirusi: {fileID: 114000012742442632}
   name: {fileID: 114000012439296536}
   countly: {fileID: 114000013182320328}

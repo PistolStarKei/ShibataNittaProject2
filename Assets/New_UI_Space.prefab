@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 19
   - name: btn_play_cover
     x: 749
-    y: 3
+    y: 263
     width: 259
     height: 260
     borderLeft: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 25
   - name: circ1
     x: 749
-    y: 264
+    y: 3
     width: 260
     height: 259
     borderLeft: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 23
   - name: close
     x: 688
-    y: 156
+    y: 48
     width: 46
     height: 44
     borderLeft: 0
@@ -365,6 +365,19 @@ MonoBehaviour:
     paddingRight: 42
     paddingTop: 23
     paddingBottom: 45
+  - name: ic_sercher
+    x: 688
+    y: 93
+    width: 54
+    height: 107
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 39
+    paddingRight: 24
+    paddingTop: 24
+    paddingBottom: 17
   - name: ic_ticket
     x: 1968
     y: 1971
@@ -483,8 +496,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: patern_shape
-    x: 688
-    y: 93
+    x: 1423
+    y: 1442
     width: 34
     height: 34
     borderLeft: 0
@@ -535,8 +548,8 @@ MonoBehaviour:
     paddingTop: 14
     paddingBottom: 16
   - name: status1
-    x: 716
-    y: 65
+    x: 1458
+    y: 1449
     width: 27
     height: 27
     borderLeft: 0
@@ -548,8 +561,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 36
   - name: status2
-    x: 688
-    y: 65
+    x: 1486
+    y: 1449
     width: 27
     height: 27
     borderLeft: 0
@@ -562,7 +575,7 @@ MonoBehaviour:
     paddingBottom: 36
   - name: status3
     x: 688
-    y: 128
+    y: 20
     width: 57
     height: 27
     borderLeft: 0

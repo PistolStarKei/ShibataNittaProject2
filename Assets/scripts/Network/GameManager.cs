@@ -12,8 +12,9 @@ namespace PSPhoton {
 	public class GameManager : PunBehaviour {
 
 
+		public shipControl debugShip;
 		public void Test(){
-		
+			
 			Debug.Log(""+GetPlayerRank(1));
 		}
 
@@ -365,7 +366,10 @@ namespace PSPhoton {
 
 			AudioController.PlayMusic("gameBGM");
 
-			if(!isNetworkMode)return;
+			if(!isNetworkMode){
+				shiphud.SetFollowhipHud(debugShip);
+				return;
+			}
 			GUIManager.Instance.OnGameAwake();
 
 			CreatePlayer();

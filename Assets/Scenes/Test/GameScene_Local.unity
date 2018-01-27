@@ -8316,6 +8316,16 @@ Prefab:
       propertyPath: alert
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: playerShip
+      value: 
+      objectReference: {fileID: 2141224512}
+    - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
+        type: 2}
+      propertyPath: debugShip
+      value: 
+      objectReference: {fileID: 2141224512}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2d70ba06e0c74bd1ac8dfd9783b799f, type: 2}
   m_IsPrefabParent: 0
@@ -10517,3 +10527,9 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: white
   mFillCenter: 1
+--- !u!114 &2141224512 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010743204328, guid: 7b5fca032c40c420bb43e93b0177a0dc,
+    type: 2}
+  m_PrefabInternal: {fileID: 2104234206}
+  m_Script: {fileID: 11500000, guid: 1db8778676538cc4abf88736ae3b2e50, type: 3}

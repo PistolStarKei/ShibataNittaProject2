@@ -51,7 +51,7 @@ public class ShipFollowHUD : FollowGUI {
 			if(!yajirusi.enabled)yajirusi.enabled=true;
 			if(name.enabled)name.enabled=false;
 			if(countly.enabled)countly.enabled=false;
-
+			SetYajirushiColor();
 			vec=Balidate(GetViewPortPointOfTarget());
 			vec=GetOverlayPosition(vec);
 
@@ -60,6 +60,23 @@ public class ShipFollowHUD : FollowGUI {
 		}
 	}
 
+	public float minDistance=10.0f;
+	public float minAlpha=0.1f;
+	public float maxAlpha=1.0f;
+	public void SetYajirushiColor(){
+		float dist=Vector3.Distance(ship.transform.position,GUIManager.Instance.shipControll.transform.position);
+
+		if(dist<=0.0f){
+			yajirusi.alpha=maxAlpha;
+		}else if(dist>minDistance){
+			yajirusi.alpha=minAlpha;
+		}else{
+			dist=dist/minDistance;
+
+			yajirusi.alpha=minAlpha+(maxAlpha-dist);
+		}
+			
+	}
 
 
 	[Header( "CustomOffset")]
