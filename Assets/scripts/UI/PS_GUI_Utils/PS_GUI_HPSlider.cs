@@ -73,7 +73,7 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		SetHPVal(slider.fillAmount+addVal);
 	}
 	public void MinusVal(float minusVal){
-		SetHPVal(slider.fillAmount-minusVal);
+		SetHPVal(slider.fillAmount-minusVal<0.0f? 0.0f:slider.fillAmount-minusVal);
 	}
 
 }

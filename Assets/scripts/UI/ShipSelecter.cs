@@ -49,7 +49,7 @@ public class ShipSelecter : MonoBehaviour {
 			if(itemFlags[i]){
 				SetCurrentShipName(shipNames[i]);
 				switcher.Set(i);
-				lobby.OnShipChanged(i);
+				lobby.OnShipChanged(i,currentSelectColor);
 				DataManager.Instance.gameData.shipType=i;
 				DataManager.Instance.SaveAll();
 			}
@@ -57,6 +57,7 @@ public class ShipSelecter : MonoBehaviour {
 	}
 
 	public int currentSelect=0;
+	public int currentSelectColor=0;
 	public void OnClickItem(string name){
 		ClearAll();
 		currentSelect=int.Parse(name)-1;

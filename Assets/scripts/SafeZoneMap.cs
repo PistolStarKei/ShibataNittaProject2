@@ -41,10 +41,11 @@ public class SafeZoneMap : MonoBehaviour {
 		}
 	}
 
-	public float tweenFlom=0.1f;
-	public float tweenTo=0.7f;
+	public float tweenFlom=0.0f;
+	public float tweenTo=0.2f;
 	public float tweenDulation=0.7f;
 	public Color colDefault;
 	public Color colDanger;
+
 
 }

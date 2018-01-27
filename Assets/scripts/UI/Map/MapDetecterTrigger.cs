@@ -99,6 +99,18 @@ public class MapDetecterTrigger : MonoBehaviour {
 
 	public Transform playerTrans;
 
+	shipControl[] temp;
+	void Update(){
+		if(ships.Count>0){
+			temp=ships.ToArray();
+			for(int i=0;i<temp.Length;i++){
+					if( temp[i].isDead || temp[i].isStealthMode){
+						if(ships.Contains(temp[i]))ships.Remove(temp[i]);
+					}
+			}
+
+		}
+	}
 	void LateUpdate(){
 		if(playerTrans){
 			transform.position=playerTrans.position;

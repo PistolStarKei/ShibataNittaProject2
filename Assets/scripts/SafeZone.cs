@@ -118,7 +118,7 @@ public class SafeZone : MonoBehaviour {
 		return centers[x*PSParams.GameParameters.mapMasuXY+y];
 	}
 
-	//[SerializeField]
+	[SerializeField]
 	bool[] safezone;
 	public bool isSafeZone(int x,int y){
 		return safezone[x*PSParams.GameParameters.mapMasuXY+y];

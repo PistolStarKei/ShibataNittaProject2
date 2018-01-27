@@ -19,6 +19,7 @@ public class PS_GUI_Cover : MonoBehaviour {
 
 	bool isCovered=false;
 	public void Cover(){
+		Debug.Log("Cover");
 		if(!isCovered){
 			isCovered=true;
 			SetCollider(true);
@@ -30,6 +31,7 @@ public class PS_GUI_Cover : MonoBehaviour {
 		}
 	}
 	public void CoverWithBlackMask(){
+		Debug.Log("CoverWithBlackMask");
 		ta.gameObject.SetActive(true);
 		if(!isCovered){
 			isCovered=true;
@@ -43,6 +45,7 @@ public class PS_GUI_Cover : MonoBehaviour {
 	}
 
 	public void Uncover(){
+		Debug.Log("Uncover");
 		if(isCovered){
 			if(ta.gameObject.GetComponent<UISprite>().alpha>0.5f){
 				ta.PlayReverse();

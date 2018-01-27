@@ -22,11 +22,13 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public bool isDebugMode=true;
 	// Use this for initialization
 	public void OnGameAwake(){
+		Debug.Log("OnGameAwake");
 		SetKills(0);
 		DisableAllGUI(false);
 	}
 
 	public void OnGameStart(){
+		Debug.Log("OnGameStart");
 		AbleAllGUI();
 	}
 
@@ -121,6 +123,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 
 
+
 	/*
 	 * 
 	 * HP スライダー
@@ -149,6 +152,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 			Debug.LogError("persentage not within 1-100%");
 			persentage=1.0f;
 		}
+
 		hpSlider.AddVal((MaxHP*(persentage/100.0f))/MaxHP);
 
 	}

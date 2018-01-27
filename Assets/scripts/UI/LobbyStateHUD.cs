@@ -6,6 +6,11 @@ public class LobbyStateHUD : MonoBehaviour {
 
 	public NetworkState networkState=NetworkState.DISCONNECTED;
 
+	public UILabel stateLb;
+	public void SetLabel(string text,bool isAbnormal){
+		stateLb.color=!isAbnormal? normalC:abnormalC;
+		stateLb.text=text;
+	}
 	public UISprite state1;
 	public UISprite state2;
 	public UISprite state3;
@@ -30,6 +35,7 @@ public class LobbyStateHUD : MonoBehaviour {
 		num=0;
 		time=0.0f;
 		isAnime=true;
+		SetLabel(str,false);
 	}
 
 	public void StopAnime(){
@@ -50,6 +56,7 @@ public class LobbyStateHUD : MonoBehaviour {
 					num=0;
 					animeString2="";
 				}
+				SetLabel(animeString2,false);
 			}
 		}
 	}
@@ -68,7 +75,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				PlayBtnRot.enabled=false;
 				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
-				//timer.SetTittle(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching");
+				SetLabel("ERROR",true);
 				break;
 			case NetworkState.SERVERCONNECTED:
 				state1.color=normalC;
@@ -77,6 +84,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				PlayBtnRot.enabled=false;
 				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
+				SetLabel("ERROR",true);
 				break;
 			case NetworkState.LOBBYCONNECTED:
 				state1.color=normalC;
@@ -85,6 +93,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				PlayBtnRot.enabled=true;
 				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
+				SetLabel("READY",false);
 				break;
 			case NetworkState.ROOMCONNECTED:
 				state1.color=normalC;
@@ -93,6 +102,7 @@ public class LobbyStateHUD : MonoBehaviour {
 				PlayBtnRot.enabled=false;
 				NGUITools.SetActive(PlayBtn,false);
 				NGUITools.SetActive(TimerBtn,true);
+				SetLabel(Application.systemLanguage == SystemLanguage.Japanese? "参戦受付中" :"Matching",false);
 				break;
 		}
 

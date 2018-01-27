@@ -23,6 +23,11 @@ public class SubweaponEffecter : MonoBehaviour {
 		KillSelf();
 	}
 
+
+	public virtual  void Effect(shipControl ship){
+		
+	}
+
 	public virtual void Spawn(shipControl launcherShip){
 		this.launcherShip=launcherShip;
 	}
@@ -36,7 +41,10 @@ public class SubweaponEffecter : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				if(!ship.isDead)ship.OnHit(launcherShip,Subweapon.NONE,damage,"");
+				if(!ship.isDead){
+					Effect(ship);
+					ship.OnHit(launcherShip,weponType,damage,"Effecter");
+				}
 			}else{
 				//自機であった場合
 			}
