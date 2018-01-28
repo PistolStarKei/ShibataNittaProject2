@@ -27,7 +27,7 @@ namespace PSPhoton {
 
 		public List<RoomInfo> rooms = new List<RoomInfo>();
 
-		public ShipSelecter shipsSelecter;
+		public LobbyShipSwitcher shipsSelecter;
 		public LobbyStateHUD stateHUD;
 		public PS_GUI_DynamicInfo info;
 		public PS_GUI_Cover cover;

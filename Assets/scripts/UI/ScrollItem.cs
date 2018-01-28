@@ -3,10 +3,9 @@ using System.Collections;
 
 public class ScrollItem : MonoBehaviour {
 
-	public ShipSelecter selecter;
 	// Use this for initialization
 	void OnClick () {
-		selecter.OnClickItem(gameObject.name);
+		//selecter.OnClickItem(gameObject.name);
 	}
 
 
@@ -17,11 +16,11 @@ public class ScrollItem : MonoBehaviour {
 	public void SetState(bool isOn){
 		if(isOn){
 			if(bgSp.enabled)return;
-			shipSp.alpha=selecter.enableAlpha;
+			//shipSp.alpha=selecter.enableAlpha;
 			bgSp.enabled=true;
 		}else{
 			if(!bgSp.enabled)return;
-			shipSp.alpha=selecter.disbleAlpha;
+			//shipSp.alpha=selecter.disbleAlpha;
 			bgSp.enabled=false;
 		}
 	}

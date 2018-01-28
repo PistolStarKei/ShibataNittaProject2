@@ -25,6 +25,13 @@ namespace PSParams{
 		public static readonly float dangerZoneDamage=10.0f;
 		#endregion
 
+		//Shipの値
+		#region ship
+		//名前
+		public static readonly string[] shipNames=new string[8]{"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8"};
+
+		#endregion
+
 
 		//Shipの値
 		#region shipControl
