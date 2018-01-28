@@ -374,5 +374,5 @@ MonoBehaviour:
   offset_Top_yajirusi: -56.6
   offset_Btm_yajirusi: -56.6
   yajirusi: {fileID: 114000012742442632}
-  name: {fileID: 114000012439296536}
+  nameLB: {fileID: 114000012439296536}
   countly: {fileID: 114000013182320328}
