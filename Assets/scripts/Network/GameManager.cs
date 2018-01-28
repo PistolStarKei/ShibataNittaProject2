@@ -323,6 +323,8 @@ namespace PSPhoton {
 				GUIManager.Instance.Log(info);
 
 				state = GameState.FINISHED;
+				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",-1}  });
+
 				// enable panel
 				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
 			}else{
@@ -345,6 +347,8 @@ namespace PSPhoton {
 					SetPlayerDead(playerShip.playerData.playerID);
 
 					state = GameState.FINISHED;
+					if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",-1}  });
+
 					// 勝ち残りゲームオーバー
 					GUIManager.Instance.OnGameOver(gameTime,killNum,1,playerDatas.Count,playerShip);
 				}
@@ -376,6 +380,8 @@ namespace PSPhoton {
 				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
 				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
 			}
+
+
 
 			AudioController.PlayMusic("gameBGM");
 

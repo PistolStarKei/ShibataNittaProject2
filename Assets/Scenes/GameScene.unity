@@ -10195,7 +10195,8 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000010524354116, guid: d2bee6b31331c495484c81bb2f80354a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d2bee6b31331c495484c81bb2f80354a, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1000001021 stripped
@@ -17868,6 +17869,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010451295980, guid: 9bde49d419720499e93c5257059537ef,
+        type: 2}
+      propertyPath: dangerZoneCube
+      value: 
+      objectReference: {fileID: 1000013665309860, guid: 9431f1c8876c047c782e0887336eeeeb,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bde49d419720499e93c5257059537ef, type: 2}
   m_IsPrefabParent: 0

@@ -86,7 +86,7 @@ public class PS_GUI_Tapdetecter : MonoBehaviour {
 
 		hit = new RaycastHit();
 //		Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
-		if (Physics.Raycast(ray, out hit, 10,layerMask)) {
+		if (Physics.Raycast(ray, out hit, 1000,layerMask)) {
 			switch(viewType){
 				case TapViewType.Top:
 					return new Vector3(hit.point.x,hit.collider.gameObject.transform.position.y,hit.point.z);
