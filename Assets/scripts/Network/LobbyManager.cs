@@ -217,7 +217,7 @@ namespace PSPhoton {
 			_timerFrequency=0.0f;
 			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
 			DataManager.Instance.SaveAll();
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
+			//SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 
 		}
 		// If master client, for every newly connected player, sets the custom properties for him
