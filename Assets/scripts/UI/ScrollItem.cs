@@ -9,7 +9,6 @@ public class ScrollItem : MonoBehaviour {
 	}
 
 
-	public UILabel itemTittle;
 	public UISprite shipSp;
 	public UISprite bgSp;
 
