@@ -838,8 +838,8 @@ MonoBehaviour:
     y: 2927
     width: 148
     height: 62
-    borderLeft: 0
-    borderRight: 0
+    borderLeft: 23
+    borderRight: 23
     borderTop: 0
     borderBottom: 0
     paddingLeft: 47

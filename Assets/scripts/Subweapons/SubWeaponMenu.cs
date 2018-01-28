@@ -121,15 +121,13 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	void SetHighLight(bool isOn){
 		if(isOn){
-			tr.enabled=true;
+			
 		}else{
-			tr.enabled=false;
-			tr.gameObject.transform.localRotation=Quaternion.Euler(tr.from);
+			
 
 		}
 	}
 
-	public TweenRotation tr;
 	void SetCurrentSubItem(Subweapon wep){
 		currentSub.enabled=true;
 		currentSub.spriteName=fittingName[(int)wep];

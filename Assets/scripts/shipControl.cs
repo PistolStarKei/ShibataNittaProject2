@@ -815,31 +815,31 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		if(isDead)return;
 
-		//当たった人間が自己申告して、発弾者経由で　弾幕を消す指令をだす。
-		if(ID!="" && enemy.photonView){
-			enemy.photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
-				ID,playerData.playerID});
-		}
-
-
-		//デバグ用　
-		if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""){
-	
-			for(int i=0;i<enemy.shottedWeaponsHolder.Count;i++){
-				
-				if(enemy.shottedWeaponsHolder[i]!=null){
-
-					if(enemy.shottedWeaponsHolder[i].ID==ID){
-						
-						enemy.shottedWeaponsHolder[i].EffectAndDead(this);
-					}
-				}
-			}
-
-		}
-
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
+			
+			//当たった人間が自己申告して、発弾者経由で　弾幕を消す指令をだす。
+			if(ID!="" && enemy.photonView){
+				enemy.photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
+					ID,playerData.playerID});
+			}
+
+
+			//デバグ用　
+			if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""){
+
+				for(int i=0;i<enemy.shottedWeaponsHolder.Count;i++){
+
+					if(enemy.shottedWeaponsHolder[i]!=null){
+
+						if(enemy.shottedWeaponsHolder[i].ID==ID){
+
+							enemy.shottedWeaponsHolder[i].EffectAndDead(this);
+						}
+					}
+				}
+
+			}
 
 		
 			if(photonView){
