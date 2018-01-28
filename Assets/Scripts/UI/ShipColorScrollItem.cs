@@ -17,6 +17,10 @@ public class ShipColorScrollItem : MonoBehaviour {
 	public UISprite shipSp;
 	public UISprite bgSp;
 
+	public GameObject onBoad;
+	public void SetOnBoad(bool isOn){
+		NGUITools.SetActive(onBoad,isOn);
+	}
 	public void SetState(bool isOn){
 		if(isOn){
 			if(bgSp.enabled)return;

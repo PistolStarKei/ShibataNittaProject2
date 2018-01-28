@@ -40,6 +40,18 @@ namespace PSParams{
 		public static readonly string[] shipSubNamesShip7=new string[1]{"R234"};
 		public static readonly string[] shipSubNamesShip8=new string[1]{"R234"};
 
+		//初期状態で搭乗可能か？　購入が必要か？
+		public static readonly bool[] defaultAvaillabilityShip1=new  bool[2]{true,false};
+		public static readonly bool[] defaultAvaillabilityShip2=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip3=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip4=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip5=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip6=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip7=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip8=new  bool[1]{true};
+
+
+
 		#endregion
 
 

@@ -82,7 +82,7 @@ public class ShipColorLists : MonoBehaviour {
 
 
 	#region  Public関数
-	public void SetItems(int shipNum,int currentColor){
+	public void SetItems(int shipNum){
 
 		//リストと比べて足りないものを足す、余っていたら消す
 		string[] subNames=new string[0];
@@ -134,19 +134,41 @@ public class ShipColorLists : MonoBehaviour {
 			if(items[e]!=null){
 				items[e].SetSprite((shipNum+1).ToString()+"-"+(e+1).ToString());	
 				items[e].gameObject.name=e.ToString();
-				items[e].SetState(e==currentColor?true:false);
+				items[e].SetState(e==0?true:false);
+				if(shipNum==DataManager.Instance.gameData.shipType && e==DataManager.Instance.gameData.shipColor){
+					items[e].SetOnBoad(true);
+				}else{
+					items[e].SetOnBoad(false);
+				}
 			}else{
 				Debug.LogError("Null Items "+e);
 			}
 		}
 
-		mCurrentSelected=currentColor;
-
+		mCurrentSelected=0;
+		//名前を変更する
+		switcher.SetCurrentShipSubName(mShipSubNames[mCurrentSelected]);
 		scroll.ResetPosition();
 
 	}
 
-
+	public void UpdateOnBoad(){
+		if(DataManager.Instance.gameData.shipType!=switcher.currentSelect){
+			return;
+		}
+		ShipColorScrollItem[] items=mItemLists.ToArray();
+		for(int e=0;e<mItemLists.Count;e++){
+			if(items[e]!=null){
+				if(int.Parse(items[e].gameObject.name)==DataManager.Instance.gameData.shipColor){
+					items[e].SetOnBoad(true);
+				}else{
+					items[e].SetOnBoad(false);
+				}
+			}else{
+				Debug.LogError("Null Items "+e);
+			}
+		}
+	}
 
 	public void OnClickItem(ShipColorScrollItem item){
 		int num=int.Parse(item.gameObject.name);
@@ -157,15 +179,11 @@ public class ShipColorLists : MonoBehaviour {
 
 			mCurrentSelected=num;
 			mItemLists[mCurrentSelected].SetState(true);
-			//データ保存
-			DataManager.Instance.gameData.shipColors[switcher.currentSelect]=mCurrentSelected;
-			DataManager.Instance.SaveAll();
 
 			//TODO Shipのテクスチャを変更する
 
 
-			//Lobbyに通知する
-			lobby.OnShipChanged(switcher.currentSelect,mCurrentSelected);
+
 
 			//名前を変更する
 			switcher.SetCurrentShipSubName(mShipSubNames[mCurrentSelected]);

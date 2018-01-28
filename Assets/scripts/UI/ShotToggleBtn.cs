@@ -9,33 +9,24 @@ public class ShotToggleBtn : MonoBehaviour {
 		SetToggle(toggleVal);
 	}
 
-	public Transform btnTrans;
-	public Vector3 transOn;
-	public Vector3 transOff;
-	public Vector3 transLbOn;
-	public Vector3 transLbOff;
 	public Color bgColorOn;
 	public Color bgColorOff;
+	public Color bgColorOnWaku;
+	public Color bgColorOffWaku;
 
 	public UILabel lb;
-	public Color lbColorOn;
-	public Color lbColorOff;
 
 	public void SetToggle(bool isOn){
 		this.toggleVal=isOn;
 		if(isOn){
-			btnTrans.localPosition=transOn;
-			lb.transform.localPosition=transLbOn;
 			sp.color=bgColorOn;
+			spWake.color=bgColorOnWaku;
 			lb.text="ON";
-			lb.color=lbColorOn;
 			lb.effectColor=lb.color;
 		}else{
-			btnTrans.localPosition=transOff;
-			lb.transform.localPosition=transLbOff;
 			sp.color=bgColorOff;
 			lb.text="OFF";
-			lb.color=lbColorOff;
+			spWake.color=bgColorOffWaku;
 			lb.effectColor=lb.color;
 		}
 
@@ -43,6 +34,7 @@ public class ShotToggleBtn : MonoBehaviour {
 	}
 
 	public UISprite sp;
+	public UISprite spWake;
 
 	public void OnClickToggle(){
 		
