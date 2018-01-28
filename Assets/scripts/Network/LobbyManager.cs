@@ -39,15 +39,15 @@ namespace PSPhoton {
 
 
 		void Awake(){
-			instance=this;
-		}
-		public GameObject audioControllerObj;
-		void Start () {
 			GameObject audio=GameObject.FindGameObjectWithTag("AudioController");
 			if(!audio){
 				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
 			}
-
+			instance=this;
+		}
+		public GameObject audioControllerObj;
+		void Start () {
+			
 			PhotonNetwork.CrcCheckEnabled = true;
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
@@ -217,8 +217,7 @@ namespace PSPhoton {
 			_timerFrequency=0.0f;
 			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
 			DataManager.Instance.SaveAll();
-			//SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
-
+		
 		}
 		// If master client, for every newly connected player, sets the custom properties for him
 		// car = 0, position = last (size of player list)
@@ -341,7 +340,7 @@ namespace PSPhoton {
 			}
 
 
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
+			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.colorLists.mCurrentSelected,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 			base.OnJoinedRoom ();
 		}
 

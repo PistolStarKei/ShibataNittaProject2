@@ -10,6 +10,7 @@ public class EnvData{
 [System.Serializable]
 public class GameData{
 	public int shipType =0;
+	public int[] shipColors =new int[PSParams.GameParameters.shipNames.Length];
 	public string username ="UNKNOWN";
 	public bool isConnectingRoom =false;
 	public string lastRoomName ="";
@@ -42,7 +43,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		}
 
-		if(!ES2.Exists(filename+"?tag=lastRoomName")){
+		if(!ES2.Exists(filename+"?tag=shipColors")){
 			
 			InitData();
 			LoadData();
@@ -68,6 +69,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.userID=ES2.Load<string>(filename+"?tag=userID");
 		gameData.lastRoomName=ES2.Load<string>(filename+"?tag=lastRoomName");
 
+		gameData.shipColors=ES2.LoadArray<int>(filename+"?tag=shipColors");
+
 
 
 
@@ -87,6 +90,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(gameData.timeForNextTickets,filename+"?tag=timeForNextTickets");
 		ES2.Save(gameData.userID,filename+"?tag=userID");
 		ES2.Save(gameData.lastRoomName,filename+"?tag=lastRoomName");
+		ES2.Save(gameData.shipColors,filename+"?tag=shipColors");
 	}
 
 	private void DestroyAll(){
@@ -108,6 +112,13 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(-1.0f,filename+"?tag=timeForNextTickets");
 		ES2.Save(GetUUID (),filename+"?tag=userID");
 		ES2.Save("",filename+"?tag=lastRoomName");
+
+		int[] shipCols=new int[PSParams.GameParameters.shipNames.Length];
+		for(int i=0;i<shipCols.Length;i++){
+			shipCols[i]=0;
+		}
+
+		ES2.Save(shipCols,filename+"?tag=shipColors");
 	}
 		
 	private void DeleteAll(){

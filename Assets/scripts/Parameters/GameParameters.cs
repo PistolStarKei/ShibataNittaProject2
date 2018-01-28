@@ -30,6 +30,16 @@ namespace PSParams{
 		//名前
 		public static readonly string[] shipNames=new string[8]{"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8"};
 
+		//カラーリングの名前　Ship1 個数と一致させる
+		public static readonly string[] shipSubNamesShip1=new string[2]{"R234","P23WE"};
+		public static readonly string[] shipSubNamesShip2=new string[1]{"F45G"};
+		public static readonly string[] shipSubNamesShip3=new string[1]{"G765"};
+		public static readonly string[] shipSubNamesShip4=new string[1]{"R234"};
+		public static readonly string[] shipSubNamesShip5=new string[1]{"R234"};
+		public static readonly string[] shipSubNamesShip6=new string[1]{"R234"};
+		public static readonly string[] shipSubNamesShip7=new string[1]{"R234"};
+		public static readonly string[] shipSubNamesShip8=new string[1]{"R234"};
+
 		#endregion
 
 

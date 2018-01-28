@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class LobbyListManager : MonoBehaviour {
 
 	public List<RoomUserList> userList=new List<RoomUserList>();
+	public UIScrollView scroll;
 
 	public bool isUserContains(int id){
 		bool contains=false;
@@ -40,6 +41,7 @@ public class LobbyListManager : MonoBehaviour {
 		list.SetUserName(userName,id);
 		userList.Add(list);
 		grid.Reposition();
+		scroll.ResetPosition();
 	}
 		
 

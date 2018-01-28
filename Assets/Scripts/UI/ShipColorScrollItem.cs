@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScrollItem : MonoBehaviour {
+public class ShipColorScrollItem : MonoBehaviour {
 
 	// Use this for initialization
+
+	public ShipColorLists shipColorLists;
 	void OnClick () {
-		//selecter.OnClickItem(gameObject.name);
+		shipColorLists.OnClickItem(this);
 	}
 
+	public void SetSprite(string name){
+		shipSp.spriteName=name;
+	}
 
 	public UISprite shipSp;
 	public UISprite bgSp;
@@ -15,14 +20,14 @@ public class ScrollItem : MonoBehaviour {
 	public void SetState(bool isOn){
 		if(isOn){
 			if(bgSp.enabled)return;
-			//shipSp.alpha=selecter.enableAlpha;
 			bgSp.enabled=true;
 		}else{
 			if(!bgSp.enabled)return;
-			//shipSp.alpha=selecter.disbleAlpha;
 			bgSp.enabled=false;
 		}
 	}
 
-
+	public void KillSelf(){
+		DestroyImmediate(gameObject);
+	}
 }

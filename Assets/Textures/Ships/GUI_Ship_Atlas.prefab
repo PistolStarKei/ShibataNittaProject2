@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 612f1a4d8abd24412972902dc7812ba0, type: 2}
   mSprites:
-  - name: 1
+  - name: 1-1
     x: 0
     y: 302
     width: 527
@@ -66,7 +66,20 @@ MonoBehaviour:
     paddingRight: 40
     paddingTop: 93
     paddingBottom: 72
-  - name: 2
+  - name: 1-2
+    x: 1055
+    y: 524
+    width: 376
+    height: 199
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 44
+    paddingRight: 28
+    paddingTop: 52
+    paddingBottom: 39
+  - name: 2-1
     x: 544
     y: 404
     width: 474
@@ -75,24 +88,24 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 49
-    paddingRight: 61
-    paddingTop: 115
-    paddingBottom: 49
-  - name: 3
-    x: 1055
-    y: 739
+    paddingLeft: 76
+    paddingRight: 35
+    paddingTop: 81
+    paddingBottom: 34
+  - name: 3-1
+    x: 544
+    y: 118
     width: 468
     height: 285
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 43
-    paddingRight: 63
-    paddingTop: 103
-    paddingBottom: 60
-  - name: 4
+    paddingLeft: 77
+    paddingRight: 44
+    paddingTop: 71
+    paddingBottom: 47
+  - name: 4-1
     x: 544
     y: 715
     width: 510
@@ -101,37 +114,37 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 43
-    paddingRight: 55
-    paddingTop: 98
+    paddingLeft: 88
+    paddingRight: 32
+    paddingTop: 76
     paddingBottom: 69
-  - name: 5
+  - name: 5-1
+    x: 1496
+    y: 744
+    width: 399
+    height: 280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 71
+    paddingRight: 74
+    paddingTop: 103
+    paddingBottom: 56
+  - name: 6-1
     x: 1055
-    y: 438
+    y: 724
     width: 440
     height: 300
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 107
-    paddingRight: 117
-    paddingTop: 159
-    paddingBottom: 75
-  - name: 6
-    x: 544
-    y: 93
-    width: 455
-    height: 310
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 96
-    paddingRight: 51
-    paddingTop: 153
-    paddingBottom: 77
-  - name: 7
+    paddingLeft: 65
+    paddingRight: 53
+    paddingTop: 82
+    paddingBottom: 52
+  - name: 7-1
     x: 0
     y: 648
     width: 543
@@ -140,11 +153,11 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 14
-    paddingRight: 69
-    paddingTop: 160
+    paddingLeft: 80
+    paddingRight: 33
+    paddingTop: 92
     paddingBottom: 72
-  - name: 8
+  - name: 8-1
     x: 0
     y: 6
     width: 455
@@ -153,36 +166,10 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 43
-    paddingRight: 66
-    paddingTop: 86
-    paddingBottom: 83
-  - name: 9
-    x: 1524
-    y: 744
-    width: 399
-    height: 280
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 97
-    paddingRight: 98
-    paddingTop: 155
-    paddingBottom: 67
-  - name: white
-    x: 1055
-    y: 257
-    width: 180
-    height: 180
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: 77
+    paddingRight: 31
+    paddingTop: 77
+    paddingBottom: 66
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

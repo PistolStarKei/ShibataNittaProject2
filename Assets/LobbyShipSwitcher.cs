@@ -7,6 +7,8 @@ public class LobbyShipSwitcher : MonoBehaviour {
 	public PSPhoton.LobbyManager lobby;
 	public SphericalIndicator indecator;
 
+	public ShipColorLists colorLists;
+
 	public string[] shipNames;
 
 	void Awake(){
@@ -20,16 +22,17 @@ public class LobbyShipSwitcher : MonoBehaviour {
 		indecator.SetCurrent(currentSelect);
 		switcher.Set(currentSelect);
 		SetCurrentShipName(shipNames[currentSelect]);
+		colorLists.SetItems(currentSelect,DataManager.Instance.gameData.shipColors[currentSelect]);
 
 	}
 
-	public int currentSelectColor=0;
 	public int currentSelect=0;
 	public void OnShipChanged(int num){
 		currentSelect=num;
 		SetCurrentShipName(shipNames[num]);
 		switcher.Set(num);
-		lobby.OnShipChanged(num,currentSelectColor);
+		lobby.OnShipChanged(num,colorLists.mCurrentSelected);
+		colorLists.SetItems(currentSelect,DataManager.Instance.gameData.shipColors[currentSelect]);
 		DataManager.Instance.gameData.shipType=num;
 		DataManager.Instance.SaveAll();
 	}
@@ -39,7 +42,11 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 	}
 
+	public UILabel currentShipSubNameLb;
+	public void SetCurrentShipSubName(string name){
+		currentShipSubNameLb.text=name;
 
+	}
 
 
 
