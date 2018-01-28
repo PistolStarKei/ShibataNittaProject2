@@ -12,11 +12,11 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		debugLb.text=str;	
 	}
 
-	void SetTween(bool isOn){
+	internal void SetTween(bool isOn){
 		ta.enabled=isOn;
 
 	}
-	float initAlpa=0.0f;
+	internal float initAlpa=0.0f;
 	public bool isStartTween=false;
 	void Start(){
 		if(isStartTween){
@@ -37,7 +37,9 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 
 	public float startBlinkAt=0.1f;
 	public float tweenTime=0.1f;
-	void Update(){
+
+
+	public virtual void OnUpdate(){
 		if(slider.fillAmount != subSlider.fillAmount){
 			subSlider.fillAmount=Mathf.Lerp(subSlider.fillAmount,slider.fillAmount,tweenTime);
 		}
@@ -50,10 +52,7 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		}else{
 			SetTween(true);
 		}
-
-
 	}
-
 
 	void SetHPVal(float val){
 		if(val>1.0f)val=1.0f;
@@ -76,4 +75,8 @@ public class PS_GUI_HPSlider : MonoBehaviour {
 		SetHPVal(slider.fillAmount-minusVal<0.0f? 0.0f:slider.fillAmount-minusVal);
 	}
 
+
+	void Update(){
+		OnUpdate();
+	}
 }
