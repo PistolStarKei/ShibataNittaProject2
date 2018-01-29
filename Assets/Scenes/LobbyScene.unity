@@ -2265,7 +2265,6 @@ GameObject:
   - 124: {fileID: 299387816}
   - 81: {fileID: 299387815}
   - 114: {fileID: 299387820}
-  - 114: {fileID: 299387821}
   - 114: {fileID: 299387822}
   - 114: {fileID: 299387823}
   - 114: {fileID: 299387824}
@@ -2357,36 +2356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetResolution: 1280
---- !u!114 &299387821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 299387814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b991c54125aad014b967e97fbf640b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RollAngle: 0
-  RollQuaternion: {x: 0, y: 0, z: 0, w: 1}
-  RollMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
 --- !u!114 &299387822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2744,6 +2713,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453586805}
   - 108: {fileID: 453586804}
+  - 123: {fileID: 453586803}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -2751,6 +2721,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!123 &453586803
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 453586802}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: 1b8cbb37f206944c7bc235686d0cb229, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!108 &453586804
 Light:
   m_ObjectHideFlags: 0
@@ -12208,7 +12193,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
