@@ -84,6 +84,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 
 		if(!photonTransformView && debugPlayership){
+			PSPhoton.GameManager.instance.playerShip=this;
 			GUIManager.Instance.SetShipControll(this);
 			isControllable=true;
 			StartShooting();

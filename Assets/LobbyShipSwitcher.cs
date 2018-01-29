@@ -103,10 +103,12 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 		//搭乗可能機の判断　購入済なら良い
 		if(flags[colorLists.mCurrentSelected]){
+			PSPhoton.LobbyManager.instance.info.Log(Application.systemLanguage == SystemLanguage.Japanese? "搭乗機の変更が完了しました" :"Bording new ship complete");
+			AudioController.Play("Enter");
 			//セレクト可能
 			currentSelectColor=colorLists.mCurrentSelected;
 			OnShipColorChanged();
-
+			UpdateBoadingBtn();
 		}else{
 			//TODO ここで購入処理
 			Debug.LogWarning("ここで購入処理 金額を渡す");

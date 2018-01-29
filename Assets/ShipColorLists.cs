@@ -175,6 +175,8 @@ public class ShipColorLists : MonoBehaviour {
 		if(num!=mCurrentSelected){
 			Debug.Log("Color Change");
 
+			AudioController.Play("Select");
+
 			mItemLists[mCurrentSelected].SetState(false);
 
 			mCurrentSelected=num;

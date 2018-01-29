@@ -47,7 +47,8 @@ namespace PSPhoton {
 		}
 		public GameObject audioControllerObj;
 		void Start () {
-			
+
+			AudioController.PlayMusic("LobbbyMusic");
 			PhotonNetwork.CrcCheckEnabled = true;
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
@@ -167,7 +168,7 @@ namespace PSPhoton {
 
 			}
 		
-
+			AudioController.Play("Enter");
 			HUDOnROOM(true);
 			//RandomJoinし、ダメなら部屋をつくる
 
