@@ -88,6 +88,7 @@ public class SphericalIndicator : MonoBehaviour {
 			mCurrent--;
 			//if(mPrevBtn.gameObject.activeSelf)NGUITools.SetActive(mPrevBtn,true);
 		}
+		AudioController.Play("Select");
 		if(onChanged!=null)onChanged(mCurrent);
 		SetCurrent(mCurrent);
 	}
@@ -101,6 +102,7 @@ public class SphericalIndicator : MonoBehaviour {
 			mCurrent++;
 			//if(mPrevBtn.gameObject.activeSelf)NGUITools.SetActive(mPrevBtn,true);
 		}
+		AudioController.Play("Select");
 		if(onChanged!=null)onChanged(mCurrent);
 		SetCurrent(mCurrent);
 	}

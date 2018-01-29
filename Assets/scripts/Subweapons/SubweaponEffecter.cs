@@ -43,6 +43,7 @@ public class SubweaponEffecter : MonoBehaviour {
 				//発射した機体以外の場合
 				if(!ship.isDead){
 					Effect(ship);
+					launcherShip.OnHit_Hitter(ship,weponType,damage,"Effecter");
 					ship.OnHit(launcherShip,weponType,damage,"Effecter");
 				}
 			}else{

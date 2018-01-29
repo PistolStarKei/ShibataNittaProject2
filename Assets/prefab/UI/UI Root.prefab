@@ -4659,7 +4659,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleVal: 1
+  bgColorOn: {r: 0, g: 0, b: 0, a: 0}
+  bgColorOff: {r: 0, g: 0, b: 0, a: 0}
+  bgColorOnWaku: {r: 0, g: 0, b: 0, a: 0}
+  bgColorOffWaku: {r: 0, g: 0, b: 0, a: 0}
+  lb: {fileID: 0}
   sp: {fileID: 114000013729266708}
+  spWake: {fileID: 0}
 --- !u!114 &114000010691124530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7811,7 +7817,6 @@ MonoBehaviour:
   - {fileID: 114000011292461802}
   - {fileID: 114000011029854768}
   - {fileID: 114000011526449484}
-  tr: {fileID: 114000012787389238}
 --- !u!114 &114000012787389238
 MonoBehaviour:
   m_ObjectHideFlags: 1

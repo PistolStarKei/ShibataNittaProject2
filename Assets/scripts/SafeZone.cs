@@ -125,6 +125,9 @@ public class SafeZone : MonoBehaviour {
 	}
 	public void SetSafeZone(int x,int y,bool isSafe){
 		safezone[x*PSParams.GameParameters.mapMasuXY+y]=isSafe;
+		if(!isSafe){
+			AffectDangerZone(GetCenterPos(x,y),new Vector3(extent*2.0f,0.1f,extent*2.0f));
+		}
 	}	
 
 	bool isInZone(Vector3 position,Vector3 center){
@@ -134,6 +137,11 @@ public class SafeZone : MonoBehaviour {
 		return boud.Contains(position);
 	}
 
+	public GameObject dangerZoneCube;
+	void AffectDangerZone(Vector3 position,Vector3 scale){
+		GameObject go=GameObject.Instantiate(dangerZoneCube,position,Quaternion.identity,null) as GameObject;
+		go.transform.localScale=scale;
+	}
 
 
 

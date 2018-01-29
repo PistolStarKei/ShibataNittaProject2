@@ -39,15 +39,16 @@ namespace PSPhoton {
 
 
 		void Awake(){
-			instance=this;
-		}
-		public GameObject audioControllerObj;
-		void Start () {
 			GameObject audio=GameObject.FindGameObjectWithTag("AudioController");
 			if(!audio){
 				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
 			}
+			instance=this;
+		}
+		public GameObject audioControllerObj;
+		void Start () {
 
+			AudioController.PlayMusic("LobbbyMusic");
 			PhotonNetwork.CrcCheckEnabled = true;
 
 			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
@@ -60,11 +61,6 @@ namespace PSPhoton {
 
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
-
-
-				if(DataManager.Instance.gameData.isConnectingRoom){
-					info.Log(Application.systemLanguage == SystemLanguage.Japanese? "すでにバトルは終了しています" :"Privious battle is ended already");
-				}
 
 				JoinLobby();
 
@@ -161,7 +157,7 @@ namespace PSPhoton {
 
 		public void OnClickPlayBtn(){
 
-			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED){
+			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED || inRoom){
 				if(useDebugLog)Debug.LogWarning("ロビーにコネクトされていないので不可");
 				return;
 			}
@@ -172,7 +168,7 @@ namespace PSPhoton {
 
 			}
 		
-
+			AudioController.Play("Enter");
 			HUDOnROOM(true);
 			//RandomJoinし、ダメなら部屋をつくる
 
@@ -195,7 +191,7 @@ namespace PSPhoton {
 			options.EmptyRoomTtl=roomTTL;
 			//ここでマップをランダムに設定する
 			int mapNum=0;
-			options.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable() { { "map",mapNum} };
+			options.CustomRoomProperties=new ExitGames.Client.Photon.Hashtable() { { "map",mapNum},{ "state",0} };
 
 			PhotonNetwork.CreateRoom(roomName, options, TypedLobby.Default);
 		}
@@ -222,8 +218,7 @@ namespace PSPhoton {
 			_timerFrequency=0.0f;
 			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
 			DataManager.Instance.SaveAll();
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
-
+		
 		}
 		// If master client, for every newly connected player, sets the custom properties for him
 		// car = 0, position = last (size of player list)
@@ -320,6 +315,7 @@ namespace PSPhoton {
 
 		public LobbyListManager lobbyList;
 
+	
 
 
 		public void JoinRandom(){
@@ -333,7 +329,19 @@ namespace PSPhoton {
 			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
 			DataManager.Instance.SaveAll();
 
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.currentSelectColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
+
+			if((int)PhotonNetwork.room.CustomProperties["state"]==-1){
+				//すでにゲームが終わっている
+				LeaveRoom();
+				info.Log("すでにゲームは終了しています");
+			}else if((int)PhotonNetwork.room.CustomProperties["state"]==1){
+				//すでに始まっている
+				LeaveRoom();
+				info.Log("すでにゲームは終了しています");
+			}
+
+
+			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.colorLists.mCurrentSelected,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 			base.OnJoinedRoom ();
 		}
 
@@ -347,9 +355,11 @@ namespace PSPhoton {
 			base.OnPhotonRandomJoinFailed (codeAndMsg);
 		}
 
+		bool inRoom=false;
 		void HUDOnROOM(bool isInRoom){
 
 			if(isInRoom){
+				inRoom=true;
 				_timerFlag=0.0f;
 				isMasterClient=false;
 				lobbyList.ClearList();
@@ -357,6 +367,7 @@ namespace PSPhoton {
 
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
 			}else{
+				inRoom=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=false;
 			}
@@ -387,7 +398,12 @@ namespace PSPhoton {
 		float _timerFrequency=0.0f;
 
 		void Update(){
-			if(!isMasterClient || !timer.gameObject.activeSelf)return;
+			
+			if(!timer.gameObject.activeSelf)return;
+
+
+			if(!isMasterClient)return;
+
 
 
 			_timerFlag+=Time.deltaTime;
@@ -434,7 +450,11 @@ namespace PSPhoton {
 
 		// masterClient only. Calls an RPC to start the race on all clients. Called from GUI
 		public void CallStartGame() {
-			
+
+
+			//ここでマップをランダムに設定する
+			int mapNum=0;
+			PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",mapNum}, { "state",1}  });
 			photonView.RPC("LoadGame", PhotonTargets.All);
 		}
 		public string GameSceneName;
@@ -467,10 +487,22 @@ namespace PSPhoton {
 			return false;
 		}
 
+
+
+
+		public void OnClickLeaveRoom(){
+			Debug.Log("OnClickLeaveRoom");
+			sceneFader.FadeOut(LeaveRoom,true);
+
+		}
+
+
 		//ロビーは出ずに戻る
 		public void LeaveRoom () {
+			DataManager.Instance.gameData.isConnectingRoom=false;
+			DataManager.Instance.SaveAll();
 			PhotonNetwork.LeaveRoom ();
-			//PhotonNetwork.LoadLevel ("Menu");
+			PhotonNetwork.LoadLevel ("LobbyScene");
 		}
 
 

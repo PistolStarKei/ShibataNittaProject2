@@ -56,7 +56,10 @@ public class SubweaponShot : MonoBehaviour {
 
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
-				if(!ship.isDead)ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
+				if(!ship.isDead){
+					launcherShip.OnHit_Hitter(ship,Subweapon.NONE,damage,ID);
+					ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
+				}
 
 			}else{
 				//自機であった場合
