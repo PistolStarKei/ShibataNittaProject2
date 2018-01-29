@@ -19,7 +19,23 @@ public class Subweapon_Wave : SubweaponShot {
 	}
 
 	public  override void OnCollideShip(shipControl ship){
-		base.OnCollideShip(ship);
+		if(ship){
+
+			if(!launcherShip){
+				return;
+			}
+
+			if(ship!=launcherShip){
+				//発射した機体以外の場合
+				if(!ship.isDead){
+					launcherShip.OnHit_Hitter(ship,weponType,damage,ID);
+					ship.OnHit(launcherShip,weponType,damage,ID);
+				}
+
+			}else{
+				//自機であった場合
+			}
+		}
 	}
 
 	public override  void OnCollideWall(){

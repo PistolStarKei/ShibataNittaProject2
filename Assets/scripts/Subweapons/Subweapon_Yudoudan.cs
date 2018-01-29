@@ -60,7 +60,8 @@ public class Subweapon_Yudoudan : SubweaponShot {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				if(!ship.isDead){
-					ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
+					launcherShip.OnHit_Hitter(ship,Subweapon.YUDOU,damage,ID);
+					ship.OnHit(launcherShip,Subweapon.YUDOU,damage,ID);
 				}else{
 					//死んだ機体の場合
 				}

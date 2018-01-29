@@ -77,4 +77,7 @@ MonoBehaviour:
   - RPC_SetNextDanzerZone
   - RPC_SpawnNapamEffecter
   - RPC_SpawnNukeEffecter
+  - Damage
+  - RPC_ConstantRazerDamage
+  - RPC_ConstantDangerZoneDamage
   DisableAutoOpenWizard: 1

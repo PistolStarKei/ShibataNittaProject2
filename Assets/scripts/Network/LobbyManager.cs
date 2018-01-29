@@ -498,6 +498,8 @@ namespace PSPhoton {
 
 		//ロビーは出ずに戻る
 		public void LeaveRoom () {
+			DataManager.Instance.gameData.isConnectingRoom=false;
+			DataManager.Instance.SaveAll();
 			PhotonNetwork.LeaveRoom ();
 			PhotonNetwork.LoadLevel ("LobbyScene");
 		}

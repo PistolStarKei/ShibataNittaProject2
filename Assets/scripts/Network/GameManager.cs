@@ -146,6 +146,21 @@ namespace PSPhoton {
 				}
 			}
 		}
+
+
+
+		public bool GetPlayerConnected(int id){
+
+			for(int i=0;i<playerDatas.Count;i++){
+				if(playerDatas[i].playerID==id){
+					return playerDatas[i].connected;
+				}
+			}
+
+			return true;
+		}
+
+
 		void SetPlayerConnected(bool con,int id){
 
 			shipControl.PlayerData temp;
@@ -242,30 +257,7 @@ namespace PSPhoton {
 		}
 
 
-		/// <summary>
-		/// 自機から一番近いshipを探します。
-		/// 自分しかいない場合にはnullを返します。
-		/// </summary>
-		public shipControl GetNearestShip(){
-			if(shipControllers.Count<=1)return null;
-
-			float distance=float.MaxValue;
-			float temp=0.0f;
-			shipControl nearest=playerShip;
-
-			foreach(shipControl ship in shipControllers){
-				if(ship && ship!=playerShip && !ship.isDead){
-					temp=Vector3.Distance(playerShip.transform.position,ship.transform.position);
-					if(distance>temp){
-						nearest=ship;
-					}
-				}
-			}
-
-			if(nearest==playerShip)return null;
-			return nearest;
-		}
-
+	
 		int killNum=0;
 
 
@@ -606,24 +598,20 @@ namespace PSPhoton {
 					break;
 			}
 
-
-			// Here are both PlayerManager scripts 
-			if (shipControllers.Count > 1) { 
-				foreach (shipControl.PlayerData data in   playerDatas) { 
-					// Check for each playerManager if the PhotonPlayer is connected
-					bool isConnected = false; 
-					foreach (PhotonPlayer pPlayer in PhotonNetwork.playerList) { 
-						if (!pPlayer.IsInactive && pPlayer.ID == PhotonNetwork.player.ID) {
-							isConnected = true; 
+			//接続状態をアップデートする
+			if(PhotonNetwork.playerList!=null && PhotonNetwork.playerList.Length>=1){
+				foreach (PhotonPlayer pPlayer in PhotonNetwork.playerList) { 
+					if (pPlayer.IsInactive) {
+						SetPlayerConnected(false,pPlayer.ID);
+						if (pPlayer.ID == PhotonNetwork.player.ID) {
+							OnTmeOutError();
 						}
-							
-					} 
-					// If player is not connected we need to react 
-					if (!isConnected) { 
-						OnTmeOutError();
-					} 
+					}else{
+						SetPlayerConnected(true,pPlayer.ID);
+					}
+
 				} 
-			}  
+			}
 				
 		}
 
@@ -633,7 +621,8 @@ namespace PSPhoton {
 		bool reconnecting=false;
 		public void OnTmeOutError(){
 			if(reconnecting)return;
-			Debug.Log("OnTimeOueError");
+			Debug.Log("プレイヤはオフラインです");
+
 		}
 
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
@@ -643,7 +632,9 @@ namespace PSPhoton {
 
 		public override void OnPhotonPlayerDisconnected(PhotonPlayer disconnetedPlayer) {
 			Debug.Log ((string)disconnetedPlayer.CustomProperties["userName"] + " disconnected...");
+
 			SetPlayerConnected(false,disconnetedPlayer.ID);
+
 			string info=Application.systemLanguage == SystemLanguage.Japanese? (string)disconnetedPlayer.CustomProperties["userName"] +"との通信が途絶えました"
 				:(string)disconnetedPlayer.CustomProperties["userName"] +"was left rooom";
 
@@ -657,6 +648,9 @@ namespace PSPhoton {
 
 		public ShipFollowHudManager shiphud;
 		public void BackToMain(){
+			state =GameState.FINISHED;
+			DataManager.Instance.gameData.isConnectingRoom=false;
+			DataManager.Instance.SaveAll();
 			PhotonNetwork.LeaveRoom ();
 
 		}
@@ -668,13 +662,12 @@ namespace PSPhoton {
 				PhotonNetwork.LoadLevel ("LobbyScene");
 			}else{
 				
-
 				if(isRoomExists(DataManager.Instance.gameData.lastRoomName)){
 					PhotonNetwork.ReconnectAndRejoin();
 				}else{
 					//部屋が存在しない
 					Debug.LogWarning("部屋が存在しない");
-					BackToMain();
+					PhotonNetwork.LoadLevel ("LobbyScene");
 				}
 			}
 
