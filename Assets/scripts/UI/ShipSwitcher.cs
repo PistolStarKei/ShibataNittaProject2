@@ -52,4 +52,35 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 	}
 
 
+
+	public void SetColor(int shipNum,int colorNum){
+		string path="ShipMaterials/Ship"+(shipNum+1)+"/"+"Ship"+(shipNum+1)+"c"+(colorNum+1);
+			Debug.Log("SetColor"+path);
+		StartCoroutine(LoadMaterialAndSet(shipNum,path));
+
+	}
+
+	public Material currentMat;
+	public IEnumerator LoadMaterialAndSet (int shipNum,string filePath)
+	{
+		// リソースの非同期読込開始
+		PSPhoton.LobbyManager.instance.cover.Cover();
+		ResourceRequest resReq = Resources.LoadAsync<Material> (filePath);
+		// 終わるまで待つ
+		while (resReq.isDone == false) {
+			Debug.Log ("Loading progress:" + resReq.progress.ToString ());
+			yield return 0;
+		}
+		// テクスチャ表示
+		currentMat=resReq.asset as Material;
+		Material[] mats =ships[shipNum].GetComponent<MeshRenderer>().materials;
+		Debug.Log(""+ships[shipNum].GetComponent<GUI_ShipRotater>().changeMat);
+		mats[ships[shipNum].GetComponent<GUI_ShipRotater>().changeMat] = currentMat;
+
+		ships[shipNum].GetComponent<MeshRenderer>().materials=mats;
+
+		PSPhoton.LobbyManager.instance.cover.Uncover();
+	}
+
+
 }

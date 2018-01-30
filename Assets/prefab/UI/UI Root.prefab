@@ -4661,11 +4661,8 @@ MonoBehaviour:
   toggleVal: 1
   bgColorOn: {r: 0, g: 0, b: 0, a: 0}
   bgColorOff: {r: 0, g: 0, b: 0, a: 0}
-  bgColorOnWaku: {r: 0, g: 0, b: 0, a: 0}
-  bgColorOffWaku: {r: 0, g: 0, b: 0, a: 0}
-  lb: {fileID: 0}
   sp: {fileID: 114000013729266708}
-  spWake: {fileID: 0}
+  spShot: {fileID: 0}
 --- !u!114 &114000010691124530
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -64,6 +64,11 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 		return GetKeikaSecondsSinceLast(lastTimeLogin);
 	}
 
+
+
+
+
+
 	#region static methods
 	public static string GetCurrentTime(){
 		return DateTimeToString(DateTime.Now);

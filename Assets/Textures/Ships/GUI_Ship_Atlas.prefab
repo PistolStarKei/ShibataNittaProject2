@@ -55,46 +55,98 @@ MonoBehaviour:
   mSprites:
   - name: 1-1
     x: 0
-    y: 302
-    width: 527
-    height: 345
+    y: 1410
+    width: 562
+    height: 261
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 75
-    paddingRight: 40
-    paddingTop: 93
-    paddingBottom: 72
+    paddingLeft: 42
+    paddingRight: 34
+    paddingTop: 67
+    paddingBottom: 44
   - name: 1-2
+    x: 0
+    y: 1148
+    width: 562
+    height: 261
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 34
+    paddingRight: 42
+    paddingTop: 75
+    paddingBottom: 58
+  - name: 1-3
     x: 1055
-    y: 524
-    width: 376
-    height: 199
+    y: 1787
+    width: 564
+    height: 261
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 44
-    paddingRight: 28
-    paddingTop: 52
-    paddingBottom: 39
+    paddingLeft: 55
+    paddingRight: 81
+    paddingTop: 75
+    paddingBottom: 76
+  - name: 1-4
+    x: 1365
+    y: 1283
+    width: 282
+    height: 131
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 34
+    paddingRight: 19
+    paddingTop: 53
+    paddingBottom: 32
   - name: 2-1
-    x: 544
-    y: 404
-    width: 474
-    height: 310
+    x: 1569
+    y: 1454
+    width: 422
+    height: 217
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 76
-    paddingRight: 35
-    paddingTop: 81
-    paddingBottom: 34
+    paddingLeft: 91
+    paddingRight: 79
+    paddingTop: 75
+    paddingBottom: 66
+  - name: 2-2
+    x: 563
+    y: 1191
+    width: 400
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 149
+    paddingRight: 105
+    paddingTop: 111
+    paddingBottom: 74
+  - name: 2-3
+    x: 964
+    y: 1191
+    width: 400
+    height: 223
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 61
+    paddingRight: 61
+    paddingTop: 89
+    paddingBottom: 78
   - name: 3-1
-    x: 544
-    y: 118
+    x: 0
+    y: 862
     width: 468
     height: 285
     borderLeft: 0
@@ -107,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 47
   - name: 4-1
     x: 544
-    y: 715
+    y: 1739
     width: 510
     height: 309
     borderLeft: 0
@@ -119,8 +171,8 @@ MonoBehaviour:
     paddingTop: 76
     paddingBottom: 69
   - name: 5-1
-    x: 1496
-    y: 744
+    x: 1620
+    y: 1768
     width: 399
     height: 280
     borderLeft: 0
@@ -132,8 +184,8 @@ MonoBehaviour:
     paddingTop: 103
     paddingBottom: 56
   - name: 6-1
-    x: 1055
-    y: 724
+    x: 0
+    y: 561
     width: 440
     height: 300
     borderLeft: 0
@@ -146,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 52
   - name: 7-1
     x: 0
-    y: 648
+    y: 1672
     width: 543
     height: 376
     borderLeft: 0
@@ -159,17 +211,56 @@ MonoBehaviour:
     paddingBottom: 72
   - name: 8-1
     x: 0
-    y: 6
-    width: 455
-    height: 295
+    y: 47
+    width: 502
+    height: 256
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 77
-    paddingRight: 31
-    paddingTop: 77
-    paddingBottom: 66
+    paddingLeft: 59
+    paddingRight: 47
+    paddingTop: 83
+    paddingBottom: 57
+  - name: 8-2
+    x: 563
+    y: 1415
+    width: 502
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 109
+    paddingRight: 51
+    paddingTop: 97
+    paddingBottom: 71
+  - name: 8-3
+    x: 1066
+    y: 1415
+    width: 502
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 117
+    paddingRight: 77
+    paddingTop: 69
+    paddingBottom: 57
+  - name: 8-4
+    x: 0
+    y: 304
+    width: 502
+    height: 256
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 63
+    paddingRight: 49
+    paddingTop: 83
+    paddingBottom: 73
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

@@ -60,6 +60,7 @@ public class LobbyShipSwitcher : MonoBehaviour {
 	public UILabel currentShipSubNameLb;
 	public void SetCurrentShipSubName(string name){
 		currentShipSubNameLb.text=name;
+
 		UpdateBoadingBtn();
 	}
 

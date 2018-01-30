@@ -31,24 +31,25 @@ namespace PSParams{
 		public static readonly string[] shipNames=new string[8]{"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8"};
 
 		//カラーリングの名前　Ship1 個数と一致させる
-		public static readonly string[] shipSubNamesShip1=new string[2]{"R234","P23WE"};
-		public static readonly string[] shipSubNamesShip2=new string[1]{"F45G"};
+		//赤　青　白　クリア
+		public static readonly string[] shipSubNamesShip1=new string[4]{"BR1","SBL1","WE20","SPC0"};
+		public static readonly string[] shipSubNamesShip2=new string[3]{"PW21","BBL2","BGR2"};
 		public static readonly string[] shipSubNamesShip3=new string[1]{"G765"};
 		public static readonly string[] shipSubNamesShip4=new string[1]{"R234"};
 		public static readonly string[] shipSubNamesShip5=new string[1]{"R234"};
 		public static readonly string[] shipSubNamesShip6=new string[1]{"R234"};
 		public static readonly string[] shipSubNamesShip7=new string[1]{"R234"};
-		public static readonly string[] shipSubNamesShip8=new string[1]{"R234"};
+		public static readonly string[] shipSubNamesShip8=new string[4]{"BL81","LP81","CW81","SPS8"};
 
 		//初期状態で搭乗可能か？　購入が必要か？
-		public static readonly bool[] defaultAvaillabilityShip1=new  bool[2]{true,false};
-		public static readonly bool[] defaultAvaillabilityShip2=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip1=new  bool[4]{true,true,true,false};
+		public static readonly bool[] defaultAvaillabilityShip2=new  bool[3]{true,true,true};
 		public static readonly bool[] defaultAvaillabilityShip3=new  bool[1]{true};
 		public static readonly bool[] defaultAvaillabilityShip4=new  bool[1]{true};
 		public static readonly bool[] defaultAvaillabilityShip5=new  bool[1]{true};
 		public static readonly bool[] defaultAvaillabilityShip6=new  bool[1]{true};
 		public static readonly bool[] defaultAvaillabilityShip7=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip8=new  bool[1]{true};
+		public static readonly bool[] defaultAvaillabilityShip8=new  bool[4]{true,true,true,false};
 
 
 

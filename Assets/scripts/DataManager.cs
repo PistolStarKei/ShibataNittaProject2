@@ -67,9 +67,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			LoadData();
 		}else{
 			LoadData();
+
+			//フラグ配列をマッチさせる
+			CheckAndMatchFlagArrayLengths();
+			SaveAll();
 		}
 
 	}
+
 
 	public void LoadData(){
 		envData.toggleSE=ES2.Load<bool>(filename+"?tag=toggleSE");
@@ -97,7 +102,6 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.shipAvaillable6=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable6");
 		gameData.shipAvaillable7=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable7");
 		gameData.shipAvaillable8=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable8");
-
 
 
 
@@ -218,5 +222,32 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 				break;
 		}
 		return flags;
+	}
+
+
+
+	void CheckAndMatchFlagArrayLengths(){
+		Debug.LogWarning("ここで配列アシストをする");
+		gameData.shipAvaillable1=GetMergedBool(gameData.shipAvaillable1,PSParams.GameParameters.defaultAvaillabilityShip1);
+		gameData.shipAvaillable2=GetMergedBool(gameData.shipAvaillable2,PSParams.GameParameters.defaultAvaillabilityShip2);
+		gameData.shipAvaillable3=GetMergedBool(gameData.shipAvaillable3,PSParams.GameParameters.defaultAvaillabilityShip3);
+		gameData.shipAvaillable4=GetMergedBool(gameData.shipAvaillable4,PSParams.GameParameters.defaultAvaillabilityShip4);
+		gameData.shipAvaillable5=GetMergedBool(gameData.shipAvaillable5,PSParams.GameParameters.defaultAvaillabilityShip5);
+		gameData.shipAvaillable6=GetMergedBool(gameData.shipAvaillable6,PSParams.GameParameters.defaultAvaillabilityShip6);
+		gameData.shipAvaillable7=GetMergedBool(gameData.shipAvaillable7,PSParams.GameParameters.defaultAvaillabilityShip7);
+		gameData.shipAvaillable8=GetMergedBool(gameData.shipAvaillable8,PSParams.GameParameters.defaultAvaillabilityShip8);
+
+	}
+	bool[] GetMergedBool(bool[] oldFlags,bool[] newFlags){
+		bool[] temp=newFlags;
+		if(oldFlags.Length!=newFlags.Length){
+
+			for(int i=0;i<temp.Length;i++){
+				if(i<oldFlags.Length)temp[i]=oldFlags[i];
+			}
+			return temp;
+		}
+
+		return oldFlags;
 	}
 }

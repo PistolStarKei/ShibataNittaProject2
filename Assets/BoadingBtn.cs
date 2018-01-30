@@ -57,7 +57,7 @@ public class BoadingBtn : MonoBehaviour {
 			case ShipStatus.SELECTABLE:
 				bg1.color=mBGColorSELECTABLE;
 				bg2.color=mBGColor2SELECTABLE;
-				lb.text=Application.systemLanguage == SystemLanguage.Japanese? "搭乗する" :"Boad";
+				lb.text=Application.systemLanguage == SystemLanguage.Japanese? "搭乗可能" :"Boad";
 				break;
 			case ShipStatus.PURCHASABLE:
 				bg1.color=mBGColorPURCHASABLE;

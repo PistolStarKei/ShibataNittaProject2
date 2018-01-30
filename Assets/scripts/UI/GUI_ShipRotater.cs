@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GUI_ShipRotater : MonoBehaviour {
 
-
+	public int changeMat;
 	public float rotateSpeedForward=0.1f;
 	public float rotateSpeedUp=0.1f;
 

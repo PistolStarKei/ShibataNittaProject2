@@ -203,7 +203,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 336.8, y: 190.82, z: 0}
+  m_Size: {x: 331, y: 255, z: 0}
   m_Center: {x: 0, y: -3.34, z: 0}
 --- !u!114 &114000010206603466
 MonoBehaviour:
@@ -254,7 +254,7 @@ MonoBehaviour:
   mHeight: 255
   mDepth: 5
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.2980392

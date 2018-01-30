@@ -621,6 +621,7 @@ namespace PSPhoton {
 
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 		{
+			Debug.Log ((string)newPlayer.CustomProperties["userName"] + " disconnected...");
 			base.OnPhotonPlayerConnected (newPlayer);
 		}
 
@@ -661,7 +662,7 @@ namespace PSPhoton {
 				}else{
 					//部屋が存在しない
 					Debug.LogWarning("部屋が存在しない");
-					PhotonNetwork.LoadLevel ("LobbyScene");
+					//PhotonNetwork.LoadLevel ("LobbyScene");
 				}
 			}
 
@@ -672,6 +673,7 @@ namespace PSPhoton {
 			Debug.Log("OnFailedToConnectToPhoton");
 			base.OnFailedToConnectToPhoton (cause);
 		}
+
 		bool isRoomExists(string roomName){
 			Debug.Log("isRoomExists"+roomName);
 			List<RoomInfo> roomList = PhotonNetwork.GetRoomList().ToList();

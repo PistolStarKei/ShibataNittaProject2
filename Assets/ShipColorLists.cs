@@ -61,6 +61,7 @@ public class ShipColorLists : MonoBehaviour {
 		
 
 	void TrimItems(int sabun){
+
 		if(sabun<0){
 			//足りない
 			for(int i=0;i<Mathf.Abs(sabun);i++){
@@ -70,16 +71,14 @@ public class ShipColorLists : MonoBehaviour {
 		}else if(sabun>0){
 			//余り
 			for(int i=0;i<sabun;i++){
-				
-				mItemLists[i].KillSelf();
-				mItemLists.RemoveAt(i);
+				if(mItemLists[0]!=null){
+					mItemLists[0].KillSelf();
+					mItemLists.RemoveAt(0);
+				}
 			}
 		}
-
-
 	}
 	#endregion
-
 
 	#region  Public関数
 	public void SetItems(int shipNum){
@@ -148,6 +147,7 @@ public class ShipColorLists : MonoBehaviour {
 		mCurrentSelected=0;
 		//名前を変更する
 		switcher.SetCurrentShipSubName(mShipSubNames[mCurrentSelected]);
+		switcher.switcher.SetColor(shipNum,mCurrentSelected);
 		scroll.ResetPosition();
 
 	}
@@ -173,7 +173,6 @@ public class ShipColorLists : MonoBehaviour {
 	public void OnClickItem(ShipColorScrollItem item){
 		int num=int.Parse(item.gameObject.name);
 		if(num!=mCurrentSelected){
-			Debug.Log("Color Change");
 
 			AudioController.Play("Select");
 
@@ -182,10 +181,8 @@ public class ShipColorLists : MonoBehaviour {
 			mCurrentSelected=num;
 			mItemLists[mCurrentSelected].SetState(true);
 
-			//TODO Shipのテクスチャを変更する
-
-
-
+			//Shipのマテリアルを変更する
+			switcher.switcher.SetColor(switcher.currentSelect,mCurrentSelected);
 
 			//名前を変更する
 			switcher.SetCurrentShipSubName(mShipSubNames[mCurrentSelected]);
