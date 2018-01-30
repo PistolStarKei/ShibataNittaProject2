@@ -32,24 +32,24 @@ namespace PSParams{
 
 		//カラーリングの名前　Ship1 個数と一致させる
 		//赤　青　白　クリア
-		public static readonly string[] shipSubNamesShip1=new string[4]{"BR1","SBL1","WE20","SPC0"};
-		public static readonly string[] shipSubNamesShip2=new string[3]{"PW21","BBL2","BGR2"};
-		public static readonly string[] shipSubNamesShip3=new string[1]{"G765"};
-		public static readonly string[] shipSubNamesShip4=new string[1]{"R234"};
-		public static readonly string[] shipSubNamesShip5=new string[1]{"R234"};
-		public static readonly string[] shipSubNamesShip6=new string[1]{"R234"};
-		public static readonly string[] shipSubNamesShip7=new string[1]{"R234"};
-		public static readonly string[] shipSubNamesShip8=new string[4]{"BL81","LP81","CW81","SPS8"};
+		public static readonly string[] shipSubNamesShip1=new string[4]{"RED","BLUE","WHITE","SCLEAR"};
+		public static readonly string[] shipSubNamesShip2=new string[3]{"WHITE","LBLUE","LGREEN"};
+		public static readonly string[] shipSubNamesShip3=new string[4]{"WHITE","LBLUE","DPPL","SBLUE"};
+		public static readonly string[] shipSubNamesShip4=new string[4]{"WHITE","BLUE","CAMO1","SCLEAR"};
+		public static readonly string[] shipSubNamesShip5=new string[3]{"WHITE","BRED","SCLEAR"};
+		public static readonly string[] shipSubNamesShip6=new string[4]{"LGLAY","CAMO1","CAMO2","CAMO3"};
+		public static readonly string[] shipSubNamesShip7=new string[4]{"WHITE","RMETAL","BMETAL","GOLD"};
+		public static readonly string[] shipSubNamesShip8=new string[5]{"BLUE","PPL","SILVER","TITAN","SCLEAR"};
 
 		//初期状態で搭乗可能か？　購入が必要か？
 		public static readonly bool[] defaultAvaillabilityShip1=new  bool[4]{true,true,true,false};
 		public static readonly bool[] defaultAvaillabilityShip2=new  bool[3]{true,true,true};
-		public static readonly bool[] defaultAvaillabilityShip3=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip4=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip5=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip6=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip7=new  bool[1]{true};
-		public static readonly bool[] defaultAvaillabilityShip8=new  bool[4]{true,true,true,false};
+		public static readonly bool[] defaultAvaillabilityShip3=new  bool[4]{true,false,false,false};
+		public static readonly bool[] defaultAvaillabilityShip4=new  bool[4]{true,false,false,false};
+		public static readonly bool[] defaultAvaillabilityShip5=new  bool[3]{false,false,false};
+		public static readonly bool[] defaultAvaillabilityShip6=new  bool[4]{true,false,false,false};
+		public static readonly bool[] defaultAvaillabilityShip7=new  bool[4]{true,false,false,false};
+		public static readonly bool[] defaultAvaillabilityShip8=new  bool[5]{true,true,true,false,false};
 
 
 

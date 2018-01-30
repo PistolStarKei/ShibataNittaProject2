@@ -141,7 +141,7 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.2
+      second: 0.09
     - first:
         name: _Shininess
       second: 1

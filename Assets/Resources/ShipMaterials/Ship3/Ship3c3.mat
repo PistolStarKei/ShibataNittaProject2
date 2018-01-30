@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship3c3
-  m_Shader: {fileID: 4800000, guid: 8faf5a924bb544e4d8fe014a81ba0190, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8b959bd0e524d9941b0e292e3922b179, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -60,7 +60,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 6d2d20a2dd3054552840e1c4b13eaf71, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4d58c5b0eb76548aba231a4df0a4bb23, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -108,13 +108,13 @@ Material:
       second: 0.5
     - first:
         name: _FrezFalloff
-      second: 3
+      second: 5.8
     - first:
         name: _FrezPow
-      second: 0.25
+      second: 0.33
     - first:
         name: _Gloss
-      second: 0.5
+      second: 1.4
     - first:
         name: _GlossMapScale
       second: 1
@@ -141,10 +141,10 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.2
+      second: 0.28
     - first:
         name: _Shininess
-      second: 0.2
+      second: 1.3
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -163,16 +163,22 @@ Material:
     - first:
         name: _decalPower
       second: 0.5
+    - first:
+        name: _duoPower
+      second: 24
     m_Colors:
     - first:
         name: _Color
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _Color2
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 1, g: 0.30882353, b: 0.551927, a: 1}
     - first:
         name: _paintColor2
       second: {r: 1, g: 1, b: 1, a: 1}

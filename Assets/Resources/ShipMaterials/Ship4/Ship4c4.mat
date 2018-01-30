@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship4c4
-  m_Shader: {fileID: 4800000, guid: 8faf5a924bb544e4d8fe014a81ba0190, type: 3}
+  m_Shader: {fileID: 4800000, guid: 327a40ed5b431f249bb83af6d1ff6f44, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -60,7 +60,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 943f28a007b2147df9e79b3dfc74d062, type: 3}
+        m_Texture: {fileID: 2800000, guid: 71ca24952d0594b3ba19425812dd4717, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -89,6 +89,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
+        name: _AlphaPower
+      second: 1
+    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -106,6 +109,9 @@ Material:
     - first:
         name: _FlakeScale
       second: 0.5
+    - first:
+        name: _FresnelPower
+      second: 1.95
     - first:
         name: _FrezFalloff
       second: 3
@@ -133,6 +139,9 @@ Material:
     - first:
         name: _OcclusionStrength
       second: 1
+    - first:
+        name: _OpaqueReflection
+      second: 0
     - first:
         name: _OuterFlakePower
       second: 2
@@ -166,13 +175,19 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.32352942, g: 0.32352942, b: 0.32352942, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
+        name: _ReflectColor
+      second: {r: 1, g: 1, b: 1, a: 0.5}
+    - first:
         name: _SpecColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _TintColor
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _paintColor2
       second: {r: 0.6544118, g: 0.32239404, b: 0.32239404, a: 1}
