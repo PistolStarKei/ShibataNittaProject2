@@ -233,7 +233,10 @@ namespace PSPhoton {
 
 			int count=1;
 			foreach(shipControl.PlayerData data in playerDatas){
+				
 				if(data.playerID==id){
+					//同時一位かの判定
+					if(count>1)if(isDouji(count-1)) return 1;
 					return count;
 				}
 				count++;
@@ -241,6 +244,34 @@ namespace PSPhoton {
 
 
 			return count;
+		}
+
+		//同着順位かの判定
+		bool isDouji(int playerNum){
+			if(playerDatas[0].connected == playerDatas[playerNum].connected){
+				if(playerDatas[0].connected){
+					//同じくコネクト
+					if(playerDatas[0].dead == playerDatas[playerNum].dead){
+						if(playerDatas[0].dead){
+							//同じ死亡時間
+							if(playerDatas[0].alive == playerDatas[playerNum].alive){
+								return true;
+							}
+						}else{
+							//同じく生存
+							return true;
+						}
+					}else{
+
+					}
+				}else{
+					//同じく非接続
+					return true;
+				}
+			}
+
+			return false;
+
 		}
 
 		public string GetNameById(int id){
@@ -569,7 +600,9 @@ namespace PSPhoton {
 				case GameState.FIGHTING:
 					if (gameTime > 3) {
 
-						if(GetAlivePlayerCount()<=1){
+						
+
+					if(PSParams.GameParameters.EndGameOnNoConnection &&GetAlivePlayerCount()<=1){
 
 							playerShip.isDead=true;
 							playerShip.isControllable=false;

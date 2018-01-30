@@ -81,9 +81,12 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 		float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
 
+		float[] times=PSParams.GameParameters.unlockTimeShip["Ship"+(currentSelect+1).ToString()];
+		if(times.Length<=0)Debug.LogError("Key not found");
+
 
 		//開放済みかの判断
-		if(keikaSec<PSParams.GameParameters.GetUnlockTime(currentSelect,colorLists.mCurrentSelected)*3600f){
+		if(keikaSec<	times[colorLists.mCurrentSelected]*3600f){
 			boadingBtn.SetState(ShipStatus.PENDINNG,"");
 			return;
 		}

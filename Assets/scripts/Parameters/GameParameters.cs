@@ -8,17 +8,20 @@ namespace PSParams{
 
 		//ゲーム全体の
 		#region Game
+		//コネクトユーザーが０になったらゲームを終了するか
+		public static readonly bool EndGameOnNoConnection=true;
+
 		//デフォルトのチケットの個数
 		public static readonly int DefaultTicketsNum=3;
 		//次のチケット追加までの間隔　秒で
 		public static readonly float TimeForNextTicket=600.0f;
 
 		//安全地帯の分割数
-		public static readonly int mapMasuXY=4;
+		public static readonly int mapMasuXY=5;
 		//安全地帯決定間隔
-		public static readonly float safeZone_SetDulation=60.0f;
+		public static readonly float safeZone_SetDulation=10.0f;
 		//安全地帯決定後にアフェクトされるまでの猶予時間
-		public static readonly float safeZone_Dulation=30.0f;
+		public static readonly float safeZone_Dulation=10.0f;
 		//危険地帯でのダメージ間隔
 		public static readonly float dangerDamage_Dulation=0.3f;
 		//危険地帯でのダメージ間隔毎のダメージ
@@ -49,54 +52,32 @@ namespace PSParams{
 		public static readonly string[] shipSubNamesShip8=new string[5]{"BLUE","PPL","SILVER","TITAN","SCLEAR"};
 
 		//初期状態で搭乗可能か？　購入が必要か？
-		public static readonly bool[] defaultAvaillabilityShip1=new  bool[4]{true,true,true,false};
-		public static readonly bool[] defaultAvaillabilityShip2=new  bool[3]{true,true,true};
-		public static readonly bool[] defaultAvaillabilityShip3=new  bool[4]{true,false,false,false};
-		public static readonly bool[] defaultAvaillabilityShip4=new  bool[4]{true,false,false,false};
-		public static readonly bool[] defaultAvaillabilityShip5=new  bool[3]{false,false,false};
-		public static readonly bool[] defaultAvaillabilityShip6=new  bool[4]{true,false,false,false};
-		public static readonly bool[] defaultAvaillabilityShip7=new  bool[4]{true,false,false,false};
-		public static readonly bool[] defaultAvaillabilityShip8=new  bool[5]{true,true,true,false,false};
+		public static Dictionary<string,bool[]> defaultAvaillabilityShip=new Dictionary<string, bool[]>(){
+			{"Ship1",new  bool[4]{true,true,true,false}},
+			{"Ship2",new  bool[3]{true,true,true}},
+			{"Ship3",new  bool[4]{true,false,false,false}},
+			{"Ship4",new  bool[4]{true,false,false,false}},
+			{"Ship5",new  bool[3]{false,false,false}},
+			{"Ship6",new  bool[4]{true,false,false,false}},
+			{"Ship7",new  bool[4]{true,false,false,false}},
+			{"Ship8",new  bool[5]{true,true,true,false,false}},
+
+		};
 
 		//シップの開放時間　プレイ開始から 何時間で？
-		public static readonly float[] unlockTimeShip1=new float[4]{0f,0.1f,24f,24*3f};
-		public static readonly float[] unlockTimeShip2=new float[3]{0f,2f,24f};
-		public static readonly float[] unlockTimeShip3=new float[4]{24*3f,24*7*1f,24*64f,24*128f};
-		public static readonly float[] unlockTimeShip4=new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f};
-		public static readonly float[] unlockTimeShip5=new float[3]{24*7*1f,24*7*2f,24*7*6f};
-		public static readonly float[] unlockTimeShip6=new float[4]{24*7*1f,24*7*3f,24*7*6f,24*7*24f};
-		public static readonly float[] unlockTimeShip7=new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f};
-		public static readonly float[] unlockTimeShip8=new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f};
+		public static Dictionary<string,float[]> unlockTimeShip=new Dictionary<string, float[]>(){
+			{"Ship1",new float[4]{0f,0.1f,24f,24*3f}},
+			{"Ship2",new float[3]{0f,2f,24f}},
+			{"Ship3",new float[4]{24*3f,24*7*1f,24*64f,24*128f}},
+			{"Ship4",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f}},
+			{"Ship5",new float[3]{24*7*1f,24*7*2f,24*7*6f}},
+			{"Ship6",new float[4]{24*7*1f,24*7*3f,24*7*6f,24*7*24f}},
+			{"Ship7",new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f}},
+			{"Ship8",new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f}},
 
-		public static float GetUnlockTime(int shipNum,int colorNum){
-			switch(shipNum){
-				case 0:
-					return unlockTimeShip1[colorNum];
-					break;
-				case 1:
-					return unlockTimeShip2[colorNum];
-					break;
-				case 2:
-					return unlockTimeShip3[colorNum];
-					break;
-				case 3:
-					return unlockTimeShip4[colorNum];
-					break;
-				case 4:
-					return unlockTimeShip5[colorNum];
-					break;
-				case 5:
-					return unlockTimeShip6[colorNum];
-					break;
-				case 6:
-					return unlockTimeShip7[colorNum];
-					break;
-				case 7:
-					return unlockTimeShip8[colorNum];
-					break;
-			}
-			return -1.0f;
-		}
+		};
+
+
 		#endregion
 
 

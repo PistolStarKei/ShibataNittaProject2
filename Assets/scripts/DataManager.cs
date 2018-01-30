@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PSParams;
 
 [System.Serializable]
 public class EnvData{
@@ -20,14 +21,15 @@ public class GameData{
 	public int gameTickets =0;
 	public float timeForNextTickets =0.0f;
 	public string userID ="";
-	public bool[] shipAvaillable1=PSParams.GameParameters.defaultAvaillabilityShip1;
-	public bool[] shipAvaillable2=PSParams.GameParameters.defaultAvaillabilityShip2;
-	public bool[] shipAvaillable3=PSParams.GameParameters.defaultAvaillabilityShip3;
-	public bool[] shipAvaillable4=PSParams.GameParameters.defaultAvaillabilityShip4;
-	public bool[] shipAvaillable5=PSParams.GameParameters.defaultAvaillabilityShip5;
-	public bool[] shipAvaillable6=PSParams.GameParameters.defaultAvaillabilityShip6;
-	public bool[] shipAvaillable7=PSParams.GameParameters.defaultAvaillabilityShip7;
-	public bool[] shipAvaillable8=PSParams.GameParameters.defaultAvaillabilityShip8;
+
+	public bool[] shipAvaillable1=GameParameters.defaultAvaillabilityShip["Ship1"];
+	public bool[] shipAvaillable2=GameParameters.defaultAvaillabilityShip["Ship2"];
+	public bool[] shipAvaillable3=GameParameters.defaultAvaillabilityShip["Ship3"];
+	public bool[] shipAvaillable4=GameParameters.defaultAvaillabilityShip["Ship4"];
+	public bool[] shipAvaillable5=GameParameters.defaultAvaillabilityShip["Ship5"];
+	public bool[] shipAvaillable6=GameParameters.defaultAvaillabilityShip["Ship6"];
+	public bool[] shipAvaillable7=GameParameters.defaultAvaillabilityShip["Ship7"];
+	public bool[] shipAvaillable8=GameParameters.defaultAvaillabilityShip["Ship8"];
 
 
 }
@@ -163,14 +165,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(0,filename+"?tag=shipColor");
 
 
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip1,filename+"?tag=shipAvaillable1");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip2,filename+"?tag=shipAvaillable2");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip3,filename+"?tag=shipAvaillable3");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip4,filename+"?tag=shipAvaillable4");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip5,filename+"?tag=shipAvaillable5");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip6,filename+"?tag=shipAvaillable6");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip7,filename+"?tag=shipAvaillable7");
-		ES2.Save(PSParams.GameParameters.defaultAvaillabilityShip8,filename+"?tag=shipAvaillable8");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship1"],filename+"?tag=shipAvaillable1");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship2"],filename+"?tag=shipAvaillable2");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship3"],filename+"?tag=shipAvaillable3");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship4"],filename+"?tag=shipAvaillable4");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship5"],filename+"?tag=shipAvaillable5");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship6"],filename+"?tag=shipAvaillable6");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship7"],filename+"?tag=shipAvaillable7");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship8"],filename+"?tag=shipAvaillable8");
 
 	
 
@@ -232,14 +234,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 	void CheckAndMatchFlagArrayLengths(){
 		Debug.LogWarning("ここで配列アシストをする");
-		gameData.shipAvaillable1=GetMergedBool(gameData.shipAvaillable1,PSParams.GameParameters.defaultAvaillabilityShip1);
-		gameData.shipAvaillable2=GetMergedBool(gameData.shipAvaillable2,PSParams.GameParameters.defaultAvaillabilityShip2);
-		gameData.shipAvaillable3=GetMergedBool(gameData.shipAvaillable3,PSParams.GameParameters.defaultAvaillabilityShip3);
-		gameData.shipAvaillable4=GetMergedBool(gameData.shipAvaillable4,PSParams.GameParameters.defaultAvaillabilityShip4);
-		gameData.shipAvaillable5=GetMergedBool(gameData.shipAvaillable5,PSParams.GameParameters.defaultAvaillabilityShip5);
-		gameData.shipAvaillable6=GetMergedBool(gameData.shipAvaillable6,PSParams.GameParameters.defaultAvaillabilityShip6);
-		gameData.shipAvaillable7=GetMergedBool(gameData.shipAvaillable7,PSParams.GameParameters.defaultAvaillabilityShip7);
-		gameData.shipAvaillable8=GetMergedBool(gameData.shipAvaillable8,PSParams.GameParameters.defaultAvaillabilityShip8);
+		gameData.shipAvaillable1=GetMergedBool(gameData.shipAvaillable1,GameParameters.defaultAvaillabilityShip["Ship1"]);
+		gameData.shipAvaillable2=GetMergedBool(gameData.shipAvaillable2,GameParameters.defaultAvaillabilityShip["Ship2"]);
+		gameData.shipAvaillable3=GetMergedBool(gameData.shipAvaillable3,GameParameters.defaultAvaillabilityShip["Ship3"]);
+		gameData.shipAvaillable4=GetMergedBool(gameData.shipAvaillable4,GameParameters.defaultAvaillabilityShip["Ship4"]);
+		gameData.shipAvaillable5=GetMergedBool(gameData.shipAvaillable5,GameParameters.defaultAvaillabilityShip["Ship5"]);
+		gameData.shipAvaillable6=GetMergedBool(gameData.shipAvaillable6,GameParameters.defaultAvaillabilityShip["Ship6"]);
+		gameData.shipAvaillable7=GetMergedBool(gameData.shipAvaillable7,GameParameters.defaultAvaillabilityShip["Ship7"]);
+		gameData.shipAvaillable8=GetMergedBool(gameData.shipAvaillable8,GameParameters.defaultAvaillabilityShip["Ship8"]);
 
 	}
 	bool[] GetMergedBool(bool[] oldFlags,bool[] newFlags){
