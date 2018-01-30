@@ -714,8 +714,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(isOn){
 
 				InvokeRepeating("ConstantDangerZoneDamage",PSParams.GameParameters.razerDamageDulation,PSParams.GameParameters.razerDamageDulation);
+				GUIManager.Instance.ShowLightnings(true);
 			}else{
 				CancelInvoke("ConstantDangerZoneDamage");
+				GUIManager.Instance.ShowLightnings(false);
 			}
 		}
 	}

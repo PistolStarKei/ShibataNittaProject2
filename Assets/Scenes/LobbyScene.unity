@@ -4047,7 +4047,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 674927336}
-  - 108: {fileID: 674927335}
   - 123: {fileID: 674927334}
   m_Layer: 0
   m_Name: Spotlight (1)
@@ -4071,40 +4070,6 @@ LensFlare:
     serializedVersion: 2
     m_Bits: 6
   m_Directional: 0
---- !u!108 &674927335
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 674927333}
-  m_Enabled: 0
-  serializedVersion: 7
-  m_Type: 0
-  m_Color: {r: 0.6627451, g: 0.6117647, b: 0.5921569, a: 1}
-  m_Intensity: 5
-  m_Range: 15.02
-  m_SpotAngle: 86
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!4 &674927336
 Transform:
   m_ObjectHideFlags: 0

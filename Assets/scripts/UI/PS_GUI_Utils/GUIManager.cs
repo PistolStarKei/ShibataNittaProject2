@@ -4,6 +4,14 @@ using System.Collections.Generic;
 
 public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
+	public LightningEffect lightningFX;
+	public void ShowLightnings(bool isShow){
+		if(isShow){
+			lightningFX.ShowLightnings();
+		}else{
+			lightningFX.HideLightnings();
+		}
+	}
 	public Thinksquirrel.CShake.CameraShake cameraShaker;
 
 	public void ShakeCamera(){
