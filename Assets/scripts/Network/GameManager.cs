@@ -569,6 +569,9 @@ namespace PSPhoton {
 							state = GameState.FINISHED;
 							if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
 
+
+
+					
 							// 勝ち残りゲームオーバー
 							GUIManager.Instance.OnGameOver(gameTime,killNum,1,playerDatas.Count,playerShip);
 						}
@@ -622,6 +625,9 @@ namespace PSPhoton {
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 		{
 			Debug.Log ((string)newPlayer.CustomProperties["userName"] + " disconnected...");
+
+			SetPlayerConnected(true,newPlayer.ID);
+
 			base.OnPhotonPlayerConnected (newPlayer);
 		}
 
@@ -643,6 +649,7 @@ namespace PSPhoton {
 
 		public ShipFollowHudManager shiphud;
 		public void BackToMain(){
+			//正常な終了
 			state =GameState.FINISHED;
 			DataManager.Instance.gameData.isConnectingRoom=false;
 			DataManager.Instance.SaveAll();
@@ -658,11 +665,18 @@ namespace PSPhoton {
 			}else{
 				
 				if(isRoomExists(DataManager.Instance.gameData.lastRoomName)){
-					PhotonNetwork.ReconnectAndRejoin();
+					//ゲームが終了していたら入れない
+					if((int)PhotonNetwork.room.CustomProperties["state"]>=2){
+						Debug.LogWarning("ゲーム終了のため入れない");
+						PhotonNetwork.LoadLevel ("LobbyScene");
+					}else{
+						PhotonNetwork.ReconnectAndRejoin();
+					}
+
 				}else{
 					//部屋が存在しない
 					Debug.LogWarning("部屋が存在しない");
-					//PhotonNetwork.LoadLevel ("LobbyScene");
+					PhotonNetwork.LoadLevel ("LobbyScene");
 				}
 			}
 

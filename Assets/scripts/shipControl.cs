@@ -730,24 +730,23 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	[PunRPC]
 	public void RPC_ConstantDangerZoneDamage(){
 
+		if(isDead)return;
 
 		currentHP-=PSParams.GameParameters.dangerZoneDamage;
 
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
-		if(isOwnersShip() && !isDead){
+		if(isOwnersShip()){
 
 			if(photonView){
 
 				//HPバーの更新、プレイヤーオブジェクトのみでやる
-
-
 				if(GUIManager.Instance.isDebugMode){
 					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
 				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
 
 				if(currentHP<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{null,PSPhoton.GameManager.instance.gameTime});
+					photonView.RPC ("OnDead", PhotonTargets.AllBuffered,new object[]{null,PSPhoton.GameManager.instance.gameTime});
 				}
 
 			}else{
@@ -779,9 +778,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	[PunRPC]
 	public void RPC_ConstantRazerDamage(int targettedBy){
-		
+		if(isDead)return;
 
-		if(useSubHanteiOnOffline){
+		currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
+
+		//攻撃側で判定する場合
+		if(useHitDetectionOnHitter){
 
 			if(PhotonNetwork.player.ID==targettedBy){
 				//当てた人
@@ -789,21 +791,32 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
 					Debug.LogWarning("Razer オフラインユーザーの代わりにDeadする");
-					if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
+					if(currentHP<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
 					}
 				}
 
 			}
+			if(isOwnersShip() && photonView){
+					//HPバーの更新、プレイヤーオブジェクトのみでやる
+
+
+					if(GUIManager.Instance.isDebugMode){
+						GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+					}
+				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
+
+			}
+
+			return;
 		}
 
-		currentHP-=PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER];
 
 
-		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
+
+		//防御側で判定する場合
 		if(isOwnersShip()){
-			if(isDead)return;
 			if(photonView){
 
 				//HPバーの更新、プレイヤーオブジェクトのみでやる
@@ -821,22 +834,40 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 	}
 
-	public bool useSubHanteiOnOffline=false;
+	public bool useHitDetectionOnHitter=false;
 	//通常弾　サブウェポン食らわせた場合
 	public void OnHit_Hitter(shipControl hit,Subweapon type,float damage,string ID){
 
-		if(!useSubHanteiOnOffline)return;
+		if(!useHitDetectionOnHitter || hit==null)return;
 
-		if(hit && isOwnersShip()){
-			if(!PSPhoton.GameManager.instance.GetPlayerConnected(hit.playerData.playerID)){
-				//当てたプレイヤがオフライン中
-				//当てた人間が代わりに、弾幕を消す指令をだす。
+		//攻撃側で判定する場合
+		if(isOwnersShip()){
+			//全プレイヤーに弾幕を消す指示を出す
 				if(ID!="" && ID!="Effecter"){
-					Debug.LogWarning("オフラインユーザーの代わりに弾幕消す指示する");
 					if(photonView)photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
 						ID,hit.playerData.playerID});
 				}
+
+			//ローカルデバグ用　
+			if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""&& ID!="Effecter"){
+
+				for(int i=0;i<shottedWeaponsHolder.Count;i++){
+
+					if(shottedWeaponsHolder[i]!=null){
+
+						if(shottedWeaponsHolder[i].ID==ID){
+
+							shottedWeaponsHolder[i].EffectAndDead(this);
+						}
+					}
+				}
+
 			}
+
+			//ダメージを与える
+			if(photonView)photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
+
+
 		}
 
 	}
@@ -848,7 +879,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+ID);
 
 		if(isDead)return;
+		if(useHitDetectionOnHitter)return;
 
+		//防御側で判定する場合
 
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
@@ -875,7 +908,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 
 			}
-
+			//ダメージを受ける指示を出す
 			if(photonView)photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,enemy.playerData.playerID});
 
 		}
@@ -884,9 +917,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	[PunRPC]
 	public void Damage(float damage,int damagedBy){
-		
-			
-		if(useSubHanteiOnOffline){
+
+		//全てのプレイヤのこのShipにダメージを
+		currentHP-=damage;	
+
+		//攻撃側で判定する場合
+		if(useHitDetectionOnHitter){
 
 			if(PhotonNetwork.player.ID==damagedBy){
 				//当てた人
@@ -894,17 +930,25 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
 					Debug.LogWarning("オフラインユーザーの代わりにDeadする");
-					if(currentHP-damage<=0.0f){
+					if(currentHP<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
 					}
 				}
+				//被弾者のインスタンスの処理
+				if(isOwnersShip()){
+					GUIManager.Instance.ShakeCamera();
 
+					if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+
+					GUIManager.Instance.Damage (damage, MaxHP);
+				}
 			}
+			return;
 		}
 
-		currentHP-=damage;	
 
+		//防御側で判定する場合
 		if(isOwnersShip()){
 			if(photonView){
 
