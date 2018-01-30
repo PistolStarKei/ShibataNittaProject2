@@ -9,8 +9,7 @@ TagManager:
   - Boulder
   - ShipSercher
   - AudioController
-  - EmptyBlock
-  - EmptyCube
+  - MapBlock
   layers:
   - Default
   - TransparentFX
