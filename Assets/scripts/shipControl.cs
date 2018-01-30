@@ -77,6 +77,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		this.maxSpeed=PSParams.GameParameters.maxSpeed;
 		this.speed=PSParams.GameParameters.speed;
 		this.razerMaxdistance=PSParams.GameParameters.razerMaxDistance;
+		this.useHitDetectionOnHitter=PSParams.GameParameters.useHitDetectionOnHitter;
 
 		currentHP=MaxHP;
 		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
