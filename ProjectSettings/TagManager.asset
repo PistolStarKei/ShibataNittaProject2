@@ -9,6 +9,8 @@ TagManager:
   - Boulder
   - ShipSercher
   - AudioController
+  - EmptyBlock
+  - EmptyCube
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - PickUp
   - MapDetecter
   - NoneBluredUI
-  - 
+  - Untagged
   - 
   - 
   - 

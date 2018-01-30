@@ -11,7 +11,6 @@ public class mapControl : MonoBehaviour {
 	// マップブロックで空白以外はWallに変えて当たりをつける
 	public void changeLayerNameToWall (){
 		GameObject[] emptyBlocks = GameObject.FindGameObjectsWithTag ("EmptyBlock");
-
 		foreach(GameObject block in emptyBlocks) {
 			block.layer = LayerMask.NameToLayer ("Untagged");	//名前から番号[int]
 		}
