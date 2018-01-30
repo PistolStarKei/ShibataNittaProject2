@@ -65,7 +65,11 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 	}
 
 
+	public float GetKeikaTimeFromStart(){
+		return KeikaSecondSinceLast(StringToDateTime(DataManager.Instance.envData.startTime));
 
+
+	}
 
 
 

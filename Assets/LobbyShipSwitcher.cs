@@ -77,6 +77,13 @@ public class LobbyShipSwitcher : MonoBehaviour {
 			return;
 		}
 
+		//開放済みかの判断
+		if(TimeManager.Instance.GetKeikaTimeFromStart()<PSParams.GameParameters.GetUnlockTime(currentSelect,colorLists.mCurrentSelected)*3600f){
+			boadingBtn.SetState(ShipStatus.PENDINNG,"");
+			return;
+		}
+
+
 		//搭乗可能機の判断　購入済なら良い
 		if(flags[colorLists.mCurrentSelected]){
 			//セレクト可能
@@ -88,6 +95,7 @@ public class LobbyShipSwitcher : MonoBehaviour {
 		}
 
 	}
+
 
 	public void OnClickBoadningBtn(){
 		if(DataManager.Instance.gameData.shipType==currentSelect && DataManager.Instance.gameData.shipColor==colorLists.mCurrentSelected){

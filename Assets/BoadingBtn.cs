@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum ShipStatus{BOADING,SELECTABLE,PURCHASABLE};
+public enum ShipStatus{BOADING,SELECTABLE,PURCHASABLE,PENDINNG};
 /// <summary>
 /// Shipへの搭乗　課金など
 /// </summary>
@@ -19,31 +19,10 @@ public class BoadingBtn : MonoBehaviour {
 	public  Color mBGColor2SELECTABLE;
 	public  Color mBGColorPURCHASABLE;
 	public  Color mBGColor2PURCHASABLE;
-
+	public  Color mBGColorPENDING;
+	public  Color mBGColor2PENDING;
 	public LobbyShipSwitcher switcher;
 	#endregion
-
-	#region  初期化
-
-	void Awake () {
-	}
-
-	void Start () {
-	
-	}
-	#endregion
-
-
-	#region  Update
-	
-	void Update(){
-	
-	}
-
-	#endregion
-
-
-	
 
 
 	#region  Public関数
@@ -63,6 +42,11 @@ public class BoadingBtn : MonoBehaviour {
 				bg1.color=mBGColorPURCHASABLE;
 				bg2.color=mBGColor2PURCHASABLE;
 				lb.text=Application.systemLanguage == SystemLanguage.Japanese? "¥" :"＄"+lableString;
+				break;
+			case ShipStatus.PENDINNG:
+				bg1.color=mBGColorPENDING;
+				bg2.color=mBGColor2PENDING;
+				lb.text=Application.systemLanguage == SystemLanguage.Japanese? "未開放" :"Locked";
 				break;
 		}
 	}

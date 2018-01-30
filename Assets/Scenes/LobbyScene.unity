@@ -5591,6 +5591,8 @@ MonoBehaviour:
   mBGColor2SELECTABLE: {r: 0.23921569, g: 0.6745098, b: 0.36862746, a: 1}
   mBGColorPURCHASABLE: {r: 0.3647059, g: 1, b: 0.8156863, a: 1}
   mBGColor2PURCHASABLE: {r: 0.23921569, g: 0.61960787, b: 0.6745098, a: 1}
+  mBGColorPENDING: {r: 1, g: 1, b: 1, a: 0.297}
+  mBGColor2PENDING: {r: 0.50735295, g: 0.50735295, b: 0.50735295, a: 0.303}
   switcher: {fileID: 1928934987}
 --- !u!65 &904518480
 BoxCollider:
@@ -7793,7 +7795,7 @@ Prefab:
     - target: {fileID: 114000010682197944, guid: dfd8ee2125b484bce9aca0dcb30da1cd,
         type: 2}
       propertyPath: debugDelete
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfd8ee2125b484bce9aca0dcb30da1cd, type: 2}

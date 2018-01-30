@@ -5,6 +5,7 @@ using System.Collections;
 public class EnvData{
 	public bool toggleSE=true;
 	public bool toggleBGM=true;
+	public string startTime="";
 }
 
 [System.Serializable]
@@ -57,11 +58,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"?tag=shipAvaillable1");	
+			ES2.Delete(filename+"?tag=startTime");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"?tag=shipAvaillable1")){
+		if(!ES2.Exists(filename+"?tag=startTime")){
 			
 			InitData();
 			LoadData();
@@ -103,13 +104,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.shipAvaillable7=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable7");
 		gameData.shipAvaillable8=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable8");
 
-
+		envData.startTime=ES2.Load<string>(filename+"?tag=startTime");
 
 	}
 
 	public void SaveAll(){
 		ES2.Save(envData.toggleSE,filename+"?tag=toggleSE");
 		ES2.Save(envData.toggleBGM,filename+"?tag=toggleBGM");
+		ES2.Save(envData.startTime,filename+"?tag=startTime");
 
 		ES2.Save(gameData.shipType,filename+"?tag=shipType");
 		ES2.Save(gameData.username,filename+"?tag=username");
@@ -145,6 +147,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	private void InitData(){
 		ES2.Save(true,filename+"?tag=toggleSE");
 		ES2.Save(true,filename+"?tag=toggleBGM");
+		ES2.Save(TimeManager.GetCurrentTime(),filename+"?tag=startTime");
+
 
 		ES2.Save(0,filename+"?tag=shipType");
 		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"?tag=username");

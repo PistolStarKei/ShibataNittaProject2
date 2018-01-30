@@ -51,8 +51,45 @@ namespace PSParams{
 		public static readonly bool[] defaultAvaillabilityShip7=new  bool[4]{true,false,false,false};
 		public static readonly bool[] defaultAvaillabilityShip8=new  bool[5]{true,true,true,false,false};
 
+		//シップの開放時間　プレイ開始から 何時間で？
+		public static readonly float[] unlockTimeShip1=new float[4]{0f,2f,24f,24*3f};
+		public static readonly float[] unlockTimeShip2=new float[3]{0f,2f,24f};
+		public static readonly float[] unlockTimeShip3=new float[4]{24*3f,24*7*1f,24*64f,24*128f};
+		public static readonly float[] unlockTimeShip4=new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f};
+		public static readonly float[] unlockTimeShip5=new float[3]{24*7*1f,24*7*2f,24*7*6f};
+		public static readonly float[] unlockTimeShip6=new float[4]{24*7*1f,24*7*3f,24*7*6f,24*7*24f};
+		public static readonly float[] unlockTimeShip7=new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f};
+		public static readonly float[] unlockTimeShip8=new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f};
 
-
+		public static float GetUnlockTime(int shipNum,int colorNum){
+			switch(shipNum){
+				case 0:
+					return unlockTimeShip1[colorNum];
+					break;
+				case 1:
+					return unlockTimeShip2[colorNum];
+					break;
+				case 2:
+					return unlockTimeShip3[colorNum];
+					break;
+				case 3:
+					return unlockTimeShip4[colorNum];
+					break;
+				case 4:
+					return unlockTimeShip5[colorNum];
+					break;
+				case 5:
+					return unlockTimeShip6[colorNum];
+					break;
+				case 6:
+					return unlockTimeShip7[colorNum];
+					break;
+				case 7:
+					return unlockTimeShip8[colorNum];
+					break;
+			}
+			return -1.0f;
+		}
 		#endregion
 
 
