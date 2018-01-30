@@ -80,7 +80,6 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 
 		float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
-		Debug.Log("経過時間="+keikaSec);
 
 
 		//開放済みかの判断

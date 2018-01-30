@@ -5,53 +5,6 @@ using System;
 public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 
 
-	public bool isTimer=false;
-
-	void Update(){
-		if(isTimer){
-			DataManager.Instance.gameData.timeForNextTickets-=Time.deltaTime;
-			if(DataManager.Instance.gameData.timeForNextTickets<=0.0f){
-				OnAddTickets();
-				CheckTickets();
-
-			}
-		}
-	}
-
-	void Start(){
-		CheckTickets();
-	}
-
-	public void OnAddTickets(){
-		//ここでチケットを追加する。
-		DataManager.Instance.gameData.gameTickets++;
-		DataManager.Instance.gameData.timeForNextTickets=-1.0f;
-		DataManager.Instance.SaveAll();
-		isTimer=false;
-	}
-
-	public void CheckTickets(){
-		
-		if(DataManager.Instance.gameData.gameTickets<PSParams.GameParameters.DefaultTicketsNum){
-			if(DataManager.Instance.gameData.timeForNextTickets<0.0f){
-				
-				DataManager.Instance.gameData.timeForNextTickets=PSParams.GameParameters.TimeForNextTicket;
-				DataManager.Instance.SaveAll();
-			}
-			//差分を減少させる
-			float keika=KeikaSecondSinceLast(StringToDateTime(DataManager.Instance.gameData.lastTime));
-			DataManager.Instance.gameData.timeForNextTickets-=keika;
-
-			Debug.Log("前回からの経過時間　"+keika);
-
-			isTimer=true;
-		}
-	}
-
-
-
-
-
     public bool ISSameDayLogin(DateTime lastTimeLogin){
         
 		if(IsSameDayLogin(lastTimeLogin))return true;

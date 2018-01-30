@@ -55,7 +55,6 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 
 	public void SetColor(int shipNum,int colorNum){
 		string path="ShipMaterials/Ship"+(shipNum+1)+"/"+"Ship"+(shipNum+1)+"c"+(colorNum+1);
-			Debug.Log("SetColor"+path);
 		StartCoroutine(LoadMaterialAndSet(shipNum,path));
 
 	}
@@ -68,7 +67,6 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 		ResourceRequest resReq = Resources.LoadAsync<Material> (filePath);
 		// 終わるまで待つ
 		while (resReq.isDone == false) {
-			Debug.Log ("Loading progress:" + resReq.progress.ToString ());
 			yield return 0;
 		}
 		// テクスチャ表示

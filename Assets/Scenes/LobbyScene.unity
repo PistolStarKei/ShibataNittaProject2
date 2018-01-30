@@ -3039,7 +3039,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3001
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -3117,7 +3117,11 @@ MonoBehaviour:
   onRelease: []
   onSelect: []
   onDeselect: []
-  onClick: []
+  onClick:
+  - mTarget: {fileID: 1487163620}
+    mMethodName: OnClickAddBtn
+    mParameters: []
+    oneShot: 0
   onDoubleClick: []
   onDragStart: []
   onDragEnd: []
@@ -5366,6 +5370,103 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 5ec9a06fae048499583bb1704c325d2d, type: 3}
+--- !u!1 &834350375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 834350376}
+  - 114: {fileID: 834350377}
+  m_Layer: 5
+  m_Name: Label (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &834350376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834350375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -334.1, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1487163618}
+  m_RootOrder: 2
+--- !u!114 &834350377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834350375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 0.2, b: 0.2, a: 1}
+  mPivot: 3
+  mWidth: 244
+  mHeight: 34
+  mDepth: 3
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 7.1764708
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
+  mFont: {fileID: 0}
+  mText: 12:20 befor+1
+  mFontSize: 34
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 2
+  mEffectColor: {r: 1, g: 0.2, b: 0.2, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mUseFloatSpacing: 0
+  mFloatSpacingX: 0
+  mFloatSpacingY: 0
+  mOverflowEllipsis: 0
+  mOverflowWidth: 0
+  mModifier: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &873540940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6776,7 +6877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6a2a78c9c764181ab7689d57f7ac6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTimer: 0
   isPersistantBetweenScenes: 0
 --- !u!4 &1126091297
 Transform:
@@ -8823,6 +8923,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1487163618}
   - 114: {fileID: 1487163619}
+  - 114: {fileID: 1487163620}
   m_Layer: 5
   m_Name: Ticket
   m_TagString: Untagged
@@ -8844,6 +8945,7 @@ Transform:
   m_Children:
   - {fileID: 1893156950}
   - {fileID: 536035608}
+  - {fileID: 834350376}
   m_Father: {fileID: 807829019}
   m_RootOrder: 2
 --- !u!114 &1487163619
@@ -8875,7 +8977,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0.7545388, b: 0.2352941, a: 1}
+  mColor: {r: 0.20392157, g: 0.6, b: 1, a: 1}
   mPivot: 4
   mWidth: 89
   mHeight: 57
@@ -8901,6 +9003,24 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: ic_ticket 1
   mFillCenter: 1
+--- !u!114 &1487163620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1487163617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf9f8910f2e2464faf471bdb3bd1b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTicketNumLb: {fileID: 1893156951}
+  mTimerLb: {fileID: 834350377}
+  mTicketIcon: {fileID: 1487163619}
+  mAddBtn: {fileID: 536035607}
+  isTimer: 0
+  fullColor: {r: 0.20392159, g: 0.6, b: 1, a: 1}
+  emptyColor: {r: 1, g: 0.20392156, b: 0.20392156, a: 1}
 --- !u!1 &1505119143
 GameObject:
   m_ObjectHideFlags: 0
@@ -11223,7 +11343,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0.7529412, b: 0.23137255, a: 1}
+  mColor: {r: 0.20392157, g: 0.6, b: 1, a: 1}
   mPivot: 5
   mWidth: 244
   mHeight: 34
@@ -11243,7 +11363,7 @@ MonoBehaviour:
   mEncoding: 1
   mMaxLineCount: 0
   mEffectStyle: 2
-  mEffectColor: {r: 1, g: 0.7529412, b: 0.23137255, a: 1}
+  mEffectColor: {r: 0.20392157, g: 0.6, b: 1, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
@@ -12039,6 +12159,11 @@ Prefab:
       propertyPath: maxPlayers
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
+        type: 2}
+      propertyPath: gameTicketSetter
+      value: 
+      objectReference: {fileID: 1487163620}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
   m_IsPrefabParent: 0

@@ -479,6 +479,8 @@ namespace PSPhoton {
 
 			GUIManager.Instance.OnGameStart();
 
+			if(DataManager.Instance.gameData.gameTickets!=-100)DataManager.Instance.gameData.gameTickets--;
+
 			state = GameState.FIGHTING;
 			gameTime = 0;
 		}

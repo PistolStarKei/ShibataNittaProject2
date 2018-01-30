@@ -163,11 +163,17 @@ namespace PSPhoton {
 		}
 
 
-
+		public GameTicketSetter gameTicketSetter;
 		public void OnClickPlayBtn(){
 
 			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED || inRoom){
 				if(useDebugLog)Debug.LogWarning("ロビーにコネクトされていないので不可");
+				return;
+			}
+
+			if(DataManager.Instance.gameData.gameTickets<=0){
+				info.Log(Application.systemLanguage == SystemLanguage.Japanese? "プレイチケットがありません" :"Your game tickets is empty");
+				gameTicketSetter.OnClickAddBtn();
 				return;
 			}
 		
