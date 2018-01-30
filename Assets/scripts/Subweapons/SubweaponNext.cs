@@ -6,7 +6,7 @@ public class SubweaponNext : MonoBehaviour {
 	public UISprite spItem;
 
 	public void SetToEmpty(){
-		spItem.spriteName="sw_empty";
+		spItem.spriteName="bg_box";
 	}
 
 	public void SetItem(string name){

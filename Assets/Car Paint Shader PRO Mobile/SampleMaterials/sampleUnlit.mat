@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: sampleUnlit
+  m_Shader: {fileID: 4800000, guid: 2dcfda9dff589f4479bd8ed0066a48b7, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _Cube
+      second:
+        m_Texture: {fileID: 8900000, guid: f72031966eaf8cc4aaf1c3483aff0adc, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DecalMap
+      second:
+        m_Texture: {fileID: 2800000, guid: 4cd8841cb19b64c4f826e48e517e2f8e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DecalMap2
+      second:
+        m_Texture: {fileID: 2800000, guid: bb55554801a290a44ad2301e88be5d8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DecalMap3
+      second:
+        m_Texture: {fileID: 2800000, guid: 1b8822aa25d496b439f17103fb69a006, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DecalMap4
+      second:
+        m_Texture: {fileID: 2800000, guid: d4d4b7bf49dac3f4f99099d312db3282, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 2b52f203bb3ffd840a918034c3a98da2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SparkleTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 4a394329b7519cd4783d283cadb5e998, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _FlakePower
+      second: 1
+    - first:
+        name: _FlakeScale
+      second: 0.5
+    - first:
+        name: _FrezFalloff
+      second: 2.80597
+    - first:
+        name: _FrezPow
+      second: 0.7873134
+    - first:
+        name: _Gloss
+      second: 1.1492537
+    - first:
+        name: _InterFlakePower
+      second: 32.850746
+    - first:
+        name: _OuterFlakePower
+      second: 5.925373
+    - first:
+        name: _Reflection
+      second: 0.2835821
+    - first:
+        name: _Shininess
+      second: 4.26509
+    - first:
+        name: _decalPower
+      second: 1
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _SpecColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _flakeLayerColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _paintColor2
+      second: {r: 0.51048946, g: 0, b: 1, a: 1}

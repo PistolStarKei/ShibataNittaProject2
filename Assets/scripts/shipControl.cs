@@ -120,7 +120,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(PSPhoton.GameManager.instance){
 				PSPhoton.GameManager.instance.OnPlayerDead(playerData.playerID,killedBy,aliveTime);
 			}
-
 		}
 
 		if(!isOwnersShip())return;
@@ -789,6 +788,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
+					Debug.LogWarning("Razer オフラインユーザーの代わりにDeadする");
 					if(currentHP-PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER]<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
@@ -832,14 +832,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				//当てたプレイヤがオフライン中
 				//当てた人間が代わりに、弾幕を消す指令をだす。
 				if(ID!="" && ID!="Effecter"){
+					Debug.LogWarning("オフラインユーザーの代わりに弾幕消す指示する");
 					if(photonView)photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
 						ID,hit.playerData.playerID});
 				}
-
-
-
 			}
-		
 		}
 
 	}
@@ -896,6 +893,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
+					Debug.LogWarning("オフラインユーザーの代わりにDeadする");
 					if(currentHP-damage<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
