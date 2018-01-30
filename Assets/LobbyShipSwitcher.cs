@@ -77,8 +77,14 @@ public class LobbyShipSwitcher : MonoBehaviour {
 			return;
 		}
 
+
+
+		float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
+		Debug.Log("経過時間="+keikaSec);
+
+
 		//開放済みかの判断
-		if(TimeManager.Instance.GetKeikaTimeFromStart()<PSParams.GameParameters.GetUnlockTime(currentSelect,colorLists.mCurrentSelected)*3600f){
+		if(keikaSec<PSParams.GameParameters.GetUnlockTime(currentSelect,colorLists.mCurrentSelected)*3600f){
 			boadingBtn.SetState(ShipStatus.PENDINNG,"");
 			return;
 		}

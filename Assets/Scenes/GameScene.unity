@@ -14855,6 +14855,58 @@ MonoBehaviour:
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
   widgetContainer: {fileID: 0}
+--- !u!1001 &1570861420
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011450541274, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011327715688, guid: 7b5fca032c40c420bb43e93b0177a0dc,
+        type: 2}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011327715688, guid: 7b5fca032c40c420bb43e93b0177a0dc,
+        type: 2}
+      propertyPath: instantiationId
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7b5fca032c40c420bb43e93b0177a0dc, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1577242443
 GameObject:
   m_ObjectHideFlags: 0
@@ -16422,7 +16474,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 0.4708925, b: 0.18382353, a: 1}
+  mColor: {r: 0.8874239, g: 1, b: 0.18382353, a: 1}
   mPivot: 5
   mWidth: 103
   mHeight: 282

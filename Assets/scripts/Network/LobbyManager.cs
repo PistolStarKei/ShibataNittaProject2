@@ -153,6 +153,13 @@ namespace PSPhoton {
 		public override void OnJoinedLobby () {
 			if(useDebugLog)Debug.Log("Joined Lobby succcess");
 			stateHUD.SetStateHUD(NetworkState.LOBBYCONNECTED);
+
+			//ロビーからの再入場は無し
+			if(DataManager.Instance.gameData.isConnectingRoom){
+				DataManager.Instance.gameData.isConnectingRoom=true;
+				DataManager.Instance.SaveAll();
+				info.Log(Application.systemLanguage == SystemLanguage.Japanese? "前回のゲームは終了しています。" :"Previous game has finished already");
+			}
 		}
 
 
@@ -162,12 +169,6 @@ namespace PSPhoton {
 			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED || inRoom){
 				if(useDebugLog)Debug.LogWarning("ロビーにコネクトされていないので不可");
 				return;
-			}
-
-
-			if(DataManager.Instance.gameData.isConnectingRoom){
-					Debug.LogWarning("ここで再接続をなんとかする");
-
 			}
 		
 			AudioController.Play("Enter");

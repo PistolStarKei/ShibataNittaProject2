@@ -33,12 +33,19 @@ namespace PSParams{
 		//カラーリングの名前　Ship1 個数と一致させる
 		//赤　青　白　クリア
 		public static readonly string[] shipSubNamesShip1=new string[4]{"RED","BLUE","WHITE","SCLEAR"};
+		//白　ライトブルー　ライトグリーン
 		public static readonly string[] shipSubNamesShip2=new string[3]{"WHITE","LBLUE","LGREEN"};
+		//白　ライトブルー　ディープパープル　黄色青のダブルカラー
 		public static readonly string[] shipSubNamesShip3=new string[4]{"WHITE","LBLUE","DPPL","SBLUE"};
+		//白　青　カモフラ１　カモフラ２
 		public static readonly string[] shipSubNamesShip4=new string[4]{"WHITE","BLUE","CAMO1","SCLEAR"};
+		//白　青赤のダブル　クリア
 		public static readonly string[] shipSubNamesShip5=new string[3]{"WHITE","BRED","SCLEAR"};
+		//ライトグレー　カモフラ１　カモフラ２
 		public static readonly string[] shipSubNamesShip6=new string[4]{"LGLAY","CAMO1","CAMO2","CAMO3"};
+		//白　メタリック赤　メタリック黒　ゴールド
 		public static readonly string[] shipSubNamesShip7=new string[4]{"WHITE","RMETAL","BMETAL","GOLD"};
+		//青　パープル　チタン　クリア
 		public static readonly string[] shipSubNamesShip8=new string[5]{"BLUE","PPL","SILVER","TITAN","SCLEAR"};
 
 		//初期状態で搭乗可能か？　購入が必要か？
@@ -52,7 +59,7 @@ namespace PSParams{
 		public static readonly bool[] defaultAvaillabilityShip8=new  bool[5]{true,true,true,false,false};
 
 		//シップの開放時間　プレイ開始から 何時間で？
-		public static readonly float[] unlockTimeShip1=new float[4]{0f,2f,24f,24*3f};
+		public static readonly float[] unlockTimeShip1=new float[4]{0f,0.1f,24f,24*3f};
 		public static readonly float[] unlockTimeShip2=new float[3]{0f,2f,24f};
 		public static readonly float[] unlockTimeShip3=new float[4]{24*3f,24*7*1f,24*64f,24*128f};
 		public static readonly float[] unlockTimeShip4=new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f};
