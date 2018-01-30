@@ -362,6 +362,7 @@ MonoBehaviour:
     userName: 
     countlyCode: 
     playerID: 0
+    connected: 0
     dead: 0
     alive: 0
   photonView: {fileID: 0}
@@ -379,7 +380,8 @@ MonoBehaviour:
   isStealthMode: 0
   razerSysytem: {fileID: 114000010705817906}
   razerTarget: {fileID: 0}
-  razerMaxdistance: 5
+  isInDanzerZone: 0
+  useSubHanteiOnOffline: 1
   maxSpeed: 1
   speed: 0.01
 --- !u!114 &114000014047478664

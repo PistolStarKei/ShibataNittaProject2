@@ -268,13 +268,13 @@ MonoBehaviour:
   mColor: {r: 1, g: 0.625, b: 0.8810344, a: 0.809}
   mPivot: 1
   mWidth: 102
-  mHeight: 123
+  mHeight: 101
   mDepth: 9
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.8292683
+  aspectRatio: 1.009901
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -289,7 +289,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
-  mSpriteName: ic_sercher
+  mSpriteName: ic_direc
   mFillCenter: 1
 --- !u!114 &114000013182320328
 MonoBehaviour:
@@ -369,10 +369,10 @@ MonoBehaviour:
   offset_normalY: -63
   offset_normalX: 20
   customOffsetRect: 0.1
-  offset_Left_yajirusi: 21.4
-  offset_Right_yajirusi: 21.4
-  offset_Top_yajirusi: -56.6
-  offset_Btm_yajirusi: -56.6
+  offset_Left_yajirusi: 6
+  offset_Right_yajirusi: 37.6
+  offset_Top_yajirusi: -32
+  offset_Btm_yajirusi: -69.27
   yajirusi: {fileID: 114000012742442632}
   nameLB: {fileID: 114000012439296536}
   countly: {fileID: 114000013182320328}

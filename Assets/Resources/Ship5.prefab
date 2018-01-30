@@ -290,7 +290,7 @@ MonoBehaviour:
   razerSysytem: {fileID: 114000013001033552}
   razerTarget: {fileID: 0}
   isInDanzerZone: 0
-  isRazerTArgeted: 0
+  useSubHanteiOnOffline: 1
   maxSpeed: 1
   speed: 0.01
 --- !u!114 &114000010613758304

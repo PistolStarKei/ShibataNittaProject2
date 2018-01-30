@@ -45,6 +45,8 @@ namespace PSPhoton {
 			}
 			instance=this;
 		}
+
+
 		public GameObject audioControllerObj;
 		void Start () {
 

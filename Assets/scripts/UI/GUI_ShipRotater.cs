@@ -13,13 +13,13 @@ public class GUI_ShipRotater : MonoBehaviour {
 	bool isInited=false;
 	void Init(){
 		originalRot = transform.rotation;
-		originalPosition=transform.position;
+		originalPosition=transform.localPosition;
 		isInited=true;
 	}
 	public void SetToDefault(){
 		if(!isInited)Init();
 		transform.rotation=originalRot ;
-		transform.position=originalPosition;
+		transform.localPosition=originalPosition;
 		degrees=0.0f;
 		degrees2=0.0f;
 		isPressing=false;

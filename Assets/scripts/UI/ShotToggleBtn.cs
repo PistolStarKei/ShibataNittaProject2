@@ -11,30 +11,22 @@ public class ShotToggleBtn : MonoBehaviour {
 
 	public Color bgColorOn;
 	public Color bgColorOff;
-	public Color bgColorOnWaku;
-	public Color bgColorOffWaku;
-
-	public UILabel lb;
 
 	public void SetToggle(bool isOn){
 		this.toggleVal=isOn;
 		if(isOn){
 			sp.color=bgColorOn;
-			spWake.color=bgColorOnWaku;
-			lb.text="ON";
-			lb.effectColor=lb.color;
+			spShot.color=sp.color;
 		}else{
 			sp.color=bgColorOff;
-			lb.text="OFF";
-			spWake.color=bgColorOffWaku;
-			lb.effectColor=lb.color;
+			spShot.color=sp.color;
 		}
 
 
 	}
 
 	public UISprite sp;
-	public UISprite spWake;
+	public UISprite spShot;
 
 	public void OnClickToggle(){
 		

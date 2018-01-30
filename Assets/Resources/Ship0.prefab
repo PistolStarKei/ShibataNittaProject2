@@ -58,7 +58,6 @@ GameObject:
   - 114: {fileID: 114000011327715688}
   - 54: {fileID: 54000013615316084}
   - 135: {fileID: 135000010372355654}
-  - 120: {fileID: 120000012786536856}
   - 114: {fileID: 114000013058158798}
   m_Layer: 11
   m_Name: Ship0
@@ -272,6 +271,7 @@ MonoBehaviour:
     userName: 
     countlyCode: 
     playerID: 0
+    connected: 0
     dead: 0
     alive: 0
   photonView: {fileID: 0}
@@ -289,7 +289,8 @@ MonoBehaviour:
   isStealthMode: 0
   razerSysytem: {fileID: 114000013982594494}
   razerTarget: {fileID: 0}
-  razerMaxdistance: 5
+  isInDanzerZone: 0
+  useSubHanteiOnOffline: 1
   maxSpeed: 1
   speed: 0.01
 --- !u!114 &114000011327715688
@@ -450,48 +451,6 @@ LineRenderer:
     m_EndColor:
       serializedVersion: 2
       rgba: 4292968955
-  m_UseWorldSpace: 1
---- !u!120 &120000012786536856
-LineRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011067218298}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 6bf2dc16614be4bc6af614a05b4377ef, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 2.94, y: -2.1, z: 1.4}
-  m_Parameters:
-    startWidth: 0.03
-    endWidth: 0.03
-    m_StartColor:
-      serializedVersion: 2
-      rgba: 3230427903
-    m_EndColor:
-      serializedVersion: 2
-      rgba: 3598999807
   m_UseWorldSpace: 1
 --- !u!135 &135000010372355654
 SphereCollider:

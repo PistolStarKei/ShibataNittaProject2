@@ -201,7 +201,6 @@ namespace PSPhoton {
 					count++;
 				}
 			}
-			Debug.Log("GetAlivePlayerCount "+count);
 			return count;
 		}
 		int GetPlayerRank(int id){
@@ -315,7 +314,7 @@ namespace PSPhoton {
 				GUIManager.Instance.Log(info);
 
 				state = GameState.FINISHED;
-				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",-1}  });
+				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
 
 				// enable panel
 				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
@@ -339,7 +338,7 @@ namespace PSPhoton {
 					SetPlayerDead(playerShip.playerData.playerID);
 
 					state = GameState.FINISHED;
-					if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",-1}  });
+					if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
 
 					// 勝ち残りゲームオーバー
 					GUIManager.Instance.OnGameOver(gameTime,killNum,1,playerDatas.Count,playerShip);
@@ -449,7 +448,7 @@ namespace PSPhoton {
 			foreach (GameObject go in ships) {
 				ship=go.GetComponent<shipControl>();
 				if(ship){
-					if(ship!=playerShip){
+					if(ship.playerData.playerID!=PhotonNetwork.player.ID){
 						shiphud.SetFollowhipHud(ship);
 
 					}
@@ -559,6 +558,21 @@ namespace PSPhoton {
 					break;
 				case GameState.FIGHTING:
 					if (gameTime > 3) {
+
+						if(GetAlivePlayerCount()<=1){
+
+							playerShip.isDead=true;
+							playerShip.isControllable=false;
+
+							SetPlayerDead(playerShip.playerData.playerID);
+
+							state = GameState.FINISHED;
+							if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
+
+							// 勝ち残りゲームオーバー
+							GUIManager.Instance.OnGameOver(gameTime,killNum,1,playerDatas.Count,playerShip);
+						}
+
 						repeatedTime+=Time.deltaTime;
 						if(repeatedTime>itemSpawnTime){
 							repeatedTime=0.0f;
@@ -598,32 +612,12 @@ namespace PSPhoton {
 					break;
 			}
 
-			//接続状態をアップデートする
-			if(PhotonNetwork.playerList!=null && PhotonNetwork.playerList.Length>=1){
-				foreach (PhotonPlayer pPlayer in PhotonNetwork.playerList) { 
-					if (pPlayer.IsInactive) {
-						SetPlayerConnected(false,pPlayer.ID);
-						if (pPlayer.ID == PhotonNetwork.player.ID) {
-							OnTmeOutError();
-						}
-					}else{
-						SetPlayerConnected(true,pPlayer.ID);
-					}
 
-				} 
-			}
 				
 		}
 
 
 		#region タイムアウトエラー
-
-		bool reconnecting=false;
-		public void OnTmeOutError(){
-			if(reconnecting)return;
-			Debug.Log("プレイヤはオフラインです");
-
-		}
 
 		public override void OnPhotonPlayerConnected (PhotonPlayer newPlayer)
 		{
@@ -656,7 +650,7 @@ namespace PSPhoton {
 		}
 
 		public override void OnLeftRoom(){ 
-			Debug.Log("OnLeftLobby was called");
+			Debug.Log("OnLeftRoom was called");
 
 			if(state == GameState.FINISHED){
 				PhotonNetwork.LoadLevel ("LobbyScene");

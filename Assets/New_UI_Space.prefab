@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 16
   - name: bg_waku
     x: 0
-    y: 652
+    y: 423
     width: 167
     height: 160
     borderLeft: 53
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 29
   - name: bg_waku2
     x: 100
-    y: 428
+    y: 199
     width: 98
     height: 113
     borderLeft: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 21
   - name: bg_waku3
     x: 0
-    y: 428
+    y: 199
     width: 99
     height: 113
     borderLeft: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     paddingBottom: 20
   - name: bg_wakubold
     x: 0
-    y: 1223
+    y: 994
     width: 215
     height: 215
     borderLeft: 61
@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: bg_wakumid
     x: 0
-    y: 1011
+    y: 782
     width: 211
     height: 211
     borderLeft: 51
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 44
   - name: btn_small_bg
     x: 0
-    y: 813
+    y: 584
     width: 220
     height: 197
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 200
     paddingBottom: 33
   - name: GUI_Corner_Round
-    x: 64
-    y: 197
+    x: 1363
+    y: 2301
     width: 82
     height: 42
     borderLeft: 0
@@ -430,6 +430,19 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 14
     paddingBottom: 13
+  - name: ic_direc
+    x: 1560
+    y: 3173
+    width: 25
+    height: 22
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 22
+    paddingRight: 22
+    paddingTop: 22
+    paddingBottom: 20
   - name: ic_game
     x: 1802
     y: 3177
@@ -444,8 +457,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 8
   - name: ic_hp
-    x: 166
-    y: 260
+    x: 1245
+    y: 2306
     width: 69
     height: 72
     borderLeft: 0
@@ -470,8 +483,8 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 18
   - name: ic_kill
-    x: 0
-    y: 240
+    x: 103
+    y: 3
     width: 88
     height: 92
     borderLeft: 0
@@ -536,7 +549,7 @@ MonoBehaviour:
     paddingBottom: 43
   - name: ic_ticket
     x: 168
-    y: 735
+    y: 506
     width: 79
     height: 77
     borderLeft: 0
@@ -562,7 +575,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: ic_time
     x: 0
-    y: 542
+    y: 313
     width: 110
     height: 109
     borderLeft: 0
@@ -666,7 +679,7 @@ MonoBehaviour:
     paddingBottom: 59
   - name: patern_check
     x: 0
-    y: 333
+    y: 1
     width: 94
     height: 94
     borderLeft: 0
@@ -691,8 +704,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: patern_stripe
-    x: 111
-    y: 551
+    x: 1773
+    y: 2346
     width: 100
     height: 100
     borderLeft: 0
@@ -717,7 +730,7 @@ MonoBehaviour:
     paddingTop: 18
     paddingBottom: 16
   - name: serverstateicon
-    x: 1560
+    x: 1586
     y: 3171
     width: 21
     height: 24
@@ -729,9 +742,22 @@ MonoBehaviour:
     paddingRight: 16
     paddingTop: 16
     paddingBottom: 16
+  - name: shotBtn
+    x: 0
+    y: 1210
+    width: 228
+    height: 228
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 9
+    paddingTop: 18
+    paddingBottom: 11
   - name: squere
     x: 168
-    y: 661
+    y: 432
     width: 74
     height: 73
     borderLeft: 3
@@ -795,8 +821,8 @@ MonoBehaviour:
     paddingTop: 39
     paddingBottom: 5
   - name: statusBG
-    x: 89
-    y: 262
+    x: 1168
+    y: 2308
     width: 76
     height: 70
     borderLeft: 0
@@ -808,8 +834,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 13
   - name: statusBG2
-    x: 0
-    y: 175
+    x: 1919
+    y: 2482
     width: 63
     height: 64
     borderLeft: 0
@@ -821,8 +847,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 5
   - name: toggleBG1
-    x: 95
-    y: 367
+    x: 1021
+    y: 2318
     width: 146
     height: 60
     borderLeft: 28
@@ -872,6 +898,97 @@ MonoBehaviour:
     paddingRight: 39
     paddingTop: 0
     paddingBottom: 0
+  - name: UI_Napam
+    x: 0
+    y: 96
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Nuke
+    x: 1569
+    y: 2343
+    width: 101
+    height: 103
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Razer
+    x: 1466
+    y: 2344
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Stealth
+    x: 1363
+    y: 2344
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 1
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Wave
+    x: 111
+    y: 319
+    width: 102
+    height: 103
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 0
+  - name: UI_Yudou
+    x: 103
+    y: 96
+    width: 102
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 1
+    paddingTop: 0
+    paddingBottom: 1
+  - name: UI_Zenhoukou
+    x: 1671
+    y: 2344
+    width: 101
+    height: 102
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 1
   - name: waku2
     x: 1279
     y: 2881
