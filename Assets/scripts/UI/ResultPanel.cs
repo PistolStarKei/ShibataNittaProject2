@@ -15,7 +15,7 @@ public class ResultPanel : MonoBehaviour {
 		int players=playerNumber;
 
 		//プレイヤの順位
-		string playerRank=rank.ToString()+"/"+players.ToString();
+		string playerRank=rank.ToString();
 		//プレイヤの生存時間
 		int minutes = Mathf.FloorToInt(time / 60F);
 		int seconds = Mathf.FloorToInt(time - minutes * 60);
@@ -25,7 +25,7 @@ public class ResultPanel : MonoBehaviour {
 
 		DataManager.Instance.gameData.isConnectingRoom=false;
 		DataManager.Instance.SaveAll();
-		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills);
+		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills,"/"+players.ToString());
 		Invoke("Show",3.0f);
 	}
 
@@ -37,12 +37,14 @@ public class ResultPanel : MonoBehaviour {
 	public UILabel userName;
 	public UILabel userTime;
 	public UILabel userRank;
+	public UILabel userRankBG;
 	public UILabel userKill;
 	public UISprite userFlag;
-	void SetUserData(string flag,string name,string time,string rank,string kill){
+	void SetUserData(string flag,string name,string time,string rank,string kill,string players){
 		userName.text=name;
 		userTime.text=time;
 		userRank.text=rank;
+		userRankBG.text=players;
 		userKill.text=kill;
 		userFlag.spriteName=flag;
 	}

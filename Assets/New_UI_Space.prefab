@@ -133,7 +133,7 @@ MonoBehaviour:
     paddingBottom: 16
   - name: bg_waku
     x: 0
-    y: 423
+    y: 253
     width: 167
     height: 160
     borderLeft: 53
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingBottom: 29
   - name: bg_waku2
     x: 100
-    y: 199
+    y: 29
     width: 98
     height: 113
     borderLeft: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
     paddingBottom: 21
   - name: bg_waku3
     x: 0
-    y: 199
+    y: 29
     width: 99
     height: 113
     borderLeft: 0
@@ -483,8 +483,8 @@ MonoBehaviour:
     paddingTop: 22
     paddingBottom: 18
   - name: ic_kill
-    x: 103
-    y: 3
+    x: 609
+    y: 2124
     width: 88
     height: 92
     borderLeft: 0
@@ -508,6 +508,19 @@ MonoBehaviour:
     paddingRight: 42
     paddingTop: 23
     paddingBottom: 45
+  - name: ic_ranking 1
+    x: 0
+    y: 414
+    width: 180
+    height: 169
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 46
+    paddingRight: 71
+    paddingTop: 30
+    paddingBottom: 31
   - name: ic_saterite
     x: 944
     y: 2566
@@ -549,7 +562,7 @@ MonoBehaviour:
     paddingBottom: 43
   - name: ic_ticket
     x: 168
-    y: 506
+    y: 336
     width: 79
     height: 77
     borderLeft: 0
@@ -575,7 +588,7 @@ MonoBehaviour:
     paddingBottom: 9
   - name: ic_time
     x: 0
-    y: 313
+    y: 143
     width: 110
     height: 109
     borderLeft: 0
@@ -678,8 +691,8 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 59
   - name: patern_check
-    x: 0
-    y: 1
+    x: 1919
+    y: 2452
     width: 94
     height: 94
     borderLeft: 0
@@ -704,8 +717,8 @@ MonoBehaviour:
     paddingTop: 2
     paddingBottom: 2
   - name: patern_stripe
-    x: 1773
-    y: 2346
+    x: 508
+    y: 2116
     width: 100
     height: 100
     borderLeft: 0
@@ -757,7 +770,7 @@ MonoBehaviour:
     paddingBottom: 11
   - name: squere
     x: 168
-    y: 432
+    y: 262
     width: 74
     height: 73
     borderLeft: 3
@@ -834,8 +847,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 13
   - name: statusBG2
-    x: 1919
-    y: 2482
+    x: 181
+    y: 519
     width: 63
     height: 64
     borderLeft: 0
@@ -899,8 +912,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Napam
-    x: 0
-    y: 96
+    x: 1672
+    y: 2344
     width: 102
     height: 102
     borderLeft: 0
@@ -912,7 +925,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Nuke
-    x: 1569
+    x: 1775
     y: 2343
     width: 101
     height: 103
@@ -925,7 +938,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Razer
-    x: 1466
+    x: 1569
     y: 2344
     width: 102
     height: 102
@@ -938,7 +951,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Stealth
-    x: 1363
+    x: 1466
     y: 2344
     width: 102
     height: 102
@@ -952,7 +965,7 @@ MonoBehaviour:
     paddingBottom: 1
   - name: UI_Wave
     x: 111
-    y: 319
+    y: 149
     width: 102
     height: 103
     borderLeft: 0
@@ -964,8 +977,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: UI_Yudou
-    x: 103
-    y: 96
+    x: 1363
+    y: 2344
     width: 102
     height: 102
     borderLeft: 0
@@ -977,7 +990,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 1
   - name: UI_Zenhoukou
-    x: 1671
+    x: 1877
     y: 2344
     width: 101
     height: 102

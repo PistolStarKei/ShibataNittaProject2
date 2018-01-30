@@ -726,6 +726,7 @@ namespace PSPhoton {
 		public override void OnFailedToConnectToPhoton (DisconnectCause cause)
 		{
 			Debug.Log("OnFailedToConnectToPhoton");
+			//Do Nothing
 			base.OnFailedToConnectToPhoton (cause);
 		}
 
