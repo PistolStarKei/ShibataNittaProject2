@@ -72,7 +72,6 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 		// テクスチャ表示
 		currentMat=resReq.asset as Material;
 		Material[] mats =ships[shipNum].GetComponent<MeshRenderer>().materials;
-		Debug.Log(""+ships[shipNum].GetComponent<GUI_ShipRotater>().changeMat);
 		mats[ships[shipNum].GetComponent<GUI_ShipRotater>().changeMat] = currentMat;
 
 		ships[shipNum].GetComponent<MeshRenderer>().materials=mats;

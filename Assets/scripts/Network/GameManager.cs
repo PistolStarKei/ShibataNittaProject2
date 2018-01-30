@@ -435,9 +435,7 @@ namespace PSPhoton {
 			Debug.Log("プレイヤの作成　position "+pos +" ship="+shipBaseNumber+"カラー="+color);
 
 			//TODO リソースを用意したら、ここを変更する
-			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber, spawn.position, spawn.rotation, 0);
-
-			//GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber+"c"+color, spawn.position, spawn.rotation, 0);
+			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber+"c"+(color+1), spawn.position, spawn.rotation, 0);
 
 			playerShip=go.GetComponent<shipControl>();
 			playerShip.InitPlayerData((string)PhotonNetwork.player.CustomProperties["userName"],(string)PhotonNetwork.player.CustomProperties["countly"],PhotonNetwork.player.ID);

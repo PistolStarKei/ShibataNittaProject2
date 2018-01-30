@@ -182,4 +182,12 @@ namespace PSParams{
 		public static readonly float spawnTimeEnd_Rate_Subweapon=600.0f;
 	}
 
+	public static class AppData {
+		
+		//スタート後の　スポーン間隔
+		public static readonly string[] IAP_SKUs=new string[]{"","","",""};
+
+
+	}
+
 }

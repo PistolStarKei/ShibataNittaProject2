@@ -1158,7 +1158,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 186271689}
   - 108: {fileID: 186271688}
-  - 123: {fileID: 186271690}
   m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
@@ -1213,21 +1212,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!123 &186271690
-LensFlare:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 186271687}
-  m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: bc8d761cacc3740fbab1c96eb12fe12f, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
 --- !u!1001 &199771158
 Prefab:
   m_ObjectHideFlags: 0
