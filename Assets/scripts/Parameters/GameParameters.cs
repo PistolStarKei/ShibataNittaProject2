@@ -37,7 +37,7 @@ namespace PSParams{
 		//赤　青　白　クリア
 		public static readonly string[] shipSubNamesShip1=new string[4]{"RED","BLUE","WHITE","SCLEAR"};
 		//白　ライトブルー　ライトグリーン
-		public static readonly string[] shipSubNamesShip2=new string[3]{"WHITE","LBLUE","LGREEN"};
+		public static readonly string[] shipSubNamesShip2=new string[4]{"WHITE","LBLUE","LGREEN","HTEC"};
 		//白　ライトブルー　ディープパープル　黄色青のダブルカラー
 		public static readonly string[] shipSubNamesShip3=new string[4]{"WHITE","LBLUE","DPPL","SBLUE"};
 		//白　青　カモフラ１　カモフラ２
@@ -54,7 +54,7 @@ namespace PSParams{
 		//初期状態で搭乗可能か？　購入が必要か？
 		public static Dictionary<string,bool[]> defaultAvaillabilityShip=new Dictionary<string, bool[]>(){
 			{"Ship1",new  bool[4]{true,true,true,false}},
-			{"Ship2",new  bool[3]{true,true,true}},
+			{"Ship2",new  bool[4]{true,true,true,false}},
 			{"Ship3",new  bool[4]{true,false,false,false}},
 			{"Ship4",new  bool[4]{true,false,false,false}},
 			{"Ship5",new  bool[4]{false,false,false,false}},
@@ -67,7 +67,7 @@ namespace PSParams{
 		//シップの開放時間　プレイ開始から 何時間で？
 		public static Dictionary<string,float[]> unlockTimeShip=new Dictionary<string, float[]>(){
 			{"Ship1",new float[4]{0f,0.1f,24f,24*3f}},
-			{"Ship2",new float[3]{0f,2f,24f}},
+			{"Ship2",new float[4]{0f,2f,24f,24*128f}},
 			{"Ship3",new float[4]{24*3f,24*7*1f,24*64f,24*128f}},
 			{"Ship4",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f}},
 			{"Ship5",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*128f}},

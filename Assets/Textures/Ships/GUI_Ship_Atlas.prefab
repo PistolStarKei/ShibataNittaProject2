@@ -144,6 +144,19 @@ MonoBehaviour:
     paddingRight: 61
     paddingTop: 89
     paddingBottom: 78
+  - name: 2-4
+    x: 1656
+    y: 2317
+    width: 388
+    height: 215
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 80
+    paddingRight: 118
+    paddingTop: 82
+    paddingBottom: 65
   - name: 3-1
     x: 0
     y: 2533
@@ -197,7 +210,7 @@ MonoBehaviour:
     paddingTop: 105
     paddingBottom: 48
   - name: 4-1
-    x: 1050
+    x: 0
     y: 3289
     width: 524
     height: 267
@@ -223,7 +236,7 @@ MonoBehaviour:
     paddingTop: 95
     paddingBottom: 52
   - name: 4-3
-    x: 0
+    x: 1050
     y: 3289
     width: 524
     height: 267
@@ -262,8 +275,8 @@ MonoBehaviour:
     paddingTop: 122
     paddingBottom: 58
   - name: 5-2
-    x: 1656
-    y: 2303
+    x: 1091
+    y: 2072
     width: 350
     height: 229
     borderLeft: 0
@@ -275,7 +288,7 @@ MonoBehaviour:
     paddingTop: 107
     paddingBottom: 64
   - name: 5-3
-    x: 385
+    x: 738
     y: 2070
     width: 352
     height: 231
@@ -288,7 +301,7 @@ MonoBehaviour:
     paddingTop: 105
     paddingBottom: 62
   - name: 5-4
-    x: 738
+    x: 385
     y: 2070
     width: 352
     height: 231
@@ -366,8 +379,8 @@ MonoBehaviour:
     paddingTop: 85
     paddingBottom: 104
   - name: 7-2
-    x: 498
-    y: 2786
+    x: 1530
+    y: 3053
     width: 497
     height: 235
     borderLeft: 0
@@ -392,8 +405,8 @@ MonoBehaviour:
     paddingTop: 89
     paddingBottom: 100
   - name: 7-4
-    x: 1530
-    y: 3053
+    x: 498
+    y: 2786
     width: 497
     height: 235
     borderLeft: 0
