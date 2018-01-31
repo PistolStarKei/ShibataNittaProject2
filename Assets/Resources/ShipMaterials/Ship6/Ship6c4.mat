@@ -102,10 +102,10 @@ Material:
       second: 0
     - first:
         name: _FlakePower
-      second: 0.3
+      second: 0
     - first:
         name: _FlakeScale
-      second: 0.5
+      second: 0
     - first:
         name: _FrezFalloff
       second: 3
@@ -135,7 +135,7 @@ Material:
       second: 1
     - first:
         name: _OuterFlakePower
-      second: 2
+      second: 1
     - first:
         name: _Parallax
       second: 0.02
@@ -175,4 +175,4 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _paintColor2
-      second: {r: 0.6544118, g: 0.32239404, b: 0.32239404, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}

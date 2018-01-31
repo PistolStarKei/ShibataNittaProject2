@@ -114,7 +114,7 @@ Material:
       second: 0.25
     - first:
         name: _Gloss
-      second: 0
+      second: 1
     - first:
         name: _GlossMapScale
       second: 1
@@ -166,13 +166,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 0.5259635, b: 0.09558821, a: 1}
+      second: {r: 0.50735295, g: 0.2629385, b: 0.04103591, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 1, g: 0.9724138, b: 0, a: 1}
+      second: {r: 1, g: 0.9823529, b: 0.3602941, a: 1}
     - first:
         name: _paintColor2
       second: {r: 1, g: 1, b: 1, a: 1}

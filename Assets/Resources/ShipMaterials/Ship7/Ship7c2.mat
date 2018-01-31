@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship7c2
-  m_Shader: {fileID: 4800000, guid: 63c5b6ec681485340b45d2b306f4ed30, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1c5dc7fcf34357e4ba17a658725c3bd2, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -141,7 +141,7 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.57
+      second: 0.7
     - first:
         name: _Shininess
       second: 1
@@ -166,7 +166,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 0, b: 0, a: 1}
+      second: {r: 1, g: 0.04411763, b: 0.04411763, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}

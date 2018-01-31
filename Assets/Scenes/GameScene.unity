@@ -4516,19 +4516,19 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0, g: 0, b: 0, a: 0.528}
   mPivot: 4
-  mWidth: 548
-  mHeight: 100
+  mWidth: 732
+  mHeight: 134
   mDepth: 11
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.48
+  aspectRatio: 0.04
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 530427d69ab6a488496adbfd909c0cf3, type: 3}
   mFont: {fileID: 0}
   mText: Game Over
-  mFontSize: 100
+  mFontSize: 134
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -5003,7 +5003,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 355559396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.6, y: -443.9, z: 0}
+  m_LocalPosition: {x: 7.5, y: -443.9, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -6270,7 +6270,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.9176471, g: 0.9803922, b: 0.36862746, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 38
   mHeight: 168
@@ -18894,7 +18894,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.22352943, g: 0.53333336, b: 0.6627451, a: 0.841}
+  mColor: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 0.841}
   mPivot: 4
   mWidth: 1581
   mHeight: 299
@@ -19045,7 +19045,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1959918457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -686.4, y: 88.2, z: 0}
+  m_LocalPosition: {x: -522.3, y: -21.6, z: 0}
   m_LocalScale: {x: 0.99875164, y: 0.99875164, z: 0.99875164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -19711,7 +19711,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2006605499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -327.4, y: -334.3, z: 0}
+  m_LocalPosition: {x: -512.2, y: -319.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -20076,7 +20076,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.24313727, g: 0.24313727, b: 0.24313727, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 211
   mHeight: 138

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship3c2
-  m_Shader: {fileID: 4800000, guid: 1c5dc7fcf34357e4ba17a658725c3bd2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2dcfda9dff589f4479bd8ed0066a48b7, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -60,7 +60,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 4d58c5b0eb76548aba231a4df0a4bb23, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7a71bc9c081eb45edb93df5b5234ee8d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -114,7 +114,7 @@ Material:
       second: 0.05
     - first:
         name: _FrezFalloff
-      second: 3
+      second: 0
     - first:
         name: _FrezPow
       second: 0.25
@@ -150,7 +150,7 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0
+      second: 0.1
     - first:
         name: _Shininess
       second: 0.2
@@ -175,7 +175,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5661765, g: 0.7486815, b: 1, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}

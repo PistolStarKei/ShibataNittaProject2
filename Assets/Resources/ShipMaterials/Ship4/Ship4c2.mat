@@ -60,7 +60,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 16c7c998471ec46b6876bf85a7f6742c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e961cf24f400451f8680b79d9ebff20, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -102,10 +102,10 @@ Material:
       second: 0
     - first:
         name: _FlakePower
-      second: 0.3
+      second: 0.1
     - first:
         name: _FlakeScale
-      second: 0.5
+      second: 0.1
     - first:
         name: _FrezFalloff
       second: 3
@@ -141,7 +141,7 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.12
+      second: 0.1
     - first:
         name: _Shininess
       second: 1
@@ -172,7 +172,7 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 0.8528443, g: 0.9632353, b: 0.16290008, a: 1}
+      second: {r: 0.86764705, g: 0.86764705, b: 0.86764705, a: 1}
     - first:
         name: _paintColor2
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.19852942, g: 0.30354962, b: 1, a: 1}

@@ -45,7 +45,7 @@ namespace PSParams{
 		//白　青赤のダブル　クリア
 		public static readonly string[] shipSubNamesShip5=new string[4]{"WHITE","WSLV","SIFI","SPPL"};
 		//ライトグレー　カモフラ１　カモフラ２
-		public static readonly string[] shipSubNamesShip6=new string[4]{"LGLAY","CAMO1","CAMO2","CAMO3"};
+		public static readonly string[] shipSubNamesShip6=new string[6]{"LGLAY","CAMO1","CAMO2","CAMO3","SAKURA","PLUTINUM"};
 		//白　メタリック赤　メタリック黒　ゴールド
 		public static readonly string[] shipSubNamesShip7=new string[4]{"WHITE","RMETAL","BMETAL","GOLD"};
 		//青　パープル　チタン　クリア
@@ -58,7 +58,7 @@ namespace PSParams{
 			{"Ship3",new  bool[4]{true,false,false,false}},
 			{"Ship4",new  bool[4]{true,false,false,false}},
 			{"Ship5",new  bool[4]{false,false,false,false}},
-			{"Ship6",new  bool[4]{true,false,false,false}},
+			{"Ship6",new  bool[6]{true,false,false,false,false,false}},
 			{"Ship7",new  bool[4]{true,false,false,false}},
 			{"Ship8",new  bool[5]{true,true,true,false,false}},
 
@@ -71,7 +71,7 @@ namespace PSParams{
 			{"Ship3",new float[4]{24*3f,24*7*1f,24*64f,24*128f}},
 			{"Ship4",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f}},
 			{"Ship5",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*128f}},
-			{"Ship6",new float[4]{24*7*1f,24*7*3f,24*7*6f,24*7*24f}},
+			{"Ship6",new float[6]{24*7*1f,24*7*3f,24*7*6f,24*7*24f,24*128f,24*128f}},
 			{"Ship7",new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f}},
 			{"Ship8",new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f}},
 
