@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship7c4
-  m_Shader: {fileID: 4800000, guid: 8faf5a924bb544e4d8fe014a81ba0190, type: 3}
+  m_Shader: {fileID: 4800000, guid: 63c5b6ec681485340b45d2b306f4ed30, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -24,7 +24,7 @@ Material:
     - first:
         name: _Cube
       second:
-        m_Texture: {fileID: 8900000, guid: b4806c8ed7cc4844b9ce7232d37a59f1, type: 2}
+        m_Texture: {fileID: 8900000, guid: c001290d9de48f04287126be7a1a9d99, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -114,7 +114,7 @@ Material:
       second: 0.25
     - first:
         name: _Gloss
-      second: 0.5
+      second: 0
     - first:
         name: _GlossMapScale
       second: 1
@@ -141,7 +141,7 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.52
+      second: 1
     - first:
         name: _Shininess
       second: 1

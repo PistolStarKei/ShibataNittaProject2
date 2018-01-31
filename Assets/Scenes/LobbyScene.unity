@@ -512,8 +512,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61238710}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
-  m_LocalPosition: {x: -1085.4, y: 432, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.3395589, w: 0.94058484}
+  m_LocalPosition: {x: -1173, y: 470, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -530,7 +530,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 140.5999, y: 140.00021, z: 0}
+  m_Size: {x: 211.2, y: 212.4, z: 0}
   m_Center: {x: 4.8000336, y: 9.720207, z: 0}
 --- !u!114 &61238713
 MonoBehaviour:
@@ -2440,7 +2440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299387814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34, y: 1, z: -0.1}
+  m_LocalPosition: {x: -0.34, y: 1, z: -0.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -3139,7 +3139,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.20392159, g: 0.6, b: 1, a: 1}
   mPivot: 4
   mWidth: 81
   mHeight: 71
@@ -3638,7 +3638,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.20392159, g: 0.6, b: 1, a: 1}
   mPivot: 4
   mWidth: 250
   mHeight: 36
@@ -3657,8 +3657,8 @@ MonoBehaviour:
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 0
-  mEffectColor: {r: 1, g: 1, b: 1, a: 1}
+  mEffectStyle: 2
+  mEffectColor: {r: 0.20392159, g: 0.6, b: 1, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
   mOverflow: 0
@@ -10835,8 +10835,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1806494342}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
-  m_LocalPosition: {x: -501.6, y: -84.6, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2739592, w: 0.9617413}
+  m_LocalPosition: {x: -346, y: -108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -10853,7 +10853,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 141.00003, y: 139.99994, z: 0}
+  m_Size: {x: 177.4, y: 230.2, z: 0}
   m_Center: {x: 45.600014, y: 9.719994, z: 0}
 --- !u!114 &1806494345
 MonoBehaviour:
@@ -12107,7 +12107,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -12123,7 +12123,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: playerTTL
-      value: 0
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

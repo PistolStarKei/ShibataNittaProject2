@@ -8337,6 +8337,7 @@ MonoBehaviour:
   userName: {fileID: 114000013262113272}
   userTime: {fileID: 114000013674555884}
   userRank: {fileID: 114000012950797138}
+  userRankBG: {fileID: 0}
   userKill: {fileID: 114000011638416832}
   userFlag: {fileID: 114000011507787302}
   sceneFader: {fileID: 114000012886970040}

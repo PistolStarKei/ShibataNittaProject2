@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship7c3
-  m_Shader: {fileID: 4800000, guid: 8faf5a924bb544e4d8fe014a81ba0190, type: 3}
+  m_Shader: {fileID: 4800000, guid: 63c5b6ec681485340b45d2b306f4ed30, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -24,7 +24,7 @@ Material:
     - first:
         name: _Cube
       second:
-        m_Texture: {fileID: 8900000, guid: b4806c8ed7cc4844b9ce7232d37a59f1, type: 2}
+        m_Texture: {fileID: 8900000, guid: c001290d9de48f04287126be7a1a9d99, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -60,7 +60,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 457588d5945664e3b899b55cf39bdb35, type: 3}
+        m_Texture: {fileID: 2800000, guid: a82152c68a63d490b92d70238fda6d8f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -102,19 +102,19 @@ Material:
       second: 0
     - first:
         name: _FlakePower
-      second: 0.3
+      second: 0.5
     - first:
         name: _FlakeScale
-      second: 0.5
+      second: 0.1
     - first:
         name: _FrezFalloff
-      second: 1
+      second: 5.8
     - first:
         name: _FrezPow
-      second: 0.25
+      second: 0.51
     - first:
         name: _Gloss
-      second: 0.5
+      second: 5
     - first:
         name: _GlossMapScale
       second: 1
@@ -135,13 +135,13 @@ Material:
       second: 1
     - first:
         name: _OuterFlakePower
-      second: 2
+      second: 1
     - first:
         name: _Parallax
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.2
+      second: 0.31
     - first:
         name: _Shininess
       second: 1
@@ -166,13 +166,13 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.2205882, g: 0.2205882, b: 0.2205882, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 0.5441177, g: 0.5441177, b: 0.5441177, a: 1}
     - first:
         name: _paintColor2
       second: {r: 1, g: 1, b: 1, a: 1}

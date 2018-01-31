@@ -314,7 +314,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: b662a617a5fa6472e90b44776eb6aa20, type: 2}
+      objectReference: {fileID: 2100000, guid: 7b8e9cfefc94c465c9d47574b134d8b1, type: 2}
     m_RemovedComponents:
     - {fileID: 64000013352711684, guid: e0b84562ac4474c79bb74205c6757ce2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e0b84562ac4474c79bb74205c6757ce2, type: 2}
@@ -405,7 +405,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.4705882, g: 0.4705882, b: 0.4705882, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -528,7 +528,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bb6dedfb9a89d4d02b4c498c12d01bf8, type: 2}
+      objectReference: {fileID: 2100000, guid: 40155c67ada9e4b19a4e4b962b94fb9c, type: 2}
     m_RemovedComponents:
     - {fileID: 64000012942691472, guid: 4944f83b0900940a69002faf8f95617b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4944f83b0900940a69002faf8f95617b, type: 2}
@@ -1593,7 +1593,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a5a52ba85449e430db21f20bb2dba75d, type: 2}
+      objectReference: {fileID: 2100000, guid: 8008962322d424b95b8ff873241ee38a, type: 2}
     m_RemovedComponents:
     - {fileID: 136000012929883314, guid: b291cc5c3ac76409cb6b3a70c726e4c9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b291cc5c3ac76409cb6b3a70c726e4c9, type: 2}
@@ -1754,7 +1754,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4732da1c8ae7744fc9889d2ea73db35b, type: 2}
+      objectReference: {fileID: 2100000, guid: cc617c9f147e740748e7517dc73d7195, type: 2}
     m_RemovedComponents:
     - {fileID: 64000014083821492, guid: 3914ca0a022be426fa438212638a718c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3914ca0a022be426fa438212638a718c, type: 2}

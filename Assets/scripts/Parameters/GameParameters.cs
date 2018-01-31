@@ -43,13 +43,13 @@ namespace PSParams{
 		//白　青　カモフラ１　カモフラ２
 		public static readonly string[] shipSubNamesShip4=new string[4]{"WHITE","BLUE","CAMO1","SCLEAR"};
 		//白　青赤のダブル　クリア
-		public static readonly string[] shipSubNamesShip5=new string[3]{"WHITE","BRED","SCLEAR"};
+		public static readonly string[] shipSubNamesShip5=new string[4]{"WHITE","WSLV","SIFI","SPPL"};
 		//ライトグレー　カモフラ１　カモフラ２
 		public static readonly string[] shipSubNamesShip6=new string[4]{"LGLAY","CAMO1","CAMO2","CAMO3"};
 		//白　メタリック赤　メタリック黒　ゴールド
 		public static readonly string[] shipSubNamesShip7=new string[4]{"WHITE","RMETAL","BMETAL","GOLD"};
 		//青　パープル　チタン　クリア
-		public static readonly string[] shipSubNamesShip8=new string[5]{"BLUE","PPL","SILVER","TITAN","SCLEAR"};
+		public static readonly string[] shipSubNamesShip8=new string[5]{"BLUE","PPL","SILVER","GOLD","SCLEAR"};
 
 		//初期状態で搭乗可能か？　購入が必要か？
 		public static Dictionary<string,bool[]> defaultAvaillabilityShip=new Dictionary<string, bool[]>(){
@@ -57,7 +57,7 @@ namespace PSParams{
 			{"Ship2",new  bool[3]{true,true,true}},
 			{"Ship3",new  bool[4]{true,false,false,false}},
 			{"Ship4",new  bool[4]{true,false,false,false}},
-			{"Ship5",new  bool[3]{false,false,false}},
+			{"Ship5",new  bool[4]{false,false,false,false}},
 			{"Ship6",new  bool[4]{true,false,false,false}},
 			{"Ship7",new  bool[4]{true,false,false,false}},
 			{"Ship8",new  bool[5]{true,true,true,false,false}},
@@ -70,7 +70,7 @@ namespace PSParams{
 			{"Ship2",new float[3]{0f,2f,24f}},
 			{"Ship3",new float[4]{24*3f,24*7*1f,24*64f,24*128f}},
 			{"Ship4",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f}},
-			{"Ship5",new float[3]{24*7*1f,24*7*2f,24*7*6f}},
+			{"Ship5",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*128f}},
 			{"Ship6",new float[4]{24*7*1f,24*7*3f,24*7*6f,24*7*24f}},
 			{"Ship7",new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f}},
 			{"Ship8",new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f}},

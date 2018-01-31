@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ship5c3
-  m_Shader: {fileID: 4800000, guid: 327a40ed5b431f249bb83af6d1ff6f44, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8b959bd0e524d9941b0e292e3922b179, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -120,7 +120,7 @@ Material:
       second: 0.25
     - first:
         name: _Gloss
-      second: 0.5
+      second: 1.61
     - first:
         name: _GlossMapScale
       second: 1
@@ -150,10 +150,10 @@ Material:
       second: 0.02
     - first:
         name: _Reflection
-      second: 0.2
+      second: 0.045
     - first:
         name: _Shininess
-      second: 1
+      second: 0.04
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -172,10 +172,16 @@ Material:
     - first:
         name: _decalPower
       second: 0.5
+    - first:
+        name: _duoPower
+      second: 9
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _Color2
+      second: {r: 0.125, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
@@ -190,4 +196,4 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _paintColor2
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 1, g: 0.36764705, b: 0.36764705, a: 1}
