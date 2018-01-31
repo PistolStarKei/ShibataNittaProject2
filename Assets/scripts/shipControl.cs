@@ -846,11 +846,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		//攻撃側で判定する場合
 		if(isOwnersShip()){
 			//全プレイヤーに弾幕を消す指示を出す
+
 				if(ID!="" && ID!="Effecter"){
 					if(photonView)photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
 						ID,hit.playerData.playerID});
 				}
-
+			
 			//ローカルデバグ用　
 			if(!PSPhoton.GameManager.instance.isNetworkMode && ID!=""&& ID!="Effecter"){
 
@@ -859,8 +860,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					if(shottedWeaponsHolder[i]!=null){
 
 						if(shottedWeaponsHolder[i].ID==ID){
-
-							shottedWeaponsHolder[i].EffectAndDead(this);
+							if(usingLog)Debug.Log(" 弾幕を消す");
+							shottedWeaponsHolder[i].EffectAndDead(hit);
 						}
 					}
 				}

@@ -64,7 +64,7 @@ namespace PSParams{
 
 		};
 
-		//シップの開放時間　プレイ開始から 何時間で？
+		//シップの開放時間　プレイ開始から 何時間で？  1日 3日 7全開放
 		public static Dictionary<string,float[]> unlockTimeShip=new Dictionary<string, float[]>(){
 			{"Ship1",new float[4]{0f,0.1f,24f,24*3f}},
 			{"Ship2",new float[4]{0f,2f,24f,24*128f}},
