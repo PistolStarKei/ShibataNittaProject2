@@ -869,7 +869,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 
 			//ダメージを与える
-			if(photonView)photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
+			if(hit.photonView)hit.photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
 
 
 		}
@@ -935,7 +935,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					//当てたプレイヤがオフライン中
 					Debug.LogWarning("オフラインユーザーの代わりにDeadする");
 					if(currentHP<=0.0f){
-						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
+						this.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
 					}
 				}
