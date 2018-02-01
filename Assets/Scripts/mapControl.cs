@@ -3,10 +3,26 @@ using System.Collections;
 
 public class mapControl : MonoBehaviour {
 
+	public int mapNumber = 0;
+
+	public void setMapNumber(int num){
+		mapNumber = num;
+	}
+
 	// Use this for initialization
 	void Start () {
+//		attachMapData ();
 		setMapBlockTag ();
 		changeLayerNameToWall ();
+	}
+
+	public void attachMapData(){
+		mapNumber;
+
+		// mapManagerの子供にmapDataをつける処理
+		GameObject mapManager = GameObject.Find ("mapManager");
+//		string str = sprintf ("stage%02d", mapNumber);
+
 	}
 
 	// MapChunk以下のmapオブジェクトすべてにMapBlockタグをつける
