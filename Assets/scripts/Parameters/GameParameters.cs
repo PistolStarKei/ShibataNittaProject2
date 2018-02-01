@@ -9,7 +9,7 @@ namespace PSParams{
 		//ゲーム全体の
 		#region Game
 		//コネクトユーザーが０になったらゲームを終了するか
-		public static readonly bool EndGameOnNoConnection=true;
+		public static readonly bool EndGameOnNoConnection=false;
 
 		//デフォルトのチケットの個数
 		public static readonly int DefaultTicketsNum=3;
