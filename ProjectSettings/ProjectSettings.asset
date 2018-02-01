@@ -173,8 +173,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/shibatakei/Desktop/releasekey.keystore
-  AndroidKeyaliasName: keystore
+  AndroidKeystoreName: /Users/shibatakei/Desktop/release-key.keystore
+  AndroidKeyaliasName: alias_name
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

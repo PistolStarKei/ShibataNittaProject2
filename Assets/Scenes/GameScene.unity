@@ -4523,7 +4523,7 @@ MonoBehaviour:
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.04
+  aspectRatio: 5.4626865
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 530427d69ab6a488496adbfd909c0cf3, type: 3}
   mFont: {fileID: 0}
@@ -5258,7 +5258,7 @@ GameObject:
   - 4: {fileID: 380717730}
   - 114: {fileID: 380717732}
   - 114: {fileID: 380717731}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5350,11 +5350,11 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 0}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mWidth: 2732
   mHeight: 1398
-  mDepth: 0
+  mDepth: 29
   mMat: {fileID: 0}
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -10282,7 +10282,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 3
+  mDepth: 4
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
@@ -18802,7 +18802,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1906461915}
   - 65: {fileID: 1906461916}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: Collier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19867,7 +19867,7 @@ GameObject:
   - 4: {fileID: 2023200083}
   - 114: {fileID: 2023200085}
   - 114: {fileID: 2023200084}
-  m_Layer: 5
+  m_Layer: 15
   m_Name: SceneFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19940,13 +19940,13 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3015
+  startingRenderQueue: 3019
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: 20
+  mDepth: 9
   mSortingOrder: 0
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}

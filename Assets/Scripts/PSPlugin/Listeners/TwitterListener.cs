@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PSParams;
 
 public enum TwitterLoginType{None,Toukou,Follow,ToukouWithImage};
 public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
-    public string followPageName="Pistol Star";
-    public string followPageId="520988453";
+
 	public bool IsAuthenticated = false;
 	public string userName="";
 	bool isInvoking=false;
@@ -38,6 +38,23 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 
 
 
+	public void Tweet(string msg,Callback_tweetCompletedEvent tweetCompletedEvent) {
+
+		if(isInvoking)return;
+		Debug.Log( "TweetWithScreenshot" );
+		this.tweetCompletedEvent=tweetCompletedEvent;
+		this.logInType=TwitterLoginType.Toukou;
+		message=msg;
+		isInvoking=true;
+
+
+		if(IsAuthenticated){
+			AndroidTwitterManager.Instance.Post(message);
+		}else{
+			AndroidTwitterManager.Instance.AuthenticateUser();
+		}
+	}
+
 	string message="";
 	public bool isDebugLog=false;
 	public void TweetWithScreenshot(string msg) {
@@ -55,6 +72,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 			AndroidTwitterManager.Instance.AuthenticateUser();
 		}
 	}
+
 	private IEnumerator PostScreenshot() {
 
 		if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "PostScreenshot" );
@@ -68,6 +86,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 		tex.Apply();
 
 		AndroidTwitterManager.Instance.Post(message, tex);
+
 
 		Destroy(tex);
 
@@ -84,7 +103,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("ログイン済みのためチェックする");
 				TW_FollowersIdsRequest r =  TW_FollowersIdsRequest.Create();
 				r.ActionComplete += OnIdsLoaded;
-				r.AddParam("screen_name", followPageName);
+				r.AddParam("screen_name",AppData.TwitterfollowPageName );
 
 				r.Send();
 			}else{
@@ -101,7 +120,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 
 			Tw_AutoFollow r =  Tw_AutoFollow.Create();
 			r.ActionComplete += OnAutoFollowed;
-			r.AddParam("user_id",followPageId.ToString());
+			r.AddParam("user_id",AppData.TwitterfollowPageId);
 			r.AddParam("follow","true");
 			r.Send();
 	}
@@ -178,8 +197,14 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 					if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "ログインしたのでチェックフォロー" );
 					TW_FollowersIdsRequest r =  TW_FollowersIdsRequest.Create();
 					r.ActionComplete += OnIdsLoaded;
-					r.AddParam("screen_name",followPageName);
+					r.AddParam("screen_name",AppData.TwitterfollowPageName);
 					r.Send();
+			}else if(logInType== TwitterLoginType.Toukou){
+				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "ログインしたので投稿する" );
+				this.logInType=TwitterLoginType.Toukou;
+
+				AndroidTwitterManager.Instance.Post(message);
+				return;
 			}
 
 

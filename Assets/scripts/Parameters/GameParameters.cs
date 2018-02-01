@@ -55,25 +55,25 @@ namespace PSParams{
 		public static Dictionary<string,bool[]> defaultAvaillabilityShip=new Dictionary<string, bool[]>(){
 			{"Ship1",new  bool[4]{true,true,true,false}},
 			{"Ship2",new  bool[4]{true,true,true,false}},
-			{"Ship3",new  bool[4]{true,false,false,false}},
-			{"Ship4",new  bool[4]{true,false,false,false}},
-			{"Ship5",new  bool[4]{false,false,false,false}},
-			{"Ship6",new  bool[6]{true,false,false,false,false,false}},
-			{"Ship7",new  bool[4]{true,false,false,false}},
+			{"Ship3",new  bool[4]{true,true,true,true}},
+			{"Ship4",new  bool[4]{true,true,true,false}},
+			{"Ship5",new  bool[4]{true,true,true,true}},
+			{"Ship6",new  bool[6]{true,true,true,true,false,true}},
+			{"Ship7",new  bool[4]{true,true,true,false}},
 			{"Ship8",new  bool[5]{true,true,true,false,false}},
 
 		};
 
 		//シップの開放時間　プレイ開始から 何時間で？  1日 3日 7全開放
 		public static Dictionary<string,float[]> unlockTimeShip=new Dictionary<string, float[]>(){
-			{"Ship1",new float[4]{0f,0.1f,24f,24*3f}},
-			{"Ship2",new float[4]{0f,2f,24f,24*128f}},
-			{"Ship3",new float[4]{24*3f,24*7*1f,24*64f,24*128f}},
-			{"Ship4",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*7*12f}},
-			{"Ship5",new float[4]{24*7*1f,24*7*2f,24*7*6f,24*128f}},
-			{"Ship6",new float[6]{24*7*1f,24*7*3f,24*7*6f,24*7*24f,24*128f,24*128f}},
-			{"Ship7",new float[4]{24*7*2f,24*7*3f,24*7*12f,24*7*24f}},
-			{"Ship8",new float[5]{24*7*2f,24*7*3f,24*7*12f,24*7*24f,24*7*50f}},
+			{"Ship1",new float[4]{0f,0f,0f,24*1f}},
+			{"Ship2",new float[4]{0f,0f,0.3f,24*1f}},
+			{"Ship3",new float[4]{0f,0.3f,24*1f,24*3f}},
+			{"Ship4",new float[4]{0.3f,24*1f,24*7*3f,24*7f}},
+			{"Ship5",new float[4]{0.3f,24*1f,24*7*3f,24*7f}},
+			{"Ship6",new float[6]{24*1f,24*7*3f,24*3f,24*3f,24*3f,24*7f}},
+			{"Ship7",new float[4]{24*1f,24*7*3f,24*7f,24*7f}},
+			{"Ship8",new float[5]{24*7*2f,24*7*3f,24*7f,24*7f,24*7f}},
 
 		};
 
@@ -183,10 +183,65 @@ namespace PSParams{
 	}
 
 	public static class AppData {
-		
-		//スタート後の　スポーン間隔
-		public static readonly string[] IAP_SKUs=new string[]{"","","",""};
 
+		//アプリのタイトル
+		public static readonly string APP_TITTLE="";
+		public static readonly string BASE_ENCODE="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB";
+		public static readonly string APPID="com.Pistolstarweb.spacekill";
+		//お問い合わせメールアドレス
+		public static readonly string MAIL="";
+		//特別商取引法の表示
+		public static readonly string URL_TOKUSHO="https://";
+		//プライバシーポリシーページ
+		public static readonly string URL_POLICY="https://";
+		//ランキング用GPGS
+		public static readonly string GPGAPPID="399714156908-5nd3ecp45jhv0uiumhfpbbl1gs2nmjfc.apps.googleusercontent.com";
+
+		//Admob  バナー
+		public static string BannerID="";
+
+		//ツイッターキー
+		public static string TwitterAPIKey="1clvpB5q0hZeVGBsiGv6dNdw8";
+		public static string TwitterAPISecret="nJRly4zuRxqU9D6Upyb8qTportXwig1G4WxL1DM2SHQIyoxFZl";
+		public static string TwitterfollowPageName="Pistol Star";
+		public static string TwitterfollowPageId="520988453";
+
+		//Total Kill キル回数　Average Rank 平均順位　Total Winnings 優勝回数
+		public static readonly string[] RankingIDs=new string[3]{
+			"CgkI7ILIhtELEAIQAA",
+			"CgkI7ILIhtELEAIQAQ",
+			"CgkI7ILIhtELEAIQAg"
+		};
+
+		//課金アイテム
+		public static readonly string[] IAP_SKUs=new string[11]{
+			"5tickets",
+			"museigen",
+			"ship1sc",
+			"ship2sc",
+			"ship4sc",
+			"ship6pan",
+			"ship6sak",
+			"ship7met",
+			"ship7gld",
+			"ship8gld",
+			"ship8sc"
+		};
+		//課金アイテムは消費可能か
+		public static readonly bool[] IAP_Comsumable=new bool[11]{
+			true,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false
+
+		};
 
 	}
 
