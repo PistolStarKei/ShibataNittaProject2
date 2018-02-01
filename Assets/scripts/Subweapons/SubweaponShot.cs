@@ -10,7 +10,7 @@ public class SubweaponShot : MonoBehaviour {
 
 	public float damage = 100.0f;
 	public float life = 60;
-
+	public int hit=0;
 	void Start(){
 		if(gameObject.layer!=LayerMask.NameToLayer("Shot"))gameObject.layer=LayerMask.NameToLayer("Shot");
 	}
@@ -31,7 +31,7 @@ public class SubweaponShot : MonoBehaviour {
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;
 		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
-
+		hit=0;
 		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
 		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];
 	}
@@ -48,6 +48,7 @@ public class SubweaponShot : MonoBehaviour {
 	}
 
 	public virtual void OnCollideShip(shipControl ship){
+		
 		if(ship){
 			
 			if(!launcherShip){
@@ -57,7 +58,10 @@ public class SubweaponShot : MonoBehaviour {
 			if(ship!=launcherShip){
 				//発射した機体以外の場合
 				if(!ship.isDead){
+					hit++;
+					Debug.Log("subweapon shot OnCollideShip HIt"+hit);
 					launcherShip.OnHit_Hitter(ship,Subweapon.NONE,damage,ID);
+
 					ship.OnHit(launcherShip,Subweapon.NONE,damage,ID);
 				}
 

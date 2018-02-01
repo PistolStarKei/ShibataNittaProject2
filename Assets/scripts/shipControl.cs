@@ -445,8 +445,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		public void RPC_SpawnShot(Vector3 position,Vector3 rotation,float spawnTime,string ID){
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,DanmakuColor.Blue,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
-			AddWeaponHolder(tr);
 		}
 
 		[PunRPC]
@@ -895,6 +893,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(isDead)return;
 		if(useHitDetectionOnHitter)return;
 
+
+		if(usingLog)Debug.Log("OnHit!!!");
 		//防御側で判定する場合
 
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
@@ -935,6 +935,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		//全てのプレイヤのこのShipにダメージを
 		currentHP-=damage;	
 
+		Debug.Log("Damage"+currentHP);
+
 		//攻撃側で判定する場合
 		if(useHitDetectionOnHitter){
 
@@ -961,24 +963,24 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				GUIManager.Instance.Damage (damage, MaxHP);
 			}
 			return;
-		}
+		}else{
 
+			//防御側で判定する場合
+			if(isOwnersShip()){
+				if(photonView){
 
-		//防御側で判定する場合
-		if(isOwnersShip()){
-			if(photonView){
+					//HPバーの更新、プレイヤーオブジェクトのみでやる
+					GUIManager.Instance.ShakeCamera();
 
-				//HPバーの更新、プレイヤーオブジェクトのみでやる
-				GUIManager.Instance.ShakeCamera();
+					if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 
-				if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+					GUIManager.Instance.Damage (damage, MaxHP);
 
-				GUIManager.Instance.Damage (damage, MaxHP);
+					if(currentHP-damage<=0.0f){
+						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
+					}
 
-				if(currentHP-damage<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
 				}
-
 			}
 		}
 	}

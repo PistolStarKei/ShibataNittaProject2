@@ -7,7 +7,7 @@ public class shot : SubweaponShot {
 	public override void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID){
 		this.launcherShip=launcherShip;
 		this.ID=ID;
-
+		hit=0;
 		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
 		weponType=Subweapon.NONE;
 		this.spawnTime=spawnTime;
@@ -35,6 +35,7 @@ public class shot : SubweaponShot {
 	}
 
 	public  override void OnCollideShip(shipControl ship){
+		Debug.Log("shot OnCollideShip");
 		base.OnCollideShip(ship);
 	}
 
