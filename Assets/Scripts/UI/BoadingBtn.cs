@@ -12,6 +12,7 @@ public class BoadingBtn : MonoBehaviour {
 	public UISprite bg1;
 	public UISprite bg2;
 	public UILabel lb;
+	ShipStatus mStatus;
 
 	public  Color mBGColorBOADING;
 	public  Color mBGColor2BOADING;
@@ -27,7 +28,8 @@ public class BoadingBtn : MonoBehaviour {
 
 	#region  Public関数
 	public void SetState(ShipStatus status,string lableString){
-		switch(status){
+		mStatus=status;
+		switch(mStatus){
 			case ShipStatus.BOADING:
 				bg1.color=mBGColorBOADING;
 				bg2.color=mBGColor2BOADING;
@@ -57,7 +59,7 @@ public class BoadingBtn : MonoBehaviour {
 	#region  メンバ関数
 	void OnClick(){
 		Debug.Log("OnClick");
-		switcher.OnClickBoadningBtn();
+		switcher.OnClickBoadningBtn(mStatus);
 	}
 	#endregion
 }

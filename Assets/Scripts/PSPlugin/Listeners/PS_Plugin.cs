@@ -23,7 +23,10 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         DontDestroyOnLoad(this.gameObject);
     }
 
-
+	public bool initOnStart=false;
+	void Start(){
+		if(initOnStart)InitAll();
+	}
 
 	public bool isDebugMode=false;
 
@@ -31,12 +34,9 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
 	
 
 	public void InitAll(){
-        Debug.Log("****Pluginの初期化");
         AndroidNotificationManager.Instance.CancelAllLocalNotifications();
 
         StartCoroutine(InitInvoker());
-        //ここでコルーチンを行い、全部のデータがあることを確認してDataManagerを呼び出す
-        //ダメならダメで良い、store落ち、とかでも良いかも
 
 	}
 
@@ -62,23 +62,12 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isInitted_Readerboad=false;
         readerboadListener.Init();
 
-        Debug.Log("****Pluginの初期化 2");
         yield return null;
 
         while(!isInitted_Readerboad){
             yield return null;
         }
-        Debug.Log("****Pluginの初期化 4");
-        yield return new WaitForSeconds(0.2f);
-        year="not ready";
-        readerboadListener.IsThisYear();
-        while(year=="not ready"){
-            yield return null;
-        }
-    }
-    string year="not ready";
-    public void OnYearChecked(string tittle){
-        year=tittle;
+   
     }
 
 	//ストア
@@ -90,6 +79,11 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isConnected_Store=isSuccess;
     }
 
+
+
+
+
+
     //Twitter
     public TwitterListener twListener;
     public bool isInitted_Twitter=false;
@@ -98,6 +92,14 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isInitted_Twitter=true;
         isConnected_Twitter=isSuccess;
     }
+
+
+
+
+
+
+
+
     //Readerboad
     public GPGSListener readerboadListener;
     public bool isInitted_Readerboad=false;
@@ -119,14 +121,6 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
 	public void SetNotification(string tittle,string desc,int sec){
 		if(AndroidNotificationManager.Instance!=null)AndroidNotificationManager.Instance.ScheduleLocalNotification(tittle,desc,sec);
 	}
-	void OnApplicationQuit() {
-		//SetNotification("連続起動ボーナス","今日ペカつく！をひらくと"+(ES2.Load<int>(DataManger.Instance.filename+"?tag=RenzokuLogin")+1)+"連続ログインでボーナスをGET! "+"",86400);
-
-
-	}
-
-
-
 
     //SceneManager
     public string GetCurrentSceneName(){

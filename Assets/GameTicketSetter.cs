@@ -120,7 +120,7 @@ public class GameTicketSetter : MonoBehaviour {
 	void SetNumText(string str){
 		mTicketNumLb.text=str;
 	}
-	void UpdateTickets(){
+	public void UpdateTickets(){
 		int num=DataManager.Instance.gameData.gameTickets;
 		SetNumText(num==-100? "∞":num.ToString());
 

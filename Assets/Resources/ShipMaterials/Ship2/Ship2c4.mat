@@ -90,7 +90,7 @@ Material:
     m_Floats:
     - first:
         name: _AlphaPower
-      second: 0.2
+      second: 0.5
     - first:
         name: _BumpScale
       second: 1

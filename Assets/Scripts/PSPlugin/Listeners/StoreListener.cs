@@ -9,31 +9,68 @@ public class StoreItemsParams{
     public string[] prices;
     public string[] tittles;
     public string[] descs;
-    public bool[] isConsumable;
+	public string[] ids;
 }
 public class StoreListener :  PS_SingletonBehaviour<StoreListener> 
 	{
-        //まず　Startで来るのでハンドルしろ
-        void OnPurchaceRecovered(string id){
-            if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( " OnPurchaceRecovered"+id );
-        }
 
+
+
+		public void Init(){
+			Debug.Log("ストア　初期化");
+			if(IsStoreAvaillable()){
+				PS_Plugin.Instance.OnStoreInitComplete(true);
+				return;
+			}
+			this.items.prices=new string[AppData.IAP_SKUs.Length];
+			this.items.tittles=new string[AppData.IAP_SKUs.Length];
+			this.items.descs=new string[AppData.IAP_SKUs.Length];
+
+			for(int i=0;i<this.items.prices.Length;i++){
+				this.items.prices[i]="--";
+				this.items.tittles[i]="--";
+				this.items.descs[i]="--";
+			}
+
+			for(int i=0;i<AppData.IAP_SKUs.Length;i++){
+				AndroidInAppPurchaseManager.Client.AddProduct(AppData.IAP_SKUs[i]);
+			}
+
+
+			AndroidInAppPurchaseManager.ActionProductPurchased += OnProductPurchased;
+			AndroidInAppPurchaseManager.ActionProductConsumed += OnProductConsumed;
+			AndroidInAppPurchaseManager.ActionBillingSetupFinished += OnBillingConnected;
+			AndroidInAppPurchaseManager.Client.Connect();
+
+		}
+		
 
         public delegate void Callback_purchasFailledEvent(string s);
         public delegate void Callback_purchasedEvent(string s);
         public StoreItemsParams items;
 
-        public bool isConsumableProduct(string skusName){
-		
-			int i=Array.IndexOf(AppData.IAP_SKUs,skusName);
-			if(i<AppData.IAP_SKUs.Length){
-					return items.isConsumable[i];
-	            }else{
-	                Debug.LogError("isConsumableProduct sukus is over isConsumable Length");
-	                return true;
-	            }
-        }
         
+		public bool isConsumableProduct(string skusName){
+
+			int i=Array.IndexOf(AppData.IAP_SKUs,skusName);
+			if(i<AppData.IAP_Comsumable.Length){
+				return AppData.IAP_Comsumable[i];
+			}else{
+				Debug.LogError("isConsumableProduct sukus is over isConsumable Length");
+				return true;
+			}
+		}
+
+		public string GetPrice(string skusName){
+
+			int i=Array.IndexOf(items.ids,skusName);
+			if(i<items.ids.Length){
+				return items.prices[i];
+			}else{
+				Debug.LogError("isConsumableProduct sukus is over isConsumable Length");
+				return "--";
+			}
+		}
 	    public bool isDebugLog=false;
 		//購入の成功時
 		public  event Callback_purchasedEvent purchasedEvent;
@@ -48,12 +85,19 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 			if(purchasedEvent!=null)purchasedEvent=null;
 			if(purchasFailledEvent!=null)purchasFailledEvent=null;
 		}
-		public void PurchaseProduct(string id){
+
+		bool isInvoking=false;
+		public void PurchaseProduct(string id,Callback_purchasedEvent purchasedEvent,Callback_purchasFailledEvent purchasFailledEvent){
+			ClearAllEventListeners();
+			this.purchasedEvent=purchasedEvent;
+			this.purchasFailledEvent=purchasFailledEvent;
+
 		    if(!isInvoking && AndroidInAppPurchaseManager.Client.IsConnected){
 				isInvoking=true;
 				AndroidInAppPurchaseManager.Client.Purchase (id);
 			}else{
                 Debug.LogError("PurchaseProduct GPGにコネクトされていない");
+				
 			}
 		}
 
@@ -66,46 +110,16 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
             }
 
         if( this.items.prices.Length<=0 || this.items.prices[0]=="--"){
-                Debug.Log("ストアがクエリされていない");
+                Debug.Log("ストアアイテムがクエリされていない");
                 return false;
             }
             return true;
         }
-		bool isInvoking=false;
-
-		public void Init(){
-                Debug.Log("ストア　初期化");
-	        if(IsStoreAvaillable()){
-	            PS_Plugin.Instance.OnStoreInitComplete(true);
-	            return;
-	        }
-			this.items.prices=new string[AppData.IAP_SKUs.Length];
-			this.items.tittles=new string[AppData.IAP_SKUs.Length];
-			this.items.descs=new string[AppData.IAP_SKUs.Length];
-			this.items.isConsumable=new bool[AppData.IAP_SKUs.Length];
-            
-                for(int i=0;i<this.items.prices.Length;i++){
-                    this.items.prices[i]="--";
-                    this.items.tittles[i]="--";
-                    this.items.descs[i]="--";
-                    this.items.isConsumable[i]=true;
-				}
-
-				for(int i=0;i<AppData.IAP_SKUs.Length;i++){
-					AndroidInAppPurchaseManager.Client.AddProduct(AppData.IAP_SKUs[i]);
-                }
-
-
-				AndroidInAppPurchaseManager.ActionProductPurchased += OnProductPurchased;
-				AndroidInAppPurchaseManager.ActionProductConsumed += OnProductConsumed;
-				AndroidInAppPurchaseManager.ActionBillingSetupFinished += OnBillingConnected;
-				AndroidInAppPurchaseManager.Client.Connect();
-
-		}
-
+		
 
 		
-		public void consume(string SKU) {
+		
+		void consume(string SKU) {
 			AndroidInAppPurchaseManager.Client.Consume (SKU);
 		}
 
@@ -114,6 +128,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 		void OnBillingConnected(BillingResult result) {
 		
 			AndroidInAppPurchaseManager.ActionBillingSetupFinished -= OnBillingConnected;
+
             if(result.IsSuccess  &&  !result.IsFailure) {
 			    if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log ("ストア　コネクト: Success"+result.IsSuccess );
 				//Store connection is Successful. Next we loading product and customer purchasing details
@@ -131,6 +146,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
         //Init ２
 		void OnRetrieveProductsFinised(BillingResult result) {
 			AndroidInAppPurchaseManager.ActionRetrieveProducsFinished -= OnRetrieveProductsFinised;
+
               if(result.IsSuccess &&  !result.IsFailure) {
 			    if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log ("OnRetrieveProductsFinised  Success");
            
@@ -144,7 +160,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("プロダクトのリストをロードしました: " + p.Title);
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( p.SKU + "\n" );
 
-                OnItemsQuery(p.SKU,p.LocalizedPrice.ToString(),p.Description,p.Title,p.ProductType);
+                OnItemsQuery(p.SKU,p.LocalizedPrice.ToString(),p.Description,p.Title);
 
 				if(isConsumableProduct(p.SKU)){
 					if(AndroidInAppPurchaseManager.Client.Inventory.IsProductPurchased(p.SKU)) {
@@ -154,7 +170,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 				}else{
 				    if(AndroidInAppPurchaseManager.Client.Inventory.IsProductPurchased(p.SKU)) {
 						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("リストア　 " +p.SKU);
-                    	OnPurchaceRecovered(p.SKU);
+						OnPurchased(p.SKU,true);
 					}
 				}
 			}
@@ -166,14 +182,14 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 
 		
 
-        void OnItemsQuery(string id,string price,string desc,string tittle,AN_InAppType type){
+        void OnItemsQuery(string id,string price,string desc,string tittle){
 			int i=0;
 			i=Array.IndexOf(AppData.IAP_SKUs,id);
 			if(i>=0){
+				this.items.ids[i]=id;
                 this.items.prices[i]= price;
                 this.items.tittles[i]=tittle;
                 this.items.descs[i]=desc;
-                this.items.isConsumable[i]=type==AN_InAppType.NonConsumable?false:true;
 			}else{
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.LogError( "not match id for this items"+id );
 			}
@@ -212,6 +228,9 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
              isInvoking=false;
 		}
 		
+
+
+
         //消費された時に呼ばれる
 		void OnProductConsumed(BillingResult result) {
 
@@ -224,8 +243,10 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 			}
 
 		}
+
+
         //まず　Cosumeして成功したら呼ばれる
-       public void OnPurchased(string id,bool isCancel){
+       void OnPurchased(string id,bool isCancel){
             if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "OnPurchased "+id+" "+isCancel);
 
             if(isCancel){
@@ -234,12 +255,62 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
          
 					if(id==AppData.IAP_SKUs[0]){
 						//ここで購入を
-                   
+						DataManager.Instance.gameData.gameTickets+=5;
+						DataManager.Instance.SaveAll();
                      }
-                    if(purchasedEvent!=null)purchasedEvent(id);
+					if(id==AppData.IAP_SKUs[1]){
+						//ここで購入を
+						DataManager.Instance.gameData.gameTickets=-100;
+						DataManager.Instance.SaveAll();
+
+					}
+					if(id=="ship1sc"){
+						DataManager.Instance.SetShipPurchase(0,3,true);
+						//0 3
+					}else if(id=="ship2sc"){
+						//1 3
+						DataManager.Instance.SetShipPurchase(1,3,true);
+					}else if(id=="ship4sc"){
+						//3 3
+						DataManager.Instance.SetShipPurchase(3,3,true);
+					}else if(id=="ship6pan"){
+						//5 2
+						DataManager.Instance.SetShipPurchase(5,2,true);
+					}else if(id=="ship6sak"){
+						//5 4
+						DataManager.Instance.SetShipPurchase(5,4,true);
+					}else if(id=="ship7met"){
+						//6 2
+						DataManager.Instance.SetShipPurchase(6,2,true);
+					}else if(id=="ship7gld"){
+						//6 3
+						DataManager.Instance.SetShipPurchase(6,3,true);
+					}else if(id=="ship8gld"){
+						//7 3
+						DataManager.Instance.SetShipPurchase(7,3,true);
+					}else if(id=="ship8sc"){
+						//7 4
+						DataManager.Instance.SetShipPurchase(7,4,true);
+					}
+					
+
+					if(purchasedEvent!=null){
+						purchasedEvent(id);
+					}else{
+						GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+						if(go){
+							GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+							if(setter){
+								setter.UpdateTickets();
+							}
+						}
+
+						
+					}
         	}
             ClearAllEventListeners();
         }
+
 
 
 		

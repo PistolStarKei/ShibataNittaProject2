@@ -1,0 +1,13 @@
+KEY,English,Japanese
+Flag,Flag-US,Flag-JP
+Sound,Sound,Son
+PolicyPage,Privacy Policy,個人情報の取り扱い
+TokushoPage,About Japanese Row,特別商取引法に基づく表示
+SupportMail,Support Mail,ご購入に関するお問い合わせ
+DescTweet,Tweet now to get,アプリからツイートすると
+TittleTweet,1 Play Ticket,チケット1枚プレゼント
+Tittle5Tickets,5 Play Ticket,チケット 5枚
+DescMuseigen,+ AD Free,安心のプレイ永久無制限 + 広告オフ
+TittleMuseigen,Unlimited Play Pack,無制限プレイパック
+TittleNinki,BEST ,人気No1
+ZeroPrice,$ 0 ,¥ 0

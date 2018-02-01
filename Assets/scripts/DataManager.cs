@@ -7,6 +7,7 @@ public class EnvData{
 	public bool toggleSE=true;
 	public bool toggleBGM=true;
 	public string startTime="";
+
 }
 
 [System.Serializable]
@@ -21,7 +22,7 @@ public class GameData{
 	public int gameTickets =0;
 	public float timeForNextTickets =0.0f;
 	public string userID ="";
-
+	public int tweetNum=0;
 	public bool[] shipAvaillable1=GameParameters.defaultAvaillabilityShip["Ship1"];
 	public bool[] shipAvaillable2=GameParameters.defaultAvaillabilityShip["Ship2"];
 	public bool[] shipAvaillable3=GameParameters.defaultAvaillabilityShip["Ship3"];
@@ -60,11 +61,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"?tag=startTime");	
+			ES2.Delete(filename+"?tag=tweetNum");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"?tag=startTime")){
+		if(!ES2.Exists(filename+"?tag=tweetNum")){
 			
 			InitData();
 			LoadData();
@@ -73,6 +74,12 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 			//フラグ配列をマッチさせる
 			CheckAndMatchFlagArrayLengths();
+			SaveAll();
+		}
+
+	
+		if(TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
+			gameData.tweetNum=0;
 			SaveAll();
 		}
 
@@ -95,6 +102,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.userID=ES2.Load<string>(filename+"?tag=userID");
 		gameData.lastRoomName=ES2.Load<string>(filename+"?tag=lastRoomName");
 		gameData.shipColor=ES2.Load<int>(filename+"?tag=shipColor");
+		gameData.tweetNum=ES2.Load<int>(filename+"?tag=tweetNum");
 
 
 		gameData.shipAvaillable1=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable1");
@@ -126,7 +134,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(gameData.userID,filename+"?tag=userID");
 		ES2.Save(gameData.lastRoomName,filename+"?tag=lastRoomName");
 		ES2.Save(gameData.shipColor,filename+"?tag=shipColor");
-
+		ES2.Save(gameData.tweetNum,filename+"?tag=tweetNum");
 
 		ES2.Save(gameData.shipAvaillable1,filename+"?tag=shipAvaillable1");
 		ES2.Save(gameData.shipAvaillable2,filename+"?tag=shipAvaillable2");
@@ -163,7 +171,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(GetUUID (),filename+"?tag=userID");
 		ES2.Save("",filename+"?tag=lastRoomName");
 		ES2.Save(0,filename+"?tag=shipColor");
-
+		ES2.Save(0,filename+"?tag=tweetNum");
 
 		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship1"],filename+"?tag=shipAvaillable1");
 		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship2"],filename+"?tag=shipAvaillable2");
@@ -230,7 +238,38 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		return flags;
 	}
 
+	public void SetShipPurchase(int shipNum,int color,bool flag){
 
+
+		switch(shipNum){
+			case 0:
+				gameData.shipAvaillable1[color]=flag;
+				break;
+			case 1:
+				gameData.shipAvaillable2[color]=flag;
+				break;
+			case 2:
+				gameData.shipAvaillable3[color]=flag;
+				break;
+			case 3:
+				gameData.shipAvaillable4[color]=flag;
+				break;
+			case 4:
+				gameData.shipAvaillable5[color]=flag;
+				break;
+			case 5:
+				gameData.shipAvaillable6[color]=flag;
+				break;
+			case 6:
+				gameData.shipAvaillable7[color]=flag;
+				break;
+			case 7:
+				gameData.shipAvaillable8[color]=flag;
+			break;
+		}
+
+		this.SaveAll();
+	}
 
 	void CheckAndMatchFlagArrayLengths(){
 		Debug.LogWarning("ここで配列アシストをする");

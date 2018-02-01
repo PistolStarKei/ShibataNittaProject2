@@ -15,19 +15,6 @@ public class LeaderboadScore{
 public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 
 
-	public string[] readerboadID_Rank1=new string[]{"CgkIpY2W7OIEEAIQDw","CgkIpY2W7OIEEAIQAQ","CgkIpY2W7OIEEAIQAg","CgkIpY2W7OIEEAIQAw","CgkIpY2W7OIEEAIQBA"
-        ,"CgkIpY2W7OIEEAIQBQ","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA"};
-    public string[] readerboadID_Rank2=new string[]{"CgkIpY2W7OIEEAIQDw","CgkIpY2W7OIEEAIQAQ","CgkIpY2W7OIEEAIQAg","CgkIpY2W7OIEEAIQAw","CgkIpY2W7OIEEAIQBA"
-        ,"CgkIpY2W7OIEEAIQBQ","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA"};
-    public string[] readerboadID_Rank3=new string[]{"CgkIpY2W7OIEEAIQDw","CgkIpY2W7OIEEAIQAQ","CgkIpY2W7OIEEAIQAg","CgkIpY2W7OIEEAIQAw","CgkIpY2W7OIEEAIQBA"
-        ,"CgkIpY2W7OIEEAIQBQ","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA"};
-    public string[] readerboadID_Rank4=new string[]{"CgkIpY2W7OIEEAIQDw","CgkIpY2W7OIEEAIQAQ","CgkIpY2W7OIEEAIQAg","CgkIpY2W7OIEEAIQAw","CgkIpY2W7OIEEAIQBA"
-        ,"CgkIpY2W7OIEEAIQBQ","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA","CgkIpY2W7OIEEAIQBg","CgkIpY2W7OIEEAIQBw","CgkIpY2W7OIEEAIQCA"};
-    public string[] readerboadID_Previous12=new string[]{"CgkIpY2W7OIEEAIQDw","CgkIpY2W7OIEEAIQAQ","CgkIpY2W7OIEEAIQAg","CgkIpY2W7OIEEAIQAw"};
-    
-
-
-    public LeaderboadScore currentRankLeaderboadDatas=new LeaderboadScore();
 
     public int howManyRankToLoad=20;
     public string userName_string="";
@@ -39,8 +26,14 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
     public  event Callback_loadDataComplete loadDataCompletedEvent;
 
 
-    void LoadReaderBoadData(string ID,bool isFriend){
-        if(!isLogin() || isLoadingBoadData)return;
+	public void LoadReaderBoadData(string ID,bool isFriend,Callback_scoreUpdatedEvent scoreUpdatedEvent){
+		this.scoreUpdatedEvent=null;
+		this.scoreUpdatedEvent=scoreUpdatedEvent;
+
+		if(!isLogin() || isLoadingBoadData){
+			scoreUpdatedEvent(null);
+			return;
+		}
         if(isDebugLog)Debug.Log( "リーダーボードのロード "+ID);
         isLoadingBoadData=true;
         StartCoroutine(LoadCurrentRank(ID,isFriend));
@@ -87,12 +80,15 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
         yield return null;
         OnLoadReaderBoadFinished(true,"ロード正常終了",GetLeaderBoadData(scoresLB));
     }
+
     //null fals 
     void OnLoadReaderBoadFinished(bool isSuccess,string log,LeaderboadScore scoreDatas){
         Debug.Log("リーダーボードのロード終了"+log);
         isLoadingBoadData=false;
         if(scoreUpdatedEvent!=null)scoreUpdatedEvent(scoreDatas);
     }
+
+
     LeaderboadScore GetLeaderBoadData(List<GPScore> scores){
         
         LeaderboadScore data=GetNewScore();
@@ -124,43 +120,6 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
         return data;
     }
 
-
-
-
-    public void IsThisYear(){
-        if(Application.isEditor)OnIsThisYearFinished(false,"2017:4:MASTERS OPEN");
-        //１月のデータがあれば今年、なければ前年以降
-        if(!isLogin() || isLoadingBoadData)return;
-        if(isDebugLog)Debug.Log( "年度のチェック　ローカルは今年か？ ");
-        isLoadingBoadData=true;
-        StartCoroutine(LoadThisYear());
-    }
-    void OnIsThisYearFinished(bool isSuccess,string Tittle){
-        Debug.Log("リーダーボードのロード終了"+Tittle);
-        isLoadingBoadData=false;
-        PS_Plugin.Instance.OnYearChecked(Tittle);
-    }
-    IEnumerator LoadThisYear(){
-        isLoading=true;isLoadingSuccessed=false;
-        GooglePlayManager.Instance.LoadTopScores(readerboadID_Rank1[0], GPBoardTimeSpan.ALL_TIME,GPCollectionType.GLOBAL,1);
-
-        while(isLoading){
-            yield return null;
-        }
-        if(isLoadingSuccessed){
-            loadedLeaderBoad = GooglePlayManager.Instance.GetLeaderBoard(readerboadID_Rank1[0]);
-            if(loadedLeaderBoad == null) {
-                OnIsThisYearFinished(false,"");
-                yield break;
-            }
-        }else{
-            OnIsThisYearFinished(false,"");
-            yield break;
-        }
-
-        yield return null;
-        OnIsThisYearFinished(true,loadedLeaderBoad.Name);
-    }
 
 
     public void Init(){

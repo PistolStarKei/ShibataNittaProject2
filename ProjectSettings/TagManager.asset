@@ -10,6 +10,7 @@ TagManager:
   - ShipSercher
   - AudioController
   - MapBlock
+  - TicketSetter
   layers:
   - Default
   - TransparentFX
