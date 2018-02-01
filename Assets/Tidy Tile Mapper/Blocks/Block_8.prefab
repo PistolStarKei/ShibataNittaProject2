@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012619977080}
   - 114: {fileID: 114000013553672300}
   - 65: {fileID: 65000013427246858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Block_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
