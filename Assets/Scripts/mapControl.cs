@@ -17,7 +17,7 @@ public class mapControl : MonoBehaviour {
 	}
 
 	public void attachMapData(){
-		mapNumber;
+		//mapNumber;
 
 		// mapManagerの子供にmapDataをつける処理
 		GameObject mapManager = GameObject.Find ("mapManager");

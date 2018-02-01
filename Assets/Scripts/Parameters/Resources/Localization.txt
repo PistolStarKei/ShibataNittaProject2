@@ -11,3 +11,4 @@ DescMuseigen,+ AD Free,プレイ永久無制限 + 広告オフ
 TittleMuseigen,Unlimited Play Pack,無制限プレイパック
 TittleNinki,BEST ,人気No1
 ZeroPrice,$ 0 ,¥ 0
+PUStartGame,Consumes one ticket to play.\n\nAre you ready?,チケットを１枚消費してプレイを開始します。\n\nよろしいですか？

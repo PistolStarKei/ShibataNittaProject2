@@ -77,10 +77,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			SaveAll();
 		}
 
-	
-		if(TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
-			gameData.tweetNum=0;
-			SaveAll();
+		if(TimeManager.Instance!=null){
+			if(TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
+				gameData.tweetNum=0;
+				SaveAll();
+			}
 		}
 
 		if(Application.systemLanguage==SystemLanguage.Japanese){
