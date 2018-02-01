@@ -15,6 +15,9 @@ namespace PSParams{
 		public static readonly int DefaultTicketsNum=3;
 		//次のチケット追加までの間隔　秒で
 		public static readonly float TimeForNextTicket=600.0f;
+
+		//平均ランクのランキングに参加できるまでのプレイ回数
+		public static readonly int playNumToJoinAvgRanking=20;
 		#endregion
 
 

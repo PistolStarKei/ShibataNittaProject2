@@ -183,6 +183,9 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
         GooglePlayManager.Instance.ShowLeaderBoardById(ID);
 	}
 
+	public void Open(){
+		GooglePlayManager.Instance.ShowLeaderBoardsUI();
+	}
 
     void OnConnectionResult(GooglePlayConnectionResult result) {
         Debug.Log(result.code.ToString());

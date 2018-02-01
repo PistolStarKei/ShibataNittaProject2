@@ -23,6 +23,31 @@ public class ResultPanel : MonoBehaviour {
 		//プレイヤのキル数
 		string kills=killNum.ToString();
 
+		//ランキング関連を
+		DataManager.Instance.gameData.rankingKillNum+=killNum;
+		long submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingKillNum);
+		PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[0]);
+
+		if(rank==1){
+			DataManager.Instance.gameData.rankingTopNum+=1;
+			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingTopNum);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[2]);
+		}
+		DataManager.Instance.gameData.rankingTotalPlay++;
+		DataManager.Instance.gameData.rankingTotalRank+=rank;
+		DataManager.Instance.gameData.rankingAvrRank=(float)DataManager.Instance.gameData.rankingTotalRank/(float)DataManager.Instance.gameData.rankingTotalPlay;
+
+		//平均順位の送信
+		if(DataManager.Instance.gameData.rankingTotalPlay>PSParams.GameParameters.playNumToJoinAvgRanking){
+			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingAvrRank);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[1]);
+		}
+
+
+
+
+		DataManager.Instance.SaveAll();
+
 		DataManager.Instance.gameData.isConnectingRoom=false;
 		DataManager.Instance.SaveAll();
 		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills,"/"+players.ToString());
