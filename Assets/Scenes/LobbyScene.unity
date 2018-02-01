@@ -3689,7 +3689,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -4266,14 +4266,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 425872642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -385.8, y: -420.15, z: 0}
+  m_LocalPosition: {x: -385.8, y: -420.15015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1149779410}
   - {fileID: 753056328}
-  m_Father: {fileID: 1749107299}
-  m_RootOrder: 0
+  m_Father: {fileID: 1815214480}
+  m_RootOrder: 5
 --- !u!114 &425872644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11148,14 +11148,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1086679489}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 383.9, y: -420.15, z: 0}
+  m_LocalPosition: {x: 383.9, y: -420.15015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 67843998}
   - {fileID: 1510359195}
-  m_Father: {fileID: 1749107299}
-  m_RootOrder: 3
+  m_Father: {fileID: 1815214480}
+  m_RootOrder: 4
 --- !u!114 &1086679491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13766,7 +13766,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1749107299}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!65 &1448256782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14943,7 +14943,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3017
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -15027,7 +15027,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3000
+  startingRenderQueue: 3004
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -16073,12 +16073,12 @@ GameObject:
   - 114: {fileID: 1749107301}
   - 114: {fileID: 1749107302}
   m_Layer: 15
-  m_Name: PU_Info
+  m_Name: PU_YesNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1749107299
 Transform:
   m_ObjectHideFlags: 0
@@ -16090,10 +16090,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 425872643}
   - {fileID: 1448256780}
   - {fileID: 1815214480}
-  - {fileID: 1086679490}
   m_Father: {fileID: 139506714}
   m_RootOrder: 2
 --- !u!114 &1749107301
@@ -17335,8 +17333,10 @@ Transform:
   - {fileID: 29331704}
   - {fileID: 1133243407}
   - {fileID: 47828373}
+  - {fileID: 1086679490}
+  - {fileID: 425872643}
   m_Father: {fileID: 1749107299}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1832442823
 GameObject:
   m_ObjectHideFlags: 0
@@ -18775,6 +18775,11 @@ Prefab:
       propertyPath: gameTicketSetter
       value: 
       objectReference: {fileID: 1487163620}
+    - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
+        type: 2}
+      propertyPath: yesnoPU
+      value: 
+      objectReference: {fileID: 1749107302}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
   m_IsPrefabParent: 0

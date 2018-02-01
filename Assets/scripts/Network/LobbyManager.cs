@@ -162,7 +162,7 @@ namespace PSPhoton {
 			}
 		}
 
-
+		public YesNoPU yesnoPU;
 		public GameTicketSetter gameTicketSetter;
 		public void OnClickPlayBtn(){
 
@@ -173,23 +173,47 @@ namespace PSPhoton {
 
 			if(DataManager.Instance.gameData.gameTickets<=0){
 				info.Log(Application.systemLanguage == SystemLanguage.Japanese? "プレイチケットがありません" :"Your game tickets is empty");
-				gameTicketSetter.OnClickAddBtn();
+
 				return;
 			}
-		
-			AudioController.Play("Enter");
-			HUDOnROOM(true);
-			//RandomJoinし、ダメなら部屋をつくる
 
-			if(rooms.Count<=0){
-				//部屋がないので、作る
-				CreateRoom(PhotonNetwork.player.NickName);
+			float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
+
+			if(DataManager.Instance.gameData.gameTickets!=-100 && keikaSec<5*3600f){
+				Debug.LogWarning("これもある程度のプレイ時間で終了");
+				yesnoPU.Show(Localization.Get("PUStartGame"),OnResponce);
 			}else{
-				PhotonNetwork.JoinRandomRoom();
+				OnResponce(true);
 			}
+		
 
 		}
 
+		public void OnResponce(bool isYes){
+			if(isYes){
+
+				GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+				if(go){
+					GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+					if(setter){
+						setter.MinusTicketsNoSave();
+					}
+				}
+
+				AudioController.Play("Enter");
+				HUDOnROOM(true);
+				//RandomJoinし、ダメなら部屋をつくる
+
+				if(rooms.Count<=0){
+					//部屋がないので、作る
+					CreateRoom(PhotonNetwork.player.NickName);
+				}else{
+					PhotonNetwork.JoinRandomRoom();
+				}
+			}else{
+				
+			}
+		}
 
 
 		//自分が部屋を作った場合
