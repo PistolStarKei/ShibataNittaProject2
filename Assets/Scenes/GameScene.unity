@@ -416,7 +416,7 @@ GameObject:
   - 65: {fileID: 50394689}
   - 23: {fileID: 50394688}
   m_Layer: 12
-  m_Name: Wall
+  m_Name: Wall_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 50394686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 100, y: 5, z: 1}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 673165516}
@@ -448,7 +448,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b9419ba0f8694042abd7af3944e7f02, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -7158,7 +7158,7 @@ GameObject:
   - 65: {fileID: 545483391}
   - 23: {fileID: 545483390}
   m_Layer: 12
-  m_Name: Wall
+  m_Name: Wall_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7172,7 +7172,7 @@ Transform:
   m_GameObject: {fileID: 545483388}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -50, y: 0, z: 0}
-  m_LocalScale: {x: 100.0001, y: 5, z: 1.0000005}
+  m_LocalScale: {x: 100.0001, y: 1, z: 1.0000005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 673165516}
@@ -7190,7 +7190,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b9419ba0f8694042abd7af3944e7f02, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -16511,7 +16511,7 @@ GameObject:
   - 65: {fileID: 1604968904}
   - 23: {fileID: 1604968903}
   m_Layer: 12
-  m_Name: Wall
+  m_Name: Wall_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16525,7 +16525,7 @@ Transform:
   m_GameObject: {fileID: 1604968901}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 50, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 5, z: 1}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 673165516}
@@ -16543,7 +16543,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b9419ba0f8694042abd7af3944e7f02, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -18029,7 +18029,7 @@ GameObject:
   - 65: {fileID: 1827825191}
   - 23: {fileID: 1827825190}
   m_Layer: 12
-  m_Name: Wall
+  m_Name: Wall_Btm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18043,7 +18043,7 @@ Transform:
   m_GameObject: {fileID: 1827825188}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_LocalPosition: {x: -0, y: 0, z: -50}
-  m_LocalScale: {x: 100, y: 5, z: 1}
+  m_LocalScale: {x: 100, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 673165516}
@@ -18061,7 +18061,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b9419ba0f8694042abd7af3944e7f02, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
