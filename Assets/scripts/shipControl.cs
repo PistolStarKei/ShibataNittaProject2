@@ -843,13 +843,21 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		if(!useHitDetectionOnHitter || hit==null)return;
 
+		if(usingLog)Debug.Log(playerData.userName+" の弾幕がヒット！"+ID);
+
 		//攻撃側で判定する場合
 		if(isOwnersShip()){
 			//全プレイヤーに弾幕を消す指示を出す
 
+				if(usingLog)Debug.Log("isOwnersShip！");
+
 				if(ID!="" && ID!="Effecter"){
-					if(photonView)photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
-						ID,hit.playerData.playerID});
+				
+					if(photonView){
+						if(usingLog)Debug.Log("自分の球を消す");
+						photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
+							ID,hit.playerData.playerID});
+					}
 				}
 			
 			//ローカルデバグ用　
@@ -869,7 +877,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 
 			//ダメージを与える
-			if(hit.photonView)hit.photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
+			if(hit.photonView){
+				if(usingLog)Debug.Log("相手にダメージを飛ばす");
+				hit.photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
+			}
 
 
 		}
@@ -880,7 +891,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	//通常弾　サブウェポン食らった場合
 	public void OnHit(shipControl enemy,Subweapon type,float damage,string ID){
 		
-		if(usingLog)Debug.Log(enemy.playerData.userName+" の弾幕がヒット！"+ID);
 
 		if(isDead)return;
 		if(useHitDetectionOnHitter)return;
@@ -930,23 +940,25 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 			if(PhotonNetwork.player.ID==damagedBy){
 				//当てた人
+				if(usingLog)Debug.Log(""+this.name+" "+PSPhoton.GameManager.instance.GetShipById(PhotonNetwork.player.ID).gameObject.name+" に当てられた");
 
-				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
+				//if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
-					Debug.LogWarning("オフラインユーザーの代わりにDeadする");
 					if(currentHP<=0.0f){
+						if(usingLog)Debug.Log("代わりに殺す");
+					
 						this.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
 					}
-				}
-				//被弾者のインスタンスの処理
-				if(isOwnersShip()){
-					GUIManager.Instance.ShakeCamera();
+				//}
+			}
+			//被弾者のインスタンスの処理
+			if(isOwnersShip()){
+				GUIManager.Instance.ShakeCamera();
 
-					if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+				if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 
-					GUIManager.Instance.Damage (damage, MaxHP);
-				}
+				GUIManager.Instance.Damage (damage, MaxHP);
 			}
 			return;
 		}
