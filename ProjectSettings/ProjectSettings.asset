@@ -172,7 +172,7 @@ PlayerSettings:
   appleEnableAutomaticSigning: 0
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
+  androidSplashScreen: {fileID: 2800000, guid: 91210d28aaf1b44848d26b687ec0e9bd, type: 3}
   AndroidKeystoreName: /Users/shibatakei/Desktop/release-key.keystore
   AndroidKeyaliasName: alias_name
   AndroidTVCompatibility: 1
