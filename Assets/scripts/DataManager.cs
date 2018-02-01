@@ -83,6 +83,13 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			SaveAll();
 		}
 
+		if(Application.systemLanguage==SystemLanguage.Japanese){
+			Localization.language="Japanese";
+		}else{
+			Localization.language="English";
+		}
+		Debug.Log(""+Localization.language);
+
 	}
 
 

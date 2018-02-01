@@ -7,7 +7,7 @@ SupportMail,Support Mail,ご購入に関するお問い合わせ
 DescTweet,Tweet now to get,アプリからツイートすると
 TittleTweet,1 Play Ticket,チケット1枚プレゼント
 Tittle5Tickets,5 Play Ticket,チケット 5枚
-DescMuseigen,+ AD Free,安心のプレイ永久無制限 + 広告オフ
+DescMuseigen,+ AD Free,プレイ永久無制限 + 広告オフ
 TittleMuseigen,Unlimited Play Pack,無制限プレイパック
 TittleNinki,BEST ,人気No1
 ZeroPrice,$ 0 ,¥ 0
