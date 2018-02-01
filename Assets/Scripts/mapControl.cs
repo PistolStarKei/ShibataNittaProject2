@@ -12,12 +12,12 @@ public class mapControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //		attachMapData ();
-		setMapBlockTag ();
-		changeLayerNameToWall ();
+//		setMapBlockTag ();
+//		changeLayerNameToWall ();
 	}
 
 	public void attachMapData(){
-		//mapNumber;
+//		mapNumber;
 
 		// mapManagerの子供にmapDataをつける処理
 		GameObject mapManager = GameObject.Find ("mapManager");
