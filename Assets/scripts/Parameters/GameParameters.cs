@@ -92,7 +92,7 @@ namespace PSParams{
 		//最大HP値
 		public static readonly float MaxHP=1500.0f;
 
-		public static readonly bool useHitDetectionOnHitter=false;
+		public static readonly bool useHitDetectionOnHitter=true;
 
 		//ショット
 		public static readonly float shotDulation=0.5f;

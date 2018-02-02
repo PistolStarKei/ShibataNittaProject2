@@ -66,8 +66,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012528150564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.265}
-  m_LocalScale: {x: 0.3129275, y: 0.31292754, z: 0.31292745}
+  m_LocalPosition: {x: 0.7303937, y: 0.5000002, z: -0.070472}
+  m_LocalScale: {x: 0.8647841, y: 0.93258584, z: 0.56370205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010192447504}
@@ -137,8 +137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
+  hit: 0
   launcherShip: {fileID: 0}
   weponType: 4
+  ID: 
   needPrediction: 1
   shotSpeed: 2
 --- !u!135 &135000013299731898
