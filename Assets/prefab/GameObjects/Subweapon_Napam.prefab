@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014013712760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.587}
+  m_LocalPosition: {x: 0.7434838, y: 0.5196484, z: 0.37920794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -151,8 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
+  hit: 0
   launcherShip: {fileID: 0}
   weponType: 0
+  ID: 
   needPrediction: 1
   shotSpeed: 2
 --- !u!198 &198000012683154120
@@ -202,15 +204,15 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1639584690
+  randomSeed: 1815050969
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 0.47
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -245,7 +247,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: -0.2
+      scalar: -1.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -371,12 +373,12 @@ ParticleSystem:
       maxColor: {r: 1, g: 0.1254902, b: 0.1254902, a: 0.59607846}
       minMaxState: 2
     startSize:
-      scalar: 0.1
+      scalar: 0.49
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.90000004
+          value: 0.18367347
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -572,7 +574,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 20
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
   ShapeModule:
@@ -600,7 +602,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 20
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:

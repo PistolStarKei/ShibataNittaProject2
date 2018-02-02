@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013940718476}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.587}
+  m_LocalPosition: {x: 0.7799419, y: 0.5196482, z: 0.32941127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
+  hit: 0
   launcherShip: {fileID: 0}
   weponType: 1
   ID: 
@@ -203,7 +204,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
   randomSeed: 151543683
@@ -211,7 +212,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 1
+      scalar: 1.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -246,7 +247,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: -0.2
+      scalar: -0.49
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -368,16 +369,16 @@ ParticleSystem:
         atime7: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 1, g: 0.69803923, b: 0.69803923, a: 0.6666667}
-      maxColor: {r: 1, g: 0.1254902, b: 0.1254902, a: 0.59607846}
+      minColor: {r: 1, g: 0.827451, b: 0.69803923, a: 0.6666667}
+      maxColor: {r: 1, g: 0.47058824, b: 0.1254902, a: 0.59607846}
       minMaxState: 2
     startSize:
-      scalar: 0.1
+      scalar: 1.92
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.90000004
+          value: 0.19270834
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -573,7 +574,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 20
+    maxNumParticles: 36
     size3D: 0
     rotation3D: 0
   ShapeModule:
