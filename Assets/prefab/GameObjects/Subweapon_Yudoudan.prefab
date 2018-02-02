@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   life: 60
+  hit: 0
   launcherShip: {fileID: 0}
   weponType: 5
   ID: 
@@ -207,7 +208,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
   randomSeed: -1280014208
