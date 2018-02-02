@@ -47,6 +47,7 @@ public class PU_Ticket : MonoBehaviour {
 
 		if(!PS_Plugin.Instance.twListener.IsAuthenticated)return;
 
+
 		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
 		//ツイッターへ飛ばす、待ち受けて追加する
 		OnClose();

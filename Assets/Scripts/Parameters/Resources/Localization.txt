@@ -1,7 +1,7 @@
 KEY,English,Japanese
 Flag,Flag-US,Flag-JP
 Sound,Sound,Son
-PolicyPage,Privacy Policy,個人情報の取り扱い
+PolicyPage,Privacy Policy,個人情報のお取り扱い
 TokushoPage,About Japanese Row,特別商取引法に基づく表示
 SupportMail,Support Mail,ご購入に関するお問い合わせ
 DescTweet,Tweet now to get,アプリからツイートすると
@@ -12,3 +12,5 @@ TittleMuseigen,Unlimited Play Pack,無制限プレイパック
 TittleNinki,BEST ,人気No1
 ZeroPrice,$ 0 ,¥ 0
 PUStartGame,Consumes one ticket to play.\n\nAre you ready?,チケットを１枚消費してプレイを開始します。\n\nよろしいですか？
+Feedback,Feedback and support ,ゲームの不具合報告・ご意見など
+Feedback,Follow us on Twitter ,Twitterでフォロー
