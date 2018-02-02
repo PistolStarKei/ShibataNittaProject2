@@ -54,7 +54,7 @@ public class ResultPanel : MonoBehaviour {
 
 		DataManager.Instance.gameData.isConnectingRoom=false;
 		DataManager.Instance.SaveAll();
-		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills,"/"+players.ToString());
+		SetUserData(playerShip.playerData.countlyCode,playerShip.playerData.userName,aliveTime,playerRank,kills,playerRank+"/"+players.ToString());
 		Invoke("Show",3.0f);
 	}
 

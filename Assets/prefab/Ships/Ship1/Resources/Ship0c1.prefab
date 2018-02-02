@@ -332,8 +332,10 @@ MonoBehaviour:
   razerTarget: {fileID: 0}
   isInDanzerZone: 0
   useHitDetectionOnHitter: 0
+  lastReceivedTime: 0
   maxSpeed: 1
   speed: 0.01
+  isActiveShip: 1
 --- !u!114 &114000013149254604
 MonoBehaviour:
   m_ObjectHideFlags: 1

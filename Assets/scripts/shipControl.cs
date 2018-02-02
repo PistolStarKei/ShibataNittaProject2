@@ -1058,16 +1058,21 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	}
 	#endregion
 
-
+	public float lastReceivedTime=0.0f;
 	#region sync manually   HP isDead
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
+		
 		if (stream.isWriting)
 		{
+			//送る側
 			stream.SendNext(this.isDead);
 		}
 		else
 		{
+			if(isOwnersShip())Debug.LogError("オーナーがりしーぶ");
+			lastReceivedTime=0.0f;
+			//受け取る側　
 			bool lastIsDead = (bool)stream.ReceiveNext();
 			this.isDead = lastIsDead ;
 		}
@@ -1104,13 +1109,23 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		currentTappedPos=worldPos;
 	}
 
+	public bool isActiveShip=true;
 	void Update () {
+		
+		if(isDead)return;
 
-		if(isDead || !isControllable)return;
+		if(!isOwnersShip()){
+			lastReceivedTime+=Time.deltaTime;
+			if(lastReceivedTime>PSParams.GameParameters.DisconnectionTime){
+				//プレイヤはコネクトされていない
+				isActiveShip=false;
+			}else{
+				//プレイヤはコネクトされた
+				isActiveShip=true;
+			}
+		}
 
-
-
-
+		if(!isControllable)return;
 		if(!isOwnersShip())return;
 
 			//PlayerのShipのみで呼ばれる

@@ -88,6 +88,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 				gameData.tweetNum=0;
 				SaveAll();
 			}
+
 		}
 
 		if(Application.systemLanguage==SystemLanguage.Japanese){

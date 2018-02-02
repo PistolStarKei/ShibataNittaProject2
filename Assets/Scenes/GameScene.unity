@@ -5933,18 +5933,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 0.24313727, g: 0.24313727, b: 0.24313727, a: 1}
   mPivot: 3
-  mWidth: 538
+  mWidth: 350
   mHeight: 168
   mDepth: 10
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.202381
+  aspectRatio: 2.0833333
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
-  mText: 1/100
+  mText: 2/1
   mFontSize: 168
   mFontStyle: 0
   mAlignment: 0
@@ -6186,18 +6186,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
-  mWidth: 38
+  mWidth: 172
   mHeight: 168
   mDepth: 11
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 0.22619048
+  aspectRatio: 1.0238096
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
-  mText: 1
+  mText: 2
   mFontSize: 168
   mFontStyle: 0
   mAlignment: 0

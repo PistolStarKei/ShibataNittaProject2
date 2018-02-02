@@ -7,7 +7,7 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 
     public bool ISSameDayLogin(DateTime lastTimeLogin){
         
-		if(IsSameDayLogin(lastTimeLogin))return true;
+		if(IsSameMonthLogin(lastTimeLogin))return true;
 
 		return false;
         
@@ -24,6 +24,13 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 
 	}
 
+	public bool ISSameMonthLogin(DateTime lastTimeLogin){
+
+		if(IsSameDayLogin(lastTimeLogin))return true;
+
+		return false;
+
+	}
 
 
 	#region static methods
@@ -70,6 +77,14 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 		}else{
 			return false;
 		}
+	}
+	public static bool IsSameMonthLogin(DateTime lastTimeOpen){
+		
+			if(DateTime.Now.Month==lastTimeOpen.Month){
+				return true;
+			}else{
+				return false;
+			}
 	}
 	#endregion
 

@@ -95,6 +95,16 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
     public void OnGpgInitComplete(bool isSuccess){
         isInitted_Readerboad=true;
         isConnected_Readerboad=isSuccess;
+
+		if(TimeManager.Instance.ISSameMonthLogin(TimeManager.StringToDateTime(DataManager.Instance.gameData.lastTime))){
+			//月初リセット
+			DataManager.Instance.gameData.rankingKillNum=0;
+			DataManager.Instance.gameData.rankingTopNum=0;
+			DataManager.Instance.gameData.rankingAvrRank=0.0f;
+			DataManager.Instance.gameData.rankingTotalPlay=0;
+			DataManager.Instance.gameData.rankingTotalRank=0;
+			DataManager.Instance.SaveAll();
+		}
     }
  
 

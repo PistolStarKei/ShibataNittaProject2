@@ -9,7 +9,7 @@ namespace PSParams{
 		//ゲーム全体の
 		#region Game
 		//コネクトユーザーが０になったらゲームを終了するか
-		public static readonly bool EndGameOnNoConnection=true;
+		public static readonly bool EndGameOnNoConnection=false;
 
 		//デフォルトのチケットの個数
 		public static readonly int DefaultTicketsNum=3;
@@ -18,6 +18,9 @@ namespace PSParams{
 
 		//平均ランクのランキングに参加できるまでのプレイ回数
 		public static readonly int playNumToJoinAvgRanking=20;
+
+		//何秒間ストリームが来ていなければデッドとするか。
+		public static readonly float DisconnectionTime=3.0f;
 		#endregion
 
 
@@ -92,7 +95,7 @@ namespace PSParams{
 		//最大HP値
 		public static readonly float MaxHP=1500.0f;
 
-		public static readonly bool useHitDetectionOnHitter=false;
+		public static readonly bool useHitDetectionOnHitter=true;
 
 		//ショット
 		public static readonly float shotDulation=0.5f;
@@ -243,6 +246,7 @@ namespace PSParams{
 			"ship8gld",
 			"ship8sc"
 		};
+
 		//課金アイテムは消費可能か
 		public static readonly bool[] IAP_Comsumable=new bool[11]{
 			true,
