@@ -54,7 +54,9 @@ public class PU_Info : MonoBehaviour {
 	}
 
 	public void OnClickMail(){
-		Application.OpenURL("mailto:" + PSParams.AppData.MAIL + "?subject:" + "不具合報告:"+AppData.APP_TITTLE);
+
+		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "不具合報告:"+AppData.APP_TITTLE, PSParams.AppData.MAIL);
+
 	}
 
 	public void OnClickTwitter(){

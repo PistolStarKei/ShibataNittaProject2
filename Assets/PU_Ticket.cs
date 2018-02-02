@@ -32,7 +32,8 @@ public class PU_Ticket : MonoBehaviour {
 	}
 
 	public void OnClickMail(){
-		Application.OpenURL("mailto:" + PSParams.AppData.MAIL + "?subject:" + "購入の問い合わせ"+AppData.APP_TITTLE);
+		
+		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "購入の問い合わせ"+AppData.APP_TITTLE, PSParams.AppData.MAIL);
 	}
 
 	public void OnClickTokusho(){
@@ -50,6 +51,11 @@ public class PU_Ticket : MonoBehaviour {
 
 		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
 		//ツイッターへ飛ばす、待ち受けて追加する
+		//Texture2D image = GetImage();
+
+		AndroidSocialGate.StartShareIntent(Application.systemLanguage == SystemLanguage.Japanese? "おすすめのゲーム" :"Cool game!"
+			, PSParams.AppData.APP_TITTLE+"-> "+PSParams.AppData.APP_URL, "twi");
+		OnTweetSuccessed(true);
 		OnClose();
 	}
 
