@@ -3348,6 +3348,7 @@ GameObject:
   - 92: {fileID: 299387817}
   - 124: {fileID: 299387816}
   - 81: {fileID: 299387815}
+  - 114: {fileID: 299387820}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3424,6 +3425,19 @@ Transform:
   - {fileID: 2007679011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &299387820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299387814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375ca57461b42344c864b4420165e81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shader: {fileID: 4800000, guid: db51fb80780ef714492de6fd9a5b3748, type: 3}
+  Amount: 0.404
 --- !u!1 &305050708
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,7 +3824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa69d5b40401f77469779cf7f6fc94a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: Feedback
+  key: TwitterFollow
 --- !u!114 &330858985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,7 +3868,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
   mText: "Twitter\u3067\u30D5\u30A9\u30ED\u30FC"
-  mFontSize: 52
+  mFontSize: 43
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -3862,7 +3876,7 @@ MonoBehaviour:
   mEffectStyle: 2
   mEffectColor: {r: 1, g: 1, b: 1, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 0.5, y: 0.5}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
@@ -4982,7 +4996,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
   mText: "\u500B\u4EBA\u60C5\u5831\u306E\u53D6\u308A\u6271\u3044"
-  mFontSize: 52
+  mFontSize: 43
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -4990,7 +5004,7 @@ MonoBehaviour:
   mEffectStyle: 2
   mEffectColor: {r: 1, g: 1, b: 1, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 0.5, y: 0.5}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
@@ -5229,7 +5243,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482489972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -544.7, y: -76.8, z: 0}
+  m_LocalPosition: {x: -524.1, y: -76.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -11585,7 +11599,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006913333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -526.67, y: -77.73, z: 0}
+  m_LocalPosition: {x: -524.1, y: -77.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -12790,7 +12804,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122807822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -544.7, y: -84, z: 0}
+  m_LocalPosition: {x: -524.1, y: -84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -21790,7 +21804,7 @@ MonoBehaviour:
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
   mText: "\u30B2\u30FC\u30E0\u306E\u4E0D\u5177\u5408\u5831\u544A\u30FB\u3054\u610F\u898B\u306A\u3069"
-  mFontSize: 52
+  mFontSize: 43
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -21798,7 +21812,7 @@ MonoBehaviour:
   mEffectStyle: 2
   mEffectColor: {r: 1, g: 1, b: 1, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 0.5, y: 0.5}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}

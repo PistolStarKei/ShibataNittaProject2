@@ -8334,6 +8334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blurEffect: {fileID: 114000011643958642}
   cover: {fileID: 114000010190731688}
+  gameoverLb: {fileID: 0}
   userName: {fileID: 114000013262113272}
   userTime: {fileID: 114000013674555884}
   userRank: {fileID: 114000012950797138}

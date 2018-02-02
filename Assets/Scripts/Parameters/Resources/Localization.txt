@@ -13,4 +13,4 @@ TittleNinki,BEST ,人気No1
 ZeroPrice,$ 0 ,¥ 0
 PUStartGame,Consumes one ticket to play.\n\nAre you ready?,チケットを１枚消費してプレイを開始します。\n\nよろしいですか？
 Feedback,Feedback and support ,ゲームの不具合報告・ご意見など
-Feedback,Follow us on Twitter ,Twitterでフォロー
+TwitterFollow,Follow us on Twitter ,Twitterでフォロー
