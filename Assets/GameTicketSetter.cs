@@ -59,9 +59,14 @@ public class GameTicketSetter : MonoBehaviour {
 		DataManager.Instance.SaveAll();
 		UpdateTickets();
 	}
+
 	public void OnClickAddBtn(){
 		//購入画面をみせる
 
+	}
+
+	public void MinusTicketsNoSave(){
+		if(DataManager.Instance.gameData.gameTickets!=-100)SetNumText((DataManager.Instance.gameData.gameTickets-1).ToString());
 	}
 
 	#endregion

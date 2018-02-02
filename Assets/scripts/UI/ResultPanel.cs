@@ -6,7 +6,7 @@ public class ResultPanel : MonoBehaviour {
 
 	public GaussianBlur blurEffect;
 	public PS_GUI_Cover cover;
-
+	public UILabel gameoverLb;
 	public void ShowResult(float time,int killNum,int rank,int playerNumber,shipControl playerShip){
 		isShowing=true;
 
@@ -22,6 +22,35 @@ public class ResultPanel : MonoBehaviour {
 		string aliveTime= string.Format("{0:00}:{1:00}", minutes, seconds);
 		//プレイヤのキル数
 		string kills=killNum.ToString();
+
+
+		gameoverLb.text=rank==1?"Total Victory":"Game Over";
+
+
+		//ランキング関連を
+		DataManager.Instance.gameData.rankingKillNum+=killNum;
+		long submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingKillNum);
+		PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[0]);
+
+		if(rank==1){
+			DataManager.Instance.gameData.rankingTopNum+=1;
+			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingTopNum);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[2]);
+		}
+		DataManager.Instance.gameData.rankingTotalPlay++;
+		DataManager.Instance.gameData.rankingTotalRank+=rank;
+		DataManager.Instance.gameData.rankingAvrRank=(float)DataManager.Instance.gameData.rankingTotalRank/(float)DataManager.Instance.gameData.rankingTotalPlay;
+
+		//平均順位の送信
+		if(DataManager.Instance.gameData.rankingTotalPlay>PSParams.GameParameters.playNumToJoinAvgRanking){
+			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingAvrRank);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[1]);
+		}
+
+
+
+
+		DataManager.Instance.SaveAll();
 
 		DataManager.Instance.gameData.isConnectingRoom=false;
 		DataManager.Instance.SaveAll();
@@ -58,6 +87,7 @@ public class ResultPanel : MonoBehaviour {
 
 	public PSGUI.SceneFader sceneFader;
 	public void OnCliclMain(){
+		AudioController.Play("popup");
 		sceneFader.FadeOut(BackToMain,true);
 	}
 

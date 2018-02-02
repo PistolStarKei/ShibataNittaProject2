@@ -16,12 +16,18 @@ namespace PSParams{
 		//次のチケット追加までの間隔　秒で
 		public static readonly float TimeForNextTicket=600.0f;
 
+		//平均ランクのランキングに参加できるまでのプレイ回数
+		public static readonly int playNumToJoinAvgRanking=20;
+		#endregion
+
+
+		#region 安全地帯
 		//安全地帯の分割数
 		public static readonly int mapMasuXY=5;
 		//安全地帯決定間隔
-		public static readonly float safeZone_SetDulation=10.0f;
+		public static readonly float safeZone_SetDulation=60.0f;
 		//安全地帯決定後にアフェクトされるまでの猶予時間
-		public static readonly float safeZone_Dulation=10.0f;
+		public static readonly float safeZone_Dulation=60.0f;
 		//危険地帯でのダメージ間隔
 		public static readonly float dangerDamage_Dulation=0.3f;
 		//危険地帯でのダメージ間隔毎のダメージ
@@ -189,6 +195,10 @@ namespace PSParams{
 		public static readonly string APP_TITTLE="";
 		public static readonly string BASE_ENCODE="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB";
 		public static readonly string APPID="com.Pistolstarweb.spacekill";
+
+		//アプリのURL
+		public static readonly string APP_URL="https://play.google.com/store/apps/details?id=com.Pistolstarweb.spacekill";
+
 		//お問い合わせメールアドレス
 		public static readonly string MAIL="";
 		//特別商取引法の表示
@@ -199,13 +209,18 @@ namespace PSParams{
 		public static readonly string GPGAPPID="399714156908-5nd3ecp45jhv0uiumhfpbbl1gs2nmjfc.apps.googleusercontent.com";
 
 		//Admob  バナー
-		public static string BannerID="";
+		public static string BannerAppID="ca-app-pub-7316631869359037~2192184156";
+
+		public static string BannerUnitID="ca-app-pub-7316631869359037/3559082622";
+		public static string InterstitialUnitID="ca-app-pub-7316631869359037/9131683944";
+
 
 		//ツイッターキー
 		public static string TwitterAPIKey="1clvpB5q0hZeVGBsiGv6dNdw8";
 		public static string TwitterAPISecret="nJRly4zuRxqU9D6Upyb8qTportXwig1G4WxL1DM2SHQIyoxFZl";
 		public static string TwitterfollowPageName="Pistol Star";
 		public static string TwitterfollowPageId="520988453";
+
 
 		//Total Kill キル回数　Average Rank 平均順位　Total Winnings 優勝回数
 		public static readonly string[] RankingIDs=new string[3]{

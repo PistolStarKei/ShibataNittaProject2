@@ -62,8 +62,8 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 42
-    paddingRight: 34
+    paddingLeft: 79
+    paddingRight: 48
     paddingTop: 67
     paddingBottom: 44
   - name: 1-2
@@ -75,7 +75,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 34
+    paddingLeft: 79
     paddingRight: 42
     paddingTop: 75
     paddingBottom: 58
@@ -88,8 +88,8 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 55
-    paddingRight: 81
+    paddingLeft: 92
+    paddingRight: 55
     paddingTop: 75
     paddingBottom: 76
   - name: 1-4
@@ -101,7 +101,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 34
+    paddingLeft: 44
     paddingRight: 19
     paddingTop: 53
     paddingBottom: 32
@@ -127,8 +127,8 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 149
-    paddingRight: 105
+    paddingLeft: 125
+    paddingRight: 59
     paddingTop: 111
     paddingBottom: 74
   - name: 2-3
@@ -140,10 +140,10 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 149
-    paddingRight: 97
-    paddingTop: 122
-    paddingBottom: 53
+    paddingLeft: 115
+    paddingRight: 57
+    paddingTop: 90
+    paddingBottom: 66
   - name: 2-4
     x: 423
     y: 2104
@@ -153,8 +153,8 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 80
-    paddingRight: 118
+    paddingLeft: 103
+    paddingRight: 81
     paddingTop: 82
     paddingBottom: 65
   - name: 3-1
@@ -192,9 +192,9 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 140
+    paddingLeft: 75
     paddingRight: 104
-    paddingTop: 129
+    paddingTop: 79
     paddingBottom: 65
   - name: 3-4
     x: 1569
@@ -245,7 +245,7 @@ MonoBehaviour:
     borderTop: 0
     borderBottom: 0
     paddingLeft: 112
-    paddingRight: 164
+    paddingRight: 81
     paddingTop: 37
     paddingBottom: 66
   - name: 4-4
@@ -283,8 +283,8 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 103
-    paddingRight: 245
+    paddingLeft: 142
+    paddingRight: 110
     paddingTop: 107
     paddingBottom: 64
   - name: 5-3
@@ -296,7 +296,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 88
+    paddingLeft: 136
     paddingRight: 84
     paddingTop: 105
     paddingBottom: 62
@@ -309,7 +309,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 80
+    paddingLeft: 135
     paddingRight: 94
     paddingTop: 77
     paddingBottom: 82
@@ -336,7 +336,7 @@ MonoBehaviour:
     borderTop: 0
     borderBottom: 0
     paddingLeft: 82
-    paddingRight: 102
+    paddingRight: 64
     paddingTop: 90
     paddingBottom: 122
   - name: 6-3
@@ -349,9 +349,9 @@ MonoBehaviour:
     borderTop: 0
     borderBottom: 0
     paddingLeft: 64
-    paddingRight: 88
-    paddingTop: 122
-    paddingBottom: 54
+    paddingRight: 69
+    paddingTop: 95
+    paddingBottom: 83
   - name: 6-4
     x: 954
     y: 2791
@@ -361,10 +361,10 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 102
-    paddingRight: 76
-    paddingTop: 120
-    paddingBottom: 40
+    paddingLeft: 86
+    paddingRight: 44
+    paddingTop: 101
+    paddingBottom: 60
   - name: 6-5
     x: 450
     y: 2325
@@ -388,9 +388,9 @@ MonoBehaviour:
     borderTop: 0
     borderBottom: 0
     paddingLeft: 73
-    paddingRight: 78
+    paddingRight: 55
     paddingTop: 65
-    paddingBottom: 30
+    paddingBottom: 52
   - name: 7-1
     x: 0
     y: 3819
@@ -465,7 +465,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 109
+    paddingLeft: 85
     paddingRight: 51
     paddingTop: 97
     paddingBottom: 71
@@ -478,7 +478,7 @@ MonoBehaviour:
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 117
+    paddingLeft: 89
     paddingRight: 77
     paddingTop: 69
     paddingBottom: 57

@@ -32,6 +32,11 @@ public class GameData{
 	public bool[] shipAvaillable7=GameParameters.defaultAvaillabilityShip["Ship7"];
 	public bool[] shipAvaillable8=GameParameters.defaultAvaillabilityShip["Ship8"];
 
+	public int rankingKillNum =0;
+	public int rankingTopNum =0;
+	public int rankingTotalPlay =0;
+	public int rankingTotalRank =0;
+	public float rankingAvrRank =0;
 
 }
 
@@ -59,13 +64,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		}
 
+
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"?tag=tweetNum");	
+			ES2.Delete(filename+"?tag=rankingKillNum");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"?tag=tweetNum")){
+		if(!ES2.Exists(filename+"?tag=rankingKillNum")){
 			
 			InitData();
 			LoadData();
@@ -97,6 +103,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	public void LoadData(){
 		envData.toggleSE=ES2.Load<bool>(filename+"?tag=toggleSE");
 		envData.toggleBGM=ES2.Load<bool>(filename+"?tag=toggleBGM");
+		envData.startTime=ES2.Load<string>(filename+"?tag=startTime");
 
 		gameData.shipType=ES2.Load<int>(filename+"?tag=shipType");
 		gameData.username=ES2.Load<string>(filename+"?tag=username");
@@ -122,7 +129,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.shipAvaillable7=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable7");
 		gameData.shipAvaillable8=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable8");
 
-		envData.startTime=ES2.Load<string>(filename+"?tag=startTime");
+
+
+		gameData.rankingKillNum=ES2.Load<int>(filename+"?tag=rankingKillNum");
+		gameData.rankingTopNum=ES2.Load<int>(filename+"?tag=rankingTopNum");
+		gameData.rankingAvrRank=ES2.Load<float>(filename+"?tag=rankingAvrRank");
+
+		gameData.rankingTotalPlay=ES2.Load<int>(filename+"?tag=rankingTotalPlay");
+		gameData.rankingTotalRank=ES2.Load<int>(filename+"?tag=rankingTotalRank");
 
 	}
 
@@ -153,7 +167,12 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(gameData.shipAvaillable7,filename+"?tag=shipAvaillable7");
 		ES2.Save(gameData.shipAvaillable8,filename+"?tag=shipAvaillable8");
 
+		ES2.Save(gameData.rankingKillNum,filename+"?tag=rankingKillNum");
+		ES2.Save(gameData.rankingTopNum,filename+"?tag=rankingTopNum");
+		ES2.Save(gameData.rankingAvrRank,filename+"?tag=rankingAvrRank");
+		ES2.Save(gameData.rankingTotalPlay,filename+"?tag=rankingTotalPlay");
 
+		ES2.Save(gameData.rankingTotalRank,filename+"?tag=rankingTotalRank");
 
 	}
 
@@ -191,8 +210,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship8"],filename+"?tag=shipAvaillable8");
 
 	
-
-
+		ES2.Save(0,filename+"?tag=rankingKillNum");
+		ES2.Save(0,filename+"?tag=rankingTopNum");
+		ES2.Save(0f,filename+"?tag=rankingAvrRank");
+		ES2.Save(0,filename+"?tag=rankingTotalPlay");
+		ES2.Save(0,filename+"?tag=rankingTotalRank");
 	}
 		
 	private void DeleteAll(){

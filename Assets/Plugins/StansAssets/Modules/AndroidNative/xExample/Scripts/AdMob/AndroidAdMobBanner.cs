@@ -41,6 +41,8 @@ public class AndroidAdMobBanner : MonoBehaviour {
 			} 
 		} else {
 			AndroidAdMobController.Instance.Init(BannersUnityId);
+
+
 		}
 	}
 

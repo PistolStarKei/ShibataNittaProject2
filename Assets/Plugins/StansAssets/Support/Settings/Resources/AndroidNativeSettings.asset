@@ -61,9 +61,9 @@ MonoBehaviour:
   EnableSocialAPI: 1
   EnableCameraAPI: 0
   ExpandNativeAPI: 0
-  ExpandPSAPI: 0
+  ExpandPSAPI: 1
   ExpandBillingAPI: 0
-  ExpandSocialAPI: 0
+  ExpandSocialAPI: 1
   ExpandCameraAPI: 0
   ThirdPartyParams: 0
   ShowPSSettingsResources: 0
@@ -88,13 +88,13 @@ MonoBehaviour:
   AnalyticsAPI: 0
   GoogleCloudSaveAPI: 0
   PushNotificationsAPI: 0
-  GoogleMobileAdAPI: 0
+  GoogleMobileAdAPI: 1
   GoogleOAuthAPI: 1
   GalleryAPI: 0
   CameraAPI: 0
   KeepManifestClean: 1
   GooglePlayServiceAppID: 216817929098
-  ToolbarSelectedIndex: 2
+  ToolbarSelectedIndex: 0
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB
   ShowStoreProducts: 1
   InAppProducts: []

@@ -50,6 +50,8 @@ namespace PSPhoton {
 		public GameObject audioControllerObj;
 		void Start () {
 
+			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
+
 			AudioController.PlayMusic("LobbbyMusic");
 			PhotonNetwork.CrcCheckEnabled = true;
 
@@ -59,7 +61,8 @@ namespace PSPhoton {
 
 			//ゲームから戻った時、すでにコネクトされている leaveroomあとは　severconnected状態に
 			if (PhotonNetwork.connected) {
-				
+
+				if(DataManager.Instance.gameData.gameTickets!=-100 && Random.Range(0,3)==0)AdManager.Instance.ShowInterstitial();
 
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
@@ -162,7 +165,7 @@ namespace PSPhoton {
 			}
 		}
 
-
+		public YesNoPU yesnoPU;
 		public GameTicketSetter gameTicketSetter;
 		public void OnClickPlayBtn(){
 
@@ -173,23 +176,47 @@ namespace PSPhoton {
 
 			if(DataManager.Instance.gameData.gameTickets<=0){
 				info.Log(Application.systemLanguage == SystemLanguage.Japanese? "プレイチケットがありません" :"Your game tickets is empty");
-				gameTicketSetter.OnClickAddBtn();
+
 				return;
 			}
-		
-			AudioController.Play("Enter");
-			HUDOnROOM(true);
-			//RandomJoinし、ダメなら部屋をつくる
 
-			if(rooms.Count<=0){
-				//部屋がないので、作る
-				CreateRoom(PhotonNetwork.player.NickName);
+			float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
+
+			if(DataManager.Instance.gameData.gameTickets!=-100 && keikaSec<5*3600f){
+				Debug.LogWarning("これもある程度のプレイ時間で終了");
+				yesnoPU.Show(Localization.Get("PUStartGame"),OnResponce);
 			}else{
-				PhotonNetwork.JoinRandomRoom();
+				OnResponce(true);
 			}
+		
 
 		}
 
+		public void OnResponce(bool isYes){
+			if(isYes){
+
+				GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+				if(go){
+					GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+					if(setter){
+						setter.MinusTicketsNoSave();
+					}
+				}
+
+				AudioController.Play("Enter");
+				HUDOnROOM(true);
+				//RandomJoinし、ダメなら部屋をつくる
+
+				if(rooms.Count<=0){
+					//部屋がないので、作る
+					CreateRoom(PhotonNetwork.player.NickName);
+				}else{
+					PhotonNetwork.JoinRandomRoom();
+				}
+			}else{
+				
+			}
+		}
 
 
 		//自分が部屋を作った場合
@@ -460,7 +487,7 @@ namespace PSPhoton {
 		// masterClient only. Calls an RPC to start the race on all clients. Called from GUI
 		public void CallStartGame() {
 
-
+			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 			//ここでマップをランダムに設定する
 			int mapNum=0;
 			PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",mapNum}, { "state",1}  });

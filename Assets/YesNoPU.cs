@@ -12,6 +12,9 @@ public class YesNoPU : MonoBehaviour {
 	public UILabel label;
 	public GameObject btnBG;
 	public GameObject container;
+
+	public  event Callback_userResponce onResponce;
+	public delegate void Callback_userResponce(bool isYes);
 	#endregion
 
 	#region  初期化
@@ -38,7 +41,9 @@ public class YesNoPU : MonoBehaviour {
 
 
 	#region  Public関数
-	public void Show(string desc){
+	public void Show(string desc,Callback_userResponce onResponce){
+		
+		this.onResponce= onResponce;
 		label.text=desc;
 		AudioController.Play("open");
 		blur.enabled=true;
@@ -54,12 +59,14 @@ public class YesNoPU : MonoBehaviour {
 	}
 
 	public void OnClickYes(){
-
+		if(this.onResponce!=null)this.onResponce(true);
+		this.onResponce=null;
 		OnClose();
 	}
 
 	public void OnClickNo(){
-
+		if(this.onResponce!=null)this.onResponce(false);
+		this.onResponce=null;
 		OnClose();
 	}
 

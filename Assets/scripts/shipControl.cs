@@ -193,7 +193,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 					if(photonView){
 						photonView.RPC ("RPC_SpawnSubweapon_YudoudanRight", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
 					}else{
 						RPC_SpawnSubweapon_YudoudanRight(this.transform.position+ GetShotOffset(ShipOffset.Right),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1);
 					}
@@ -202,7 +202,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 					if(photonView){
 						photonView.RPC ("RPC_SpawnSubweapon_YudoudanLeft", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1});
 					}else{
 						RPC_SpawnSubweapon_YudoudanLeft(this.transform.position+ GetShotOffset(ShipOffset.Left),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID(),ship?ship.playerData.playerID:-1);
 					}
@@ -217,7 +217,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(currentUsing==Subweapon.WAVE){
 				if(photonView){
 					photonView.RPC ("RPC_SpawnSubweapon_Wave", PhotonTargets.AllViaServer,new object[]{
-						this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+						GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
 				}else{
 					RPC_SpawnSubweapon_Wave(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
 				}
@@ -232,32 +232,32 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				for(int i=0;i<IDs.Length;i++){
 					IDs[i]=PSGameUtils.GameUtils.uniqueID();
 				}
-					pos[0]=this.transform.position+ GetShotOffset(ShipOffset.Forward);
+				pos[0]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward);
 					rot[0]=this.transform.rotation.eulerAngles;
 					offsets[0]=(int)ShipOffset.Forward;
-					pos[1]=this.transform.position+ GetShotOffset(ShipOffset.Back);
+				pos[1]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Back);
 					rot[1]=Quaternion.LookRotation(-transform.forward,transform.up).eulerAngles;
 					offsets[1]=(int)ShipOffset.Back;
-					pos[2]=this.transform.position+ GetShotOffset(ShipOffset.Right);
+				pos[2]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Right);
 					rot[2]=Quaternion.LookRotation(transform.right,transform.up).eulerAngles;
 					offsets[2]=(int)ShipOffset.Right;
-					pos[3]=this.transform.position+ GetShotOffset(ShipOffset.Left);
+				pos[3]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Left);
 					rot[3]=Quaternion.LookRotation(-transform.right,transform.up).eulerAngles;
 					offsets[3]=(int)ShipOffset.Left;
 
-					pos[4]=this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft);
+				pos[4]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft);
 					rot[4]=Quaternion.LookRotation(-transform.right+transform.forward,transform.up).eulerAngles;
 					offsets[4]=(int)ShipOffset.ForwardLeft;
 
-					pos[5]=this.transform.position+ GetShotOffset(ShipOffset.ForwardRight);
+				pos[5]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRight);
 					rot[5]=Quaternion.LookRotation(transform.right+transform.forward,transform.up).eulerAngles;
 					offsets[5]=(int)ShipOffset.ForwardRight;
 
-					pos[6]=this.transform.position+ GetShotOffset(ShipOffset.BackRight);
+				pos[6]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.BackRight);
 					rot[6]=Quaternion.LookRotation(transform.right-transform.forward,transform.up).eulerAngles;
 					offsets[6]=(int)ShipOffset.BackRight;
 
-					pos[7]=this.transform.position+ GetShotOffset(ShipOffset.BackLeft);
+				pos[7]=GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.BackLeft);
 					rot[7]=Quaternion.LookRotation(-transform.right-transform.forward,transform.up).eulerAngles;
 					offsets[7]=(int)ShipOffset.BackLeft;
 
@@ -279,7 +279,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 						if(photonView){
 							
 							photonView.RPC ("RPC_SpawnShot", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
 
 						}else{
 						
@@ -290,8 +290,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					case 2:
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotDouble", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),
-							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRight),
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
 						}else{
 							RPC_SpawnShotDouble(this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),
 							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
@@ -300,7 +300,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					case 3:
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotTripple", PhotonTargets.AllViaServer,new object[]{
-							this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRight),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft)
 							,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
 						}else{
 						RPC_SpawnShotTripple(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
@@ -314,6 +314,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			yield return new WaitForSeconds(shotDulation);
 		}
 
+	}
+
+
+	Vector3 GetEstimatedShotPosition(double timeAfter){
+		return transform.position + rd.velocity * (float)timeAfter*speed;
 	}
 
 
@@ -354,7 +359,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	public void ShotNapam(){
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Napam", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation)),PSGameUtils.GameUtils.uniqueID()});
+				GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation)),PSGameUtils.GameUtils.uniqueID()});
 		}else{
 			RPC_Subweapon_Napam(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
 		}
@@ -375,7 +380,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		
 		if(photonView){
 			photonView.RPC ("RPC_Subweapon_Nuke", PhotonTargets.AllViaServer,new object[]{
-				this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation)),PSGameUtils.GameUtils.uniqueID()});
+				GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)(PhotonNetwork.time+RTTExpectation)),PSGameUtils.GameUtils.uniqueID()});
 		}else{
 			RPC_Subweapon_Nuke(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
 		}
@@ -788,17 +793,15 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 			if(PhotonNetwork.player.ID==targettedBy){
 				//当てた人
-
-				if(!PSPhoton.GameManager.instance.GetPlayerConnected(playerData.playerID)){
 					//当てたプレイヤがオフライン中
 					Debug.LogWarning("Razer オフラインユーザーの代わりにDeadする");
 					if(currentHP<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
 						return;
 					}
-				}
 
 			}
+
 			if(isOwnersShip() && photonView){
 					//HPバーの更新、プレイヤーオブジェクトのみでやる
 
@@ -1168,40 +1171,45 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 			
 			
-			tr = transform.position.normalized;
-
-			if (isPressed) {
-				// タップの方向に向く
-				newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
-				newRotation.x = 0;
-				newRotation.z = 0;
-
-				// 回転
-				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
-
-			} else {
-
-				// 徐々に止める
-				velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
-				velocity = velocity - (velocity / 40);
-				rd.velocity = velocity;
-			}
-
-
-
-
-			if(rd.velocity.magnitude > maxSpeed)
-			{
-				//Debug.LogWarning("Maxspeedを超えた");
-				rd.velocity = rd.velocity.normalized * maxSpeed;
-			}
-
-			tr = transform.forward * speed;
-
-			rd.AddForce (tr, ForceMode.VelocityChange);
-
-			if(photonTransformView)photonTransformView.SetSynchronizedValues(speed: rd.velocity, turnSpeed: 0);
+			
 		
+	}
+
+
+	void FixedUpdate(){
+		if(!isOwnersShip())return;
+
+		tr = transform.position.normalized;
+
+		if (isPressed) {
+			// タップの方向に向く
+			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
+			newRotation.x = 0;
+			newRotation.z = 0;
+
+			// 回転
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
+
+		} else {
+
+			// 徐々に止める
+			velocity = new Vector3(rd.velocity.x, 0, rd.velocity.z);
+			velocity = velocity - (velocity / 40);
+			rd.velocity = velocity;
+		}
+
+		if(rd.velocity.magnitude > maxSpeed)
+		{
+			//Debug.LogWarning("Maxspeedを超えた");
+			rd.velocity = rd.velocity.normalized * maxSpeed;
+		}
+
+		tr = transform.forward * speed;
+
+		rd.AddForce (tr, ForceMode.VelocityChange);
+
+		if(photonTransformView)photonTransformView.SetSynchronizedValues(speed: rd.velocity, turnSpeed: 0);
+
 	}
 	#endregion
 

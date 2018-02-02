@@ -92,8 +92,13 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 
 	}
 
-	public void Follow() {
-		if(isInvoking)return;
+	public void Follow(Callback_followedEvent 	followedEvent) {
+		if(isInvoking){
+			followedEvent(false);
+			return;
+		}
+		this.followedEvent=null;
+		this.followedEvent=followedEvent;
 		isInvoking=true;
 
 		if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("Follow");
@@ -199,6 +204,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 					r.ActionComplete += OnIdsLoaded;
 					r.AddParam("screen_name",AppData.TwitterfollowPageName);
 					r.Send();
+					
 			}else if(logInType== TwitterLoginType.Toukou){
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "ログインしたので投稿する" );
 				this.logInType=TwitterLoginType.Toukou;
