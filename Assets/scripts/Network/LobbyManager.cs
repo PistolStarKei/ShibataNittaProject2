@@ -50,6 +50,8 @@ namespace PSPhoton {
 		public GameObject audioControllerObj;
 		void Start () {
 
+			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
+
 			AudioController.PlayMusic("LobbbyMusic");
 			PhotonNetwork.CrcCheckEnabled = true;
 
@@ -59,7 +61,8 @@ namespace PSPhoton {
 
 			//ゲームから戻った時、すでにコネクトされている leaveroomあとは　severconnected状態に
 			if (PhotonNetwork.connected) {
-				
+
+				if(DataManager.Instance.gameData.gameTickets!=-100 && Random.Range(0,3)==0)AdManager.Instance.ShowInterstitial();
 
 				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
@@ -484,7 +487,7 @@ namespace PSPhoton {
 		// masterClient only. Calls an RPC to start the race on all clients. Called from GUI
 		public void CallStartGame() {
 
-
+			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 			//ここでマップをランダムに設定する
 			int mapNum=0;
 			PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",mapNum}, { "state",1}  });

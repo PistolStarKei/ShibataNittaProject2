@@ -1,65 +1,58 @@
-﻿////////////////////////////////////////////////////////////////////////////////
-//  
-// @module Android Native Plugin for Unity3D 
-// @author Osipov Stanislav (Stan's Assets) 
-// @support stans.assets@gmail.com 
-//
-////////////////////////////////////////////////////////////////////////////////
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2 
-#else
 using UnityEngine.SceneManagement;
-#endif
 
+/// <summary>
+/// AdManagerの説明
+/// </summary>
+public class AdManager : PS_SingletonBehaviour<AdManager>  {
 
-
-//Attach the script to the empty gameobject on your sceneS
-public class AndroidAdMobBanner : MonoBehaviour {
-
-
-	public string BannersUnityId;
+	#region  メンバ変数
 	public GADBannerSize size = GADBannerSize.SMART_BANNER;
 	public TextAnchor anchor = TextAnchor.LowerCenter;
-
-
-
 	private static Dictionary<string, GoogleMobileAdBanner> _refisterdBanners = null;
 
 
-	// --------------------------------------
-	// Unity Events
-	// --------------------------------------
-	
-	void Awake() {
+	#endregion
+
+	#region  初期化
+
+	void Awake () {
+	}
+
+	void Start () {
 		if(AndroidAdMobController.Instance.IsInited) {
-			if(!AndroidAdMobController.Instance.BannersUunitId.Equals(BannersUnityId)) {
-				AndroidAdMobController.Instance.SetBannersUnitID(BannersUnityId);
+			if(!AndroidAdMobController.Instance.BannersUunitId.Equals(PSParams.AppData.BannerUnitID)) {
+				AndroidAdMobController.Instance.SetBannersUnitID(PSParams.AppData.BannerUnitID);
 			} 
+			if(!AndroidAdMobController.Instance.InterstisialUnitId.Equals(PSParams.AppData.InterstitialUnitID)) {
+				AndroidAdMobController.Instance.SetInterstisialsUnitID(PSParams.AppData.InterstitialUnitID);
+			}
 		} else {
-			AndroidAdMobController.Instance.Init(BannersUnityId);
+			AndroidAdMobController.Instance.Init(PSParams.AppData.BannerUnitID);
 
-
+			AndroidAdMobController.Instance.Init(PSParams.AppData.InterstitialUnitID);
 		}
+
+	}
+	#endregion
+
+
+	#region  Update
+	
+	void Update(){
+	
 	}
 
-	void Start() {
-		ShowBanner();
-	}
-
-	void OnDestroy() {
-		HideBanner();
-	}
+	#endregion
 
 
-	// --------------------------------------
-	// PUBLIC METHODS
-	// --------------------------------------
+	
 
-	public void ShowBanner() {
+
+	#region  Public関数
+	public void ShowBanner(){
 		GoogleMobileAdBanner banner;
 		if(registerdBanners.ContainsKey(sceneBannerId)) {
 			banner = registerdBanners[sceneBannerId];
@@ -71,8 +64,8 @@ public class AndroidAdMobBanner : MonoBehaviour {
 		if(banner.IsLoaded && !banner.IsOnScreen) {
 			banner.Show();
 		}
-	}
 
+	}
 	public void HideBanner() {
 		if(registerdBanners.ContainsKey(sceneBannerId)) {
 			GoogleMobileAdBanner banner = registerdBanners[sceneBannerId];
@@ -86,11 +79,13 @@ public class AndroidAdMobBanner : MonoBehaviour {
 		}
 	}
 
-	// --------------------------------------
-	// GET / SET
-	// --------------------------------------
+	public void ShowInterstitial() {
+		AndroidAdMobController.Instance.StartInterstitialAd();
+	}
+	#endregion
+	
 
-
+	#region  メンバ関数
 	public static Dictionary<string, GoogleMobileAdBanner> registerdBanners {
 		get {
 			if(_refisterdBanners == null) {
@@ -100,7 +95,6 @@ public class AndroidAdMobBanner : MonoBehaviour {
 			return _refisterdBanners;
 		}
 	}
-
 	public string sceneBannerId {
 		get {
 			#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1 || UNITY_5_2
@@ -110,6 +104,5 @@ public class AndroidAdMobBanner : MonoBehaviour {
 			#endif
 		}
 	}
-
-	
+	#endregion
 }

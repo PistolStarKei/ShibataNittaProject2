@@ -112,6 +112,7 @@ public class PU_Ticket : MonoBehaviour {
 		UpdateButtons();
 		AudioController.Play("successed");
 		UpdateTicketNum();
+		AdManager.Instance.HideBanner();
 		PSPhoton.LobbyManager.instance.info.Log(Application.systemLanguage == 
 			SystemLanguage.Japanese? "購入が完了しました。" :"Purchase successed");
 

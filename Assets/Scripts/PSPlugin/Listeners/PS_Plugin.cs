@@ -79,11 +79,6 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isConnected_Store=isSuccess;
     }
 
-
-
-
-
-
     //Twitter
     public TwitterListener twListener;
     public bool isInitted_Twitter=false;
@@ -92,14 +87,7 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isInitted_Twitter=true;
         isConnected_Twitter=isSuccess;
     }
-
-
-
-
-
-
-
-
+		
     //Readerboad
     public GPGSListener readerboadListener;
     public bool isInitted_Readerboad=false;

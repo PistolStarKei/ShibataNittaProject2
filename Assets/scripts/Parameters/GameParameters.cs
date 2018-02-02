@@ -205,7 +205,11 @@ namespace PSParams{
 		public static readonly string GPGAPPID="399714156908-5nd3ecp45jhv0uiumhfpbbl1gs2nmjfc.apps.googleusercontent.com";
 
 		//Admob  バナー
-		public static string BannerID="";
+		public static string BannerAppID="ca-app-pub-7316631869359037~2192184156";
+
+		public static string BannerUnitID="ca-app-pub-7316631869359037/3559082622";
+		public static string InterstitialUnitID="ca-app-pub-7316631869359037/9131683944";
+
 
 		//ツイッターキー
 		public static string TwitterAPIKey="1clvpB5q0hZeVGBsiGv6dNdw8";

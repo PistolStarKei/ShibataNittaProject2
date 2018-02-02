@@ -6810,6 +6810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blurEffect: {fileID: 1546511598}
   cover: {fileID: 513192051}
+  gameoverLb: {fileID: 302729747}
   userName: {fileID: 1567954130}
   userTime: {fileID: 1551069090}
   userRank: {fileID: 466692202}

@@ -6,7 +6,7 @@ public class ResultPanel : MonoBehaviour {
 
 	public GaussianBlur blurEffect;
 	public PS_GUI_Cover cover;
-
+	public UILabel gameoverLb;
 	public void ShowResult(float time,int killNum,int rank,int playerNumber,shipControl playerShip){
 		isShowing=true;
 
@@ -22,6 +22,10 @@ public class ResultPanel : MonoBehaviour {
 		string aliveTime= string.Format("{0:00}:{1:00}", minutes, seconds);
 		//プレイヤのキル数
 		string kills=killNum.ToString();
+
+
+		gameoverLb.text=rank==1?"Total Victory":"Game Over";
+
 
 		//ランキング関連を
 		DataManager.Instance.gameData.rankingKillNum+=killNum;
@@ -83,6 +87,7 @@ public class ResultPanel : MonoBehaviour {
 
 	public PSGUI.SceneFader sceneFader;
 	public void OnCliclMain(){
+		AudioController.Play("popup");
 		sceneFader.FadeOut(BackToMain,true);
 	}
 
