@@ -25,6 +25,7 @@ public class mapControl : MonoBehaviour {
 		switch (mapNumber) {
 		case 0:
 			Instantiate (stage00);
+			stage00.transform.parent = mapManager.transform;
 			break;
 		case 1:
 			Instantiate (stage01);
