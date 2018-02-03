@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010306867458}
   - 33: {fileID: 33000013985337498}
   - 23: {fileID: 23000012079495666}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SFCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,8 +34,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010596810302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

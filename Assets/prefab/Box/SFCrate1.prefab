@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011236434754}
   - 33: {fileID: 33000013617113654}
   - 23: {fileID: 23000011160045448}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SFCrate1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
