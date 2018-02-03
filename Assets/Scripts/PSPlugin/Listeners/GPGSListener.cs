@@ -17,6 +17,7 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 
 
     public int howManyRankToLoad=20;
+	GPBoardTimeSpan span=GPBoardTimeSpan.ALL_TIME;
     public string userName_string="";
     public delegate void Callback_scoreUpdatedEvent(LeaderboadScore scores);
     public  event Callback_scoreUpdatedEvent scoreUpdatedEvent;
@@ -26,7 +27,7 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
     public  event Callback_loadDataComplete loadDataCompletedEvent;
 
 
-	public void LoadReaderBoadData(string ID,bool isFriend,Callback_scoreUpdatedEvent scoreUpdatedEvent){
+	public void LoadReaderBoadData(GPBoardTimeSpan span,int howMany,string ID,bool isFriend,Callback_scoreUpdatedEvent scoreUpdatedEvent){
 		this.scoreUpdatedEvent=null;
 		this.scoreUpdatedEvent=scoreUpdatedEvent;
 
@@ -34,6 +35,8 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 			scoreUpdatedEvent(null);
 			return;
 		}
+		this.span=span;
+		this.howManyRankToLoad=howMany;
         if(isDebugLog)Debug.Log( "リーダーボードのロード "+ID);
         isLoadingBoadData=true;
         StartCoroutine(LoadCurrentRank(ID,isFriend));
@@ -46,9 +49,9 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
     IEnumerator LoadCurrentRank(string ID,bool isFriend){
         isLoading=true;isLoadingSuccessed=false;
         if(isFriend){
-            GooglePlayManager.Instance.LoadTopScores(ID, GPBoardTimeSpan.ALL_TIME,GPCollectionType.FRIENDS,howManyRankToLoad);
+			GooglePlayManager.Instance.LoadTopScores(ID, this.span,GPCollectionType.FRIENDS,howManyRankToLoad);
         }else{
-            GooglePlayManager.Instance.LoadTopScores(ID, GPBoardTimeSpan.ALL_TIME,GPCollectionType.GLOBAL,howManyRankToLoad);
+			GooglePlayManager.Instance.LoadTopScores(ID,this.span,GPCollectionType.GLOBAL,howManyRankToLoad);
         }
 
          while(isLoading){
@@ -87,6 +90,8 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
         isLoadingBoadData=false;
         if(scoreUpdatedEvent!=null)scoreUpdatedEvent(scoreDatas);
     }
+
+
 
 
     LeaderboadScore GetLeaderBoadData(List<GPScore> scores){
@@ -179,12 +184,15 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 		if(!isLogin())return;
 		if(isDebugLog)Debug.Log( "Invoke OpenWithUI");
 
-
+		#if UNITY_ANDROID
         GooglePlayManager.Instance.ShowLeaderBoardById(ID);
+		#endif
 	}
 
 	public void Open(){
+		#if UNITY_ANDROID
 		GooglePlayManager.Instance.ShowLeaderBoardsUI();
+		#endif
 	}
 
     void OnConnectionResult(GooglePlayConnectionResult result) {
@@ -214,6 +222,11 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 		
 
 	}
+
+
+
+
+
 
 
 
