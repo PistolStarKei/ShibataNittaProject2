@@ -122,19 +122,27 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				PSPhoton.GameManager.instance.OnPlayerDead(playerData.playerID,killedBy,aliveTime);
 			}
 		}
-
-		if(!isOwnersShip())return;
-
+			
+		if(isActiveShip){
+			if(!isOwnersShip())return;
 			if(photonView){
-				photonView.RPC ("ScatterWeapons", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder()});
+				photonView.RPC ("ScatterWeapons", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),shot_rensou});
 			}else{
-				ScatterWeapons(GUIManager.Instance.GetSubweaponInHolder());
+				ScatterWeapons(GUIManager.Instance.GetSubweaponInHolder(),shot_rensou);
 			}
+		}else{
+			//代わりにばらまく
+			if(PhotonNetwork.player.ID==killedBy){
+				//当てたプレイヤがオフライン中
+				this.photonView.RPC ("ScatterWeapons", PhotonTargets.AllViaServer,new object[]{null,shot_rensou});
+				
+			}
+		}
 
 	}
 		
 	[PunRPC]
-	public void ScatterWeapons(int[] subweaponInHolder){
+	public void ScatterWeapons(int[] subweaponInHolder,int rensou){
 		
 		Debug.LogWarning("ここでマスターがサブウェポンをばらまく");
 		if(PhotonNetwork.isMasterClient){
@@ -145,6 +153,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 			}
 			//通常弾をばらまく
+
+			for(int i=0;i<rensou;i++){
+				PhotonNetwork.InstantiateSceneObject("PU10", GetRandomScatterPosition((ShipOffset)Random.Range(0,8),Random.Range(0.5f,2.0f)), Quaternion.identity,0,null);
+
+			}
 		}
 
 	}

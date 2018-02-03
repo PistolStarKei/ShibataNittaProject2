@@ -30,12 +30,14 @@ public class ResultPanel : MonoBehaviour {
 		//ランキング関連を
 		DataManager.Instance.gameData.rankingKillNum+=killNum;
 		long submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingKillNum);
-		PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[0]);
+
+		PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.GetRankingID(System.DateTime.Now.Month,PSParams.AppData.RankingTittels[0]));
+
 
 		if(rank==1){
 			DataManager.Instance.gameData.rankingTopNum+=1;
 			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingTopNum);
-			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[2]);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.GetRankingID(System.DateTime.Now.Month,PSParams.AppData.RankingTittels[2]));
 		}
 		DataManager.Instance.gameData.rankingTotalPlay++;
 		DataManager.Instance.gameData.rankingTotalRank+=rank;
@@ -44,7 +46,7 @@ public class ResultPanel : MonoBehaviour {
 		//平均順位の送信
 		if(DataManager.Instance.gameData.rankingTotalPlay>PSParams.GameParameters.playNumToJoinAvgRanking){
 			submit=System.Convert.ToInt64(DataManager.Instance.gameData.rankingAvrRank);
-			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.RankingIDs[1]);
+			PS_Plugin.Instance.readerboadListener.SubmitScore(submit,PSParams.AppData.GetRankingID(System.DateTime.Now.Month,PSParams.AppData.RankingTittels[1]));
 		}
 
 
