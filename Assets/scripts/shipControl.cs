@@ -61,6 +61,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	}
 
 	public bool debugPlayership=false;
+
 	void Start(){
 		rd = GetComponent<Rigidbody> (); 
 		photonView= GetComponent<PhotonView>();
@@ -221,9 +222,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					}
 				}
 			}
-
-
-
 
 			if(currentUsing==Subweapon.YUDOU){
 				if(weaponNum%2==0){

@@ -40,14 +40,12 @@ public class mapControl : MonoBehaviour {
 				go.transform.parent = this.gameObject.transform;
 				break;
 			}
-			break;
 		case 3:
 			{
 				GameObject go = Instantiate (stage03);
 				go.transform.parent = this.gameObject.transform;
 				break;
 			}
-			break;
 		}
 	}
 }
