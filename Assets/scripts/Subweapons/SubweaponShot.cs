@@ -31,6 +31,7 @@ public class SubweaponShot : MonoBehaviour {
 		this.spawnPos=spawnPos;
 		this.spawnTime=spawnTime;
 		transform.position=launcherShip.transform.position+launcherShip.GetShotOffset(offset);
+
 		hit=0;
 		if(weponType!=Subweapon.NONE)damage=PSParams.GameParameters.sw_damage[(int)weponType];
 		if(weponType!=Subweapon.NONE)life=PSParams.GameParameters.sw_life[(int)weponType];

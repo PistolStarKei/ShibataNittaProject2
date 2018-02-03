@@ -227,11 +227,26 @@ namespace PSParams{
 
 
 		//Total Kill キル回数　Average Rank 平均順位　Total Winnings 優勝回数
-		public static readonly string[] RankingIDs=new string[3]{
-			"CgkI7ILIhtELEAIQAA",
-			"CgkI7ILIhtELEAIQAQ",
-			"CgkI7ILIhtELEAIQAg"
+		//1-12月まで
+		public static string[] RankingTittels=new string[3]{"平均順位","１位獲得数","キル数"};
+		public static Dictionary<string,string[]> RankingIDs=new Dictionary<string, string[]>(){
+			{"平均順位",new  string[12]{"","","","","","","","","","","",""}},
+			{"１位獲得数",new  string[12]{"","","","","","","","","","","",""}},
+			{"キル数",new  string[12]{"","","","","","","","","","","",""}}
+
 		};
+		public static string GetRankingID(int month,string rankingTittle){
+			if(rankingTittle=="平均順位"){
+				
+			}else if(rankingTittle=="１位獲得数"){
+				
+			}else if(rankingTittle=="キル数"){
+				
+			}
+			return "";
+		}
+
+
 
 		//課金アイテム
 		public static readonly string[] IAP_SKUs=new string[11]{

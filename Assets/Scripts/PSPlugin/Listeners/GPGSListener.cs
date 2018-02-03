@@ -21,11 +21,29 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
     public string userName_string="";
     public delegate void Callback_scoreUpdatedEvent(LeaderboadScore scores);
     public  event Callback_scoreUpdatedEvent scoreUpdatedEvent;
+	public delegate void Callback_PlayerScoreUpdatedEvent(GPScore score);
+	public  event Callback_PlayerScoreUpdatedEvent playerScoreUpdatedEvent;
+
     public delegate void Callback_saveDataComplete(bool s);
     public  event Callback_saveDataComplete saveDataCompletedEvent;
     public delegate void Callback_loadDataComplete(string s);
     public  event Callback_loadDataComplete loadDataCompletedEvent;
 
+	public void LoadPlayerRankData(GPBoardTimeSpan span,string ID,Callback_PlayerScoreUpdatedEvent playerScoreUpdatedEvent){
+		this.playerScoreUpdatedEvent=null;
+		this.playerScoreUpdatedEvent=playerScoreUpdatedEvent;
+
+		if(!isLogin() || isLoadingBoadData){
+			playerScoreUpdatedEvent(null);
+			return;
+		}
+		this.span=span;
+		if(isDebugLog)Debug.Log( "リーダーボードのロード "+ID);
+		isLoadingBoadData=true;
+
+		StartCoroutine(LoadUserRank(ID));
+
+	}
 
 	public void LoadReaderBoadData(GPBoardTimeSpan span,int howMany,string ID,bool isFriend,Callback_scoreUpdatedEvent scoreUpdatedEvent){
 		this.scoreUpdatedEvent=null;
@@ -83,13 +101,56 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
         yield return null;
         OnLoadReaderBoadFinished(true,"ロード正常終了",GetLeaderBoadData(scoresLB));
     }
+	//null fals 
+	void OnLoadReaderBoadFinished(bool isSuccess,string log,LeaderboadScore scoreDatas){
+		Debug.Log("リーダーボードのロード終了"+log);
+		isLoadingBoadData=false;
+		if(scoreUpdatedEvent!=null)scoreUpdatedEvent(scoreDatas);
+	}
 
-    //null fals 
-    void OnLoadReaderBoadFinished(bool isSuccess,string log,LeaderboadScore scoreDatas){
-        Debug.Log("リーダーボードのロード終了"+log);
-        isLoadingBoadData=false;
-        if(scoreUpdatedEvent!=null)scoreUpdatedEvent(scoreDatas);
-    }
+
+
+
+
+	IEnumerator LoadUserRank(string ID){
+		isLoading=true;isLoadingSuccessed=false;
+		GooglePlayManager.Instance.LoadPlayerCenteredScores(ID,this.span,GPCollectionType.GLOBAL,1);
+
+
+		while(isLoading){
+			yield return null;
+		}
+		if(isLoadingSuccessed){
+			loadedLeaderBoad = GooglePlayManager.Instance.GetLeaderBoard(ID);
+			if(loadedLeaderBoad == null) {
+				OnLoadPlayerRankFinished(false,"ロード完了したが、GETできない場合",null);
+				yield break;
+			}
+		}else{
+			OnLoadPlayerRankFinished(false,"ロードに失敗した場合",null);
+			yield break;
+		}
+
+		yield return null;
+
+		GPScore playerRank=loadedLeaderBoad.GetCurrentPlayerScore(this.span,GPCollectionType.GLOBAL);
+
+		if(playerRank==null){
+			OnLoadReaderBoadFinished(false,"ロード完了　GETできたが　スコアリストがnullの場合",null);
+			yield break;
+		}
+		yield return null;
+		OnLoadPlayerRankFinished(true,"ロード正常終了",playerRank);
+	}
+
+	//null fals 
+	void OnLoadPlayerRankFinished(bool isSuccess,string log,GPScore scoreData){
+		Debug.Log("リーダーボードのロード終了"+log);
+		isLoadingBoadData=false;
+		if(playerScoreUpdatedEvent!=null)playerScoreUpdatedEvent(scoreData);
+	}
+
+   
 
 
 
@@ -113,6 +174,9 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
             }
             num++;
         }
+
+
+
         if(isDebugLog){
             string str="";
             for(int i=0;i<howManyRankToLoad;i++){
@@ -202,7 +266,7 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
     }
     void OnPlayerConnected() {
         userName_string=GooglePlayManager.Instance.player.name;
-       
+       	
     }
     void OnPlayerDisconnected() {
     }

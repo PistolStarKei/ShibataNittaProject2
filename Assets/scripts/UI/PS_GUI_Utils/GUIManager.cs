@@ -127,7 +127,9 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	public void Test2(){
 		shipControll.OnUseSubWeapon(usesubweapon);
 	}
-
+	public void Test3(){
+		shipControll.ScatterWeapons(subWeaponSlot.GetAllWeaponInHolder(),shipControll.shot_rensou);
+	}
 
 
 
