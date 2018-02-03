@@ -2,21 +2,30 @@
 using System.Collections;
 using PathologicalGames;
 
-public enum Pickup{CureS,CureM,CureL,NAPAM,NUKE,RAZER,STEALTH,WAVE,YUDOU,ZENHOUKOU}
+public enum Pickup{CureS,CureM,CureL,NAPAM,NUKE,RAZER,STEALTH,WAVE,YUDOU,ZENHOUKOU,SHOT}
 
 [RequireComponent(typeof(PhotonView))]
 public class item : Photon.MonoBehaviour, IPunObservable {
 
 	public Pickup pickType=Pickup.CureS;
+	public bool isActive=false;
+	public ParticleSystem ps;
 
-
-	void Start(){
+	void Awake(){
 		//念のため、レイヤを設定する
 		if(gameObject.layer!=LayerMask.NameToLayer("PickUp")){
 			gameObject.layer=LayerMask.NameToLayer("PickUp");
 		}
+		isActive=false;
+		gameObject.GetComponent<MeshRenderer>().enabled=false;
+		Invoke("Enable",3.0f);
 	}
 
+	public void Enable(){
+		isActive=true;
+		gameObject.GetComponent<MeshRenderer>().enabled=true;
+		ps.gameObject.SetActive(false);
+	}
 
 
 	public void KillSelf(){
@@ -25,7 +34,7 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 
 
 	void OnTriggerEnter(Collider other) {
-
+		if(!isActive)return;
 		if(other.gameObject.layer == LayerMask.NameToLayer("Ship")){
 
 			shipControl ship=other.gameObject.GetComponent<shipControl>();
@@ -92,6 +101,8 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 			
 			if(pickType==Pickup.CureS || pickType==Pickup.CureM ||pickType==Pickup.CureL){
 				PSPhoton.GameManager.instance.playerShip.OnPickUp_Cure(pickType);
+			}else if(pickType==Pickup.SHOT){
+				PSPhoton.GameManager.instance.playerShip.OnPickup_Shot();
 			}else{
 				PSPhoton.GameManager.instance.playerShip.OnPickUp_Subweapon(pickType);
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PathologicalGames;
 
-public enum ShipOffset{Forward,ForwardRight,ForwardLeft,Right,Left,Back,BackLeft,BackRight};
+public enum ShipOffset{Forward,ForwardRight,ForwardLeft,Right,Left,Back,BackLeft,BackRight,ForwardRightH,ForwardLeftH,ForwardRightW,ForwardLeftW};
 public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	[System.Serializable]
 	public struct PlayerData {
@@ -136,14 +136,52 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	[PunRPC]
 	public void ScatterWeapons(int[] subweaponInHolder){
 		
-		Debug.LogWarning("ここでサブウェポンをばらまく");
-		if(subweaponInHolder==null)return;
-
-		for(int i=0;i<subweaponInHolder.Length;i++){
-			
+		Debug.LogWarning("ここでマスターがサブウェポンをばらまく");
+		if(PhotonNetwork.isMasterClient){
+			//サブウェポンをばらまく
+			if(subweaponInHolder!=null){
+				for(int i=0;i<subweaponInHolder.Length;i++){
+					PhotonNetwork.InstantiateSceneObject("PU" + subweaponInHolder[i]+3, GetRandomScatterPosition((ShipOffset)Random.Range(0,8),Random.Range(0.5f,2.0f)), Quaternion.identity,0,null);
+				}
+			}
+			//通常弾をばらまく
 		}
 
 	}
+
+	public Vector3 GetRandomScatterPosition(ShipOffset offset,float distance){
+		Vector3 off=Vector3.zero;
+		switch(offset){
+		case ShipOffset.Forward:
+			off=transform.forward *distance;
+			break;
+		case ShipOffset.ForwardRight:
+			off=transform.forward *distance+(transform.right *distance);
+			break;
+		case ShipOffset.ForwardLeft:
+			off=transform.forward *shotOffset-(transform.right *distance);
+			break;
+		case ShipOffset.Right:
+			off=transform.right *distance;
+			break;
+		case ShipOffset.Left:
+			off=-transform.right *distance;
+			break;
+		case ShipOffset.Back:
+			off=-transform.forward *distance;
+			break;
+		case ShipOffset.BackRight:
+			off=-transform.forward *distance+(transform.right *distance);
+			break;
+		case ShipOffset.BackLeft:
+			off=-transform.forward *distance-(transform.right *distance);
+			break;
+		}
+		return off;
+	}
+
+
+
 	#endregion
 
 
@@ -291,20 +329,36 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotDouble", PhotonTargets.AllViaServer,new object[]{
 							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRight),
-							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()}});
 						}else{
 							RPC_SpawnShotDouble(this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),
-							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
+							this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft),this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()});
 						}
 						break;
 					case 3:
 						if(photonView){
 							photonView.RPC ("RPC_SpawnShotTripple", PhotonTargets.AllViaServer,new object[]{
 							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.Forward),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRight),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeft)
-							,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),PSGameUtils.GameUtils.uniqueID()});
+							,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()}});
 						}else{
-						RPC_SpawnShotTripple(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
-							,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,PSGameUtils.GameUtils.uniqueID());
+							RPC_SpawnShotTripple(this.transform.position+ GetShotOffset(ShipOffset.Forward),this.transform.position+ GetShotOffset(ShipOffset.ForwardRight),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeft)
+								,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()});
+						}
+						break;
+					case 4:
+						if(photonView){
+							photonView.RPC ("RPC_SpawnShotQuad", PhotonTargets.AllViaServer,new object[]{
+							GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRightH),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeftH),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardRightW),GetEstimatedShotPosition(RTTExpectation)+ GetShotOffset(ShipOffset.ForwardLeftW)
+								,this.transform.rotation.eulerAngles,PSGameUtils.GameUtils.ConvertToFloat((float)photonTime),
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()}});
+						}else{
+							RPC_SpawnShotQuad(this.transform.position+ GetShotOffset(ShipOffset.ForwardRightH),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeftH),this.transform.position+ GetShotOffset(ShipOffset.ForwardRightW),this.transform.position+ GetShotOffset(ShipOffset.ForwardLeftW)
+									,this.transform.rotation.eulerAngles,Time.realtimeSinceStartup,
+							new string[]{PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID(),PSGameUtils.GameUtils.uniqueID()});
 						}
 						break;
 				}
@@ -328,6 +382,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			case ShipOffset.Forward:
 				off=transform.forward *shotOffset;
 				break;
+			case ShipOffset.ForwardRightH:
+				off=transform.forward *shotOffset+(transform.right *shotOffsetX/2.0f);
+				break;
+			case ShipOffset.ForwardLeftH:
+				off=transform.forward *shotOffset-(transform.right *shotOffsetX/2.0f);
+				break;
 			case ShipOffset.ForwardRight:
 				off=transform.forward *shotOffset+(transform.right *shotOffsetX);
 				break;
@@ -348,6 +408,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				break;
 			case ShipOffset.BackLeft:
 				off=-transform.forward *shotOffset-(transform.right *shotOffsetX);
+				break;
+			case ShipOffset.ForwardRightW:
+				off=transform.forward *shotOffset+(transform.right *shotOffsetX*2.0f);
+				break;
+			case ShipOffset.ForwardLeftW:
+				off=transform.forward *shotOffset-(transform.right *shotOffsetX*2.0f);
 				break;
 		}
 		return off;
@@ -453,23 +519,34 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 
 		[PunRPC]
-		public void RPC_SpawnShotDouble(Vector3 position1,Vector3 position2,Vector3 rotation,float spawnTime,string ID){
-			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID);
+		public void RPC_SpawnShotDouble(Vector3 position1,Vector3 position2,Vector3 rotation,float spawnTime,string[] ID){
+			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID[0]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft,ID);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft,ID[1]);
 			AddWeaponHolder(tr);
 		}
 
 		[PunRPC]
-		public void RPC_SpawnShotTripple(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string ID){
-			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
+		public void RPC_SpawnShotTripple(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string[] ID){
+			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y+5f)),spawnTime,ShipOffset.ForwardRight,ID[1]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft,ID);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y-5f)),spawnTime,ShipOffset.ForwardLeft,ID[2]);
 			AddWeaponHolder(tr);
 		}
+		[PunRPC]
+		public void RPC_SpawnShotQuad(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 position4,Vector3 rotation,float spawnTime,string[] ID){
+			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(new Vector3(rotation.x,rotation.y+5f)),spawnTime,ShipOffset.Forward,ID[0]);
+			AddWeaponHolder(tr);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y-5f)),spawnTime,ShipOffset.ForwardRight,ID[1]);
+			AddWeaponHolder(tr);
 
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y+10f,rotation.z)),spawnTime,ShipOffset.ForwardLeft,ID[2]);
+			AddWeaponHolder(tr);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position4,Quaternion.Euler(new Vector3(rotation.x,rotation.y-10f,rotation.z)),spawnTime,ShipOffset.ForwardLeft,ID[3]);
+			AddWeaponHolder(tr);
+		}
 		
 		[PunRPC]
 		public void RPC_SpawnSubweapon_Wave(Vector3 position,Vector3 rotation,float spawnTime,string ID){
@@ -842,12 +919,12 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	//通常弾　サブウェポン食らわせた場合
 	public void OnHit_Hitter(shipControl hit,Subweapon type,float damage,string ID){
 
-		if(!useHitDetectionOnHitter || hit==null)return;
+		if(hit==null)return;
 
 		if(usingLog)Debug.Log(playerData.userName+" の弾幕がヒット！"+ID);
 
 		//攻撃側で判定する場合
-		if(isOwnersShip()){
+		if(useHitDetectionOnHitter && isOwnersShip()){
 			//全プレイヤーに弾幕を消す指示を出す
 
 				if(usingLog)Debug.Log("isOwnersShip！");
@@ -883,8 +960,31 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				hit.photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
 			}
 
+			return;
+		}
+
+
+		//防御側
+		if(!hit.isActiveShip){
+			//敵は落ちている状態なので、こっちでやる。
+
+			if(ID!="" && ID!="Effecter"){
+
+				if(photonView){
+					if(usingLog)Debug.Log("自分の球を消す");
+					photonView.RPC ("RPCDestroyWeaponByID", PhotonTargets.AllViaServer,new object[]{
+						ID,hit.playerData.playerID});
+				}
+			}
+
+			//ダメージを与える
+			if(hit.photonView){
+				if(usingLog)Debug.Log("相手にダメージを飛ばす");
+				hit.photonView.RPC ("Damage", PhotonTargets.AllBuffered,new object[]{damage,playerData.playerID});
+			}
 
 		}
+
 
 	}
 
@@ -967,22 +1067,35 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 			return;
 		}else{
+			
+			if(!isActiveShip){
+				//敵は落ちている状態なので、こっちでやる。
+				if(PhotonNetwork.player.ID==damagedBy){
+					if(currentHP<=0.0f){
+						if(usingLog)Debug.Log("代わりに殺す");
 
-			//防御側で判定する場合
-			if(isOwnersShip()){
-				if(photonView){
-
-					//HPバーの更新、プレイヤーオブジェクトのみでやる
-					GUIManager.Instance.ShakeCamera();
-
-					if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-
-					GUIManager.Instance.Damage (damage, MaxHP);
-
-					if(currentHP-damage<=0.0f){
-						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
+						this.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
+						return;
 					}
+				}
+			}else{
 
+				//防御側で判定する場合
+				if(isOwnersShip()){
+					if(photonView){
+
+						//HPバーの更新、プレイヤーオブジェクトのみでやる
+						GUIManager.Instance.ShakeCamera();
+
+						if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+
+						GUIManager.Instance.Damage (damage, MaxHP);
+
+						if(currentHP-damage<=0.0f){
+							photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{damagedBy,PSPhoton.GameManager.instance.gameTime});
+						}
+
+					}
 				}
 			}
 		}
@@ -1056,6 +1169,13 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			GUIManager.Instance.OnGetSubWeapon((Subweapon)num);
 		}
 	}
+
+	public void OnPickup_Shot(){
+		if(isOwnersShip()){
+			shot_rensou++;
+			if(shot_rensou>4)shot_rensou=4;
+		}
+	}
 	#endregion
 
 	public float lastReceivedTime=0.0f;
@@ -1113,19 +1233,31 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	void Update () {
 		
 		if(isDead)return;
+		if(!isControllable)return;
 
 		if(!isOwnersShip()){
+			//敵だけにやる
 			lastReceivedTime+=Time.deltaTime;
 			if(lastReceivedTime>PSParams.GameParameters.DisconnectionTime){
 				//プレイヤはコネクトされていない
-				isActiveShip=false;
+				if(InternetReachabilityVerifier.Instance!=null){
+					if(InternetReachabilityVerifier.Instance.status == InternetReachabilityVerifier.Status.NetVerified){
+						//同時に、自分はコネクトされている
+						isActiveShip=false;
+						Debug.LogError("敵がDisconnected");
+					}else{
+						//自分が落ちているだけ
+						isActiveShip=true;
+					}
+				}
+
 			}else{
 				//プレイヤはコネクトされた
 				isActiveShip=true;
 			}
 		}
 
-		if(!isControllable)return;
+
 		if(!isOwnersShip())return;
 
 			//PlayerのShipのみで呼ばれる
@@ -1193,6 +1325,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	void FixedUpdate(){
 		if(!isOwnersShip())return;
+		if(!isControllable)return;
 
 		tr = transform.position.normalized;
 

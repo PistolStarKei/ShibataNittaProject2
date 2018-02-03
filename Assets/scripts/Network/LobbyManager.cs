@@ -44,9 +44,13 @@ namespace PSPhoton {
 				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
 			}
 			instance=this;
+
+			if(InternetReachabilityVerifier.Instance==null){
+				GameObject.Instantiate(internetCheker,Vector3.zero,Quaternion.identity,null);
+			}
 		}
 
-
+		public GameObject internetCheker;
 		public GameObject audioControllerObj;
 		void Start () {
 

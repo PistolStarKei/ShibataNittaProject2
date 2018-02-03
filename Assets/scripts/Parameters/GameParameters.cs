@@ -163,13 +163,14 @@ namespace PSParams{
 		//出現割合　合計で100%
 		public static readonly Dictionary<Pickup,int> Rate_Subweapon = new Dictionary<Pickup,int>()
 		{
-			{ Pickup.NAPAM, 60 },
-			{ Pickup.NUKE, 30 },
+			{ Pickup.NAPAM, 10 },
+			{ Pickup.NUKE, 1 },
 			{ Pickup.RAZER, 10},
-			{ Pickup.STEALTH, 60 },
-			{ Pickup.WAVE, 30 },
+			{ Pickup.STEALTH, 10 },
+			{ Pickup.WAVE, 10 },
 			{ Pickup.YUDOU, 10},
-			{ Pickup.ZENHOUKOU, 10}
+			{ Pickup.ZENHOUKOU, 19},
+			{ Pickup.SHOT, 30}
 		};
 
 		//スタート後の　スポーン間隔

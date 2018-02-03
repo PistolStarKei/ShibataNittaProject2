@@ -23,18 +23,18 @@ public class mapControl : MonoBehaviour {
 		GameObject mapManager = GameObject.Find ("mapManager");
 
 		switch (mapNumber) {
-		case 0:
-			Instantiate (stage00);
-			break;
-		case 1:
-			Instantiate (stage01);
-			break;
-		case 2:
-			Instantiate (stage02);
-			break;
-		case 3:
-			Instantiate (stage03);
-			break;
+			case 0:
+				Instantiate (stage00);
+				break;
+			case 1:
+				Instantiate (stage01);
+				break;
+			case 2:
+				Instantiate (stage02);
+				break;
+			case 3:
+				Instantiate (stage03);
+				break;
 		}
 	}
 }
