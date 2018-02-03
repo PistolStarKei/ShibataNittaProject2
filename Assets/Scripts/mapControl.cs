@@ -20,12 +20,19 @@ public class mapControl : MonoBehaviour {
 
 	public void attachMapData(){
 		// mapManagerの子供にmapDataをつける処理
-		GameObject mapManager = GameObject.Find ("mapManager");
+
+		//自分のインスタンスなので不要です。
+		//GameObject mapManager = GameObject.Find ("mapManager");
 
 		switch (mapNumber) {
 		case 0:
-			Instantiate (stage00);
-			stage00.transform.parent = mapManager.transform;
+			GameObject go=Instantiate (stage00);
+
+			//これはInstantiateされたオブジェクトではなくて、プレハブに親をつけている
+			//stage00.transform.parent = mapManager.transform;
+
+			//Instantiateされたオブジェクトに、自分のスクリプトの付いているGOのtransformを親に設定する
+			go.transform.parent = this.gameObject.transform;
 			break;
 		case 1:
 			Instantiate (stage01);
