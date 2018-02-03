@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -119,12 +119,11 @@ MonoBehaviour:
   Centre_Alone:
     rootObject: {fileID: 100000}
     currentBlockIndex: 0
-    blockSet:
-    - {fileID: 100000, guid: f54b83631f5cdd649875da6ecc060938, type: 2}
+    blockSet: []
     currentObject: {fileID: 0}
     offset: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0}
-    isDefaultSet: 1
+    isDefaultSet: 0
   Left_Alone:
     rootObject: {fileID: 0}
     currentBlockIndex: 0
@@ -318,6 +317,182 @@ MonoBehaviour:
     rotation: {x: 0, y: 0, z: 0}
     isDefaultSet: 0
   Rightward_T_Hub:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Border_Bottom_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Border_Bottom_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Border_Top_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Border_Top_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Diagonal_Gate_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Diagonal_Gate_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Fork_Bottom_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Fork_Bottom_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Fork_Top_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Fork_Top_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Funnel_Bottom:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Funnel_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Funnel_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Funnel_Top:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Bottom_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Bottom_Right:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Left_Bottom:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Left_Top:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Right_Bottom:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Right_Top:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Top_Left:
+    rootObject: {fileID: 0}
+    currentBlockIndex: 0
+    blockSet: []
+    currentObject: {fileID: 0}
+    offset: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+    isDefaultSet: 0
+  Taper_Top_Right:
     rootObject: {fileID: 0}
     currentBlockIndex: 0
     blockSet: []
