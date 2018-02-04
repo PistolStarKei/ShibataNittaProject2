@@ -229,20 +229,42 @@ namespace PSParams{
 		//Total Kill キル回数　Average Rank 平均順位　Total Winnings 優勝回数
 		//1-12月まで
 		public static string[] RankingTittels=new string[3]{"平均順位","１位獲得数","キル数"};
+
+		//2018 1-12
 		public static Dictionary<string,string[]> RankingIDs=new Dictionary<string, string[]>(){
-			{"平均順位",new  string[12]{"","","","","","","","","","","",""}},
-			{"１位獲得数",new  string[12]{"","","","","","","","","","","",""}},
-			{"キル数",new  string[12]{"","","","","","","","","","","",""}}
+			{"平均順位",new  string[12]{"CgkI7ILIhtELEAIQAQ","CgkI7ILIhtELEAIQBA","CgkI7ILIhtELEAIQBQ","CgkI7ILIhtELEAIQBg","CgkI7ILIhtELEAIQBw",
+					"CgkI7ILIhtELEAIQCA","CgkI7ILIhtELEAIQCQ","CgkI7ILIhtELEAIQCg","CgkI7ILIhtELEAIQCw","CgkI7ILIhtELEAIQDA","CgkI7ILIhtELEAIQDQ","CgkI7ILIhtELEAIQDg"}},
+			{"１位獲得数",new  string[12]{"CgkI7ILIhtELEAIQAg","CgkI7ILIhtELEAIQDw","CgkI7ILIhtELEAIQEA","CgkI7ILIhtELEAIQEQ","CgkI7ILIhtELEAIQEg","CgkI7ILIhtELEAIQEw"
+					,"CgkI7ILIhtELEAIQFA","CgkI7ILIhtELEAIQFQ","CgkI7ILIhtELEAIQFg","CgkI7ILIhtELEAIQFw","CgkI7ILIhtELEAIQGA","CgkI7ILIhtELEAIQGQ"}},
+			{"キル数",new  string[12]{"CgkI7ILIhtELEAIQAA","CgkI7ILIhtELEAIQGg","CgkI7ILIhtELEAIQGw","CgkI7ILIhtELEAIQHA","CgkI7ILIhtELEAIQHQ"
+					,"CgkI7ILIhtELEAIQHg","CgkI7ILIhtELEAIQHw","CgkI7ILIhtELEAIQIA","CgkI7ILIhtELEAIQIQ","CgkI7ILIhtELEAIQIg"
+					,"CgkI7ILIhtELEAIQIw","CgkI7ILIhtELEAIQJA"}}
 
 		};
+		public static Dictionary<string,string[]> PreviousRankingIDs=new Dictionary<string, string[]>(){
+			{"平均順位",new  string[1]{"CgkI7ILIhtELEAIQDg"}},
+			{"１位獲得数",new  string[1]{"CgkI7ILIhtELEAIQGQ"}},
+			{"キル数",new  string[1]{"CgkI7ILIhtELEAIQJA"}}
+
+		};
+
 		public static string GetRankingID(int month,string rankingTittle){
-			if(rankingTittle=="平均順位"){
-				
-			}else if(rankingTittle=="１位獲得数"){
-				
-			}else if(rankingTittle=="キル数"){
-				
+			month--;
+			string[] strs;
+			if(month>=0){
+				strs=RankingIDs[rankingTittle];
+				if(strs.Length>month){
+					return strs[month];
+				}
+			}else{
+				//前年の12月のデータをだす
+				month=0;
+				strs=PreviousRankingIDs[rankingTittle];
+				if(strs.Length>month){
+					return strs[month];
+				}
 			}
+
 			return "";
 		}
 

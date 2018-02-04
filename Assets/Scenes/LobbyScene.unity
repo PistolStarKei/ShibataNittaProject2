@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needToSingleton: 1
-  initOnStart: 0
+  initOnStart: 1
   isDebugMode: 1
   storeListener: {fileID: 530614476}
   isInitted_Store: 0
@@ -6719,7 +6719,7 @@ MonoBehaviour:
     tittles: []
     descs: []
     ids: []
-  isDebugLog: 0
+  isDebugLog: 1
 --- !u!4 &530614477
 Transform:
   m_ObjectHideFlags: 0
@@ -15793,7 +15793,7 @@ Prefab:
     - target: {fileID: 114000010682197944, guid: dfd8ee2125b484bce9aca0dcb30da1cd,
         type: 2}
       propertyPath: debugDelete
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfd8ee2125b484bce9aca0dcb30da1cd, type: 2}
@@ -19967,7 +19967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effe6d7494a884e769c48d712c573c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
+  size: 1
   anchor: 2
 --- !u!1001 &1737299215
 Prefab:
@@ -23645,7 +23645,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

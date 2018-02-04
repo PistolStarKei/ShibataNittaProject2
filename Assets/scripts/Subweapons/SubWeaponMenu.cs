@@ -117,7 +117,7 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	public SubweaponNext[] nextHolder;
 
-	string[] fittingName=new string[7]{"UI_Napam","UI_Nuke","UI_Razer","UI_Stealth","UI_Wave","UI_Yudou","UI_Zenhoukou"};
+	string[] fittingName=new string[7]{"PU_Napam","PU_Nuke","PU_Razer","PU_Stealth","PU_Wave","PU_Yudou","PU_Zenhoukou"};
 
 	void SetHighLight(bool isOn){
 		if(isOn){

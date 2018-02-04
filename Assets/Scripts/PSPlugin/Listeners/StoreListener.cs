@@ -25,11 +25,13 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 			this.items.prices=new string[AppData.IAP_SKUs.Length];
 			this.items.tittles=new string[AppData.IAP_SKUs.Length];
 			this.items.descs=new string[AppData.IAP_SKUs.Length];
+			this.items.ids=new string[AppData.IAP_SKUs.Length];
 
 			for(int i=0;i<this.items.prices.Length;i++){
 				this.items.prices[i]="--";
 				this.items.tittles[i]="--";
 				this.items.descs[i]="--";
+				this.items.ids[i]="--";
 			}
 
 			for(int i=0;i<AppData.IAP_SKUs.Length;i++){
