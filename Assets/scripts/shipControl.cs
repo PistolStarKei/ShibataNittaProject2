@@ -62,7 +62,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	public bool debugPlayership=false;
 
-	void Start(){
+	void Awake(){
 		rd = GetComponent<Rigidbody> (); 
 		photonView= GetComponent<PhotonView>();
 		photonTransformView = GetComponent<PhotonTransformView>();
@@ -79,6 +79,14 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		this.speed=PSParams.GameParameters.speed;
 		this.razerMaxdistance=PSParams.GameParameters.razerMaxDistance;
 		this.useHitDetectionOnHitter=PSParams.GameParameters.useHitDetectionOnHitter;
+
+		GameObject mzl = transform.Find("Muzzle").gameObject;
+		if(mzl){
+			this.muzzle=mzl.GetComponent<MuzzleManager>();
+		}
+	}
+	void Start(){
+		
 
 		currentHP=MaxHP;
 		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
@@ -559,12 +567,16 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		[PunRPC]
 		public void RPC_SpawnShot(Vector3 position,Vector3 rotation,float spawnTime,string ID){
+			//マズル
+			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.Forward));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
 			AddWeaponHolder(tr);
 		}
 
 		[PunRPC]
 		public void RPC_SpawnShotDouble(Vector3 position1,Vector3 position2,Vector3 rotation,float spawnTime,string[] ID){
+			//マズル
+			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID[0]);
 			AddWeaponHolder(tr);
 			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft,ID[1]);
@@ -573,6 +585,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		[PunRPC]
 		public void RPC_SpawnShotTripple(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string[] ID){
+			//マズル
+			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
 			AddWeaponHolder(tr);
 			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRight,ID[1]);
@@ -583,6 +597,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		
 		[PunRPC]
 		public void RPC_SpawnShotQuad(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string[] ID){
+			//マズル
+			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.Forward),transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
 			AddWeaponHolder(tr);
 			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRight,ID[1]);
@@ -631,6 +647,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		public void RPC_SpawnNukeEffecter(Vector3 position){
 			PickupAndWeaponManager.Instance.SpawnSubweapon_NukeEffecter(this,position,Quaternion.identity,null);
 		}
+
+
+	public MuzzleManager muzzle;
 
 
 	public bool OnShotToggle(bool val){
@@ -1231,11 +1250,34 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	public void OnPickup_Shot(){
 		if(isOwnersShip()){
 			shot_rensou++;
-			if(shot_rensou==4)shotCol=DanmakuColor.Yellow;
-			if(shot_rensou==5)shotCol=DanmakuColor.Red;
 			if(shot_rensou>5)shot_rensou=5;
+			if(photonView)photonView.RPC ("SetRensou", PhotonTargets.AllViaServer,new object[]{shot_rensou});
 		}
 	}
+
+	[PunRPC]
+	public void SetRensou(int i){
+		shot_rensou=i;
+		switch(shot_rensou){
+			case 1:
+				shotCol=DanmakuColor.White;
+				//muzzle.SetPosition();
+				break;
+			case 2:
+				shotCol=DanmakuColor.White;
+				break;
+			case 3:
+				shotCol=DanmakuColor.White;
+				break;
+			case 4:
+				shotCol=DanmakuColor.Blue;
+				break;
+			case 5:
+				shotCol=DanmakuColor.Red;
+				break;
+		}
+	}
+
 	#endregion
 
 	public float lastReceivedTime=0.0f;

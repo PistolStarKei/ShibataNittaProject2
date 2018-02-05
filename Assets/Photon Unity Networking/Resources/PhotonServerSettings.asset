@@ -81,4 +81,5 @@ MonoBehaviour:
   - RPC_ConstantRazerDamage
   - RPC_ConstantDangerZoneDamage
   - RPC_SpawnShotQuad
+  - SetRensou
   DisableAutoOpenWizard: 1
