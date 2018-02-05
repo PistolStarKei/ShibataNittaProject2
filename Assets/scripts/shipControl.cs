@@ -970,23 +970,34 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			return;
 		}
 
-
-
-
 		//防御側で判定する場合
-		if(isOwnersShip()){
-			if(photonView){
-
-				//HPバーの更新、プレイヤーオブジェクトのみでやる
-
-
-				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-				}
-				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
-
+		if(!isActiveShip){
+			//敵は落ちている状態なので、こっちでやる。
+			if(PhotonNetwork.player.ID==targettedBy){
 				if(currentHP<=0.0f){
-					photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
+					if(usingLog)Debug.Log("代わりに殺す");
+
+					this.photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
+					return;
+				}
+			}
+		}else{
+
+
+			if(isOwnersShip()){
+				if(photonView){
+
+					//HPバーの更新、プレイヤーオブジェクトのみでやる
+
+
+					if(GUIManager.Instance.isDebugMode){
+						GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
+					}
+					GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
+
+					if(currentHP<=0.0f){
+						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
+					}
 				}
 			}
 		}
