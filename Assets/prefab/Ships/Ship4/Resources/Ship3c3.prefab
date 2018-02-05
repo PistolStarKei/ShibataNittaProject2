@@ -127,7 +127,7 @@ GameObject:
   - 120: {fileID: 120000014292673112}
   - 114: {fileID: 114000010853104474}
   m_Layer: 0
-  m_Name: Razer (2)
+  m_Name: Razer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   - 4: {fileID: 4000013012549634}
   - 114: {fileID: 114000012755992662}
   m_Layer: 11
-  m_Name: Muzzle (3)
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

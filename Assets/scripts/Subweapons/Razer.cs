@@ -7,6 +7,9 @@ public class Razer : MonoBehaviour {
 
 	public LineRenderer line;
 	shipControl ship;
+	void Awake(){
+		this.gameObject.name="Razer";
+	}
 	void Start () 
 	{
 		size = new Vector2 (1.0f / uvTieX ,1.0f / uvTieY);

@@ -84,6 +84,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(mzl){
 			this.muzzle=mzl.GetComponent<MuzzleManager>();
 		}
+
+		mzl = transform.Find("Razer").gameObject;
+		if(mzl){
+			this.razerSysytem=mzl.GetComponent<Razer>();
+		}
 	}
 	void Start(){
 		

@@ -198,7 +198,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: bg_wakumid
     x: 1925
-    y: 418
+    y: 419
     width: 211
     height: 211
     borderLeft: 51
@@ -236,8 +236,8 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 19
   - name: btn_play_cover
-    x: 1925
-    y: 1576
+    x: 1526
+    y: 166
     width: 259
     height: 260
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 44
   - name: btn_small_bg
     x: 1925
-    y: 220
+    y: 221
     width: 220
     height: 197
     borderLeft: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: btn_timer
     x: 1925
-    y: 823
+    y: 824
     width: 240
     height: 240
     borderLeft: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     paddingBottom: 21
   - name: circ
     x: 1925
-    y: 1319
+    y: 1320
     width: 256
     height: 256
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 25
   - name: circ1
-    x: 1526
-    y: 167
+    x: 1925
+    y: 1577
     width: 260
     height: 259
     borderLeft: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
     paddingTop: 200
     paddingBottom: 33
   - name: GUI_Corner_Round
-    x: 1787
+    x: 1786
     y: 252
     width: 82
     height: 42
@@ -354,7 +354,7 @@ MonoBehaviour:
     paddingBottom: 30
   - name: GUI_Cover3
     x: 1764
-    y: 56
+    y: 55
     width: 154
     height: 49
     borderLeft: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 18
   - name: HPBar
-    x: 2480
+    x: 2481
     y: 1767
     width: 828
     height: 29
@@ -392,7 +392,7 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 60
   - name: HPBar_BG
-    x: 2480
+    x: 2481
     y: 1797
     width: 841
     height: 39
@@ -406,7 +406,7 @@ MonoBehaviour:
     paddingBottom: 54
   - name: HUD_Map
     x: 1925
-    y: 1064
+    y: 1065
     width: 254
     height: 254
     borderLeft: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 8
   - name: ic_hp
-    x: 1787
+    x: 1786
     y: 354
     width: 69
     height: 72
@@ -549,7 +549,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: ic_saterite
     x: 1925
-    y: 93
+    y: 94
     width: 218
     height: 126
     borderLeft: 0
@@ -653,7 +653,7 @@ MonoBehaviour:
     paddingBottom: 32
   - name: indicator_on
     x: 1306
-    y: 1342
+    y: 1315
     width: 25
     height: 26
     borderLeft: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: input_waku
-    x: 1787
+    x: 1786
     y: 295
     width: 75
     height: 58
@@ -808,7 +808,7 @@ MonoBehaviour:
     paddingTop: 253
     paddingBottom: 169
   - name: PU_Stealth
-    x: 2185
+    x: 2186
     y: 1660
     width: 294
     height: 176
@@ -822,7 +822,7 @@ MonoBehaviour:
     paddingBottom: 140
   - name: PU_Wave
     x: 1526
-    y: 46
+    y: 45
     width: 237
     height: 120
     borderLeft: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
     paddingBottom: 204
   - name: PU_Zenhoukou
     x: 1925
-    y: 630
+    y: 631
     width: 250
     height: 192
     borderLeft: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
     paddingBottom: 26
   - name: status1
     x: 1306
-    y: 1369
+    y: 1342
     width: 27
     height: 27
     borderLeft: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
     paddingBottom: 36
   - name: status2
     x: 1306
-    y: 1397
+    y: 1370
     width: 27
     height: 27
     borderLeft: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 13
   - name: statusBG2
-    x: 1857
+    x: 1856
     y: 362
     width: 63
     height: 64
@@ -989,9 +989,35 @@ MonoBehaviour:
     paddingRight: 8
     paddingTop: 10
     paddingBottom: 5
+  - name: swbg2
+    x: 115
+    y: 1
+    width: 19
+    height: 24
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 19
+    paddingRight: 23
+    paddingTop: 16
+    paddingBottom: 10
+  - name: swBtm
+    x: 1306
+    y: 1398
+    width: 33
+    height: 26
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 9
+    paddingRight: 2
+    paddingTop: 5
+    paddingBottom: 4
   - name: toggleBG1
     x: 1764
-    y: 106
+    y: 105
     width: 146
     height: 60
     borderLeft: 28

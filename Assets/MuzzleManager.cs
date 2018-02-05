@@ -12,12 +12,13 @@ public class MuzzleManager : MonoBehaviour {
 	public ParticleSystem psL;
 	public ParticleSystem psR;
 	public float scale;
-
 	#endregion
 
 	#region  初期化
 
 	void Awake () {
+		this.gameObject.name="Muzzle";
+		
 		transform.localPosition=Vector3.zero;
 		SetScale(scale);
 	}

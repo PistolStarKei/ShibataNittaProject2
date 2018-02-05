@@ -168,6 +168,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 
 
 	void OnPostingCompleteAction (TWResult result) {
+		Debug.Log( "OnPostingCompleteAction"+result.IsSucceeded );
 		if(result.IsSucceeded) {
 			if(tweetCompletedEvent!=null)tweetCompletedEvent.Invoke(true);
 			tweetCompletedEvent=null;

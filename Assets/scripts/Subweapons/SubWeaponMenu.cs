@@ -8,6 +8,7 @@ public class SubWeaponMenu : MonoBehaviour {
 	
 
 	public Subweapon subTest;
+	public TweenRotation tr;
 	UIWidget widget;
 	void Start(){
 		widget=gameObject.GetComponent<UIWidget>();
@@ -106,6 +107,7 @@ public class SubWeaponMenu : MonoBehaviour {
 	void SetCurrent(Subweapon wep){
 
 		if(wep==Subweapon.NONE){
+			tr.enabled=false;
 			currentSub.enabled=false;
 			SetHighLight(false);
 		}else{
@@ -130,6 +132,7 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	void SetCurrentSubItem(Subweapon wep){
 		currentSub.enabled=true;
+		tr.enabled=true;
 		currentSub.spriteName=fittingName[(int)wep];
 		SetHighLight(true);
 	}
