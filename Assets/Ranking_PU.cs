@@ -10,7 +10,6 @@ using System;
 public class Ranking_PU : MonoBehaviour {
 
 	#region  メンバ変数
-	public GaussianBlur blur;
 	public GameObject btnBG;
 	public GameObject container;
 	public UILabel tittleLb;
@@ -30,7 +29,6 @@ public class Ranking_PU : MonoBehaviour {
 	#region  Public関数
 	public void Show(){
 		AudioController.Play("open");
-		blur.enabled=true;
 		btnBG.SetActive(true);
 		container.SetActive(true);
 		LoadRanking();
@@ -38,7 +36,6 @@ public class Ranking_PU : MonoBehaviour {
 
 	public void OnClose(){
 		AudioController.Play("popup");
-		blur.enabled=false;
 		btnBG.SetActive(false);
 		container.SetActive(false);
 	}

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Colorful;
 public class ResultPanel : MonoBehaviour {
 
-	public GaussianBlur blurEffect;
+	public GameObject blurEffect;
 	public PS_GUI_Cover cover;
 	public UILabel gameoverLb;
 	public void ShowResult(float time,int killNum,int rank,int playerNumber,shipControl playerShip){
@@ -61,7 +61,7 @@ public class ResultPanel : MonoBehaviour {
 	}
 
 	public void Show(){
-		blurEffect.enabled=true;
+		NGUITools.SetActive(blurEffect,true);
 		ta_panel.PlayForward();
 	}
 

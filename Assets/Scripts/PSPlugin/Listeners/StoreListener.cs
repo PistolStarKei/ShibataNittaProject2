@@ -90,6 +90,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 
 		bool isInvoking=false;
 		public void PurchaseProduct(string id,Callback_purchasedEvent purchasedEvent,Callback_purchasFailledEvent purchasFailledEvent){
+			Debug.Log("Purchase Product "+id+"/");
 			ClearAllEventListeners();
 			this.purchasedEvent=purchasedEvent;
 			this.purchasFailledEvent=purchasFailledEvent;
@@ -105,13 +106,13 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 
 
         public bool IsStoreAvaillable(){
-
-            if(!isInvoking && AndroidInAppPurchaseManager.Client.IsConnected){
+			
+            if(isInvoking || !AndroidInAppPurchaseManager.Client.IsConnected){
                 Debug.Log("ストアにコネクトされていない");
                 return false;
             }
 
-        if( this.items.prices.Length<=0 || this.items.prices[0]=="--"){
+        	if( this.items.prices.Length<=0 || this.items.prices[0]=="--"){
                 Debug.Log("ストアアイテムがクエリされていない");
                 return false;
             }

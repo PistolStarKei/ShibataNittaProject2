@@ -4,21 +4,18 @@ using Colorful;
 
 public class FlagSelecter : MonoBehaviour {
 
-	public GaussianBlur blur;
 
 	public GameObject btnBG;
 	public GameObject container;
 
 	public void Show(){
 		AudioController.Play("open");
-		blur.enabled=true;
 		btnBG.SetActive(true);
 		container.SetActive(true);
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
-		blur.enabled=false;
 		btnBG.SetActive(false);
 		container.SetActive(false);
 	}

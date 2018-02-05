@@ -97,13 +97,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Pistolstarweb.spacekill
-  bundleVersion: 1.0
+  bundleVersion: 1.0.4
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -172,7 +172,7 @@ PlayerSettings:
   appleEnableAutomaticSigning: 0
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 2800000, guid: 2a4b6e23f5c634e4aaf68cd66d646101, type: 3}
+  androidSplashScreen: {fileID: 2800000, guid: 56240b79473f44faeafe6a4abbab2b6e, type: 3}
   AndroidKeystoreName: /Users/shibatakei/Desktop/release-key.keystore
   AndroidKeyaliasName: alias_name
   AndroidTVCompatibility: 1

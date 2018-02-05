@@ -8,7 +8,6 @@ using Colorful;
 public class YesNoPU : MonoBehaviour {
 
 	#region  メンバ変数
-	public GaussianBlur blur;
 	public UILabel label;
 	public GameObject btnBG;
 	public GameObject container;
@@ -46,14 +45,12 @@ public class YesNoPU : MonoBehaviour {
 		this.onResponce= onResponce;
 		label.text=desc;
 		AudioController.Play("open");
-		blur.enabled=true;
 		btnBG.SetActive(true);
 		container.SetActive(true);
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
-		blur.enabled=false;
 		btnBG.SetActive(false);
 		container.SetActive(false);
 	}

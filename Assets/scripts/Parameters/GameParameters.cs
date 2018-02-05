@@ -207,8 +207,9 @@ namespace PSParams{
 		public static readonly string MAIL="";
 		//特別商取引法の表示
 		public static readonly string URL_TOKUSHO="https://";
+
 		//プライバシーポリシーページ
-		public static readonly string URL_POLICY="https://";
+		public static readonly string URL_POLICY="https://smart4me.net/pistolstar/#!policySP";
 		//ランキング用GPGS
 		public static readonly string GPGAPPID="399714156908-5nd3ecp45jhv0uiumhfpbbl1gs2nmjfc.apps.googleusercontent.com";
 

@@ -9,7 +9,6 @@ using PSParams;
 public class PU_Ticket : MonoBehaviour {
 
 	#region  メンバ変数
-	public GaussianBlur blur;
 	public GameObject btn;
 	public GameObject container;
 	#endregion
@@ -18,7 +17,6 @@ public class PU_Ticket : MonoBehaviour {
 	#region  Public関数
 	public void Show(){
 		AudioController.Play("open");
-		blur.enabled=true;
 		btn.SetActive(true);
 		container.SetActive(true);
 		UpdateButtons();
@@ -26,7 +24,6 @@ public class PU_Ticket : MonoBehaviour {
 
 	public void OnClose(){
 		AudioController.Play("popup");
-		blur.enabled=false;
 		btn.SetActive(false);
 		container.SetActive(false);
 	}
@@ -46,9 +43,6 @@ public class PU_Ticket : MonoBehaviour {
 
 	public void OnClickTweet(){
 
-		if(!PS_Plugin.Instance.twListener.IsAuthenticated)return;
-
-
 		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
 		//ツイッターへ飛ばす、待ち受けて追加する
 		//Texture2D image = GetImage();
@@ -60,6 +54,8 @@ public class PU_Ticket : MonoBehaviour {
 	}
 
 	public void OnTweetSuccessed(bool isSuccess){
+		
+		PSGUI.WaitHUD.guiWait.Hide();
 		if(isSuccess && DataManager.Instance.gameData.gameTickets!=-100){
 			DataManager.Instance.gameData.gameTickets++;
 			DataManager.Instance.gameData.tweetNum++;
@@ -151,7 +147,7 @@ public class PU_Ticket : MonoBehaviour {
 
 	void UpdateButtons(){
 
-		if(!PS_Plugin.Instance.twListener.IsAuthenticated || DataManager.Instance.gameData.tweetNum>=3 || DataManager.Instance.gameData.gameTickets==-100){
+		if(DataManager.Instance.gameData.tweetNum>=3 || DataManager.Instance.gameData.gameTickets==-100){
 			mBuyBtns[0].SetPrice("N/A");
 			mBuyBtns[0].SetColor(btnColorNActive,btnColorNActiveWaku);
 

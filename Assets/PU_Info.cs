@@ -10,7 +10,6 @@ using PSParams;
 public class PU_Info : MonoBehaviour {
 
 	#region  メンバ変数
-	public GaussianBlur blur;
 	public GameObject btn;
 	public GameObject container;
 	#endregion
@@ -41,14 +40,12 @@ public class PU_Info : MonoBehaviour {
 	#region  Public関数
 	public void Show(){
 		AudioController.Play("open");
-		blur.enabled=true;
 		btn.SetActive(true);
 		container.SetActive(true);
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
-		blur.enabled=false;
 		btn.SetActive(false);
 		container.SetActive(false);
 	}

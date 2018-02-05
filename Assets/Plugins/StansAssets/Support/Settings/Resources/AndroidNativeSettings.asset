@@ -20,7 +20,7 @@ MonoBehaviour:
   LoadQuestsImages: 1
   LoadQuestsIcons: 1
   LoadEventsIcons: 1
-  ShowConnectingPopup: 1
+  ShowConnectingPopup: 0
   AutoLoadLocalPlayerScore: 0
   GoogleFitEnabled: 0
   EnableATCSupport: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   EnableCameraAPI: 0
   ExpandNativeAPI: 0
   ExpandPSAPI: 1
-  ExpandBillingAPI: 0
+  ExpandBillingAPI: 1
   ExpandSocialAPI: 1
   ExpandCameraAPI: 0
   ThirdPartyParams: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   FirebaseApiKey: 
   DynamicLinks: []
   InAppPurchasesAPI: 1
-  GooglePlayServicesAPI: 0
+  GooglePlayServicesAPI: 1
   PlayServicesAdvancedSignInAPI: 0
   GoogleButtonAPI: 0
   AnalyticsAPI: 0
@@ -94,10 +94,109 @@ MonoBehaviour:
   CameraAPI: 0
   KeepManifestClean: 1
   GooglePlayServiceAppID: 216817929098
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 2
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB
   ShowStoreProducts: 1
-  InAppProducts: []
+  InAppProducts:
+  - IsOpen: 0
+    SKU: 5tickets
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
+  - IsOpen: 0
+    SKU: museigen
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship1sc
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship2sc
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship4sc
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship6pan
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship6sak
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship7met
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship7gld
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship8gld
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
+  - IsOpen: 0
+    SKU: ship8sc
+    _LocalizedPrice: 0$
+    _PriceAmountMicros: 0
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 1
   ShowLeaderboards: 1
   Leaderboards: []
   ShowAchievements: 1
