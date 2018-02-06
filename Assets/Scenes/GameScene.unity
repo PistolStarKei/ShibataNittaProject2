@@ -4180,7 +4180,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
       propertyPath: _perPrefabPoolOptions.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
       propertyPath: m_LocalPosition.x
@@ -4346,6 +4346,39 @@ Prefab:
       propertyPath: _perPrefabPoolOptions.Array.data[4].prefab
       value: 
       objectReference: {fileID: 4000013686412752, guid: 787baba2720e5e8429244e16b227a5d9,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[0].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 4000012068694812, guid: 39ba1cda4508844c198a4c44e0deb3cd,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
@@ -12298,6 +12331,8 @@ MonoBehaviour:
   explosionBig: {fileID: 1000010267510094, guid: 738fffe0dacd7744a80d04075e86234b,
     type: 2}
   explosionSmall: {fileID: 1000013367037066, guid: 787baba2720e5e8429244e16b227a5d9,
+    type: 2}
+  explosionCollide: {fileID: 1000010506034470, guid: 39ba1cda4508844c198a4c44e0deb3cd,
     type: 2}
   cureS: {fileID: 1000013839301620, guid: 259515deb046749f4875a30a4257ca66, type: 2}
   cureM: {fileID: 1000012063878298, guid: d48bfbd3b03cb4be0bdab1117cfffa5c, type: 2}

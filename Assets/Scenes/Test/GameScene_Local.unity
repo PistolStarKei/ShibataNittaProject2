@@ -784,7 +784,7 @@ Transform:
   - {fileID: 917292379}
   - {fileID: 409862772}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &78000805
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +953,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 82432797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1000, y: 588, z: 0}
+  m_LocalPosition: {x: 1000, y: 562.00006, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -4049,185 +4049,6 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: line
   mFillCenter: 1
---- !u!1001 &230292685
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.43827462
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.33528572
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: poolName
-      value: Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: m_Name
-      value: ParticleManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[0].prefab
-      value: 
-      objectReference: {fileID: 4000012159959530, guid: 738fffe0dacd7744a80d04075e86234b,
-        type: 2}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].preloadAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].preloadFrames
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].limitAmount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].cullAbove
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].cullDelay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].cullMaxPerPass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 4000011623749366, guid: 259515deb046749f4875a30a4257ca66,
-        type: 2}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].preloadAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].preloadFrames
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].limitAmount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].cullAbove
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].cullDelay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].cullMaxPerPass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[2].prefab
-      value: 
-      objectReference: {fileID: 4000010733327592, guid: 62630b07ec794400f8da7b580c103b8c,
-        type: 2}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].preloadAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].preloadFrames
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].limitAmount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].cullAbove
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].cullDelay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].cullMaxPerPass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[3].prefab
-      value: 
-      objectReference: {fileID: 4000012871077894, guid: d48bfbd3b03cb4be0bdab1117cfffa5c,
-        type: 2}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].preloadAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].preloadFrames
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].limitAmount
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].cullAbove
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].cullDelay
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].cullMaxPerPass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-      propertyPath: _perPrefabPoolOptions.Array.data[4].prefab
-      value: 
-      objectReference: {fileID: 4000013686412752, guid: 787baba2720e5e8429244e16b227a5d9,
-        type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &238697883
 GameObject:
   m_ObjectHideFlags: 0
@@ -7165,7 +6986,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010421185364, guid: d3e15ffc7fb484ea3af4555bc718a82c, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114000010851502772, guid: d3e15ffc7fb484ea3af4555bc718a82c,
         type: 2}
@@ -9650,7 +9471,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728137782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -588, z: 0}
+  m_LocalPosition: {x: 0, y: -562.00006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -10050,7 +9871,7 @@ Transform:
   - {fileID: 1681108169}
   - {fileID: 96902891}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &808994601
 GameObject:
   m_ObjectHideFlags: 0
@@ -10308,7 +10129,7 @@ Transform:
   m_GameObject: {fileID: 873117195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 0.0017006802, y: 0.0017006802, z: 0.0017006802}
+  m_LocalScale: {x: 0.0017777778, y: 0.0017777778, z: 0.0017777778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1546511597}
@@ -11951,7 +11772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010074317586, guid: dfd8ee2125b484bce9aca0dcb30da1cd, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114000010682197944, guid: dfd8ee2125b484bce9aca0dcb30da1cd,
         type: 2}
@@ -11991,7 +11812,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1051918387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1000, y: -588, z: 0}
+  m_LocalPosition: {x: 1000, y: -562.00006, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -12196,7 +12017,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078001573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1000, y: -588, z: 0}
+  m_LocalPosition: {x: -1000, y: -562.00006, z: 0}
   m_LocalScale: {x: 1.0025018, y: 1.0025018, z: 1.0025014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -14117,29 +13938,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1905102204}
   m_RootOrder: 1
---- !u!1 &1122068812 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
-  m_PrefabInternal: {fileID: 230292685}
---- !u!114 &1122068813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1122068812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c241c93f120e4b0a9a2b53ba5ded8af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionBig: {fileID: 1000010267510094, guid: 738fffe0dacd7744a80d04075e86234b,
-    type: 2}
-  explosionSmall: {fileID: 1000013367037066, guid: 787baba2720e5e8429244e16b227a5d9,
-    type: 2}
-  cureS: {fileID: 1000013839301620, guid: 259515deb046749f4875a30a4257ca66, type: 2}
-  cureM: {fileID: 1000012063878298, guid: d48bfbd3b03cb4be0bdab1117cfffa5c, type: 2}
-  cureL: {fileID: 1000014107247094, guid: 62630b07ec794400f8da7b580c103b8c, type: 2}
-  poolName: Particles
 --- !u!1 &1126380483
 GameObject:
   m_ObjectHideFlags: 0
@@ -16316,7 +16114,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012087319076, guid: f1b87771072314c4e9987c0b745fca70, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1b87771072314c4e9987c0b745fca70, type: 2}
@@ -17701,7 +17499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012720504528, guid: e2d70ba06e0c74bd1ac8dfd9783b799f, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114000014027466206, guid: e2d70ba06e0c74bd1ac8dfd9783b799f,
         type: 2}
@@ -17820,7 +17618,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389511184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 588, z: 0}
+  m_LocalPosition: {x: 0, y: 562.00006, z: 0}
   m_LocalScale: {x: 1.0012499, y: 1.0012499, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -73596,7 +73394,7 @@ Transform:
   m_Children:
   - {fileID: 2144734089}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1640180121
 GameObject:
   m_ObjectHideFlags: 0
@@ -78428,6 +78226,243 @@ MonoBehaviour:
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
   useSortingOrder: 0
+--- !u!1001 &1995713309
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.43827462
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.33528572
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: poolName
+      value: Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: m_Name
+      value: ParticleManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 4000012159959530, guid: 738fffe0dacd7744a80d04075e86234b,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 4000011623749366, guid: 259515deb046749f4875a30a4257ca66,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 4000010733327592, guid: 62630b07ec794400f8da7b580c103b8c,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 4000012871077894, guid: d48bfbd3b03cb4be0bdab1117cfffa5c,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 4000013686412752, guid: 787baba2720e5e8429244e16b227a5d9,
+        type: 2}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[0].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].preloadAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].preloadFrames
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].limitAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullAbove
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullDelay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].cullMaxPerPass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+      propertyPath: _perPrefabPoolOptions.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 4000012068694812, guid: 39ba1cda4508844c198a4c44e0deb3cd,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1995713310 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 9d9ce351effef8b4e9d32b3649a9e4da, type: 2}
+  m_PrefabInternal: {fileID: 1995713309}
+--- !u!114 &1995713311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995713310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c241c93f120e4b0a9a2b53ba5ded8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionBig: {fileID: 1000010267510094, guid: 738fffe0dacd7744a80d04075e86234b,
+    type: 2}
+  explosionSmall: {fileID: 1000013367037066, guid: 787baba2720e5e8429244e16b227a5d9,
+    type: 2}
+  explosionCollide: {fileID: 1000010506034470, guid: 39ba1cda4508844c198a4c44e0deb3cd,
+    type: 2}
+  cureS: {fileID: 1000013839301620, guid: 259515deb046749f4875a30a4257ca66, type: 2}
+  cureM: {fileID: 1000012063878298, guid: d48bfbd3b03cb4be0bdab1117cfffa5c, type: 2}
+  cureL: {fileID: 1000014107247094, guid: 62630b07ec794400f8da7b580c103b8c, type: 2}
+  poolName: Particles
 --- !u!1 &1996995918
 GameObject:
   m_ObjectHideFlags: 0
@@ -79677,7 +79712,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!114 &2107099887
 MonoBehaviour:
   m_ObjectHideFlags: 0
