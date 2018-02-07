@@ -15,7 +15,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 	{
 
 
-
+		
 		public void Init(){
 			Debug.Log("ストア　初期化");
 			if(IsStoreAvaillable()){
@@ -63,10 +63,20 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 			}
 		}
 
+		public void DebugLog(){
+			Debug.LogWarning("購入データ件数 "+items.prices.Length);
+			for(int i=0;i<this.items.prices.Length;i++){
+				Debug.LogWarning(this.items.tittles[i]+":"+this.items.prices[i]);
+			}
+		}
+
 		public string GetPrice(string skusName){
 
 			int i=Array.IndexOf(items.ids,skusName);
+			Debug.LogWarning("ここで購入処理 金額を渡す "+skusName);
+			Debug.LogWarning("ここで購入処理 金額を渡す "+i);
 			if(i<items.ids.Length){
+				Debug.LogWarning("ここで購入処理 金額を渡す "+items.prices[i]);
 				return items.prices[i];
 			}else{
 				Debug.LogError("isConsumableProduct sukus is over isConsumable Length");
@@ -174,7 +184,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 					}
 				}else{
 				    if(AndroidInAppPurchaseManager.Client.Inventory.IsProductPurchased(p.SKU)) {
-						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("リストア　 " +p.SKU);
+						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("リストアあり　 " +p.SKU);
 						OnPurchased(p.SKU,true);
 					}
 				}
@@ -190,6 +200,8 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
         void OnItemsQuery(string id,string price,string desc,string tittle){
 			int i=0;
 			i=Array.IndexOf(AppData.IAP_SKUs,id);
+
+			if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("OnItemsQuery" + "\n"+id +" price="+price);
 			if(i>=0){
 				this.items.ids[i]=id;
                 this.items.prices[i]= price;
@@ -262,11 +274,25 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 						//ここで購入を
 						DataManager.Instance.gameData.gameTickets+=5;
 						DataManager.Instance.SaveAll();
+						GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+						if(go){
+							GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+							if(setter){
+								setter.UpdateTickets();
+							}
+						}
                      }
 					if(id==AppData.IAP_SKUs[1]){
 						//ここで購入を
 						DataManager.Instance.gameData.gameTickets=-100;
 						DataManager.Instance.SaveAll();
+						GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+						if(go){
+							GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+							if(setter){
+								setter.UpdateTickets();
+							}
+						}
 
 					}
 					if(id=="ship1sc"){

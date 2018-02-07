@@ -6,6 +6,7 @@ public class SafeZoneMap : MonoBehaviour {
 	public Transform playerOBJ;
 	public Transform mapContainer;
 	public UITexture mapTex;
+
 	public float width;
 	public float bairitsu=1f;
 
@@ -67,6 +68,7 @@ public class SafeZoneMap : MonoBehaviour {
 
 		mapContainer.localPosition=new Vector3(-(GUIManager.Instance.shipControll.transform.position.x*temp)
 			,-(GUIManager.Instance.shipControll.transform.position.z*temp),0.0f);
+		
 	}
 
 

@@ -97,13 +97,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Pistolstarweb.spacekill
-  bundleVersion: 1.0.7
+  bundleVersion: 1.0.9
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 107
+  AndroidBundleVersionCode: 109
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
