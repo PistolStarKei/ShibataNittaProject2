@@ -39,6 +39,7 @@ public class Subweapon_Wave : SubweaponShot {
 	}
 
 	public override  void OnCollideWall(){
+		ParticleManager.Instance.ShowExplosionCollideAt(transform.position,Quaternion.identity,null);
 		base.OnCollideWall();
 
 	}

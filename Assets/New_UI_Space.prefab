@@ -328,7 +328,7 @@ MonoBehaviour:
     paddingBottom: 33
   - name: GUI_Corner_Round
     x: 1787
-    y: 353
+    y: 229
     width: 82
     height: 42
     borderLeft: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
     paddingBottom: 8
   - name: ic_hp
     x: 1786
-    y: 584
+    y: 455
     width: 69
     height: 72
     borderLeft: 0
@@ -613,8 +613,8 @@ MonoBehaviour:
     paddingTop: 40
     paddingBottom: 17
   - name: ic_TW
-    x: 1340
-    y: 14
+    x: 1786
+    y: 528
     width: 128
     height: 128
     borderLeft: 0
@@ -652,8 +652,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: input_waku
-    x: 1786
-    y: 525
+    x: 1787
+    y: 337
     width: 75
     height: 58
     borderLeft: 23
@@ -848,7 +848,7 @@ MonoBehaviour:
     paddingBottom: 147
   - name: roundBtn
     x: 1856
-    y: 588
+    y: 459
     width: 67
     height: 68
     borderLeft: 0
@@ -924,9 +924,22 @@ MonoBehaviour:
     paddingRight: 42
     paddingTop: 34
     paddingBottom: 26
+  - name: stage00_image
+    x: 1340
+    y: 14
+    width: 128
+    height: 128
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: status1
     x: 1306
-    y: 1370
+    y: 1342
     width: 27
     height: 27
     borderLeft: 0
@@ -939,7 +952,7 @@ MonoBehaviour:
     paddingBottom: 36
   - name: status2
     x: 1306
-    y: 1342
+    y: 1370
     width: 27
     height: 27
     borderLeft: 0
@@ -977,8 +990,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 13
   - name: statusBG2
-    x: 1786
-    y: 460
+    x: 1787
+    y: 272
     width: 63
     height: 64
     borderLeft: 0
