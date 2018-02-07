@@ -42,7 +42,9 @@ public class SafeZoneMap : MonoBehaviour {
 
 	public void SetBairitsu(float bairitsu){
 		this.bairitsu=bairitsu;
-		mapTex.transform.localScale=new Vector3(bairitsu,bairitsu,bairitsu);
+		mapTex.width=(int)(bairitsu*333);
+		mapTex.height=(int)(bairitsu*333);
+
 		grid.transform.localScale=new Vector3(bairitsu,bairitsu,bairitsu);
 	}
 	public void SetMapTexture(Texture2D tex){

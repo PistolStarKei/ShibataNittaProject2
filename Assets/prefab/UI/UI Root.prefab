@@ -9393,7 +9393,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOBJ: {fileID: 4000013892787700}
+  mapContainer: {fileID: 0}
+  mapTex: {fileID: 0}
   width: 100
+  bairitsu: 1
+  plus: {fileID: 0}
+  minus: {fileID: 0}
+  current: 0
   sps: []
   grid: {fileID: 114000010994385856}
   tweenFlom: 0.1
