@@ -316,7 +316,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -1224,7 +1224,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -3685,7 +3685,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -5302,7 +5302,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -7053,7 +7053,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -7747,7 +7747,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -9541,7 +9541,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -9999,7 +9999,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -10399,7 +10399,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -10790,7 +10790,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3012
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -16393,7 +16393,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -17217,7 +17217,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -17360,7 +17360,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -17870,7 +17870,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -18058,7 +18058,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -18425,7 +18425,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -73627,7 +73627,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -76136,7 +76136,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -77049,7 +77049,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -77306,7 +77306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1893653465
 Transform:
   m_ObjectHideFlags: 0
@@ -77314,7 +77314,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893653464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 555.27, y: -24.2, z: 0}
+  m_LocalPosition: {x: 387, y: -191.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -77349,15 +77349,15 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 0.97794116, g: 0.97794116, b: 0.97794116, a: 1}
-  mPivot: 4
-  mWidth: 323
-  mHeight: 323
+  mPivot: 6
+  mWidth: 332
+  mHeight: 336
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1
+  aspectRatio: 0.9880952
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -77408,7 +77408,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900648932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -184.9, y: -322.3, z: 0}
+  m_LocalPosition: {x: -199.45, y: -322.3, z: 0}
   m_LocalScale: {x: 1.0012509, y: 1.0012509, z: 1.0012499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -78039,7 +78039,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -78726,7 +78726,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -79386,7 +79386,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -79529,7 +79529,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -79672,7 +79672,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0

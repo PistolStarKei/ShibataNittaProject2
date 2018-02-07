@@ -230,7 +230,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -3807,7 +3807,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -4991,7 +4991,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -5348,7 +5348,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -6725,7 +6725,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -7567,7 +7567,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -9586,7 +9586,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -10213,7 +10213,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -10666,7 +10666,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -14923,7 +14923,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -15553,7 +15553,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -15696,7 +15696,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -16115,7 +16115,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -16303,7 +16303,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -16569,7 +16569,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -18091,7 +18091,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -18873,7 +18873,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -19656,7 +19656,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -20571,7 +20571,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -21021,7 +21021,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -21666,7 +21666,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -21809,7 +21809,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -21952,7 +21952,7 @@ MonoBehaviour:
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1
-  mType: 0
+  mType: 1
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
