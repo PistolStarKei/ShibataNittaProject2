@@ -9,6 +9,12 @@ public class SafeZoneMapItem : MonoBehaviour {
 	UISprite sp;
 	public ZoneState state;
 	public SafeZoneMap mapParent;
+
+	public void SetSize(int size){
+		sp.width=size;
+		sp.height=size;
+
+	}
 	// Use this for initialization
 	void Awake() {
 		sp=gameObject.GetComponent<UISprite>();
