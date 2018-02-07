@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 8
   productGUID: a82ada64e873d43c18e9399bc3a47220
   AndroidProfiler: 0
-  defaultScreenOrientation: 2
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -97,13 +97,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Pistolstarweb.spacekill
-  bundleVersion: 1.0.5
+  bundleVersion: 1.0.7
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 105
+  AndroidBundleVersionCode: 107
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 

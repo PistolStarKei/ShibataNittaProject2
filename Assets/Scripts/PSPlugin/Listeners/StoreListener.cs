@@ -162,7 +162,9 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 			foreach(GoogleProductTemplate p in AndroidInAppPurchaseManager.Client.Inventory.Products) {
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("プロダクトのリストをロードしました: " + p.Title);
 				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( p.SKU + "\n" );
-
+				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( p.LocalizedPrice.ToString() + "\n" );
+				if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( p.Price.ToString() + "\n" );
+				
                 OnItemsQuery(p.SKU,p.LocalizedPrice.ToString(),p.Description,p.Title);
 
 				if(isConsumableProduct(p.SKU)){
