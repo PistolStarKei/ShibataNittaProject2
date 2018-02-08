@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: yellow_spark
+  m_Name: holy_explosion_sprite1
   m_Shader: {fileID: 10720, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -18,7 +18,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 4b68d2c5bacbe264e8cee3f9121d7dcb, type: 3}
+        m_Texture: {fileID: 2800000, guid: fcb85eb55b3274def87ba01c2ce8f3cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -27,5 +27,8 @@ Material:
       second: 1
     m_Colors:
     - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
         name: _TintColor
-      second: {r: 0.9117647, g: 0.56962174, b: 0.41565743, a: 1}
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
