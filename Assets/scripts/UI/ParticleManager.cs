@@ -7,6 +7,7 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 
 	public GameObject explosionBig;
 	public GameObject explosionSmall;
+	public GameObject explosionCollide;
 	public GameObject cureS;
 	public GameObject cureM;
 	public GameObject cureL;
@@ -31,7 +32,9 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 	public void ShowExplosionSmallAt(Vector3 position,Quaternion qt,Transform parent){
 		SpawnParticle(explosionSmall,position,qt,parent);
 	}
-
+	public void ShowExplosionCollideAt(Vector3 position,Quaternion qt,Transform parent){
+		SpawnParticle(explosionCollide,position,qt,parent);
+	}
 
 	void SpawnParticle(GameObject prefab,Vector3 position,Quaternion qt,Transform parent){
 		

@@ -40,6 +40,7 @@ public class Subweapon_Zenhoukou : SubweaponShot {
 	}
 
 	public override  void OnCollideWall(){
+		ParticleManager.Instance.ShowExplosionCollideAt(transform.position,Quaternion.identity,null);
 		base.OnCollideWall();
 
 	}

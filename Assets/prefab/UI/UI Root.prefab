@@ -8332,7 +8332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6d25eb0ba9d42acadee328fb251301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blurEffect: {fileID: 114000011643958642}
+  blurEffect: {fileID: 0}
   cover: {fileID: 114000010190731688}
   gameoverLb: {fileID: 0}
   userName: {fileID: 114000013262113272}
@@ -8465,6 +8465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subTest: 0
+  tr: {fileID: 0}
   subWeaponHolder: 
   currentSub: {fileID: 114000011078104466}
   nextHolder:
@@ -9392,7 +9393,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerOBJ: {fileID: 4000013892787700}
+  mapContainer: {fileID: 0}
+  mapTex: {fileID: 0}
   width: 100
+  bairitsu: 1
+  plus: {fileID: 0}
+  minus: {fileID: 0}
+  current: 0
   sps: []
   grid: {fileID: 114000010994385856}
   tweenFlom: 0.1

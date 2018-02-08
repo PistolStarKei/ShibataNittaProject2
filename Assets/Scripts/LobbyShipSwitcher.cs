@@ -97,7 +97,6 @@ public class LobbyShipSwitcher : MonoBehaviour {
 			//セレクト可能
 			boadingBtn.SetState(ShipStatus.SELECTABLE,"");
 		}else{
-			Debug.LogWarning("ここで購入処理 金額を渡す");
 			//ここで購入処理 金額を渡す
 			boadingBtn.SetState(ShipStatus.PURCHASABLE,GetShipPrice(currentSelect,colorLists.mCurrentSelected));
 		}

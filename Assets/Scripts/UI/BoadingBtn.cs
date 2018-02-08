@@ -43,7 +43,7 @@ public class BoadingBtn : MonoBehaviour {
 			case ShipStatus.PURCHASABLE:
 				bg1.color=mBGColorPURCHASABLE;
 				bg2.color=mBGColor2PURCHASABLE;
-				lb.text=Application.systemLanguage == SystemLanguage.Japanese? "¥" :"＄"+lableString;
+				lb.text=lableString;
 				break;
 			case ShipStatus.PENDINNG:
 				bg1.color=mBGColorPENDING;

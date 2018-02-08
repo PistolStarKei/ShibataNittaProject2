@@ -12,7 +12,7 @@ namespace PSParams{
 		public static readonly bool EndGameOnNoConnection=false;
 
 		//デフォルトのチケットの個数
-		public static readonly int DefaultTicketsNum=3;
+		public static readonly int DefaultTicketsNum=5;
 		//次のチケット追加までの間隔　秒で
 		public static readonly float TimeForNextTicket=600.0f;
 
@@ -72,6 +72,8 @@ namespace PSParams{
 			{"Ship8",new  bool[5]{true,true,true,false,false}},
 
 		};
+			
+
 
 		//シップの開放時間　プレイ開始から 何時間で？  1日 3日 7全開放
 		public static Dictionary<string,float[]> unlockTimeShip=new Dictionary<string, float[]>(){

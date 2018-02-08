@@ -43,7 +43,7 @@ public class GameData{
 public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 	public bool isPersistantBetweenScenes=false;
-	public const string filename = "SavedData.txt";
+	public const string filename = "SavedData.es?encrypt=true&password=pass&tag=";
 
 	public EnvData envData=new EnvData();
 	public GameData gameData=new GameData();
@@ -67,11 +67,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"?tag=rankingKillNum");	
+			ES2.Delete(filename+"rankingKillNum");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"?tag=rankingKillNum")){
+		if(!ES2.Exists(filename+"rankingKillNum")){
 			
 			InitData();
 			LoadData();
@@ -102,78 +102,78 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 
 	public void LoadData(){
-		envData.toggleSE=ES2.Load<bool>(filename+"?tag=toggleSE");
-		envData.toggleBGM=ES2.Load<bool>(filename+"?tag=toggleBGM");
-		envData.startTime=ES2.Load<string>(filename+"?tag=startTime");
+		envData.toggleSE=ES2.Load<bool>(filename+"toggleSE");
+		envData.toggleBGM=ES2.Load<bool>(filename+"toggleBGM");
+		envData.startTime=ES2.Load<string>(filename+"startTime");
 
-		gameData.shipType=ES2.Load<int>(filename+"?tag=shipType");
-		gameData.username=ES2.Load<string>(filename+"?tag=username");
-		gameData.isConnectingRoom=ES2.Load<bool>(filename+"?tag=isConnectingRoom");
-		gameData.country=ES2.Load<string>(filename+"?tag=country");
-		gameData.lastTime=ES2.Load<string>(filename+"?tag=lastTime");
+		gameData.shipType=ES2.Load<int>(filename+"shipType");
+		gameData.username=ES2.Load<string>(filename+"username");
+		gameData.isConnectingRoom=ES2.Load<bool>(filename+"isConnectingRoom");
+		gameData.country=ES2.Load<string>(filename+"country");
+		gameData.lastTime=ES2.Load<string>(filename+"lastTime");
 
-		gameData.gameTickets=ES2.Load<int>(filename+"?tag=gameTickets");
-		gameData.timeForNextTickets=ES2.Load<float>(filename+"?tag=timeForNextTickets");
+		gameData.gameTickets=ES2.Load<int>(filename+"gameTickets");
+		gameData.timeForNextTickets=ES2.Load<float>(filename+"timeForNextTickets");
 
-		gameData.userID=ES2.Load<string>(filename+"?tag=userID");
-		gameData.lastRoomName=ES2.Load<string>(filename+"?tag=lastRoomName");
-		gameData.shipColor=ES2.Load<int>(filename+"?tag=shipColor");
-		gameData.tweetNum=ES2.Load<int>(filename+"?tag=tweetNum");
-
-
-		gameData.shipAvaillable1=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable1");
-		gameData.shipAvaillable2=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable2");
-		gameData.shipAvaillable3=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable3");
-		gameData.shipAvaillable4=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable4");
-		gameData.shipAvaillable5=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable5");
-		gameData.shipAvaillable6=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable6");
-		gameData.shipAvaillable7=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable7");
-		gameData.shipAvaillable8=ES2.LoadArray<bool>(filename+"?tag=shipAvaillable8");
+		gameData.userID=ES2.Load<string>(filename+"userID");
+		gameData.lastRoomName=ES2.Load<string>(filename+"lastRoomName");
+		gameData.shipColor=ES2.Load<int>(filename+"shipColor");
+		gameData.tweetNum=ES2.Load<int>(filename+"tweetNum");
 
 
+		gameData.shipAvaillable1=ES2.LoadArray<bool>(filename+"shipAvaillable1");
+		gameData.shipAvaillable2=ES2.LoadArray<bool>(filename+"shipAvaillable2");
+		gameData.shipAvaillable3=ES2.LoadArray<bool>(filename+"shipAvaillable3");
+		gameData.shipAvaillable4=ES2.LoadArray<bool>(filename+"shipAvaillable4");
+		gameData.shipAvaillable5=ES2.LoadArray<bool>(filename+"shipAvaillable5");
+		gameData.shipAvaillable6=ES2.LoadArray<bool>(filename+"shipAvaillable6");
+		gameData.shipAvaillable7=ES2.LoadArray<bool>(filename+"shipAvaillable7");
+		gameData.shipAvaillable8=ES2.LoadArray<bool>(filename+"shipAvaillable8");
 
-		gameData.rankingKillNum=ES2.Load<int>(filename+"?tag=rankingKillNum");
-		gameData.rankingTopNum=ES2.Load<int>(filename+"?tag=rankingTopNum");
-		gameData.rankingAvrRank=ES2.Load<float>(filename+"?tag=rankingAvrRank");
 
-		gameData.rankingTotalPlay=ES2.Load<int>(filename+"?tag=rankingTotalPlay");
-		gameData.rankingTotalRank=ES2.Load<int>(filename+"?tag=rankingTotalRank");
+
+		gameData.rankingKillNum=ES2.Load<int>(filename+"rankingKillNum");
+		gameData.rankingTopNum=ES2.Load<int>(filename+"rankingTopNum");
+		gameData.rankingAvrRank=ES2.Load<float>(filename+"rankingAvrRank");
+
+		gameData.rankingTotalPlay=ES2.Load<int>(filename+"rankingTotalPlay");
+		gameData.rankingTotalRank=ES2.Load<int>(filename+"rankingTotalRank");
 
 	}
 
 	public void SaveAll(){
-		ES2.Save(envData.toggleSE,filename+"?tag=toggleSE");
-		ES2.Save(envData.toggleBGM,filename+"?tag=toggleBGM");
-		ES2.Save(envData.startTime,filename+"?tag=startTime");
+		ES2.Save(envData.toggleSE,filename+"toggleSE");
+		ES2.Save(envData.toggleBGM,filename+"toggleBGM");
+		ES2.Save(envData.startTime,filename+"startTime");
 
-		ES2.Save(gameData.shipType,filename+"?tag=shipType");
-		ES2.Save(gameData.username,filename+"?tag=username");
-		ES2.Save(gameData.isConnectingRoom,filename+"?tag=isConnectingRoom");
-		ES2.Save(gameData.country,filename+"?tag=country");
-		ES2.Save(gameData.lastTime,filename+"?tag=lastTime");
+		ES2.Save(gameData.shipType,filename+"shipType");
+		ES2.Save(gameData.username,filename+"username");
+		ES2.Save(gameData.isConnectingRoom,filename+"isConnectingRoom");
+		ES2.Save(gameData.country,filename+"country");
+		ES2.Save(gameData.lastTime,filename+"lastTime");
 
-		ES2.Save(gameData.gameTickets,filename+"?tag=gameTickets");
-		ES2.Save(gameData.timeForNextTickets,filename+"?tag=timeForNextTickets");
-		ES2.Save(gameData.userID,filename+"?tag=userID");
-		ES2.Save(gameData.lastRoomName,filename+"?tag=lastRoomName");
-		ES2.Save(gameData.shipColor,filename+"?tag=shipColor");
-		ES2.Save(gameData.tweetNum,filename+"?tag=tweetNum");
+		ES2.Save(gameData.gameTickets,filename+"gameTickets");
+		ES2.Save(gameData.timeForNextTickets,filename+"timeForNextTickets");
+		ES2.Save(gameData.userID,filename+"userID");
+		ES2.Save(gameData.lastRoomName,filename+"lastRoomName");
+		ES2.Save(gameData.shipColor,filename+"shipColor");
+		ES2.Save(gameData.tweetNum,filename+"tweetNum");
 
-		ES2.Save(gameData.shipAvaillable1,filename+"?tag=shipAvaillable1");
-		ES2.Save(gameData.shipAvaillable2,filename+"?tag=shipAvaillable2");
-		ES2.Save(gameData.shipAvaillable3,filename+"?tag=shipAvaillable3");
-		ES2.Save(gameData.shipAvaillable4,filename+"?tag=shipAvaillable4");
-		ES2.Save(gameData.shipAvaillable5,filename+"?tag=shipAvaillable5");
-		ES2.Save(gameData.shipAvaillable6,filename+"?tag=shipAvaillable6");
-		ES2.Save(gameData.shipAvaillable7,filename+"?tag=shipAvaillable7");
-		ES2.Save(gameData.shipAvaillable8,filename+"?tag=shipAvaillable8");
+		ES2.Save(gameData.shipAvaillable1,filename+"shipAvaillable1");
+		ES2.Save(gameData.shipAvaillable2,filename+"shipAvaillable2");
+		ES2.Save(gameData.shipAvaillable3,filename+"shipAvaillable3");
+		ES2.Save(gameData.shipAvaillable4,filename+"shipAvaillable4");
+		ES2.Save(gameData.shipAvaillable5,filename+"shipAvaillable5");
+		ES2.Save(gameData.shipAvaillable6,filename+"shipAvaillable6");
+		ES2.Save(gameData.shipAvaillable7,filename+"shipAvaillable7");
+		ES2.Save(gameData.shipAvaillable8,filename+"shipAvaillable8");
 
-		ES2.Save(gameData.rankingKillNum,filename+"?tag=rankingKillNum");
-		ES2.Save(gameData.rankingTopNum,filename+"?tag=rankingTopNum");
-		ES2.Save(gameData.rankingAvrRank,filename+"?tag=rankingAvrRank");
-		ES2.Save(gameData.rankingTotalPlay,filename+"?tag=rankingTotalPlay");
+		ES2.Save(gameData.rankingKillNum,filename+"rankingKillNum");
+		ES2.Save(gameData.rankingTopNum,filename+"rankingTopNum");
+		ES2.Save(gameData.rankingAvrRank,filename+"rankingAvrRank");
+		ES2.Save(gameData.rankingTotalPlay,filename+"rankingTotalPlay");
 
-		ES2.Save(gameData.rankingTotalRank,filename+"?tag=rankingTotalRank");
+		ES2.Save(gameData.rankingTotalRank,filename+"rankingTotalRank");
 
 	}
 
@@ -183,39 +183,39 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	}
 
 	private void InitData(){
-		ES2.Save(true,filename+"?tag=toggleSE");
-		ES2.Save(true,filename+"?tag=toggleBGM");
-		ES2.Save(TimeManager.GetCurrentTime(),filename+"?tag=startTime");
+		ES2.Save(true,filename+"toggleSE");
+		ES2.Save(true,filename+"toggleBGM");
+		ES2.Save(TimeManager.GetCurrentTime(),filename+"startTime");
 
 
-		ES2.Save(0,filename+"?tag=shipType");
-		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"?tag=username");
-		ES2.Save(false,filename+"?tag=isConnectingRoom");
+		ES2.Save(0,filename+"shipType");
+		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"username");
+		ES2.Save(false,filename+"isConnectingRoom");
 
-		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"?tag=country");
-		ES2.Save(TimeManager.GetCurrentTime(),filename+"?tag=lastTime");
-		ES2.Save(PSParams.GameParameters.DefaultTicketsNum,filename+"?tag=gameTickets");
-		ES2.Save(-1.0f,filename+"?tag=timeForNextTickets");
-		ES2.Save(GetUUID (),filename+"?tag=userID");
-		ES2.Save("",filename+"?tag=lastRoomName");
-		ES2.Save(0,filename+"?tag=shipColor");
-		ES2.Save(0,filename+"?tag=tweetNum");
+		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"country");
+		ES2.Save(TimeManager.GetCurrentTime(),filename+"lastTime");
+		ES2.Save(PSParams.GameParameters.DefaultTicketsNum,filename+"gameTickets");
+		ES2.Save(-1.0f,filename+"timeForNextTickets");
+		ES2.Save(GetUUID (),filename+"userID");
+		ES2.Save("",filename+"lastRoomName");
+		ES2.Save(0,filename+"shipColor");
+		ES2.Save(0,filename+"tweetNum");
 
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship1"],filename+"?tag=shipAvaillable1");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship2"],filename+"?tag=shipAvaillable2");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship3"],filename+"?tag=shipAvaillable3");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship4"],filename+"?tag=shipAvaillable4");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship5"],filename+"?tag=shipAvaillable5");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship6"],filename+"?tag=shipAvaillable6");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship7"],filename+"?tag=shipAvaillable7");
-		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship8"],filename+"?tag=shipAvaillable8");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship1"],filename+"shipAvaillable1");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship2"],filename+"shipAvaillable2");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship3"],filename+"shipAvaillable3");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship4"],filename+"shipAvaillable4");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship5"],filename+"shipAvaillable5");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship6"],filename+"shipAvaillable6");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship7"],filename+"shipAvaillable7");
+		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship8"],filename+"shipAvaillable8");
 
 	
-		ES2.Save(0,filename+"?tag=rankingKillNum");
-		ES2.Save(0,filename+"?tag=rankingTopNum");
-		ES2.Save(0f,filename+"?tag=rankingAvrRank");
-		ES2.Save(0,filename+"?tag=rankingTotalPlay");
-		ES2.Save(0,filename+"?tag=rankingTotalRank");
+		ES2.Save(0,filename+"rankingKillNum");
+		ES2.Save(0,filename+"rankingTopNum");
+		ES2.Save(0f,filename+"rankingAvrRank");
+		ES2.Save(0,filename+"rankingTotalPlay");
+		ES2.Save(0,filename+"rankingTotalRank");
 	}
 		
 	private void DeleteAll(){

@@ -85,7 +85,6 @@ public class PU_Ticket : MonoBehaviour {
 	public void OnTicket5PurchaseSuccesed(string mess){
 		PSGUI.WaitHUD.guiWait.Hide();
 		UpdateButtons();
-		UpdateTicketNum();
 		AudioController.Play("successed");
 		PSPhoton.LobbyManager.instance.info.Log(Application.systemLanguage == 
 			SystemLanguage.Japanese? "購入が完了しました。" :"Purchase successed");
@@ -114,7 +113,6 @@ public class PU_Ticket : MonoBehaviour {
 		PSGUI.WaitHUD.guiWait.Hide();
 		UpdateButtons();
 		AudioController.Play("successed");
-		UpdateTicketNum();
 		AdManager.Instance.HideBanner();
 		PSPhoton.LobbyManager.instance.info.Log(Application.systemLanguage == 
 			SystemLanguage.Japanese? "購入が完了しました。" :"Purchase successed");
