@@ -3,49 +3,31 @@ using System.Collections;
 
 public class itemManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		checkSpawnPrefab ();
-		checkItemPrefab ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	// スポーンポイントになるプレハブがあるか調べる
-	private void checkSpawnPrefab(){
+	public void checkSpawnPrefab(){
 
 		GameObject spawnPoints = GameObject.Find ("SpawnPoints");
-		while (true) {
-			GameObject obj = GameObject.Find ("mapManager/stage00/SpawnPoint");
+		GameObject mapManager = GameObject.Find ("mapManager");
+		Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
 
-			if (obj != null) {
-				// あったらSpawnPointsの子供に接続
-				obj.transform.parent = null;
-				obj.transform.parent = spawnPoints.transform;
-			} else {
-				break;
+		foreach (Transform child in transformArray) {
+			if (child.name == "SpawnPoint") {
+				child.parent = spawnPoints.transform;
 			}
 		}
 	}
 
 	// アイテムポイントになるプレハブがあるか調べる
-	private void checkItemPrefab(){
+	public void checkItemPrefab(){
 
 		GameObject spawnBounds = GameObject.Find ("SpawnBounds");
-		while (true) {
-			GameObject obj = GameObject.Find ("mapManager/stage00/bounds");
+		GameObject mapManager = GameObject.Find ("mapManager");
+		Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
 
-			if (obj != null) {
-				// あったらSpawnPointsの子供に接続
-				obj.transform.parent = null;
-				obj.transform.parent = spawnBounds.transform;
-			} else {
-				break;
+		foreach (Transform child in transformArray) {
+			if (child.name == "bounds") {
+				child.parent = spawnBounds.transform;
 			}
 		}
-
 	}
 }
