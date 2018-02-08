@@ -26,6 +26,7 @@ public class mapControl : MonoBehaviour {
 				//Instantiateされたオブジェクトに、自分のスクリプトの付いているGOのtransformを親に設定する
 				GameObject go = Instantiate (stage00);
 				go.transform.parent = this.gameObject.transform;
+
 				break;
 			}
 		case 1:
@@ -47,5 +48,10 @@ public class mapControl : MonoBehaviour {
 				break;
 			}
 		}
+
+		// スポーン位置とアイテムの位置を確定
+		itemManager im = GetComponent<itemManager>();
+		im.checkSpawnPrefab ();
+		im.checkItemPrefab ();
 	}
 }
