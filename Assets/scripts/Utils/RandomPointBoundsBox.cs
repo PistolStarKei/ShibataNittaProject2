@@ -6,9 +6,9 @@ namespace PS_Util{
 
 
 		public override void GetBounds(){
-			if(transform.localRotation.eulerAngles!=Vector3.zero){
+			/*if(transform.localRotation.eulerAngles!=Vector3.zero){
 				Debug.LogError(" RandomPointBoundsBox Transformのrotationはゼロでないといけなません");
-			}
+			}*/
 
 			col=gameObject.GetComponent<BoxCollider>();
 			GetColliderBounds();
@@ -29,7 +29,6 @@ namespace PS_Util{
 
 				center=transform.InverseTransformPoint(col.bounds.center);
 				size=col.size/2.0f;
-
 				DestroyComponets();
 			}
 		}

@@ -3,21 +3,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using PS_Util;
 
 public class Test :MonoBehaviour {
 	
-	public ParticleSystem psF;
-	void EmitForwad(int scale){
-		psF.Emit(scale);
-	}
+	public GameObject go;
+	public RandomPointGenerater point;
 
-	public int emit=1;
 	void Start () {
 		StartCoroutine( Emitter ());
 	}
 	IEnumerator Emitter () {
 		while(true){
-			EmitForwad(emit);
+			GameObject.Instantiate(go,point.GetRandomPoint(),Quaternion.identity);
 			yield return new WaitForSeconds(.5f);
 		}
 	}
