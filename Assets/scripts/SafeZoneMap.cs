@@ -100,7 +100,7 @@ public class SafeZoneMap : MonoBehaviour {
 			sps[i].mapParent=this;
 			i++;
 		}
-		current=1;
+		current=2;
 		SetBairitsu(bairitsus[current]);
 	}
 
