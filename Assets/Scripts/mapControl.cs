@@ -50,8 +50,36 @@ public class mapControl : MonoBehaviour {
 		}
 
 		// スポーン位置とアイテムの位置を確定
-		itemManager im = GetComponent<itemManager>();
-		im.checkSpawnPrefab ();
-		im.checkItemPrefab ();
+		checkSpawnPrefab ();
+		checkItemPrefab ();
 	}
+
+	// スポーンポイントになるプレハブがあるか調べる
+	private void checkSpawnPrefab(){
+
+		GameObject spawnPoints = GameObject.Find ("SpawnPoints");
+		GameObject mapManager = GameObject.Find ("mapManager");
+		Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform child in transformArray) {
+			if (child.name == "SpawnPoint") {
+				child.parent = spawnPoints.transform;
+			}
+		}
+	}
+
+	// アイテムポイントになるプレハブがあるか調べる
+	private void checkItemPrefab(){
+
+		GameObject spawnBounds = GameObject.Find ("SpawnBounds");
+		GameObject mapManager = GameObject.Find ("mapManager");
+		Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
+
+		foreach (Transform child in transformArray) {
+			if (child.name == "bounds") {
+				child.parent = spawnBounds.transform;
+			}
+		}
+	}
+
 }
