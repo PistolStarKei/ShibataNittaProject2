@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PS_Util;
 
 public class mapControl : MonoBehaviour {
 
@@ -85,10 +86,12 @@ public class mapControl : MonoBehaviour {
 
 		Transform[] transformArray = this.GetComponentsInChildren<Transform> ();
 
-			
 		foreach (Transform child in transformArray) {
 			if (child.name == "bounds") {
 				child.parent = mSpawnBoundsParent;
+				if(child.GetComponent<RandomPointBoundsBox>()==null){
+					child.gameObject.AddComponent<RandomPointBoundsBox>();
+				}
 			}
 		}
 	}
