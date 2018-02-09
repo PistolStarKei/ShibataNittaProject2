@@ -398,10 +398,6 @@ namespace PSPhoton {
 		void Start () {
 			
 
-			if(PhotonNetwork.isMasterClient){
-				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
-				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
-			}
 
 
 
@@ -418,7 +414,8 @@ namespace PSPhoton {
 
 			photonView.RPC ("ConfirmLoad", PhotonTargets.All);
 		}
-		
+
+		public mapControl mapControl;
 		private void CreatePlayer() {
 
 			nameLB.text=(string)PhotonNetwork.player.CustomProperties["userName"];
@@ -427,8 +424,10 @@ namespace PSPhoton {
 			int pos = (int) PhotonNetwork.player.CustomProperties["spawn"];
 			int shipBaseNumber = (int) PhotonNetwork.player.CustomProperties["shipBase"];
 			int color=(int) PhotonNetwork.player.CustomProperties["shipColor"];
-
-
+			int map=(int) PhotonNetwork.room.CustomProperties["map"];
+			safeZoneMap.SetMapTexture(map);
+			mapControl.setMapNumber(map);
+			mapControl.attachMapData();
 
 			Transform spawn = spawnPoints[pos];
 
@@ -468,10 +467,11 @@ namespace PSPhoton {
 		public void StartGame() {
 
 
-			if (PhotonNetwork.isMasterClient) {
-				//ここでアイテムをスポーンする
-
+			if(PhotonNetwork.isMasterClient){
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
 			}
+
 
 			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
 

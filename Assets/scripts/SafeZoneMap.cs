@@ -47,7 +47,8 @@ public class SafeZoneMap : MonoBehaviour {
 
 		grid.transform.localScale=new Vector3(bairitsu,bairitsu,bairitsu);
 	}
-	public void SetMapTexture(Texture2D tex){
+	public void SetMapTexture(int mapNumber){
+		Texture2D tex=Resources.Load("Map/stage0"+mapNumber.ToString()) as Texture2D;
 		mapTex.mainTexture=tex;
 	}
 

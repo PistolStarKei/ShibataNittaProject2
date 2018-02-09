@@ -487,13 +487,13 @@ namespace PSPhoton {
 			timer.SetTime(lastTime,checkTimeOnRoom);
 		}
 
-
+		public int numberOfMaps=3;
 		// masterClient only. Calls an RPC to start the race on all clients. Called from GUI
 		public void CallStartGame() {
 
 			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 			//ここでマップをランダムに設定する
-			int mapNum=0;
+			int mapNum=Random.Range(0,numberOfMaps);
 			PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",mapNum}, { "state",1}  });
 			photonView.RPC("LoadGame", PhotonTargets.All);
 		}
