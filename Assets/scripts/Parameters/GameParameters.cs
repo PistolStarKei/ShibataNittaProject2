@@ -178,12 +178,14 @@ namespace PSParams{
 		//スタート後の　スポーン間隔
 		public static readonly float spawnRepeatRate=30.0f;
 
-		//プレイヤの数１に対するスポーン数　スタート時
+		//プレイヤの数１に対するスポーン数　スタート時　回復
 		public static readonly int spawnNum_OnStartPerShip_Rate_Kaifuku=0;
+		//サブウェポン
 		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=5;
 
-		//プレイヤの数１に対するスポーン数　ゲーム開始後の一定間隔
+		//プレイヤの数１に対するスポーン数　ゲーム開始後の一定間隔　回復
 		public static readonly int spawnNum_OnUpdatePerShip_Rate_Kaifuku=1;
+		//サブウェポン
 		public static readonly int spawnNum_OnUpdatePerShip_Rate_Subweapon=1;
 
 		//一定間隔の追加を何秒後に開始するか  設けないのであれば 0.0fに
