@@ -210,7 +210,7 @@ namespace PSParams{
 		//お問い合わせメールアドレス
 		public static readonly string MAIL="";
 		//特別商取引法の表示
-		public static readonly string URL_TOKUSHO="https://";
+		public static readonly string URL_TOKUSHO="http://smart4me.net/pistolstar/#!hyouji";
 
 		//プライバシーポリシーページ
 		public static readonly string URL_POLICY="https://smart4me.net/pistolstar/#!policySP";

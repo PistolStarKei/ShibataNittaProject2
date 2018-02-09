@@ -14,9 +14,11 @@ public class mapControl : MonoBehaviour {
 		mapNumber = num;
 	}
 
+	public bool loadLevelOnStart=false;
+
 	// Use this for initialization
 	void Start () {
-		//attachMapData ();
+		if(loadLevelOnStart)attachMapData ();
 
 	}
 

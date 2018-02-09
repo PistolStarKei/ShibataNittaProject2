@@ -21,9 +21,9 @@ public class MuzzleManager : MonoBehaviour {
 		
 		transform.localPosition=Vector3.zero;
 		SetScale(scale);
-		psF.startSize=0.4f;
-		psL.startSize=0.4f;
-		psR.startSize=0.4f;
+		psF.startSize=0.2f;
+		psL.startSize=0.2f;
+		psR.startSize=0.2f;
 	}
 	#endregion
 
