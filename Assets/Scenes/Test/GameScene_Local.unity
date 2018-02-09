@@ -20060,7 +20060,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -675869214
+  randomSeed: -1288616094
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -79970,6 +79970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapNumber: 0
+  loadLevelOnStart: 1
   mSpawnPointsParent: {fileID: 2034786993}
   mSpawnBoundsParent: {fileID: 1863322181}
 --- !u!1001 &2113879930
