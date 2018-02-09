@@ -70,11 +70,10 @@ public class mapControl : MonoBehaviour {
 	private void checkSpawnPrefab(){
 
 
-		//GameObject spawnPoints = GameObject.Find ("SpawnPoints");
 		//GameObject mapManager = GameObject.Find ("mapManager");
-		//Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
+		Transform[] transformArray = this.GetComponentsInChildren<Transform> ();
 
-		foreach (Transform child in this.gameObject.transform) {
+		foreach (Transform child in transformArray) {
 			if (child.name == "SpawnPoint") {
 				child.parent = mSpawnPointsParent;
 			}
@@ -84,12 +83,10 @@ public class mapControl : MonoBehaviour {
 	// アイテムポイントになるプレハブがあるか調べる
 	private void checkItemPrefab(){
 
-		/*GameObject spawnBounds = GameObject.Find ("SpawnBounds");
-		GameObject mapManager = GameObject.Find ("mapManager");
-		Transform[] transformArray = mapManager.GetComponentsInChildren<Transform> ();
-		*/
+		Transform[] transformArray = this.GetComponentsInChildren<Transform> ();
+
 			
-		foreach (Transform child in this.gameObject.transform) {
+		foreach (Transform child in transformArray) {
 			if (child.name == "bounds") {
 				child.parent = mSpawnBoundsParent;
 			}
