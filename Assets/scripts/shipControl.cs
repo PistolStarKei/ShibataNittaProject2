@@ -80,6 +80,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		this.razerMaxdistance=PSParams.GameParameters.razerMaxDistance;
 		this.useHitDetectionOnHitter=PSParams.GameParameters.useHitDetectionOnHitter;
 
+
+	}
+	void Start(){
+		
 		GameObject mzl = transform.Find("Muzzle").gameObject;
 		if(mzl){
 			this.muzzle=mzl.GetComponent<MuzzleManager>();
@@ -89,10 +93,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(mzl){
 			this.razerSysytem=mzl.GetComponent<Razer>();
 		}
-	}
-	void Start(){
-		
-
 		currentHP=MaxHP;
 		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
 			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);

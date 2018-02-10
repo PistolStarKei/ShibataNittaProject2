@@ -388,7 +388,7 @@ namespace PSPhoton {
 		#region init methods
 		void Awake(){
 			instance=this;
-			SetSpawnPoints();
+
 		}
 
 		public bool isNetworkMode=true;
@@ -428,13 +428,13 @@ namespace PSPhoton {
 			safeZoneMap.SetMapTexture(map);
 			mapControl.setMapNumber(map);
 			mapControl.attachMapData();
-
+			SetSpawnPoints();
 			Transform spawn = spawnPoints[pos];
 
 			Debug.Log("プレイヤの作成　position "+pos +" ship="+shipBaseNumber+"カラー="+color);
 
 			//TODO リソースを用意したら、ここを変更する
-			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber+"c"+(color+1), spawn.position, spawn.rotation, 0);
+			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber+"c"+(color+1),new Vector3(spawn.position.x,0.0f,spawn.position.z) , Quaternion.Euler(new Vector3(0.0f,spawn.rotation.y,0.0f)), 0);
 
 			playerShip=go.GetComponent<shipControl>();
 			playerShip.InitPlayerData((string)PhotonNetwork.player.CustomProperties["userName"],(string)PhotonNetwork.player.CustomProperties["countly"],PhotonNetwork.player.ID);

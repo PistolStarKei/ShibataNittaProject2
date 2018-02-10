@@ -58790,11 +58790,15 @@ Prefab:
     - target: {fileID: 114000011056201722, guid: d3e15ffc7fb484ea3af4555bc718a82c,
         type: 2}
       propertyPath: debugPlayership
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013141676932, guid: d3e15ffc7fb484ea3af4555bc718a82c, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013798607196, guid: d3e15ffc7fb484ea3af4555bc718a82c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000013149254604, guid: d3e15ffc7fb484ea3af4555bc718a82c, type: 2}
@@ -61953,7 +61957,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 445119093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.24, y: 0, z: 0}
+  m_LocalPosition: {x: -45.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -80194,7 +80198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83dfa19a3902374b823c3cbcf700e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapNumber: 0
+  mapNumber: 1
   loadLevelOnStart: 1
   mSpawnPointsParent: {fileID: 2034786993}
   mSpawnBoundsParent: {fileID: 1863322181}

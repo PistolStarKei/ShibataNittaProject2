@@ -16192,7 +16192,7 @@ Prefab:
     - target: {fileID: 114000010682197944, guid: dfd8ee2125b484bce9aca0dcb30da1cd,
         type: 2}
       propertyPath: debugDelete
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfd8ee2125b484bce9aca0dcb30da1cd, type: 2}

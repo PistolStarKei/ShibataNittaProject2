@@ -7,9 +7,6 @@ using System.Collections.Generic;
 /// </summary>
 public class MapOptimizer : MonoBehaviour {
 
-	#region  メンバ変数
-
-	#endregion
 
 	#region  初期化
 
@@ -55,39 +52,22 @@ public class MapOptimizer : MonoBehaviour {
 							child.parent = this.transform;
 							child.gameObject.isStatic=true;
 						}else{
-							if(child.gameObject!=this.gameObject && child.name!="SFCrate"){
+							if(child.gameObject!=this.gameObject){
 								Destroy(child.gameObject);
 							}
 						}
 					}
 				}
 			}
-
-
 		}
+
+
+
+
 	}
 	#endregion
 
 
-	#region  Update
-	
-	void Update(){
-	
-	}
-
-	#endregion
 
 
-	
-
-
-	#region  Public関数
-	
-
-	#endregion
-	
-
-	#region  メンバ関数
-	
-	#endregion
 }
