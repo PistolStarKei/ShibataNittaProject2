@@ -7371,7 +7371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subTest: 0
-  tr: {fileID: 0}
+  tr: {fileID: 979898449}
   subWeaponHolder: 
   currentSub: {fileID: 608118826}
   nextHolder:
