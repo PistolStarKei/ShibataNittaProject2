@@ -425,7 +425,6 @@ namespace PSPhoton {
 			int shipBaseNumber = (int) PhotonNetwork.player.CustomProperties["shipBase"];
 			int color=(int) PhotonNetwork.player.CustomProperties["shipColor"];
 			int map=(int) PhotonNetwork.room.CustomProperties["map"];
-			safeZoneMap.SetMapTexture(map);
 			mapControl.setMapNumber(map);
 			mapControl.attachMapData();
 			SetSpawnPoints();

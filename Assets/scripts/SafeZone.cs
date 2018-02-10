@@ -17,6 +17,13 @@ public class SafeZone : MonoBehaviour {
 
 	void Start(){
 		InitSafeZone(PSParams.GameParameters.mapMasuXY,topLeft.position,btnRight.position);
+
+		for(int r=0;r<PSParams.GameParameters.mapMasuXY;r++){
+			for(int v=0;v<PSParams.GameParameters.mapMasuXY;v++){
+				
+			}
+		}
+
 	}
 
 	public IntVector2 GetNextDangerZoneRandom(){

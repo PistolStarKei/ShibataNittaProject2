@@ -14,6 +14,7 @@ public class SafeZoneMap : MonoBehaviour {
 	public UILabel minus;
 	public int current=0;
 	float[] bairitsus=new float[3]{1.0f,2.0f,4.0f};
+	float[] offsets=new float[3]{82.46f,38.67f,17.92f};
 	public void OnClickPlus(){
 		current++;
 		if(current>=bairitsus.Length){
@@ -24,7 +25,7 @@ public class SafeZoneMap : MonoBehaviour {
 			plus.color=Color.black;
 		}
 		minus.color=Color.white;
-		SetBairitsu(bairitsus[current]);
+		SetBairitsu(bairitsus[current],offsets[current]);
 	}
 	public void OnClickMinus(){
 		current--;
@@ -37,19 +38,13 @@ public class SafeZoneMap : MonoBehaviour {
 		}
 		plus.color=Color.white;
 
-		SetBairitsu(bairitsus[current]);
+		SetBairitsu(bairitsus[current],offsets[current]);
 	}
 
-	public void SetBairitsu(float bairitsu){
+	public void SetBairitsu(float bairitsu,float offset){
 		this.bairitsu=bairitsu;
-		mapTex.width=(int)(bairitsu*333);
-		mapTex.height=(int)(bairitsu*333);
-
+		this.offset=offset;
 		grid.transform.localScale=new Vector3(bairitsu,bairitsu,bairitsu);
-	}
-	public void SetMapTexture(int mapNumber){
-		Texture2D tex=Resources.Load("Map/stage0"+mapNumber.ToString()) as Texture2D;
-		mapTex.mainTexture=tex;
 	}
 
 	void ApplyGridSize(float bairitsu){
@@ -82,6 +77,10 @@ public class SafeZoneMap : MonoBehaviour {
 			//自機の表示
 			if(GUIManager.Instance.shipControll){
 				playerOBJ.localRotation=Quaternion.Euler(new Vector3(0.0f,0.0f,-GUIManager.Instance.shipControll.transform.eulerAngles.y));
+
+				mapCam.transform.position=new Vector3(GUIManager.Instance.shipControll.transform.position.x,
+					offset,GUIManager.Instance.shipControll.transform.position.z
+				);
 			}
 		
 		}
@@ -102,7 +101,7 @@ public class SafeZoneMap : MonoBehaviour {
 			i++;
 		}
 		current=2;
-		SetBairitsu(bairitsus[current]);
+		SetBairitsu(bairitsus[current],offsets[current]);
 	}
 
 	public float tweenFlom=0.0f;
@@ -111,5 +110,7 @@ public class SafeZoneMap : MonoBehaviour {
 	public Color colDefault;
 	public Color colDanger;
 
+	public Camera mapCam;
+	public float offset=82.46f;
 
 }
