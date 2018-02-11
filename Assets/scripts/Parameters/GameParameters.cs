@@ -34,8 +34,10 @@ namespace PSParams{
 		public static readonly float safeZone_Dulation=60.0f;
 		//危険地帯でのダメージ間隔
 		public static readonly float dangerDamage_Dulation=0.3f;
-		//危険地帯でのダメージ間隔毎のダメージ
-		public static readonly float dangerZoneDamage=10.0f;
+
+		//危険地帯でのダメージ間隔毎のダメージ 最小値と最大値
+		public static readonly float dangerZoneDamageMin=3.0f;
+		public static readonly float dangerZoneDamageMax=10.0f;
 		#endregion
 
 		//Shipの値

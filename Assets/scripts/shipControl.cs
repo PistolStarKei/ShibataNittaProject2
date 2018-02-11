@@ -896,8 +896,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	public void RPC_ConstantDangerZoneDamage(){
 
 		if(isDead)return;
-
-		currentHP-=PSParams.GameParameters.dangerZoneDamage;
+		float damage=Mathf.Lerp(PSParams.GameParameters.dangerZoneDamageMin,PSParams.GameParameters.dangerZoneDamageMax,PSPhoton.GameManager.instance.safeZone.GetProgress());
+			
+		currentHP-=damage;
 
 		//ダメージと死亡判定、プレイヤーオブジェクトのみでやる
 		if(isOwnersShip()){
@@ -908,7 +909,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				if(GUIManager.Instance.isDebugMode){
 					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
-				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
+				GUIManager.Instance.Damage (damage, MaxHP);
 
 				if(currentHP<=0.0f){
 					photonView.RPC ("OnDead", PhotonTargets.AllBuffered,new object[]{null,PSPhoton.GameManager.instance.gameTime});
@@ -919,7 +920,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				if(GUIManager.Instance.isDebugMode){
 					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 				}
-				GUIManager.Instance.Damage (PSParams.GameParameters.dangerZoneDamage, MaxHP);
+				GUIManager.Instance.Damage (damage, MaxHP);
 				if(currentHP<=0.0f){
 					Debug.Log("shipは死亡！");
 				}
