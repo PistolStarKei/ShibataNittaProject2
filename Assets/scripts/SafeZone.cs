@@ -148,9 +148,13 @@ public class SafeZone : MonoBehaviour {
 	void AffectDangerZone(Vector3 position,Vector3 scale){
 		GameObject go=GameObject.Instantiate(dangerZoneCube,position,Quaternion.identity,null) as GameObject;
 		go.transform.localScale=scale;
+		mDangerZoneNum++;
 	}
+	public int mDangerZoneNum=0;
 
-
+	public float GetProgress(){
+		return mDangerZoneNum/(PSParams.GameParameters.mapMasuXY*PSParams.GameParameters.mapMasuXY);
+	}
 
 
 	#region 次の候補の検索

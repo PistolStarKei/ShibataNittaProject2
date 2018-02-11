@@ -102,7 +102,8 @@ namespace PSPhoton {
 
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Connecting");
 			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
-			PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
+			//PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
+			PhotonNetwork.ConnectToRegion(CloudRegionCode.asia,APP_VERSION);
 
 		}
 		public override void OnConnectedToPhoton ()

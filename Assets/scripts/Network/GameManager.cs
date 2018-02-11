@@ -588,7 +588,7 @@ namespace PSPhoton {
 					break;
 				case GameState.COUNTDOWN:
 				
-					GUIManager.Instance.SetCountdown("" + (1 + (int) (startTimestamp - PhotonNetwork.time)));
+					GUIManager.Instance.SetCountdown( (1 + (int) (startTimestamp - PhotonNetwork.time)));
 
 					if (PhotonNetwork.time >= startTimestamp) {
 						StartGame();
@@ -621,7 +621,6 @@ namespace PSPhoton {
 							repeatedTime=0.0f;
 							OnItemSpawnUpdate();
 						}
-						GUIManager.Instance.SetCountdown("");
 						
 						safeZone_timer+=Time.deltaTime;
 						if(nextDanzerZone==null){
@@ -647,7 +646,7 @@ namespace PSPhoton {
 
 					} else {
 						repeatedTime=0.0f;
-						GUIManager.Instance.SetCountdown("Start");
+						GUIManager.Instance.SetCountdown(0);
 					}
 					break;
 				case GameState.FINISHED:

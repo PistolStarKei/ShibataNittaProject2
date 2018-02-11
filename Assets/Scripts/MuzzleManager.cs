@@ -11,7 +11,6 @@ public class MuzzleManager : MonoBehaviour {
 	public ParticleSystem psF;
 	public ParticleSystem psL;
 	public ParticleSystem psR;
-	public float scale;
 	#endregion
 
 	#region  初期化
@@ -20,10 +19,21 @@ public class MuzzleManager : MonoBehaviour {
 		this.gameObject.name="Muzzle";
 		
 		transform.localPosition=Vector3.zero;
-		SetScale(scale);
-		psF.startSize=0.2f;
-		psL.startSize=0.2f;
-		psR.startSize=0.2f;
+
+
+		GameObject go=Resources.Load("batibati")as GameObject;
+		GameObject go2=Instantiate(go,this.transform) as GameObject;
+		psF=go2.GetComponent<ParticleSystem>();
+		go2.transform.parent=this.transform;
+
+		go2=Instantiate(go,this.transform) as GameObject;
+		psL=go2.GetComponent<ParticleSystem>();
+		go2.transform.parent=this.transform;
+
+		go2=Instantiate(go,this.transform) as GameObject;
+		psR=go2.GetComponent<ParticleSystem>();
+		go2.transform.parent=this.transform;
+
 	}
 	#endregion
 
@@ -71,11 +81,7 @@ public class MuzzleManager : MonoBehaviour {
 		psR.Emit(scale);
 	}
 
-	void SetScale(float scale){
-		psF.startSize=scale;
-		psL.startSize=scale;
-		psR.startSize=scale;
-	}
+
 
 
 	#endregion

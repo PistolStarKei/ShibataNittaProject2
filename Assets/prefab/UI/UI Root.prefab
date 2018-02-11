@@ -9407,6 +9407,8 @@ MonoBehaviour:
   tweenDulation: 0.3
   colDefault: {r: 1, g: 1, b: 1, a: 0.2509804}
   colDanger: {r: 0.9490196, g: 0.39607844, b: 0.9843137, a: 0.2509804}
+  mapCam: {fileID: 0}
+  offset: 82.46
 --- !u!114 &114000013427421330
 MonoBehaviour:
   m_ObjectHideFlags: 1
