@@ -209,7 +209,7 @@ namespace PSParams{
 		public static readonly string APP_URL="https://play.google.com/store/apps/details?id=com.Pistolstarweb.spacekill";
 
 		//お問い合わせメールアドレス
-		public static readonly string MAIL="";
+		public static readonly string MAIL="info@n2gdl.net";
 		//特別商取引法の表示
 		public static readonly string URL_TOKUSHO="http://smart4me.net/pistolstar/#!hyouji";
 
