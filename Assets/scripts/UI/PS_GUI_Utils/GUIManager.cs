@@ -240,9 +240,9 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 	 * 
 	 * 
 	*/
-	public UILabel countdownLb;
-	public void SetCountdown(string str){
-		countdownLb.text=str;
+	public StartCountDown countdown;
+	public void SetCountdown(int str){
+		if(countdown!=null)countdown.SetCount(str);
 	}
 
 	/*
