@@ -113,18 +113,18 @@ namespace PSParams{
 
 		//回復の効果
 		#region Pickup_Cure
-		//回復パーセンテージ S
+		//回復パーセンテージ S 
 		public static readonly float curePersentageS=10.0f;
-		//回復パーセンテージ M
-		public static readonly float curePersentageM=50.0f;
-		//回復パーセンテージ L
-		public static readonly float curePersentageL=100.0f;
+		//回復パーセンテージ M  
+		public static readonly float curePersentageM=20.0f;
+		//回復パーセンテージ L  
+		public static readonly float curePersentageL=30.0f;
 		#endregion
 
 		#region normal shots
 		//通常弾の  WHITE BLUE YELLOW GREEN RED
-		public static readonly float[] shot_damage=new float[5]{100.0f,100.0f,100.0f,120.0f,140.0f};
-		public static readonly float[] shot_life=new float[5]{3.0f,3.0f,3.0f,3.0f,3.0f};
+		public static readonly float[] shot_damage=new float[5]{100.0f,100.0f,100.0f,100.0f,100.0f};
+		public static readonly float[] shot_life=new float[5]{5.0f,5.0f,5.0f,5.0f,5.0f};
 		public static readonly float[] shot_speed=new float[5]{2.0f,2.0f,2.0f,2.0f,2.0f};
 
 		#endregion
@@ -132,13 +132,13 @@ namespace PSParams{
 		#region subweapons
 		//サブウェポンの  NAPAM NUKE RAZER STEALTH WAVE YUDOU ZENHOUKOU
 		//注意：レーザーはダメージ間隔に与えるダメージ
-		public static readonly float[] sw_damage=new float[7]{100.0f,500.0f,5.0f,100.0f,200.0f,100.0f,200.0f};
+		public static readonly float[] sw_damage=new float[7]{100.0f,100.0f,1.0f,100.0f,100.0f,100.0f,100.0f};
 
-		//ショットの生存時間
-		public static readonly float[] sw_life=new float[7]{1.0f,1.0f,20.0f,20.0f,5.5f,5.5f,5.5f};
+		//ショットの生存時間   NAPAM NUKE (RAZER) (STEALTH) WAVE YUDOU ZENHOUKOU
+		public static readonly float[] sw_life=new float[7]{1.0f,1.0f,20.0f,20.0f,20.0f,20.0f,20.0f};
 
-		//効果の継続時間
-		public static readonly float[] sw_timer=new float[7]{3.0f,5.0f,10.0f,10.0f,5.5f,5.5f,5.5f};
+		//効果の継続時間        NAPAM NUKE (RAZER) (STEALTH) WAVE YUDOU ZENHOUKOU
+		public static readonly float[] sw_timer=new float[7]{3.0f,5.0f,10.0f,10.0f,3.0f,10.0f,3.0f};
 
 		//継続時間内でショットをオフにするか？
 		public static readonly bool[] sw_isShotOff=new bool[7]{true,true,true,true,true,true,true};
@@ -153,6 +153,7 @@ namespace PSParams{
 		public static readonly float razerDamageDulation=0.3f;
 		#endregion
 	}
+
 	public static class SpawnItemRates {
 
 		//出現割合　合計で100%
@@ -166,21 +167,22 @@ namespace PSParams{
 		//出現割合　合計で100%
 		public static readonly Dictionary<Pickup,int> Rate_Subweapon = new Dictionary<Pickup,int>()
 		{
-			{ Pickup.NAPAM, 12 },
+			{ Pickup.NAPAM, 10 },
 			{ Pickup.NUKE, 1 },
-			{ Pickup.RAZER, 9},
-			{ Pickup.STEALTH, 8 },
+			{ Pickup.RAZER, 10},
+			{ Pickup.STEALTH, 10 },
 			{ Pickup.WAVE, 10 },
-			{ Pickup.YUDOU, 8},
-			{ Pickup.ZENHOUKOU, 12},
-			{ Pickup.SHOT, 40}
+			{ Pickup.YUDOU, 10},
+			{ Pickup.ZENHOUKOU, 19},
+			{ Pickup.SHOT, 30}
 		};
 
 		//スタート後の　スポーン間隔
-		public static readonly float spawnRepeatRate=30.0f;
+		public static readonly float spawnRepeatRate=60.0f;
 
 		//プレイヤの数１に対するスポーン数　スタート時　回復
 		public static readonly int spawnNum_OnStartPerShip_Rate_Kaifuku=0;
+
 		//サブウェポン
 		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=5;
 
@@ -210,6 +212,7 @@ namespace PSParams{
 
 		//お問い合わせメールアドレス
 		public static readonly string MAIL="";
+
 		//特別商取引法の表示
 		public static readonly string URL_TOKUSHO="http://smart4me.net/pistolstar/#!hyouji";
 
