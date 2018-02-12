@@ -453,8 +453,10 @@ namespace PSPhoton {
 			}
 		}
 
+		public PSGUI.WaitHUD waiter;
 		[PunRPC]
 		public void StartCountdown(double startTimestamp) {
+			waiter.Hide();
 			state = GameState.COUNTDOWN;
 			// sets local timestamp to the desired server timestamp (will be checked every frame)
 			this.startTimestamp = startTimestamp;

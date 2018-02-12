@@ -18,6 +18,7 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 			ships.Add(child.gameObject);
 		}
 	}
+
 	public AnimationCurve curve;
 	public bool speedByCurve=false;
 	float lerpVal=0.0f;
