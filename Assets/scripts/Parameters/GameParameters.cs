@@ -214,7 +214,6 @@ namespace PSParams{
 		public static readonly string MAIL="info@n2gdl.net";
 		//特別商取引法の表示
 		public static readonly string URL_TOKUSHO="http://smart4me.net/pistolstar/#!hyouji";
-
 		//プライバシーポリシーページ
 		public static readonly string URL_POLICY="https://smart4me.net/pistolstar/#!policySP";
 		//ランキング用GPGS
@@ -222,7 +221,6 @@ namespace PSParams{
 
 		//Admob  バナー
 		public static string BannerAppID="ca-app-pub-7316631869359037~2192184156";
-
 		public static string BannerUnitID="ca-app-pub-7316631869359037/3559082622";
 		public static string InterstitialUnitID="ca-app-pub-7316631869359037/9131683944";
 

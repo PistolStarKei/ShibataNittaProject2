@@ -496,7 +496,7 @@ namespace PSPhoton {
 			//ここでマップをランダムに設定する
 			int mapNum=Random.Range(0,numberOfMaps);
 			PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",mapNum}, { "state",1}  });
-			photonView.RPC("LoadGame", PhotonTargets.All);
+			photonView.RPC("LoadGame", PhotonTargets.AllBufferedViaServer);
 		}
 		public string GameSceneName;
 

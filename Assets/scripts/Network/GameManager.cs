@@ -449,7 +449,7 @@ namespace PSPhoton {
 			bool takingTooLong = gameTime >= 5;
 			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
 			if (takingTooLong || finishedLoading) {
-				photonView.RPC ("StartCountdown", PhotonTargets.All, PhotonNetwork.time + 4);
+				photonView.RPC ("StartCountdown", PhotonTargets.AllBufferedViaServer, PhotonNetwork.time + 4);
 			}
 		}
 
