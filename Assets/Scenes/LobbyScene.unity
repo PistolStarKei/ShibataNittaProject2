@@ -24213,6 +24213,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1000010476435572, guid: a9953c68e8b08444c84026e1831b6ac8,
         type: 2}
+    - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
+        type: 2}
+      propertyPath: numberOfMaps
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
   m_IsPrefabParent: 0

@@ -24,9 +24,18 @@ public class MapOptimizer : MonoBehaviour {
 				if(sc!=null){
 					Object.Destroy(sc); 
 				}
+				BoxCollider bc=child.gameObject.GetComponent<BoxCollider>();
+				if(bc!=null){
+					bc.center=new Vector3(0f,0f,-0.5f);
+				}
 			}else{
 				if (child.name == "bounds") {
-					child.parent = this.transform;
+					if(child.transform.localPosition==Vector3.zero){
+						Object.Destroy(child.gameObject); 
+					}else{
+						child.parent = this.transform;
+					}
+
 					/*OrientedBlock sc=child.gameObject.GetComponent<OrientedBlock>();
 					if(sc==null){
 						Destroy(child.gameObject);
