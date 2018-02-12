@@ -14,7 +14,7 @@ public class SafeZoneMap : MonoBehaviour {
 	public UILabel minus;
 	public int current=0;
 	float[] bairitsus=new float[3]{1.0f,2.0f,4.0f};
-	float[] offsets=new float[3]{82.46f,38.67f,17.92f};
+	float[] offsets=new float[3]{98.5f,38.67f,17.92f};
 	public void OnClickPlus(){
 		current++;
 		if(current>=bairitsus.Length){
