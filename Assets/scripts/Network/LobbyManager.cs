@@ -434,6 +434,16 @@ namespace PSPhoton {
 
 		}
 
+		public void OnCountlyChanged(string countly){
+			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
+					Debug.Log("OnCountlyChanged "+countly);
+					SetCustomProperties(PhotonNetwork.player, (int)PhotonNetwork.player.CustomProperties["shipBase"],(int)PhotonNetwork.player.CustomProperties["shipColor"],countly, (int)PhotonNetwork.player.CustomProperties["spawn"],(string)PhotonNetwork.player.CustomProperties["userName"]);
+				}
+			}
+
+		}
+
 
 		float _timerFlag=0.0f;
 		float _timerFrequency=0.0f;
@@ -502,9 +512,9 @@ namespace PSPhoton {
 
 		[PunRPC]
 		public void LoadGame () {
-			int map=(int)PhotonNetwork.room.CustomProperties["map"];
+			AdManager.Instance.HideBanner();
+
 			GameSceneName=GameSceneName;
-			Debug.LogWarning("ここでMapに応じて出し分ける");
 
 			sceneFader.FadeOut(OnSceneFaded,true);
 		}

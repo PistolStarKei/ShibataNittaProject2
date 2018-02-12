@@ -45,10 +45,12 @@ public class FlagSelecter : MonoBehaviour {
 
 	public void OnClickItem(FlagItem item){
 		if(item!=currentSelected){
+			
 			currentSelected.SetState(false);
 			item.SetState(true);
 			currentSelected=item;
 			DataManager.Instance.gameData.country=item.name;
+			PSPhoton.LobbyManager.instance.OnCountlyChanged(item.name);
 			flagSp.spriteName=DataManager.Instance.gameData.country=item.name;
 			DataManager.Instance.SaveAll();
 		}

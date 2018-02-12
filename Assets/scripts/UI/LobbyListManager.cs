@@ -39,6 +39,7 @@ public class LobbyListManager : MonoBehaviour {
 
 		RoomUserList list=go.GetComponent<RoomUserList>();
 		list.SetUserName(userName,id);
+		list.SetUserCountly(countly);
 		userList.Add(list);
 		grid.Reposition();
 		scroll.ResetPosition();
