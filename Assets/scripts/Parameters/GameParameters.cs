@@ -29,9 +29,10 @@ namespace PSParams{
 		//安全地帯の分割数
 		public static readonly int mapMasuXY=5;
 		//安全地帯決定間隔
-		public static readonly float safeZone_SetDulation=60.0f;
+		public static readonly float safeZone_SetDulation=30.0f;
 		//安全地帯決定後にアフェクトされるまでの猶予時間
-		public static readonly float safeZone_Dulation=60.0f;
+		public static readonly float safeZone_Dulation=20.0f;
+
 		//危険地帯でのダメージ間隔
 		public static readonly float dangerDamage_Dulation=0.3f;
 		//危険地帯でのダメージ間隔毎のダメージ
