@@ -43,10 +43,10 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 			}
 
 			if(pickType==Pickup.CureS || pickType==Pickup.CureM ||pickType==Pickup.CureL){
-				OnPickup();
+				OnPickup(ship.playerData.playerID);
 			}else{
 				if(GUIManager.Instance.ISSubweponHolderHasSpace()){
-					OnPickup();
+					OnPickup(ship.playerData.playerID);
 				}else{
 					//すでにアイテムが一杯なので無視する
 					return;
@@ -61,29 +61,24 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 			KillSelf();
 		}
 	}
+		
 
-
-	public bool SentPickup;
-
-	public void OnPickup()
+	public void OnPickup(int getter)
 	{
-		if (this.SentPickup)
+		if (!isActive)
 		{
 			// skip sending more pickups until the original pickup-RPC got back to this client
 			return;
 		}
+		isActive=false;
+		this.photonView.RPC("PunPickup", PhotonTargets.AllViaServer,new object[]{getter});
 
-		this.SentPickup = true;
-		this.photonView.RPC("PunPickup", PhotonTargets.AllViaServer);
 	}
 
 	[PunRPC]
-	public void PunPickup(PhotonMessageInfo msgInfo)
+	public void PunPickup(int getter)
 	{
-		// when this client's RPC gets executed, this client no longer waits for a sent pickup and can try again
-		if (msgInfo.sender.IsLocal) this.SentPickup = false;
-
-
+		
 		// In this solution, picked up items are disabled. They can't be picked up again this way, etc.
 		// You could check "active" first, if you're not interested in failed pickup-attempts.
 		if (!this.gameObject.GetActive())
@@ -96,7 +91,7 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 
 		// msgInfo.sender.IsLocalならば、自分のRPCだと確認できる
 		// 取得者のRPCなのでshipのOnPickUpを呼び出す
-		if (msgInfo.sender.IsLocal != null)
+		if (getter==GUIManager.Instance.shipControll.playerData.playerID)
 		{
 			
 			if(pickType==Pickup.CureS || pickType==Pickup.CureM ||pickType==Pickup.CureL){

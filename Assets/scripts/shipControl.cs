@@ -1290,7 +1290,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				shotCol=DanmakuColor.Blue;
 				break;
 			case 5:
-				shotCol=DanmakuColor.Red;
+				shotCol=DanmakuColor.Yellow;
 				break;
 		}
 	}
