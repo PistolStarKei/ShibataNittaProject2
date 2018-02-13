@@ -15,6 +15,9 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	public void Spawn(shipControl launcherShip,float spawnTime,Vector3 spawnPos,ShipOffset offset,string ID,int shipID){
 
 		Debug.Log("誘導弾　"+ID);
+
+		if(GUIManager.Instance.IsWithinAudioDistance(spawnPos))AudioController.Play("Missile",spawnPos,null);
+
 		base.Spawn(launcherShip,spawnTime,spawnPos,offset,ID);
 		shipControl ship=PSPhoton.GameManager.instance.GetShipById(shipID);
 		if(ship)target=ship.transform;
@@ -40,12 +43,14 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public override void KillTimer(){
 		//ここでエフェクトをだす
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Yudou",transform.position,null);
+
 		ParticleManager.Instance.ShowExplosionSmallAt(transform.position,Quaternion.identity,null);
 		KillSelf();
 	}
 
 	public override void EffectAndDead(shipControl ship){
-		
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Yudou",transform.position,null);
 		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
 		KillSelf();
 	}
@@ -73,6 +78,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 	}
 
 	public override  void OnCollideWall(){
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Yudou",transform.position,null);
 		ParticleManager.Instance.ShowExplosionSmallAt(transform.position,Quaternion.identity,null);
 		KillSelf();
 	}

@@ -64,7 +64,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		//カメラに機体を設定
 		Camera.main.gameObject.GetComponent<cameraLookAt>().target=shipControll.gameObject.transform;
 		this.shipControll=shipControll;
-
+		shipControll.gameObject.AddComponent<AudioListener>();
 		GameObject go=GameObject.FindGameObjectWithTag("ShipSercher");
 		if(go){
 			shipSearcher=go.GetComponent<MapDetecterTrigger>();
@@ -77,7 +77,25 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 		}else{
 			Debug.LogWarning("ShipSercher がありません");
 		}
+
+		AudioController.PlayMusic("gameBGM");
 	}
+
+	float GetDistanceFromPlayerShip(Vector3 pos){
+		if(shipControll){
+			return Vector3.Distance(pos,shipControll.transform.position);
+		}
+		return 50000000f;
+	}
+
+	public bool IsWithinAudioDistance(Vector3 pos){
+
+		if(GetDistanceFromPlayerShip(pos)<PSParams.GameParameters.MaxAudioDistance){
+			return true;
+		}
+		return false;
+	}
+		
 
 	/*
 	 * 

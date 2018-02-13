@@ -20,6 +20,7 @@ public class shot : SubweaponShot {
 	}
 
 	public override void EffectAndDead(shipControl ship){
+		if(GUIManager.Instance.IsWithinAudioDistance(ship.transform.position))AudioController.Play("Hit",ship.transform.position,ship.transform);
 		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
 		KillSelf();
 	}

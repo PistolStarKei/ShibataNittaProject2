@@ -401,7 +401,7 @@ namespace PSPhoton {
 
 
 
-			AudioController.PlayMusic("gameBGM");
+
 
 			if(!isNetworkMode){
 				shiphud.SetFollowhipHud(debugShip);

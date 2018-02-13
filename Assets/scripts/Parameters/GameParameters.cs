@@ -11,6 +11,9 @@ namespace PSParams{
 		//コネクトユーザーが０になったらゲームを終了するか
 		public static readonly bool EndGameOnNoConnection=false;
 
+		//サウンドを無視する距離
+		public static readonly float MaxAudioDistance=10f;
+
 		//デフォルトのチケットの個数
 		public static readonly int DefaultTicketsNum=4;
 

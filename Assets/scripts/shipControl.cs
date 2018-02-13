@@ -83,7 +83,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 	}
 	void Start(){
-		
+
+
 		GameObject mzl = transform.Find("Muzzle").gameObject;
 		if(mzl){
 			this.muzzle=mzl.GetComponent<MuzzleManager>();
@@ -103,8 +104,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			GUIManager.Instance.SetShipControll(this);
 			isControllable=true;
 			StartShooting();
-		}
 
+		}
 		isDead=false;
 
 		isShooting=true;
@@ -129,6 +130,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		rd.isKinematic=true;
 
 		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,null);
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Dead",transform.position,null);
 
 		gameObject.SetActive(false);
 		if(photonView){
@@ -572,6 +574,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		[PunRPC]
 		public void RPC_SpawnShot(Vector3 position,Vector3 rotation,float spawnTime,string ID){
+
+			if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("shot",transform.position,transform);
+
+
+
 			//マズル
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.Forward));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID);
@@ -580,6 +587,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		[PunRPC]
 		public void RPC_SpawnShotDouble(Vector3 position1,Vector3 position2,Vector3 rotation,float spawnTime,string[] ID){
+
+			if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("shot",transform.position,transform);
 			//マズル
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID[0]);
@@ -590,6 +599,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		[PunRPC]
 		public void RPC_SpawnShotTripple(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string[] ID){
+
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("shot",transform.position,transform);
 			//マズル
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
@@ -602,6 +613,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		
 		[PunRPC]
 		public void RPC_SpawnShotQuad(Vector3 position1,Vector3 position2,Vector3 position3,Vector3 rotation,float spawnTime,string[] ID){
+			if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("shot",transform.position,transform);
 			//マズル
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.Forward),transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
@@ -634,6 +646,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 		[PunRPC]
 		public void RPC_SpawnSubweapon_Zenhoukou(Vector3[] position,Vector3[] rotation,float spawnTime,int[] shipOffset,string[] IDs){
+			if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("zenhoukou",transform.position,transform);
+
+
+
 			if(position.Length!=rotation.Length){
 				Debug.LogError("全方向の配列の個数が違う");
 			}else{
@@ -817,6 +833,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		if(isOwnersShip()){
 			//プレイヤのシップにはステルスマテリアル
 			if(isOn){
+				if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("stealth",transform.position,transform);
 				engine.SetActive(false);
 				stealthEffecter.StealthMode(true);
 			}else{
@@ -1275,6 +1292,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	[PunRPC]
 	public void SetRensou(int i){
 		shot_rensou=i;
+		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("powerup",transform.position,transform);
+
+
+	
 		switch(shot_rensou){
 			case 1:
 				shotCol=DanmakuColor.White;
