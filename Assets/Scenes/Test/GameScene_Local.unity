@@ -390,7 +390,7 @@ GameObject:
   - 4: {fileID: 37902517}
   - 20: {fileID: 37902519}
   - 114: {fileID: 37902518}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Camera_pu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +992,7 @@ GameObject:
   - 4: {fileID: 86671487}
   - 114: {fileID: 86671489}
   - 114: {fileID: 86671488}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: RankList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1372,7 +1372,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 132338361}
   - 114: {fileID: 132338362}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55659,7 +55659,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 208365181}
   - 114: {fileID: 208365182}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: ic_kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55745,7 +55745,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 223066581}
   - 114: {fileID: 223066582}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56137,7 +56137,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 288772552}
   - 114: {fileID: 2008907477}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: CountdownLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56391,7 +56391,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 302729746}
   - 114: {fileID: 302729747}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56673,6 +56673,96 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 256, y: 255.99976, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &331430800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 331430801}
+  - 114: {fileID: 331430802}
+  m_Layer: 5
+  m_Name: Texture (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331430801
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331430800}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00004386902, z: 0}
+  m_LocalScale: {x: 0.9987507, y: 0.9987507, z: 0.9987519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1893653465}
+  m_RootOrder: 0
+--- !u!114 &331430802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331430800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 741
+  mHeight: 741
+  mDepth: 1
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  mApplyGradient: 0
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mTexture: {fileID: 2800000, guid: b368f9ce0e59f4554b4630001b1f12a9, type: 3}
+  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mBorder: {x: 0, y: 0, z: 0, w: 0}
+  mFixedAspect: 0
 --- !u!1 &332242799
 GameObject:
   m_ObjectHideFlags: 0
@@ -58676,7 +58766,7 @@ GameObject:
   - 114: {fileID: 355559400}
   - 65: {fileID: 355559398}
   - 114: {fileID: 355559399}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Btn_Boading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59787,7 +59877,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453705274}
   - 114: {fileID: 453705275}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: rank (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60040,7 +60130,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466692201}
   - 114: {fileID: 466692202}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61729,7 +61819,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 590428945}
   - 114: {fileID: 590428947}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62249,7 +62339,7 @@ GameObject:
   - 4: {fileID: 689485808}
   - 114: {fileID: 689485810}
   - 65: {fileID: 689485809}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67986,7 +68076,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 967322838}
   - 114: {fileID: 967322839}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68170,7 +68260,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 987268385}
   - 114: {fileID: 987268386}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: ResultPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68233,7 +68323,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3014
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -73587,6 +73677,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
+        type: 2}
+      propertyPath: AudioCategories.Array.data[0].AudioItems.Array.data[3].subItems.Array.data[0].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: be517d312b2834d119876b84b1ac6ad7, type: 3}
+    - target: {fileID: 114000010221971042, guid: f1b87771072314c4e9987c0b745fca70,
+        type: 2}
+      propertyPath: AudioCategories.Array.data[0].AudioItems.Array.data[3].Volume
+      value: 0.67
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1b87771072314c4e9987c0b745fca70, type: 2}
   m_IsPrefabParent: 0
@@ -73948,7 +74048,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1250751824}
   - 114: {fileID: 1250751825}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74208,7 +74308,7 @@ GameObject:
   - 65: {fileID: 1302464222}
   - 114: {fileID: 1302464221}
   - 114: {fileID: 1302464220}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: flag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76410,7 +76510,7 @@ GameObject:
   - 114: {fileID: 1474270020}
   - 65: {fileID: 1474270019}
   - 114: {fileID: 513192051}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76901,7 +77001,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1536256567}
   - 114: {fileID: 513192053}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: ResultPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77149,7 +77249,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1551069089}
   - 114: {fileID: 1551069090}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77249,7 +77349,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1567954129}
   - 114: {fileID: 1567954130}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Tittle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82662,7 +82762,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1798928437}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83442,7 +83542,8 @@ Transform:
   m_LocalPosition: {x: 554.85, y: -27.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 331430801}
   m_Father: {fileID: 2100776908}
   m_RootOrder: 1
 --- !u!114 &1893653466
@@ -83726,7 +83827,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -83788,7 +83889,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1909591267}
   - 114: {fileID: 1909591269}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84046,7 +84147,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1959918458}
   - 114: {fileID: 1959918459}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84417,7 +84518,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3002
+  startingRenderQueue: 3003
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -84676,7 +84777,7 @@ GameObject:
   - 4: {fileID: 1996995921}
   - 114: {fileID: 1996995920}
   - 114: {fileID: 1996995919}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84950,7 +85051,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2006605500}
   - 114: {fileID: 2006605501}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85381,7 +85482,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2033814804}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85444,7 +85545,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2043489794}
   - 114: {fileID: 2043489795}
-  m_Layer: 15
+  m_Layer: 5
   m_Name: ic_ranking
   m_TagString: Untagged
   m_Icon: {fileID: 0}

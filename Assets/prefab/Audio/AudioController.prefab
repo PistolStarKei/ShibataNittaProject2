@@ -212,7 +212,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: 9338d2260b4d1495f91961034cd1cc9c, type: 3}
+        Clip: {fileID: 8300000, guid: 1e0d608c5f0234b96a4d19867027929b, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
   _volume: 1
   _currentInspectorSelection:
     currentCategoryIndex: 0
-    currentItemIndex: 13
+    currentItemIndex: 3
     currentSubitemIndex: 0
     currentPlaylistEntryIndex: 0
     currentPlaylistIndex: 0
