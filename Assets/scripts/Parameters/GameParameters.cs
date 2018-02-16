@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Photon;
 
 namespace PSParams{
 	public static class GameParameters {
@@ -204,6 +205,9 @@ namespace PSParams{
 	}
 
 	public static class AppData {
+
+
+
 
 		//アプリのタイトル
 		public static readonly string APP_TITTLE="";

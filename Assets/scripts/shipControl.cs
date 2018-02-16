@@ -1275,6 +1275,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		//PickUpのエフェクトはここで出す
 
 		if(isOwnersShip()){
+
+			AudioController.Play ("pu");
 			int num=(int)pu;
 			num=num-3;
 			GUIManager.Instance.OnGetSubWeapon((Subweapon)num);

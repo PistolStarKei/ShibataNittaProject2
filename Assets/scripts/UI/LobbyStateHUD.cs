@@ -94,7 +94,8 @@ public class LobbyStateHUD : MonoBehaviour {
 				PlayBtnRot.enabled=true;
 				NGUITools.SetActive(PlayBtn,true);
 				NGUITools.SetActive(TimerBtn,false);
-				SetLabel("READY",false);
+				SetLabel(Application.systemLanguage == SystemLanguage.Japanese? "接続サーバー:"+DataManager.Instance.envData.serverRegion :
+				"Server:"+DataManager.Instance.envData.serverRegion,false);
 				break;
 			case NetworkState.ROOMCONNECTED:
 				state1.color=normalC;

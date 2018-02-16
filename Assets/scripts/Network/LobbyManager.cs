@@ -103,7 +103,8 @@ namespace PSPhoton {
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Connecting");
 			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
 			//PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
-			PhotonNetwork.ConnectToRegion(CloudRegionCode.asia,APP_VERSION);
+
+			PhotonNetwork.ConnectToRegion(Countly.ServerRegion[DataManager.Instance.envData.serverRegion],APP_VERSION);
 
 		}
 		public override void OnConnectedToPhoton ()
@@ -556,7 +557,13 @@ namespace PSPhoton {
 			PhotonNetwork.LoadLevel ("LobbyScene");
 		}
 
-
+		public void OnChangedServer(){
+			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+				LeaveRoom();
+			}else{
+				PhotonNetwork.Disconnect();
+			}
+		}
 
 	}
 }

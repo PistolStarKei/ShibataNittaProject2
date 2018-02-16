@@ -7,7 +7,7 @@ public class EnvData{
 	public bool toggleSE=true;
 	public bool toggleBGM=true;
 	public string startTime="";
-
+	public string serverRegion ="";
 }
 
 [System.Serializable]
@@ -67,11 +67,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"rankingKillNum");	
+			ES2.Delete(filename+"serverRegion");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"rankingKillNum")){
+		if(!ES2.Exists(filename+"serverRegion")){
 			
 			InitData();
 			LoadData();
@@ -105,6 +105,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		envData.toggleSE=ES2.Load<bool>(filename+"toggleSE");
 		envData.toggleBGM=ES2.Load<bool>(filename+"toggleBGM");
 		envData.startTime=ES2.Load<string>(filename+"startTime");
+		envData.serverRegion=ES2.Load<string>(filename+"serverRegion");
+
 
 		gameData.shipType=ES2.Load<int>(filename+"shipType");
 		gameData.username=ES2.Load<string>(filename+"username");
@@ -139,12 +141,16 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.rankingTotalPlay=ES2.Load<int>(filename+"rankingTotalPlay");
 		gameData.rankingTotalRank=ES2.Load<int>(filename+"rankingTotalRank");
 
+
+
 	}
 
 	public void SaveAll(){
 		ES2.Save(envData.toggleSE,filename+"toggleSE");
 		ES2.Save(envData.toggleBGM,filename+"toggleBGM");
 		ES2.Save(envData.startTime,filename+"startTime");
+		ES2.Save(envData.serverRegion,filename+"serverRegion");
+
 
 		ES2.Save(gameData.shipType,filename+"shipType");
 		ES2.Save(gameData.username,filename+"username");
@@ -186,7 +192,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(true,filename+"toggleSE");
 		ES2.Save(true,filename+"toggleBGM");
 		ES2.Save(TimeManager.GetCurrentTime(),filename+"startTime");
-
+		ES2.Save(Countly.GetRegion(Application.systemLanguage),filename+"serverRegion");
 
 		ES2.Save(0,filename+"shipType");
 		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"username");

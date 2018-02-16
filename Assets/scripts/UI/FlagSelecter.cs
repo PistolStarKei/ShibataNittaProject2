@@ -1,10 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Colorful;
 
 public class FlagSelecter : MonoBehaviour {
 
 
+	public UILabel mCurrentServer;
+	void SetServer(string key){
+		mCurrentServer.text=key;
+		if(Countly.ServerRegionAvaillable[key]){
+			mCurrentServer.color=Color.white;
+			mCurrentServer.effectColor=mCurrentServer.color;
+			current=key;
+		}else{
+			mCurrentServer.color=Color.grey;
+			mCurrentServer.effectColor=mCurrentServer.color;
+		}
+
+	}
+	public void OnClickNext(){
+		currentServerNum++;
+		if(currentServerNum>=Countly.ServerRegions.Length){
+			currentServerNum=0;
+		}
+		SetServer(Countly.ServerRegions[currentServerNum]);
+
+	}
+	public void OnClickPrev(){
+		currentServerNum--;
+		if(currentServerNum<0){
+			currentServerNum=Countly.ServerRegions.Length-1;
+		}
+		SetServer(Countly.ServerRegions[currentServerNum]);
+	}
+	int currentServerNum=0;
+	string current="";
 	public GameObject btnBG;
 	public GameObject container;
 
@@ -12,12 +43,22 @@ public class FlagSelecter : MonoBehaviour {
 		AudioController.Play("open");
 		btnBG.SetActive(true);
 		container.SetActive(true);
+
+		currentServerNum=System.Array.IndexOf (Countly.ServerRegions, DataManager.Instance.envData.serverRegion);
+
+		current=DataManager.Instance.envData.serverRegion;
+		mCurrentServer.text=current;
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
 		btnBG.SetActive(false);
 		container.SetActive(false);
+		if(current!=DataManager.Instance.envData.serverRegion){
+			DataManager.Instance.envData.serverRegion=current;
+			DataManager.Instance.SaveAll();
+			PSPhoton.LobbyManager.instance.OnChangedServer();
+		}
 	}
 
 	public UIGrid grid;
