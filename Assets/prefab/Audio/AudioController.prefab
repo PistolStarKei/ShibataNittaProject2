@@ -195,7 +195,7 @@ MonoBehaviour:
       loopSequenceRandomPitch: 0
       loopSequenceRandomVolume: 0
       DestroyOnLoad: 1
-      Volume: 1
+      Volume: 0.67
       SubItemPickMode: 0
       MinTimeBetweenPlayCalls: 0.1
       MaxInstanceCount: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: 1e0d608c5f0234b96a4d19867027929b, type: 3}
+        Clip: {fileID: 8300000, guid: be517d312b2834d119876b84b1ac6ad7, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0

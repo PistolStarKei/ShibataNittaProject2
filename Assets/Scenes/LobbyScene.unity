@@ -4469,7 +4469,6 @@ MonoBehaviour:
   mLb: {fileID: 875578874}
   rotaterDulation: 20
   startCover: 0
-  isInivokin: 0
 --- !u!114 &341541587
 MonoBehaviour:
   m_ObjectHideFlags: 0

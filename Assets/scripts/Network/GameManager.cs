@@ -434,7 +434,7 @@ namespace PSPhoton {
 
 			//TODO リソースを用意したら、ここを変更する
 			GameObject go = PhotonNetwork.Instantiate("Ship" + shipBaseNumber+"c"+(color+1),new Vector3(spawn.position.x,0.0f,spawn.position.z) , Quaternion.Euler(new Vector3(0.0f,spawn.rotation.y,0.0f)), 0);
-
+			go.transform.LookAt(Vector3.zero);
 			playerShip=go.GetComponent<shipControl>();
 			playerShip.InitPlayerData((string)PhotonNetwork.player.CustomProperties["userName"],(string)PhotonNetwork.player.CustomProperties["countly"],PhotonNetwork.player.ID);
 			GUIManager.Instance.SetShipControll(playerShip);

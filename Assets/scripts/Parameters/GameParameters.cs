@@ -9,7 +9,7 @@ namespace PSParams{
 		//ゲーム全体の
 		#region Game
 		//コネクトユーザーが０になったらゲームを終了するか
-		public static readonly bool EndGameOnNoConnection=false;
+		public static readonly bool EndGameOnNoConnection=true;
 
 		//サウンドを無視する距離
 		public static readonly float MaxAudioDistance=10f;
@@ -187,7 +187,7 @@ namespace PSParams{
 		//プレイヤの数１に対するスポーン数　スタート時　回復
 		public static readonly int spawnNum_OnStartPerShip_Rate_Kaifuku=0;
 		//サブウェポン
-		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=50;
+		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=10;
 
 		//プレイヤの数１に対するスポーン数　ゲーム開始後の一定間隔　回復
 		public static readonly int spawnNum_OnUpdatePerShip_Rate_Kaifuku=1;
