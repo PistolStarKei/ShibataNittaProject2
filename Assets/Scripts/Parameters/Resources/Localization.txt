@@ -19,3 +19,4 @@ RankTop,Total Winning,1位回数
 RankAvr,Average Rank,平均順位
 PrevMonth,Previous month,先月の最終ランク
 ServerSelect,Connect Server,接続サーバー
+TittleReview,If you enjoy this game.\n\nPlease review on store page. ,ゲームを気に入ってくれたら、ストアでアプリのレビューをお願いします！\n\n不具合報告などのサポートはお問い合わせまで
