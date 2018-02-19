@@ -302,7 +302,7 @@ namespace PSPhoton {
 		// sets and syncs custom properties on a network player (including masterClient)
 		private void SetCustomProperties(PhotonPlayer player, int ship,int color,string countly, int position,string name) {
 			if(useDebugLog)Debug.Log("SetCustomProperties "+name+" ship" + ship+" "+countly+" poisition "+position);
-			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship}, {"shipColor", color},{"userName", name} };
+			ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", position },{ "countly", countly }, {"shipBase", ship}, {"shipColor", color},{"userName", name},{"isDead", false} };
 			player.SetCustomProperties(customProperties);
 		}
 

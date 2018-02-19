@@ -345,6 +345,13 @@ namespace PSPhoton {
 				GUIManager.Instance.Log(info);
 
 				state = GameState.FINISHED;
+
+				ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable() { { "spawn", (int)PhotonNetwork.player.CustomProperties["spawn"] },{ "countly",  (string)PhotonNetwork.player.CustomProperties["countly"]  }
+					, {"shipBase", (int)PhotonNetwork.player.CustomProperties["shipBase"]}, {"shipColor", (int)PhotonNetwork.player.CustomProperties["shipColor"]},
+					{"userName", (string)PhotonNetwork.player.CustomProperties["userName"]},{"isDead", true} };
+				
+				PhotonNetwork.player.SetCustomProperties(customProperties);
+
 				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",3}  });
 
 				// enable panel
@@ -694,12 +701,12 @@ namespace PSPhoton {
 
 			SetPlayerConnected(false,disconnetedPlayer.ID);
 
-			string info=Application.systemLanguage == SystemLanguage.Japanese? (string)disconnetedPlayer.CustomProperties["userName"] +"との通信が途絶えました"
-				:(string)disconnetedPlayer.CustomProperties["userName"] +"was left rooom";
+			if((bool)disconnetedPlayer.CustomProperties["isDead"]==false){
+				string info=Application.systemLanguage == SystemLanguage.Japanese? (string)disconnetedPlayer.CustomProperties["userName"] +"との通信が途絶えました"
+					:(string)disconnetedPlayer.CustomProperties["userName"] +"was left rooom";
 
-			GUIManager.Instance.Log(info);
-
-
+				GUIManager.Instance.Log(info);
+			}
 		}
 		#endregion
 
@@ -755,6 +762,8 @@ namespace PSPhoton {
 
 			return exists;
 		}
+
+
 
 	}
 }
