@@ -10,7 +10,7 @@ namespace PSParams{
 		//ゲーム全体の
 		#region Game
 		//コネクトユーザーが０になったらゲームを終了するか
-		public static readonly bool EndGameOnNoConnection=false;
+		public static readonly bool EndGameOnNoConnection=true;
 
 		//サウンドを無視する距離
 		public static readonly float MaxAudioDistance=10f;
