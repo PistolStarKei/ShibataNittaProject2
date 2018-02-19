@@ -39,6 +39,8 @@ namespace PSPhoton {
 
 
 		void Awake(){
+			Screen.sleepTimeout=SleepTimeout.NeverSleep;
+
 			GameObject audio=GameObject.FindGameObjectWithTag("AudioController");
 			if(!audio){
 				GameObject.Instantiate(audioControllerObj,Vector3.zero,Quaternion.identity,null);
@@ -372,12 +374,8 @@ namespace PSPhoton {
 			DataManager.Instance.SaveAll();
 
 
-			if((int)PhotonNetwork.room.CustomProperties["state"]==-1){
+			if((int)PhotonNetwork.room.CustomProperties["state"]>=1){
 				//すでにゲームが終わっている
-				LeaveRoom();
-				info.Log("すでにゲームは終了しています");
-			}else if((int)PhotonNetwork.room.CustomProperties["state"]==1){
-				//すでに始まっている
 				LeaveRoom();
 				info.Log("すでにゲームは終了しています");
 			}

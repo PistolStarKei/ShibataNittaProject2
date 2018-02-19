@@ -345,7 +345,7 @@ namespace PSPhoton {
 				GUIManager.Instance.Log(info);
 
 				state = GameState.FINISHED;
-				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
+				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",3}  });
 
 				// enable panel
 				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
@@ -399,7 +399,12 @@ namespace PSPhoton {
 			
 
 
+			if((int)PhotonNetwork.room.CustomProperties["state"]>=2){
+				//プレイヤ追加分をやる
+				PhotonNetwork.LoadLevel ("LobbyScene");
+				return;
 
+			}
 
 
 
@@ -412,7 +417,7 @@ namespace PSPhoton {
 			CreatePlayer();
 
 
-			photonView.RPC ("ConfirmLoad", PhotonTargets.All);
+			photonView.RPC ("ConfirmLoad", PhotonTargets.AllBuffered);
 		}
 
 		public mapControl mapControl;
@@ -444,7 +449,11 @@ namespace PSPhoton {
 		public void ConfirmLoad () {
 			//みんなが1回ずつ呼ぶので、ロード待ち受けに使える
 			loadedPlayers++;
+			if((int)PhotonNetwork.room.CustomProperties["state"]>=2)SetPlayerHUD();
 		}
+
+
+
 		private void CheckCountdown() {
 			bool takingTooLong = gameTime >= 5;
 			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
@@ -456,6 +465,8 @@ namespace PSPhoton {
 		public PSGUI.WaitHUD waiter;
 		[PunRPC]
 		public void StartCountdown(double startTimestamp) {
+			if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
+
 			waiter.Hide();
 			state = GameState.COUNTDOWN;
 			// sets local timestamp to the desired server timestamp (will be checked every frame)
@@ -465,27 +476,13 @@ namespace PSPhoton {
 		public AlertLog alert;
 
 
-		public void StartGame() {
-
-
-			if(PhotonNetwork.isMasterClient){
-				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
-				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
-			}
-
-
-			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
-
-			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
-			this.safeZone_SetDulation=PSParams.GameParameters.safeZone_SetDulation;
-			this.safeZone_Dulation=PSParams.GameParameters.safeZone_Dulation;
-
+		void SetPlayerHUD(){
 			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
 
 			shipControl ship;
 			foreach (GameObject go in ships) {
 				ship=go.GetComponent<shipControl>();
-				if(ship){
+				if(ship && !shipControllers.Contains(ship)){
 					if(ship.playerData.playerID!=PhotonNetwork.player.ID){
 						shiphud.SetFollowhipHud(ship);
 
@@ -501,6 +498,26 @@ namespace PSPhoton {
 			}
 
 			UpdateZanki();
+		}
+
+		public void StartGame() {
+
+
+			if(PhotonNetwork.isMasterClient){
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
+			
+			
+			}
+
+
+			//この時点では全てのプレイヤのインスタンスがローカルでも生成されているので、受け取れる
+
+			this.itemSpawnTime=PSParams.SpawnItemRates.spawnRepeatRate;
+			this.safeZone_SetDulation=PSParams.GameParameters.safeZone_SetDulation;
+			this.safeZone_Dulation=PSParams.GameParameters.safeZone_Dulation;
+
+			SetPlayerHUD();
 
 			//ここで操作系をEnableする
 			playerShip.isControllable=true;
@@ -609,7 +626,7 @@ namespace PSPhoton {
 							SetPlayerDead(playerShip.playerData.playerID);
 
 							state = GameState.FINISHED;
-							if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",2}  });
+							if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",3}  });
 
 
 
@@ -707,7 +724,7 @@ namespace PSPhoton {
 				
 				if(isRoomExists(DataManager.Instance.gameData.lastRoomName)){
 					//ゲームが終了していたら入れない
-					if((int)PhotonNetwork.room.CustomProperties["state"]>=2){
+					if((int)PhotonNetwork.room.CustomProperties["state"]>=3){
 						Debug.LogWarning("ゲーム終了のため入れない");
 						PhotonNetwork.LoadLevel ("LobbyScene");
 					}else{
