@@ -51,7 +51,7 @@ public class Subweapon_Yudoudan : SubweaponShot {
 
 	public override void EffectAndDead(shipControl ship){
 		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Yudou",transform.position,null);
-		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
+		if(ship!=null)ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,null);
 		KillSelf();
 	}
 

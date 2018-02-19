@@ -165,7 +165,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			//サブウェポンをばらまく
 			if(subweaponInHolder!=null){
 				for(int i=0;i<subweaponInHolder.Length;i++){
-					PhotonNetwork.InstantiateSceneObject("PU" + subweaponInHolder[i]+3, GetRandomScatterPosition((ShipOffset)Random.Range(0,8),Random.Range(0.5f,2.0f)), Quaternion.identity,0,null);
+					PhotonNetwork.InstantiateSceneObject("PU" + (subweaponInHolder[i]+3).ToString(), GetRandomScatterPosition((ShipOffset)Random.Range(0,8),Random.Range(0.5f,2.0f)), Quaternion.identity,0,null);
 				}
 			}
 			//通常弾をばらまく

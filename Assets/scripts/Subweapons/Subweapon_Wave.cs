@@ -25,7 +25,7 @@ public class Subweapon_Wave : SubweaponShot {
 	}
 
 	public override void EffectAndDead(shipControl ship){
-		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
+		if(ship!=null)ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,null);
 
 		KillSelf();
 	}

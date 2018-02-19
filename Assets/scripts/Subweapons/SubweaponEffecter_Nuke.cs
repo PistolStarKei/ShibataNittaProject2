@@ -13,7 +13,7 @@ public class SubweaponEffecter_Nuke : SubweaponEffecter {
 
 	public override void Effect(shipControl ship){
 		
-		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
+		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,null);
 		GUIManager.Instance.ShakeCameraBig();
 	}
 }

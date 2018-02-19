@@ -194,6 +194,13 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 
 	public SubWeaponMenu subWeaponSlot;
 
+	public void TestScatter(){
+		int[] nums=GetSubweaponInHolder();
+		for(int i=0; i<nums.Length;i++){
+			Debug.Log(""+nums[i]);
+		}
+	}
+
 	public int[] GetSubweaponInHolder(){
 		return  subWeaponSlot.GetAllWeaponInHolder();
 	}

@@ -15,7 +15,7 @@ public class Subweapon_Zenhoukou : SubweaponShot {
 	}
 
 	public override void EffectAndDead(shipControl ship){
-		ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,ship.transform);
+		if(ship!=null)ParticleManager.Instance.ShowExplosionSmallAt(ship.transform.position,Quaternion.identity,null);
 		KillSelf();
 	}
 
