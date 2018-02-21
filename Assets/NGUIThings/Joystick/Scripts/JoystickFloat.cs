@@ -27,7 +27,7 @@ public class JoystickFloat : PS_SingletonBehaviour<JoystickFloat>
 	Vector3 prevPos = Vector3.zero;
 	Transform mTrans;
     private Vector2 preVDelata=Vector2.zero;
-
+	public bool isShowOnStart=false;
    
     float prevDist=0.0f;
     public void OnJoystick(Vector2 delta){
@@ -36,10 +36,32 @@ public class JoystickFloat : PS_SingletonBehaviour<JoystickFloat>
         if(delta.y>1.0f)delta.y=1.0f;
         if(delta.y<-1.0f)delta.y=-1.0f;
         if(delta.x<-1.0f)delta.x=-1.0f;
-		Debug.Log("OnJoyStick "+delta.ToString());
 		preVDelata=delta;
+
+		if(delta!=Vector2.zero){
+			GUIManager.Instance.shipControll.OnJoystick(GetAngle(delta));
+		}else{
+			OnJoystickOff();
+		}
     }
-		
+	public void OnJoystickOff(){
+
+		GUIManager.Instance.shipControll.OnJoystickOff();
+	}
+
+	float GetAngle(Vector2 delta){
+		Vector2 fromVector2 = new Vector2(0, 1);
+		Vector2 toVector2 = delta;
+
+		float ang = Vector2.Angle(fromVector2, toVector2);
+		Vector3 cross = Vector3.Cross(fromVector2, toVector2);
+
+		if (cross.z > 0)
+			ang = 360 - ang;
+
+		return ang;
+	}
+
 	public TweenAlpha ta;
 
 	void Awake()
@@ -70,7 +92,7 @@ public class JoystickFloat : PS_SingletonBehaviour<JoystickFloat>
 		{
 			joystickRadius = ((SphereCollider) joystick.GetComponent<Collider>()).radius;
 			joystick.GetComponent<Collider>().enabled = false;	// need only for radius
-			NGUITools.SetActive(joystick.gameObject,false);
+			if(!isShowOnStart)NGUITools.SetActive(joystick.gameObject,false);
 		}
 	}
 
@@ -117,10 +139,7 @@ public class JoystickFloat : PS_SingletonBehaviour<JoystickFloat>
 			}
 		}
 	}
-    public void OnJoystickOff(){
-        
-        Debug.Log("OnJoystickOff");
-    }
+   
 	/// <summary>
 	/// Drag the center
 	/// </summary>

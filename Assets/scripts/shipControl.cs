@@ -1357,19 +1357,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	public float speed = 0.01f;
 
 
-	Vector3 tr;
-	Rigidbody rd;
-	Vector3 velocity;
-	PhotonTransformView photonTransformView;
-	//GUIManagerからの入力受け取りメソッド
-	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
-		isPressed=isPress;
-		currentTappedPos=worldPos;
-	}
 
-	public void OnUpdateTapLayer(Vector3 worldPos){
-		currentTappedPos=worldPos;
-	}
 
 	public bool isActiveShip=true;
 	void Update () {
@@ -1465,6 +1453,39 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	}
 
 
+
+
+
+
+
+
+	Vector3 tr;
+	Rigidbody rd;
+	Vector3 velocity;
+	PhotonTransformView photonTransformView;
+	//GUIManagerからの入力受け取りメソッド
+	public void OnPressTapLayer(bool isPress,Vector3 worldPos){
+		isPressed=isPress;
+		currentTappedPos=worldPos;
+	}
+
+	public void OnUpdateTapLayer(Vector3 worldPos){
+		currentTappedPos=worldPos;
+	}
+
+
+	public void OnJoystick(float angle){
+		this.isPressed=true;
+		newRotation=new Vector3(0f,angle,0f);
+	}
+
+	public void OnJoystickOff(){
+		this.isPressed=false;
+
+	}
+
+
+
 	void FixedUpdate(){
 		if(!isOwnersShip())return;
 		if(!isControllable)return;
@@ -1473,10 +1494,10 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		if (isPressed) {
 			// タップの方向に向く
-			newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
+			/*newRotation = Quaternion.LookRotation(currentTappedPos - transform.position).eulerAngles;
 			newRotation.x = 0;
 			newRotation.z = 0;
-
+			*/
 			// 回転
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
 

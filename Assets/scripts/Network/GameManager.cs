@@ -405,15 +405,14 @@ namespace PSPhoton {
 		void Start () {
 			
 
+			if(PhotonNetwork.room!=null){
+				if((int)PhotonNetwork.room.CustomProperties["state"]>=2){
+					//プレイヤ追加分をやる
+					PhotonNetwork.LoadLevel ("LobbyScene");
+					return;
 
-			if((int)PhotonNetwork.room.CustomProperties["state"]>=2){
-				//プレイヤ追加分をやる
-				PhotonNetwork.LoadLevel ("LobbyScene");
-				return;
-
+				}
 			}
-
-
 
 			if(!isNetworkMode){
 				shiphud.SetFollowhipHud(debugShip);
