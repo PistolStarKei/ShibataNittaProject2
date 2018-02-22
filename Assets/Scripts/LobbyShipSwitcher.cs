@@ -20,7 +20,7 @@ public class LobbyShipSwitcher : MonoBehaviour {
 		indecator.onChanged+=OnShipChanged;
 		currentSelect=DataManager.Instance.gameData.shipType;
 		indecator.SetCurrent(currentSelect);
-		switcher.Set(currentSelect);
+		switcher.SetWithNoAnime(currentSelect);
 		SetCurrentShipName(shipNames[currentSelect]);
 		colorLists.SetItems(currentSelect);
 
