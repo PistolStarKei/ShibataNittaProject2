@@ -77,6 +77,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		this.shotOffsetX=PSParams.GameParameters.shotOffsetX;
 		this.maxSpeed=PSParams.GameParameters.maxSpeed;
 		this.speed=PSParams.GameParameters.speed;
+		this.shipRotation=PSParams.GameParameters.shipRotation;
 		this.razerMaxdistance=PSParams.GameParameters.razerMaxDistance;
 		this.useHitDetectionOnHitter=PSParams.GameParameters.useHitDetectionOnHitter;
 
@@ -1356,8 +1357,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	//[HideInInspector]
 	public float speed = 0.01f;
 
-
-
+	public float shipRotation = 4.0f;
 
 	public bool isActiveShip=true;
 	void Update () {
@@ -1499,7 +1499,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			newRotation.z = 0;
 			*/
 			// 回転
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * 4.0f);
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (newRotation), Time.deltaTime * shipRotation);
 
 		} else {
 

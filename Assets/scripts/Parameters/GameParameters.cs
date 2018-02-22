@@ -7,7 +7,7 @@ using Photon;
 namespace PSParams{
 	public static class GameParameters {
 
-		//ゲーム全体の
+		//ゲーム全体
 		#region Game
 		//コネクトユーザーが０になったらゲームを終了するか
 		public static readonly bool EndGameOnNoConnection=true;
@@ -112,8 +112,9 @@ namespace PSParams{
 		public static readonly float shotOffsetX=0.1f;
 
 		//スピード
-		public static readonly float maxSpeed = 1.0f;
-		public static readonly float speed = 0.01f;
+		public static readonly float maxSpeed = 1.2f;
+		public static readonly float speed = 0.02f;
+		public static readonly float shipRotation = 6.0f;
 
 		#endregion
 
