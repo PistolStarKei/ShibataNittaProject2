@@ -461,7 +461,7 @@ namespace PSPhoton {
 
 
 		private void CheckCountdown() {
-			bool takingTooLong = gameTime >= 5;
+			bool takingTooLong = gameTime >= 10;
 			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
 			if (takingTooLong || finishedLoading) {
 				photonView.RPC ("StartCountdown", PhotonTargets.AllBufferedViaServer, PhotonNetwork.time + 4);
@@ -655,7 +655,7 @@ namespace PSPhoton {
 							}
 						}else{
 							
-							if(safeZone_timer>safeZone_Dulation){
+							if(safeZone_timer>PSParams.GameParameters.safeZone_SetDulation){
 								safeZone_timer=0.0f;
 								OnNextDanzerZoneUpdate();
 							}else{

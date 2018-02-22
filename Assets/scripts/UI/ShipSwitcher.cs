@@ -35,7 +35,15 @@ public class ShipSwitcher : PS_SingletonBehaviour<ShipSwitcher> {
 
 		transform.position=Vector3.Lerp(transform.position,currentTrans,lerpVal);
 	}
-	
+
+	public void SetWithNoAnime(int index){
+		currentShip=ships[index].GetComponent<GUI_ShipRotater>();
+		currentShip.SetToDefault();
+		currentTrans=pos[index];
+		lerpVal=1.0f;
+		startTime=1.0f;
+	}
+
 	public void Set(int index){
 		//ClearAll();
 		//ships[index].SetActive(true);
