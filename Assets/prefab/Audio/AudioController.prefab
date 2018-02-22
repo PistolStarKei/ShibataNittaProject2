@@ -134,7 +134,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: fca5304b6710bf146a6db67c71d1c101, type: 3}
+        Clip: {fileID: 8300000, guid: 569a446fcbc31424aa17c2d82883aa29, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
       loopSequenceRandomPitch: 0
       loopSequenceRandomVolume: 0
       DestroyOnLoad: 1
-      Volume: 0.67
+      Volume: 0.65
       SubItemPickMode: 0
       MinTimeBetweenPlayCalls: 0.1
       MaxInstanceCount: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
         DisableOtherSubitems: 0
         ItemModeAudioID: 
         Clip: {fileID: 8300000, guid: be517d312b2834d119876b84b1ac6ad7, type: 3}
-        Volume: 1
+        Volume: 0.33
         PitchShift: 0
         Pan2D: 0
         Delay: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: ee436a89a29724becb8769e8ccfeed0b, type: 3}
+        Clip: {fileID: 8300000, guid: 6b8c3623aad0e574b893c65ca8702cd3, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: ec95de80bcde54dd8be553f15f3d806d, type: 3}
+        Clip: {fileID: 8300000, guid: 041ef6ec799a6b84a88f2791c5b8e994, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: e74dc4063ad184c4dad19fcbe6252c42, type: 3}
+        Clip: {fileID: 8300000, guid: 569a446fcbc31424aa17c2d82883aa29, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: 77e573c77603340d5900b6ef1a6930d6, type: 3}
+        Clip: {fileID: 8300000, guid: df6866fb754e36744800a2375efcf382, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: c807021530dd64259b00d19abd6bfb67, type: 3}
+        Clip: {fileID: 8300000, guid: 5b6be426e56e6024b8789e2f3d40d3a6, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: f908b0aa108f540c99d0a7edcb2fca02, type: 3}
+        Clip: {fileID: 8300000, guid: e8fe1e3e93e83de4492be21921aa7ccf, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: d42f8929022e4457da83dab275822222, type: 3}
+        Clip: {fileID: 8300000, guid: b2c4368e7c3b72344981ab43dcff8d7b, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
         DisableOtherSubitems: 0
         ItemModeAudioID: 
         Clip: {fileID: 8300000, guid: b412e10c5b3022140b6e5305cbd6cb49, type: 3}
-        Volume: 1
+        Volume: 0.4
         PitchShift: 0
         Pan2D: 0
         Delay: 0
@@ -996,7 +996,7 @@ MonoBehaviour:
   _volume: 1
   _currentInspectorSelection:
     currentCategoryIndex: 0
-    currentItemIndex: 14
+    currentItemIndex: 6
     currentSubitemIndex: 0
     currentPlaylistEntryIndex: 0
     currentPlaylistIndex: 0
