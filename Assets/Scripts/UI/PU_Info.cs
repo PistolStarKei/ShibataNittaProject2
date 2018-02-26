@@ -52,7 +52,7 @@ public class PU_Info : MonoBehaviour {
 
 	public void OnClickMail(){
 
-		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "[SBR]不具合報告", PSParams.AppData.MAIL);
+		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "[SBR]不具合報告Android "+Application.version, PSParams.AppData.MAIL);
 
 	}
 

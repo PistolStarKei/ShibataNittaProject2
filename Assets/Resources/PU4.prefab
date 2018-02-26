@@ -208,7 +208,6 @@ MonoBehaviour:
   pickType: 4
   isActive: 0
   ps: {fileID: 198000013417144092}
-  SentPickup: 0
 --- !u!198 &198000012545066202
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -422,7 +421,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.2784314, b: 0.6509804, a: 1}
+      maxColor: {r: 0.21960784, g: 0.7411765, b: 1, a: 1}
       minMaxState: 0
     startSize:
       scalar: 0.33

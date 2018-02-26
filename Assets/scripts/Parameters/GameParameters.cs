@@ -211,7 +211,7 @@ namespace PSParams{
 
 
 		//アプリのタイトル
-		public static readonly string APP_TITTLE="";
+		public static readonly string APP_TITTLE="SPACESHIP BATTLE ROYAL";
 		public static readonly string BASE_ENCODE="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB";
 		public static readonly string APPID="com.Pistolstarweb.spacekill";
 

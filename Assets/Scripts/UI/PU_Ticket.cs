@@ -30,7 +30,7 @@ public class PU_Ticket : MonoBehaviour {
 
 	public void OnClickMail(){
 		
-		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "[SBR]購入の問い合わせ", PSParams.AppData.MAIL);
+		AndroidSocialGate.SendMail(Application.systemLanguage == SystemLanguage.Japanese? "メール送信" :"Send Mail", "何でお困りでしょうか？", "[SBR]購入の問い合わせAndroid :"+Application.version, PSParams.AppData.MAIL);
 	}
 
 	public void OnClickTokusho(){
