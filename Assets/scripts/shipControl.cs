@@ -678,11 +678,11 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		
 		if(isDead || isShooting==val)return false;
 
+		if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH)return false;
+
 		if(usingLog)Debug.Log("OnShotToggle "+val);
 
 		if(val){
-			if(currentUsing!=Subweapon.NONE && currentUsing!=Subweapon.STEALTH)return false;
-
 			if(currentUsing==Subweapon.STEALTH)OnWeaponTimerOver();
 
 			/*if(photonView){

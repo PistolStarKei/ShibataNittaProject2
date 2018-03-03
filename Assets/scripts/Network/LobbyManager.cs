@@ -381,7 +381,7 @@ namespace PSPhoton {
 			}
 
 
-			SetCustomProperties(PhotonNetwork.player, shipsSelecter.currentSelect,shipsSelecter.colorLists.mCurrentSelected,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
+			SetCustomProperties(PhotonNetwork.player, DataManager.Instance.gameData.shipType,DataManager.Instance.gameData.shipColor,DataManager.Instance.gameData.country, PhotonNetwork.playerList.Length - 1,DataManager.Instance.gameData.username);
 			base.OnJoinedRoom ();
 		}
 
