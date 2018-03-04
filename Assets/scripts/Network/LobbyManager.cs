@@ -78,10 +78,14 @@ namespace PSPhoton {
 				return;
 			}
 
+			if(!DataManager.Instance.gameData.isReviewd && DataManager.Instance.gameData.playNum>5 && DataManager.Instance.gameData.playNum%5==0){
+				
+				reviewBtn.OnClick();
+			}
 			ConnectToPUN();
 		}
 
-
+		public Btn_Internet reviewBtn;
 
 		public override void OnReceivedRoomListUpdate () {
 			rooms.Clear ();

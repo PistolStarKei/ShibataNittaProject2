@@ -15231,7 +15231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6a2a78c9c764181ab7689d57f7ac6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPersistantBetweenScenes: 0
+  isPersistantBetweenScenes: 1
 --- !u!4 &1126091297
 Transform:
   m_ObjectHideFlags: 0
@@ -25250,7 +25250,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -25294,6 +25294,11 @@ Prefab:
       propertyPath: numberOfMaps
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
+        type: 2}
+      propertyPath: reviewBtn
+      value: 
+      objectReference: {fileID: 1906787706}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94bda0ee31a641f7b8de458cc5fdc15, type: 2}
   m_IsPrefabParent: 0

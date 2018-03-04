@@ -7,7 +7,7 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 
     public bool ISSameDayLogin(DateTime lastTimeLogin){
         
-		if(IsSameMonthLogin(lastTimeLogin))return true;
+		if(IsSameDayLogin(lastTimeLogin))return true;
 
 		return false;
         

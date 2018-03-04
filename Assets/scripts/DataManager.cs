@@ -31,13 +31,13 @@ public class GameData{
 	public bool[] shipAvaillable6=GameParameters.defaultAvaillabilityShip["Ship6"];
 	public bool[] shipAvaillable7=GameParameters.defaultAvaillabilityShip["Ship7"];
 	public bool[] shipAvaillable8=GameParameters.defaultAvaillabilityShip["Ship8"];
-
+	public int playNum =0;
 	public int rankingKillNum =0;
 	public int rankingTopNum =0;
 	public int rankingTotalPlay =0;
 	public int rankingTotalRank =0;
 	public float rankingAvrRank =0;
-
+	public bool isReviewd =false;
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -67,11 +67,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"serverRegion");	
+			ES2.Delete(filename+"isReviewd");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"serverRegion")){
+		if(!ES2.Exists(filename+"isReviewd")){
 			
 			InitData();
 			LoadData();
@@ -84,8 +84,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		}
 
 		if(TimeManager.Instance!=null){
-			if(TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
+			if(!TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
 				gameData.tweetNum=0;
+				gameData.playNum++;
 				SaveAll();
 			}
 
@@ -140,6 +141,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		gameData.rankingTotalPlay=ES2.Load<int>(filename+"rankingTotalPlay");
 		gameData.rankingTotalRank=ES2.Load<int>(filename+"rankingTotalRank");
+		gameData.playNum=ES2.Load<int>(filename+"playNum");
+		gameData.isReviewd=ES2.Load<bool>(filename+"isReviewd");
 
 
 
@@ -181,6 +184,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(gameData.rankingTotalRank,filename+"rankingTotalRank");
 
+		ES2.Save(gameData.playNum,filename+"playNum");
+		ES2.Save(gameData.isReviewd,filename+"isReviewd");
 	}
 
 	private void DestroyAll(){
@@ -216,12 +221,14 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship7"],filename+"shipAvaillable7");
 		ES2.Save(GameParameters.defaultAvaillabilityShip["Ship8"],filename+"shipAvaillable8");
 
-	
 		ES2.Save(0,filename+"rankingKillNum");
 		ES2.Save(0,filename+"rankingTopNum");
 		ES2.Save(0f,filename+"rankingAvrRank");
 		ES2.Save(0,filename+"rankingTotalPlay");
 		ES2.Save(0,filename+"rankingTotalRank");
+
+		ES2.Save(0,filename+"playNum");
+		ES2.Save(false,filename+"isReviewd");
 	}
 		
 	private void DeleteAll(){

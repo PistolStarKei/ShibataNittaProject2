@@ -41,6 +41,8 @@ public class Btn_Internet : MonoBehaviour {
 
 	public void OnResponse(bool isYes){
 		if(isYes){
+			DataManager.Instance.gameData.isReviewd=true;
+			DataManager.Instance.SaveAll();
 			Application.OpenURL(PSParams.AppData.APP_URL);
 		}
 	}
