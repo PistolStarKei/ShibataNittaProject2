@@ -21748,6 +21748,48 @@ MonoBehaviour:
   mAtlas: {fileID: 114000014084083940, guid: d437b09f05d024ad6b62ad188127c13a, type: 2}
   mSpriteName: indecater
   mFillCenter: 1
+--- !u!1001 &1752355356
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012986317004, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e91b35150bf924800aa31c4190cf6cf5, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1753971256
 Prefab:
   m_ObjectHideFlags: 0

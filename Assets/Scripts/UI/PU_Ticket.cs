@@ -42,7 +42,7 @@ public class PU_Ticket : MonoBehaviour {
 	}
 
 	public void OnClickTweet(){
-
+		if(DataManager.Instance.gameData.tweetNum>=3)return;
 		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
 		//ツイッターへ飛ばす、待ち受けて追加する
 		//Texture2D image = GetImage();
