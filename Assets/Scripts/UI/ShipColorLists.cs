@@ -134,6 +134,8 @@ public class ShipColorLists : MonoBehaviour {
 				items[e].SetSprite((shipNum+1).ToString()+"-"+(e+1).ToString());	
 				items[e].gameObject.name=e.ToString();
 				items[e].SetState(e==0?true:false);
+				items[e].IsSpecial(switcher.IsSPContent(shipNum,e));
+
 				if(shipNum==DataManager.Instance.gameData.shipType && e==DataManager.Instance.gameData.shipColor){
 					items[e].SetOnBoad(true);
 				}else{

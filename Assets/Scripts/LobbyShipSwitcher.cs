@@ -214,5 +214,31 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 	}
 
+	public bool IsSPContent(int ship, int color){
+		bool isSPContent=false;
+
+		if(ship==0 && color ==3){
+			isSPContent=true;
+		}else if(ship==1 && color ==3){
+			isSPContent=true;
+		}else if(ship==3 && color ==3){
+			isSPContent=true;
+		}else if(ship==5 && color ==2){
+			isSPContent=true;
+		}else if(ship==5 && color ==4){
+			isSPContent=true;
+		}else if(ship==6 && color ==2){
+			isSPContent=true;
+		}else if(ship==6 && color ==3){
+			isSPContent=true;
+		}else if(ship==7 && color ==3){
+			isSPContent=true;
+		}else if(ship==7 && color ==4){
+			isSPContent=true;
+		}
+
+		return isSPContent;
+
+	}
 
 }

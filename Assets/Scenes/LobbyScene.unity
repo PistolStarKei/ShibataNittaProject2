@@ -22240,7 +22240,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 1787062400}
   mFG: {fileID: 1875984872}
-  mValue: 0.39516136
+  mValue: 0
   mFill: 3
   numberOfSteps: 0
   onChange: []
@@ -22248,7 +22248,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: 0.9862222
+  mSize: 0.99766797
   mScroll: 0
   mDir: 2
 --- !u!4 &1779745238
