@@ -34,8 +34,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011314513608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 2.53}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: -0.00000004371139}
+  m_LocalPosition: {x: 0, y: 0, z: 12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -86,22 +86,22 @@ ParticleSystem:
     minMaxState: 0
   speed: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: 587746145
+  randomSeed: 1793573651
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 1.5
+      scalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0.99999994
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -112,7 +112,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.59999996
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -121,7 +121,7 @@ ParticleSystem:
         m_RotationOrder: 0
       minMaxState: 3
     startSpeed:
-      scalar: 0.03
+      scalar: 0.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -237,7 +237,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 0.5882353}
       minMaxState: 2
     startSize:
-      scalar: 0.02
+      scalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -427,20 +427,20 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    gravityModifier: -0.01
-    maxNumParticles: 400
+    gravityModifier: 0
+    maxNumParticles: 4000
     size3D: 0
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 5
-    radius: 3.9
-    angle: 30.77
+    type: 4
+    radius: 0.2
+    angle: 15.4
     length: 0.1
-    boxX: 6.53
-    boxY: 3.18
-    boxZ: 0.5
+    boxX: 1.3
+    boxY: 1.57
+    boxZ: 1.09
     arc: 360
     placementMode: 2
     m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
@@ -456,7 +456,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 400
+      scalar: 200
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -510,24 +510,24 @@ ParticleSystem:
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: 0
-          value: 0.55
+        - time: 0.67313015
+          value: 0
           inSlope: 1.6873608
           outSlope: 1.6873608
           tangentMode: 0
-        - time: 0.5
-          value: 1
+        - time: 0.84626037
+          value: 0.9864865
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 0.25
+        - time: 0.99722993
+          value: 0
           inSlope: -2.4501004
           outSlope: -2.4501004
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
