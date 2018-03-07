@@ -38,6 +38,7 @@ public class GameData{
 	public int rankingTotalRank =0;
 	public float rankingAvrRank =0;
 	public bool isReviewd =false;
+	public int[] rankingRanks=new int[3]{0,0,0};
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -67,11 +68,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"isReviewd");	
+			ES2.Delete(filename+"rankingRanks");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"isReviewd")){
+		if(!ES2.Exists(filename+"rankingRanks")){
 			
 			InitData();
 			LoadData();
@@ -144,6 +145,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		gameData.playNum=ES2.Load<int>(filename+"playNum");
 		gameData.isReviewd=ES2.Load<bool>(filename+"isReviewd");
 
+		gameData.rankingRanks=ES2.LoadArray<int>(filename+"rankingRanks");
+
 
 
 	}
@@ -186,6 +189,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(gameData.playNum,filename+"playNum");
 		ES2.Save(gameData.isReviewd,filename+"isReviewd");
+
+		ES2.Save(gameData.rankingRanks,filename+"rankingRanks");
 	}
 
 	private void DestroyAll(){
@@ -229,6 +234,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(0,filename+"playNum");
 		ES2.Save(false,filename+"isReviewd");
+
+		ES2.Save(new int[3]{0,0,0},filename+"rankingRanks");
 	}
 		
 	private void DeleteAll(){

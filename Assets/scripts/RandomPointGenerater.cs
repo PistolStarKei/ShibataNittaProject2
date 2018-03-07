@@ -29,5 +29,19 @@ namespace PS_Util{
 			return randomBounds[Random.Range(0,randomBounds.Count)].GetRandomPointInArea();
 
 		}
+
+		public int GetBoundsCount(){
+			return randomBounds.Count;
+		}
+		public Vector3 GetRandomPoint(int area){
+			if(!isInited)Init();
+			if(randomBounds.Count<=0)return Vector3.zero;
+			if(area>=randomBounds.Count){
+				Debug.LogError("areanum over length");
+				return Vector3.zero;
+			}
+			return randomBounds[area].GetRandomPointInArea();
+
+		}
 	}
 }

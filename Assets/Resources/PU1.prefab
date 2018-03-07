@@ -126,7 +126,6 @@ MonoBehaviour:
   pickType: 2
   isActive: 0
   ps: {fileID: 198000012693675068}
-  SentPickup: 0
 --- !u!114 &114000012651228054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +174,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.26
-  m_Center: {x: 0.0752774, y: 0.11251805, z: -0.00030785054}
+  m_Center: {x: 0.15, y: 0.11251805, z: -0.00030785054}
 --- !u!198 &198000012693675068
 ParticleSystem:
   m_ObjectHideFlags: 1

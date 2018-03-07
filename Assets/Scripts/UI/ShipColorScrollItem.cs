@@ -16,6 +16,15 @@ public class ShipColorScrollItem : MonoBehaviour {
 
 	public UISprite shipSp;
 	public UISprite bgSp;
+	public UILabel spLabel;
+
+	public void IsSpecial(bool isSP){
+		if(isSP){
+			spLabel.enabled=true;
+		}else{
+			spLabel.enabled=false;
+		}
+	}
 
 	public GameObject onBoad;
 	public void SetOnBoad(bool isOn){

@@ -8,8 +8,13 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: GrowCube
   m_Shader: {fileID: 4800000, guid: 8de5cd804a74ff744ab7aa730f45890b, type: 3}
+<<<<<<< HEAD
   m_ShaderKeywords: GLOWEFFECT_MULTIPLY_COLOR_OFF GLOWEFFECT_USE_GLOWCOLOR GLOWEFFECT_USE_GLOWTEX
     GLOWEFFECT_USE_MAINTEX GLOWEFFECT_USE_VERTEXCOLOR_OFF
+=======
+  m_ShaderKeywords: GLOWEFFECT_MULTIPLY_COLOR_OFF GLOWEFFECT_USE_GLOWCOLOR_OFF GLOWEFFECT_USE_GLOWTEX
+    GLOWEFFECT_USE_MAINTEX_OFF GLOWEFFECT_USE_VERTEXCOLOR_OFF
+>>>>>>> 057855d4ec67ff24ff67d1df8ed28b12f86fa820
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -19,7 +24,11 @@ Material:
     - first:
         name: _GlowTex
       second:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: cc5ee11f96345eb47a5ae9d17a6feb26, type: 3}
+=======
+        m_Texture: {fileID: 0}
+>>>>>>> 057855d4ec67ff24ff67d1df8ed28b12f86fa820
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
