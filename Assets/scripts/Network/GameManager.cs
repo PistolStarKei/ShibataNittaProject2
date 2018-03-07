@@ -81,6 +81,25 @@ namespace PSPhoton {
 
 		}
 
+		void SpawnSubweaponsNR(int num){
+			
+			pu=Pickup.CureS;
+			pos=Vector3.zero;
+			int areaCount=randomPointGenerater.GetBoundsCount();
+			Debug.Log("SpawnSubweapons on start area=="+areaCount);
+			int area=0;
+			for(int i=0;i<num;i++){
+				if(area>=areaCount)area=0;
+				pu= GetRandomPU_Subweapon();
+				pos=randomPointGenerater.GetRandomPoint(area);
+				pos.y=0.0f;
+				SpawnPUInvoke((int)pu,pos);
+				area++;
+			}
+
+
+		}
+
 		void SpawnPUInvoke(int pu,Vector3 position){
 
 			PhotonNetwork.InstantiateSceneObject("PU" + pu, position, Quaternion.identity,0,null);
@@ -511,7 +530,7 @@ namespace PSPhoton {
 
 			if(PhotonNetwork.isMasterClient){
 				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku>0)SpawnKaihukus(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Kaifuku*PhotonNetwork.playerList.Length);
-				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweapons(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon*PhotonNetwork.playerList.Length);
+				if(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon>0)SpawnSubweaponsNR(PSParams.SpawnItemRates.spawnNum_OnStartPerShip_Rate_Subweapon);
 			
 			
 			}

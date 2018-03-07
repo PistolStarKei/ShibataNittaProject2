@@ -189,12 +189,12 @@ namespace PSParams{
 		//プレイヤの数１に対するスポーン数　スタート時　回復
 		public static readonly int spawnNum_OnStartPerShip_Rate_Kaifuku=0;
 		//サブウェポン
-		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=10;
+		public static readonly int spawnNum_OnStartPerShip_Rate_Subweapon=120;
 
 		//プレイヤの数１に対するスポーン数　ゲーム開始後の一定間隔　回復
 		public static readonly int spawnNum_OnUpdatePerShip_Rate_Kaifuku=1;
 		//サブウェポン
-		public static readonly int spawnNum_OnUpdatePerShip_Rate_Subweapon=1;
+		public static readonly int spawnNum_OnUpdatePerShip_Rate_Subweapon=0;
 
 		//一定間隔の追加を何秒後に開始するか  設けないのであれば 0.0fに
 		public static readonly float spawnTimeStart_Rate_Kaifuku=600.0f;
