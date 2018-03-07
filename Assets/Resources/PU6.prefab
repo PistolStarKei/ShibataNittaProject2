@@ -153,7 +153,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29999998, y: 0.15, z: 0.14999999}
+  m_Size: {x: 0.42, y: 0.15, z: 0.24}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011832365132
 MonoBehaviour:
@@ -169,7 +169,6 @@ MonoBehaviour:
   pickType: 6
   isActive: 0
   ps: {fileID: 198000012397410740}
-  SentPickup: 0
 --- !u!114 &114000013864228874
 MonoBehaviour:
   m_ObjectHideFlags: 1

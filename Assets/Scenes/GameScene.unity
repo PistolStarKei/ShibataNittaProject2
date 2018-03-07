@@ -11904,6 +11904,11 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013811013588, guid: d2bee6b31331c495484c81bb2f80354a,
+        type: 2}
+      propertyPath: ignoreLayers.m_Bits
+      value: 118327
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000010524354116, guid: d2bee6b31331c495484c81bb2f80354a, type: 2}
     - {fileID: 81000013714602226, guid: d2bee6b31331c495484c81bb2f80354a, type: 2}
