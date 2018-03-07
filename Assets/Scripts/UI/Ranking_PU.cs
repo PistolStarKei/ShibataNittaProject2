@@ -25,6 +25,10 @@ public class Ranking_PU : MonoBehaviour {
 
 	int currentBoad=0;
 
+
+	void Start(){
+		
+	}
 		
 	#region  Public関数
 	public void Show(){
@@ -287,7 +291,7 @@ public class Ranking_PU : MonoBehaviour {
 	string GetBoadID(int boadNum,bool isPrevious){
 
 		int month=isPrevious?DateTime.Now.Month-1 :DateTime.Now.Month;
-		return PSParams.AppData.GetRankingID(month,PSParams.AppData.RankingTittels[currentBoad]);
+		return PSParams.AppData.GetRankingID(month,PSParams.AppData.RankingTittels[boadNum]);
 	}
 	#endregion
 }
