@@ -6,10 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PU_Y
-  m_Shader: {fileID: 4800000, guid: 8de5cd804a74ff744ab7aa730f45890b, type: 3}
-  m_ShaderKeywords: GLOWEFFECT_MULTIPLY_COLOR_OFF GLOWEFFECT_USE_GLOWCOLOR GLOWEFFECT_USE_GLOWTEX_OFF
-    GLOWEFFECT_USE_MAINTEX GLOWEFFECT_USE_VERTEXCOLOR_OFF
+  m_Name: GlowKaifukuR
+  m_Shader: {fileID: 4800000, guid: b0bf41e8816b66d4ca5905e19631b180, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -17,15 +16,21 @@ Material:
     serializedVersion: 2
     m_TexEnvs:
     - first:
+        name: _GlowMask
+      second:
+        m_Texture: {fileID: 2800000, guid: 500505daf55c44621991e983ae12f0b4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _GlowTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 19913b7074723c940a80fcfbdc79de59, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: ec763169ea8ca44afa58df33886661a7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5fe89662cf22b4e0a97e5da7e98d0f2c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -33,9 +38,6 @@ Material:
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _GlowColor
-      second: {r: 1, g: 0.9408178, b: 0.27205884, a: 1}
     - first:
         name: _GlowColorMult
       second: {r: 1, g: 1, b: 1, a: 1}
