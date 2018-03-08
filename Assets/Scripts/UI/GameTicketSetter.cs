@@ -10,12 +10,14 @@ public class GameTicketSetter : MonoBehaviour {
 	#region  メンバ変数
 	public UILabel mTicketNumLb;
 	public UILabel mTimerLb;
-	public UISprite mTicketIcon;
 
 	public GameObject mAddBtn;
 	public bool isTimer=false;
 	public Color fullColor;
 	public Color emptyColor;
+
+	public UISprite[] ticketsObj;
+	public ParticleSystem usingTickets;
 	#endregion
 
 	#region  初期化
@@ -66,7 +68,38 @@ public class GameTicketSetter : MonoBehaviour {
 	}
 
 	public void MinusTicketsNoSave(){
-		if(DataManager.Instance.gameData.gameTickets!=-100)SetNumText((DataManager.Instance.gameData.gameTickets-1).ToString());
+		if(DataManager.Instance.gameData.gameTickets!=-100){
+			
+			if(DataManager.Instance.gameData.gameTickets<=5){
+				usingTickets.transform.position=ticketsObj[DataManager.Instance.gameData.gameTickets-1].transform.position;
+				for(int i=0;i<ticketsObj.Length;i++){
+					ticketsObj[i].color=fullColor;
+					ticketsObj[i].enabled=false;
+				}
+				for(int i=0;i<ticketsObj.Length;i++){
+					if(i<(DataManager.Instance.gameData.gameTickets-1)){
+						ticketsObj[i].enabled=true;
+					}
+				}
+
+			}else{
+				usingTickets.transform.position=ticketsObj[1].transform.position;
+
+				if(DataManager.Instance.gameData.gameTickets==6){
+						for(int i=0;i<ticketsObj.Length;i++){
+							ticketsObj[i].color=fullColor;
+							ticketsObj[i].enabled=false;
+						}
+						for(int i=0;i<ticketsObj.Length;i++){
+								ticketsObj[i].enabled=true;
+						}
+						SetNumText("");
+				}
+				SetNumText((DataManager.Instance.gameData.gameTickets-1).ToString());
+			}
+
+		}
+		usingTickets.Play();
 	}
 
 	#endregion
@@ -74,15 +107,6 @@ public class GameTicketSetter : MonoBehaviour {
 
 	#region  メンバ関数
 
-	void SetColor(bool isEmpty){
-		if(!isEmpty){
-			mTicketNumLb.color=fullColor;
-			mTicketIcon.color=fullColor;
-		}else{
-			mTicketNumLb.color=emptyColor;
-			mTicketIcon.color=emptyColor;
-		}
-	}
 
 	void OnAddTickets(){
 		//ここでチケットを追加する。
@@ -111,12 +135,10 @@ public class GameTicketSetter : MonoBehaviour {
 		
 			isTimer=true;
 			NGUITools.SetActive(mTimerLb.gameObject,true);
-			SetColor(isTimer);
 		}else{
 			isTimer=false;
 
 			NGUITools.SetActive(mTimerLb.gameObject,false);
-			SetColor(isTimer);
 		}
 	}
 
@@ -126,16 +148,49 @@ public class GameTicketSetter : MonoBehaviour {
 		mTicketNumLb.text=str;
 	}
 	public void UpdateTickets(){
-		int num=DataManager.Instance.gameData.gameTickets;
-		SetNumText(num==-100? "∞":num.ToString());
-
-
+		SetTickets();
 		CheckTickets();
 
+	}
+
+	void SetTickets(){
+		int num=DataManager.Instance.gameData.gameTickets;
 		if(num==-100){
-			//無限購入済み
-			NGUITools.SetActive(mAddBtn,false);
-			return;
+			for(int i=0;i<ticketsObj.Length;i++){
+				ticketsObj[i].enabled=false;
+				ticketsObj[i].color=fullColor;
+			}
+			ticketsObj[1].enabled=true;
+			SetNumText("∞");
+
+		}else{
+			if(num<=5){
+				if(num<=0){
+					for(int i=0;i<ticketsObj.Length;i++){
+						ticketsObj[i].color=emptyColor;
+						ticketsObj[i].enabled=false;
+					}
+					ticketsObj[0].enabled=true;
+				}else{
+					for(int i=0;i<ticketsObj.Length;i++){
+						ticketsObj[i].color=fullColor;
+						ticketsObj[i].enabled=false;
+					}
+					for(int i=0;i<ticketsObj.Length;i++){
+						if(i<num){
+							ticketsObj[i].enabled=true;
+						}
+					}
+					SetNumText("");
+				}
+			}else{
+				for(int i=0;i<ticketsObj.Length;i++){
+					ticketsObj[i].enabled=false;
+					ticketsObj[i].color=fullColor;
+				}
+				ticketsObj[1].enabled=true;
+				SetNumText(num>99?"99":num.ToString());
+			}
 		}
 
 	}
