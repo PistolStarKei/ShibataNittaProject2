@@ -26,11 +26,11 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 	Transform current;
 	public string poolName="Particles";
 	public void ShowExplosionBigAt(Vector3 position,Quaternion qt,Transform parent){
-		SpawnParticle(explosionBig,position,qt,parent);
+		SpawnParticle(explosionBig,position,Quaternion.Euler(new Vector3(-90f,0f,0f)),parent);
 	}
 
 	public void ShowExplosionSmallAt(Vector3 position,Quaternion qt,Transform parent){
-		SpawnParticle(explosionSmall,position,qt,parent);
+		SpawnParticle(explosionSmall,position,Quaternion.Euler(new Vector3(-90f,0f,0f)),parent);
 	}
 	public void ShowExplosionCollideAt(Vector3 position,Quaternion qt,Transform parent){
 		SpawnParticle(explosionCollide,position,qt,parent);

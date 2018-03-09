@@ -58,11 +58,8 @@ public class PU_Info : MonoBehaviour {
 
 	public void OnClickTwitter(){
 		if(!PS_Plugin.Instance.twListener.IsAuthenticated)return;
+		Application.OpenURL("https://twitter.com/"+PSParams.AppData.TwitterfollowPageName);
 
-
-		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
-		//ツイッターへ飛ばす、待ち受けて追加する
-		PS_Plugin.Instance.twListener.Follow(FollowComplete);
 	}
 
 	public void FollowComplete(bool success){

@@ -1333,7 +1333,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		}
 		else
 		{
-			if(isOwnersShip())Debug.LogError("オーナーがりしーぶ");
 			lastReceivedTime=0.0f;
 			//受け取る側　
 			bool lastIsDead = (bool)stream.ReceiveNext();
