@@ -5,7 +5,10 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
-	
+
+	public delegate void Callback_InitProgressEvent(int progress);
+	public Callback_InitProgressEvent progressEvent;
+
     public bool needToSingleton=false;
     void DestroyAll(){
         foreach (Transform childTransform in gameObject.transform) Destroy(childTransform.gameObject);
@@ -34,40 +37,55 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
 	
 
 	public void InitAll(){
+		this.progressEvent=null;
         AndroidNotificationManager.Instance.CancelAllLocalNotifications();
 
         StartCoroutine(InitInvoker());
+
+	}
+	public void InitAll(Callback_InitProgressEvent progressEvent){
+		this.progressEvent=progressEvent;
+		AndroidNotificationManager.Instance.CancelAllLocalNotifications();
+
+		StartCoroutine(InitInvoker());
 
 	}
 
 
     IEnumerator InitInvoker(){
         //最悪なくても良いもの
+		if(this.progressEvent!=null)this.progressEvent(0);
             isInitted_Store=false;
             storeListener.Init();
 
             while(!isInitted_Store){
+			if(this.progressEvent!=null)this.progressEvent(1);
                 yield return null;
             }
+		if(this.progressEvent!=null)this.progressEvent(2);
         yield return new WaitForSeconds(0.2f);
             isInitted_Twitter=false;
             twListener.Init();
-
+		if(this.progressEvent!=null)this.progressEvent(3);
             //Tapjoyもここでやる
             //if(tjListener!=null)tjListener.Init();
             while(!isInitted_Twitter){
+			if(this.progressEvent!=null)this.progressEvent(4);
                 yield return null;
             }
+		if(this.progressEvent!=null)this.progressEvent(5);
         yield return new WaitForSeconds(0.2f);
+		if(this.progressEvent!=null)this.progressEvent(6);
         isInitted_Readerboad=false;
         readerboadListener.Init();
 
         yield return null;
 
         while(!isInitted_Readerboad){
+			if(this.progressEvent!=null)this.progressEvent(7);
             yield return null;
         }
-   
+		if(this.progressEvent!=null)this.progressEvent(8);
     }
 
 	//ストア

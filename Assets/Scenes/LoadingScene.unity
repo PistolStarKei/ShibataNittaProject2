@@ -50,8 +50,8 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 4
     m_Resolution: 2
@@ -224,6 +224,7 @@ GameObject:
   - 124: {fileID: 299387816}
   - 81: {fileID: 299387815}
   - 114: {fileID: 299387820}
+  - 114: {fileID: 299387821}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -311,6 +312,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetResolution: 1480
+--- !u!114 &299387821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299387814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22420f9c82d94a5b89286babd0eb066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488851671
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needToSingleton: 1
-  initOnStart: 1
+  initOnStart: 0
   isDebugMode: 1
   storeListener: {fileID: 584898036}
   isInitted_Store: 0
