@@ -144,7 +144,7 @@ namespace PSPhoton {
 
 			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Reconneting");
 			Invoke("ConnectToPUN",2.0f);
-
+			lobbyList.ClearList();
 			base.OnDisconnectedFromPhoton();
 		}
 

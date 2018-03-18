@@ -36,7 +36,8 @@ public class MapOptimizer : MonoBehaviour {
 						child.parent = this.transform;
 						BoxCollider bc=child.gameObject.GetComponent<BoxCollider>();
 						if(bc==null){
-							child.gameObject.AddComponent<BoxCollider>();
+							BoxCollider col=child.gameObject.AddComponent<BoxCollider>();
+							col.size= new Vector3(.5f,.5f,.5f);
 						}
 					}
 
