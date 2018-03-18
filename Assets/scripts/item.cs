@@ -42,16 +42,16 @@ public class item : Photon.MonoBehaviour, IPunObservable {
 				return;
 			}
 
-			if(pickType==Pickup.CureS || pickType==Pickup.CureM ||pickType==Pickup.CureL){
+			if(pickType==Pickup.CureS || pickType==Pickup.CureM ||pickType==Pickup.CureL ||pickType==Pickup.SHOT){
 				OnPickup(ship.playerData.playerID);
 			}else{
-				if(GUIManager.Instance.ISSubweponHolderHasSpace()){
-					OnPickup(ship.playerData.playerID);
-				}else{
-					//すでにアイテムが一杯なので無視する
-					return;
-				}
-
+				
+					if(GUIManager.Instance.ISSubweponHolderHasSpace()){
+						OnPickup(ship.playerData.playerID);
+					}else{
+						//すでにアイテムが一杯なので無視する
+						return;
+					}
 			}
 
 

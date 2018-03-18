@@ -177,7 +177,8 @@ namespace PSPhoton {
 			}
 		}
 
-		public YesNoPU yesnoPU;
+	
+		public TweetInfoPU tweetInfo;
 		public GameTicketSetter gameTicketSetter;
 		public void OnClickPlayBtn(){
 
@@ -188,18 +189,13 @@ namespace PSPhoton {
 
 			if(DataManager.Instance.gameData.gameTickets<=0){
 				info.Log(Application.systemLanguage == SystemLanguage.Japanese? "プレイチケットがありません" :"Your game tickets is empty");
-
+				if(Random.Range(0,3)==1)tweetInfo.Show();
 				return;
 			}
 
 			float keikaSec=TimeManager.Instance.GetKeikaTimeFromStart();
 
-			if(DataManager.Instance.gameData.gameTickets!=-100 && keikaSec<5*3600f){
-				Debug.LogWarning("これもある程度のプレイ時間で終了");
-				yesnoPU.Show(Localization.Get("PUStartGame"),OnResponce);
-			}else{
-				OnResponce(true);
-			}
+			OnResponce(true);
 		
 
 		}

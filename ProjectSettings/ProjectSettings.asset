@@ -97,13 +97,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Pistolstarweb.spacekill
-  bundleVersion: 1.1.2
+  bundleVersion: 2.0.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 112
+  AndroidBundleVersionCode: 200
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -188,33 +188,33 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f7969d8d3ebf34b5ca1cc974524429a3, type: 3}
+      m_Icon: {fileID: 2800000, guid: 8d84591bce22040a691ddc9e12372594, type: 3}
       m_Width: 128
       m_Height: 128
   - m_BuildTarget: Android
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f540920e58294476699574c3ec3e3d0e, type: 3}
+      m_Icon: {fileID: 2800000, guid: 633b8fe81286a4e01b304e3ec57ff250, type: 3}
       m_Width: 192
       m_Height: 192
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: a7a24b763dc4f426599c08c861fe208a, type: 3}
+      m_Icon: {fileID: 2800000, guid: 20403e3894a53443b96c61b236acbb5a, type: 3}
       m_Width: 144
       m_Height: 144
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8a0222110732d4cde80f0cd9c8922b3a, type: 3}
+      m_Icon: {fileID: 2800000, guid: 3cf63defd71e443e8bb32bd3cd7b9985, type: 3}
       m_Width: 96
       m_Height: 96
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 68a9b7a92e1ea43cc902ce96f781581b, type: 3}
+      m_Icon: {fileID: 2800000, guid: eb44edfa0d6574b50bf9ca655df31e1e, type: 3}
       m_Width: 72
       m_Height: 72
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 6394a18cb0c264ca989ba1ebbb17fc4c, type: 3}
+      m_Icon: {fileID: 2800000, guid: a2547e9a76bc34043b433732abbbb673, type: 3}
       m_Width: 48
       m_Height: 48
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: cee34214f8c6b445fa8633ffdc9fc539, type: 3}
+      m_Icon: {fileID: 2800000, guid: f4f85133f34fb470bb8cd67d407b543e, type: 3}
       m_Width: 36
       m_Height: 36
   m_BuildTargetBatching: []

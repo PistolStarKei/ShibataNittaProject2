@@ -34,6 +34,10 @@ public class MapOptimizer : MonoBehaviour {
 						Object.Destroy(child.gameObject); 
 					}else{
 						child.parent = this.transform;
+						BoxCollider bc=child.gameObject.GetComponent<BoxCollider>();
+						if(bc==null){
+							child.gameObject.AddComponent<BoxCollider>();
+						}
 					}
 
 					/*OrientedBlock sc=child.gameObject.GetComponent<OrientedBlock>();

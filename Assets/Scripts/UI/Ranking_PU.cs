@@ -36,12 +36,14 @@ public class Ranking_PU : MonoBehaviour {
 		btnBG.SetActive(true);
 		container.SetActive(true);
 		LoadRanking();
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
 		btnBG.SetActive(false);
 		container.SetActive(false);
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
 	}
 
 	public void OnNext(){

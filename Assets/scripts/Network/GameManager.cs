@@ -97,6 +97,22 @@ namespace PSPhoton {
 				area++;
 			}
 
+			/*int area=0;
+			int area2=0;
+			int areaBound=0;
+			for(int i=0;i<num;i++){
+				if(area>=areaCount)area=0;
+				pu= GetRandomPU_Subweapon();
+				pos=randomPointGenerater.GetRandomPoint(area,areaBound);
+				pos.y=0.0f;
+				SpawnPUInvoke((int)pu,pos);
+				area++;
+				area2++;
+				if(area2>=areaCount){
+					area2=0;
+					areaBound++;
+				}
+			}*/
 
 		}
 

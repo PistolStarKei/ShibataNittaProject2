@@ -29,5 +29,8 @@ namespace PS_Util{
 		public virtual Vector3 GetRandomPointInArea(){
 			return Vector3.zero;
 		}
+		public virtual Vector3 GetBoundPointInArea(int num){
+			return Vector3.zero;
+		}
 	}
 }

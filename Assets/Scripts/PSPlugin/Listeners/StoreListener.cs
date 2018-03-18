@@ -186,6 +186,23 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 				    if(AndroidInAppPurchaseManager.Client.Inventory.IsProductPurchased(p.SKU)) {
 						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("リストアあり　 " +p.SKU);
 						OnPurchased(p.SKU,true);
+					}else{
+						
+						if(p.SKU=="museigenmonthly"){
+							//ここで購入を
+							if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("購入のキャンセル　月額購入");
+							DataManager.Instance.gameData.gameTickets=PSParams.GameParameters.DefaultTicketsNum;
+							DataManager.Instance.SaveAll();
+							GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+							if(go){
+								GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+								if(setter){
+									setter.UpdateTickets();
+								}
+							}
+
+						}
+
 					}
 				}
 			}
@@ -254,7 +271,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 		    if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.LogError ("OnProductConsumed "+result.IsSuccess );
 
 			if(result.IsSuccess) {
-				OnPurchased(result.Purchase.SKU,false);
+				OnPurchased(result.Purchase.SKU,true);
 			} else {
                 if(purchasFailledEvent!=null)purchasFailledEvent("購入完了も、消費に失敗　再起動せよ");
 			}
@@ -270,7 +287,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
                 if(purchasFailledEvent!=null)purchasFailledEvent(id);
             }else{
          
-					if(id==AppData.IAP_SKUs[0]){
+					if(id=="5tickets"){
 						//ここで購入を
 						DataManager.Instance.gameData.gameTickets+=5;
 						DataManager.Instance.SaveAll();
@@ -282,7 +299,8 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 							}
 						}
                      }
-					if(id==AppData.IAP_SKUs[1]){
+
+				if(id=="museigenmonthly"){
 						//ここで購入を
 						DataManager.Instance.gameData.gameTickets=-100;
 						DataManager.Instance.SaveAll();
@@ -295,6 +313,9 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 						}
 
 					}
+					
+
+				
 					if(id=="ship1sc"){
 						DataManager.Instance.SetShipPurchase(0,3,true);
 						//0 3

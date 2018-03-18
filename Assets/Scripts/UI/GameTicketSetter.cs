@@ -155,6 +155,7 @@ public class GameTicketSetter : MonoBehaviour {
 
 	void SetTickets(){
 		int num=DataManager.Instance.gameData.gameTickets;
+		Debug.Log("SetTickets "+num);
 		if(num==-100){
 			for(int i=0;i<ticketsObj.Length;i++){
 				ticketsObj[i].enabled=false;

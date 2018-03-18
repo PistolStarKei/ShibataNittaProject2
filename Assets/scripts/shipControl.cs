@@ -804,7 +804,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		case Subweapon.STEALTH:
 			GUIManager.Instance.SetShotTgl(false);
 			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.STEALTH];
-			OnShotToggle(false);
+			//OnShotToggle(false);
 			if(photonView){
 				photonView.RPC ("StealthMode", PhotonTargets.AllViaServer,new object[]{true});
 			}else{

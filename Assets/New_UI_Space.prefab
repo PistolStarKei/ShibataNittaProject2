@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 31
   - name: bg_wakumid
     x: 1925
-    y: 679
+    y: 419
     width: 211
     height: 211
     borderLeft: 51
@@ -224,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 19
   - name: btn_play_cover
     x: 1526
-    y: 396
+    y: 121
     width: 259
     height: 260
     borderLeft: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
     paddingBottom: 44
   - name: btn_small_bg
     x: 1925
-    y: 481
+    y: 221
     width: 220
     height: 197
     borderLeft: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: btn_timer
     x: 1925
-    y: 1084
+    y: 824
     width: 240
     height: 240
     borderLeft: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
     paddingBottom: 21
   - name: circ
     x: 1925
-    y: 1580
+    y: 1320
     width: 256
     height: 256
     borderLeft: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
     paddingTop: 41
     paddingBottom: 25
   - name: circ1
-    x: 1526
-    y: 136
+    x: 1925
+    y: 1577
     width: 260
     height: 259
     borderLeft: 0
@@ -327,8 +327,8 @@ MonoBehaviour:
     paddingTop: 200
     paddingBottom: 33
   - name: GUI_Corner_Round
-    x: 1787
-    y: 229
+    x: 1673
+    y: 13
     width: 82
     height: 42
     borderLeft: 0
@@ -340,8 +340,8 @@ MonoBehaviour:
     paddingTop: 34
     paddingBottom: 30
   - name: GUI_Cover3
-    x: 3916
-    y: 1999
+    x: 3638
+    y: 1899
     width: 154
     height: 49
     borderLeft: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
     paddingTop: 23
     paddingBottom: 18
   - name: HPBar
-    x: 2477
-    y: 1767
+    x: 2186
+    y: 1630
     width: 828
     height: 29
     borderLeft: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
     paddingTop: 61
     paddingBottom: 60
   - name: HPBar_BG
-    x: 2477
+    x: 2481
     y: 1797
     width: 841
     height: 39
@@ -393,7 +393,7 @@ MonoBehaviour:
     paddingBottom: 54
   - name: HUD_Map
     x: 1925
-    y: 1325
+    y: 1065
     width: 254
     height: 254
     borderLeft: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 8
   - name: ic_hp
-    x: 1786
+    x: 1796
     y: 455
     width: 69
     height: 72
@@ -535,8 +535,8 @@ MonoBehaviour:
     paddingTop: 30
     paddingBottom: 31
   - name: ic_saterite
-    x: 1925
-    y: 354
+    x: 2481
+    y: 1670
     width: 218
     height: 126
     borderLeft: 0
@@ -613,8 +613,8 @@ MonoBehaviour:
     paddingTop: 40
     paddingBottom: 17
   - name: ic_TW
-    x: 1786
-    y: 528
+    x: 1340
+    y: 14
     width: 128
     height: 128
     borderLeft: 0
@@ -652,8 +652,8 @@ MonoBehaviour:
     paddingTop: 8
     paddingBottom: 4
   - name: input_waku
-    x: 1787
-    y: 337
+    x: 1526
+    y: 1
     width: 75
     height: 58
     borderLeft: 23
@@ -716,6 +716,19 @@ MonoBehaviour:
     paddingRight: 30
     paddingTop: 61
     paddingBottom: 59
+  - name: nav
+    x: 1526
+    y: 382
+    width: 269
+    height: 274
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: patern_check
     x: 1827
     y: 1705
@@ -795,7 +808,7 @@ MonoBehaviour:
     paddingTop: 253
     paddingBottom: 169
   - name: PU_Stealth
-    x: 2182
+    x: 2186
     y: 1660
     width: 294
     height: 176
@@ -808,8 +821,8 @@ MonoBehaviour:
     paddingTop: 223
     paddingBottom: 140
   - name: PU_Wave
-    x: 1526
-    y: 15
+    x: 1925
+    y: 100
     width: 237
     height: 120
     borderLeft: 0
@@ -835,7 +848,7 @@ MonoBehaviour:
     paddingBottom: 204
   - name: PU_Zenhoukou
     x: 1925
-    y: 891
+    y: 631
     width: 250
     height: 192
     borderLeft: 0
@@ -847,8 +860,8 @@ MonoBehaviour:
     paddingTop: 232
     paddingBottom: 147
   - name: roundBtn
-    x: 1856
-    y: 459
+    x: 1796
+    y: 386
     width: 67
     height: 68
     borderLeft: 0
@@ -925,8 +938,8 @@ MonoBehaviour:
     paddingTop: 34
     paddingBottom: 26
   - name: stage00_image
-    x: 1340
-    y: 14
+    x: 1796
+    y: 528
     width: 128
     height: 128
     borderLeft: 0
@@ -939,7 +952,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: status1
     x: 1306
-    y: 1342
+    y: 1370
     width: 27
     height: 27
     borderLeft: 0
@@ -952,7 +965,7 @@ MonoBehaviour:
     paddingBottom: 36
   - name: status2
     x: 1306
-    y: 1370
+    y: 1342
     width: 27
     height: 27
     borderLeft: 0
@@ -990,8 +1003,8 @@ MonoBehaviour:
     paddingTop: 19
     paddingBottom: 13
   - name: statusBG2
-    x: 1787
-    y: 272
+    x: 1673
+    y: 56
     width: 63
     height: 64
     borderLeft: 0
@@ -1029,8 +1042,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 4
   - name: toggleBG1
-    x: 3638
-    y: 1888
+    x: 1526
+    y: 60
     width: 146
     height: 60
     borderLeft: 28

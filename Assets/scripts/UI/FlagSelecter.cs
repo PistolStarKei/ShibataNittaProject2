@@ -48,6 +48,8 @@ public class FlagSelecter : MonoBehaviour {
 
 		current=DataManager.Instance.envData.serverRegion;
 		mCurrentServer.text=current;
+
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
 	public void OnClose(){
@@ -59,6 +61,7 @@ public class FlagSelecter : MonoBehaviour {
 			DataManager.Instance.SaveAll();
 			PSPhoton.LobbyManager.instance.OnChangedServer();
 		}
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
 	}
 
 	public UIGrid grid;

@@ -7,7 +7,8 @@ SupportMail,Support Mail,ご購入に関するお問い合わせ
 DescTweet,Tweet now to get,アプリからツイートすると
 TittleTweet,1 Play Ticket,チケット1枚プレゼント
 Tittle5Tickets,5 Play Ticket,チケット 5枚
-DescMuseigen,+ AD Free,プレイ永久無制限 + 広告オフ
+DescMuseigen,Unlimited Play + AD,プレイ無制限 + 広告オフの買い切りパック
+Monthly,/ Monthly ,/ 1ヶ月
 TittleMuseigen,Unlimited Play Pack,無制限プレイパック
 TittleNinki,BEST ,人気No1
 ZeroPrice,$ 0 ,¥ 0
@@ -20,3 +21,7 @@ RankAvr,Average Rank,平均順位
 PrevMonth,Previous month,先月の最終ランク
 ServerSelect,Connect Server,接続サーバー
 TittleReview,If you enjoy this game.\n\nPlease review on store page. ,ゲームを気に入ってくれたら、ストアでアプリのレビューをお願いします！\n\n不具合報告などのサポートはお問い合わせまで
+RestorePurchase,Restore Purchase,ご購入情報の復元
+TittleTweetCampaign,Tweet to get tickets,Tweetキャンペーン実施中
+TittleTweetCampaign2,Special Offer,公開記念
+DescTweetCampaign,Tweet from app and get one more play.\nTap + button to get more infos.,アプリからツイートすると、プレイチケットを１枚プレゼント！\nさらに、１日３回目のツイートは２枚もらえる。

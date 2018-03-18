@@ -20,12 +20,14 @@ public class PU_Ticket : MonoBehaviour {
 		btn.SetActive(true);
 		container.SetActive(true);
 		UpdateButtons();
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
 		btn.SetActive(false);
 		container.SetActive(false);
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
 	}
 
 	public void OnClickMail(){
@@ -47,9 +49,14 @@ public class PU_Ticket : MonoBehaviour {
 		//ツイッターへ飛ばす、待ち受けて追加する
 		//Texture2D image = GetImage();
 
-		AndroidSocialGate.StartShareIntent(Application.systemLanguage == SystemLanguage.Japanese? "おすすめのゲーム" :"Cool game!"
-			, PSParams.AppData.APP_TITTLE+"-> "+PSParams.AppData.APP_URL, "twi");
-		OnTweetSuccessed(true);
+		/*AndroidSocialGate.StartShareIntent(Application.systemLanguage == SystemLanguage.Japanese? "おすすめのゲーム" :"Cool game!"
+			, PSParams.AppData.APP_TITTLE+"-> "+PSParams.AppData.APP_URL, "twi");*/
+		string mes="";
+		mes+=Application.systemLanguage == SystemLanguage.Japanese? "おすすめのゲーム" :"Cool game!";
+		mes+=" "+PSParams.AppData.APP_TITTLE+"-> "+PSParams.AppData.APP_URL;
+
+		PS_Plugin.Instance.twListener.Tweet(mes,OnTweetSuccessed);
+
 		OnClose();
 	}
 
@@ -57,8 +64,10 @@ public class PU_Ticket : MonoBehaviour {
 		
 		PSGUI.WaitHUD.guiWait.Hide();
 		if(isSuccess && DataManager.Instance.gameData.gameTickets!=-100){
-			DataManager.Instance.gameData.gameTickets++;
+			
+
 			DataManager.Instance.gameData.tweetNum++;
+			DataManager.Instance.gameData.gameTickets+=DataManager.Instance.gameData.tweetNum==3?2:1;
 
 			DataManager.Instance.SaveAll();
 			UpdateTicketNum();

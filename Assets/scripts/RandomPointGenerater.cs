@@ -43,5 +43,16 @@ namespace PS_Util{
 			return randomBounds[area].GetRandomPointInArea();
 
 		}
+
+		public Vector3 GetRandomPoint(int area,int boundNm){
+			if(!isInited)Init();
+			if(randomBounds.Count<=0)return Vector3.zero;
+			if(area>=randomBounds.Count){
+				Debug.LogError("areanum over length");
+				return Vector3.zero;
+			}
+			return randomBounds[area].GetBoundPointInArea(boundNm);
+
+		}
 	}
 }

@@ -32,6 +32,26 @@ namespace PS_Util{
 				DestroyComponets();
 			}
 		}
+
+		public override Vector3 GetBoundPointInArea(int num){
+			
+			Vector3 rndPosWithin=Vector3.zero;
+			
+			if(num==0){
+				rndPosWithin=transform.TransformPoint(center+new Vector3(-size.x,-size.y, -size.z));
+			}else if(num==1){
+				rndPosWithin=transform.TransformPoint(center+new Vector3(size.x,-size.y, -size.z));
+			}else if(num==2){
+				rndPosWithin=transform.TransformPoint(center+new Vector3(-size.x,-size.y, size.z));
+			}else if(num==3){
+				rndPosWithin=transform.TransformPoint(center+new Vector3(size.x,-size.y, size.z));
+			}else{
+				rndPosWithin=GetRandomPointInArea();
+			}
+
+			return rndPosWithin;
+		}
+
 		public override Vector3 GetRandomPointInArea(){
 			Vector3 rndPosWithin=transform.TransformPoint(center+new Vector3(Random.Range(-size.x, size.x), 
 				Random.Range(-size.y, size.y), 
