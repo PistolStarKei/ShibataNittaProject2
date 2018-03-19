@@ -205,7 +205,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(Countly.GetRegion(Application.systemLanguage),filename+"serverRegion");
 
 		ES2.Save(0,filename+"shipType");
-		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"名無しさん":"Unkown",filename+"username");
+		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"Barcode":"Unkown",filename+"username");
 		ES2.Save(false,filename+"isConnectingRoom");
 
 		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"country");

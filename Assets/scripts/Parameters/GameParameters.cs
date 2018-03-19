@@ -47,8 +47,7 @@ namespace PSParams{
 		//Shipの値
 		#region ship
 		//名前
-		public static readonly string[] shipNames=new string[8]{"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8"};
-
+		public static readonly string[] shipNames=new string[8]{"Phalanx","Tiger","Nomad","Lightning","Ghost","Harrier","Galantis","Ignis"};
 		//カラーリングの名前　Ship1 個数と一致させる
 		//赤　青　白　クリア
 		public static readonly string[] shipSubNamesShip1=new string[4]{"RED","BLUE","WHITE","SCLEAR"};
