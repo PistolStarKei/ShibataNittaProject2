@@ -592,9 +592,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("shot",transform.position,transform);
 			//マズル
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
-			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRight,ID[0]);
+			Transform  tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardRightH,ID[0]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeft,ID[1]);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(rotation),spawnTime,ShipOffset.ForwardLeftH,ID[1]);
 			AddWeaponHolder(tr);
 		}
 
@@ -606,9 +606,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRight,ID[1]);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRightH,ID[1]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardLeft,ID[2]);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardLeftH,ID[2]);
 			AddWeaponHolder(tr);
 		}
 		
@@ -619,9 +619,9 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			muzzle.Emit(transform.position+GetShotOffset(ShipOffset.Forward),transform.position+GetShotOffset(ShipOffset.ForwardLeftH),transform.position+GetShotOffset(ShipOffset.ForwardRightH));
 			Transform tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position1,Quaternion.Euler(rotation),spawnTime,ShipOffset.Forward,ID[0]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRight,ID[1]);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position2,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardRightH,ID[1]);
 			AddWeaponHolder(tr);
-			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardLeft,ID[2]);
+			tr=PickupAndWeaponManager.Instance.SpawnShot(this,shotCol,position3,Quaternion.Euler(new Vector3(rotation.x,rotation.y)),spawnTime,ShipOffset.ForwardLeftH,ID[2]);
 			AddWeaponHolder(tr);
 		}
 

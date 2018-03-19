@@ -7709,6 +7709,14 @@ Prefab:
       propertyPath: onClick.Array.data[0].mMethodName
       value: OnClose
       objectReference: {fileID: 0}
+    - target: {fileID: 1000010976800266, guid: 7845af09a85994eea8884f3b7038061f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013499073170, guid: 7845af09a85994eea8884f3b7038061f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7845af09a85994eea8884f3b7038061f, type: 2}
   m_IsPrefabParent: 0
@@ -11217,6 +11225,7 @@ GameObject:
   - 65: {fileID: 833207562}
   - 114: {fileID: 833207561}
   - 114: {fileID: 833207560}
+  - 114: {fileID: 833207563}
   m_Layer: 15
   m_Name: Next
   m_TagString: Untagged
@@ -11320,6 +11329,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 177.4, y: 154.4, z: 0}
   m_Center: {x: 45.600014, y: 9.719994, z: 0}
+--- !u!114 &833207563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833207558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 100
+  mDepth: 4
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
 --- !u!1 &834350375
 GameObject:
   m_ObjectHideFlags: 0
@@ -25656,7 +25703,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -25961,6 +26008,7 @@ GameObject:
   - 65: {fileID: 2007267986}
   - 114: {fileID: 2007267985}
   - 114: {fileID: 2007267984}
+  - 114: {fileID: 2007267987}
   m_Layer: 15
   m_Name: Prev
   m_TagString: Untagged
@@ -26064,6 +26112,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 186.85, y: 152.1, z: 0}
   m_Center: {x: 4.8000336, y: 9.720207, z: 0}
+--- !u!114 &2007267987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007267982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a20c1b21a3f94bb5b2d3b901c9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 100
+  mDepth: 4
+  mMat: {fileID: 0}
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1
 --- !u!1 &2007679009
 GameObject:
   m_ObjectHideFlags: 0
