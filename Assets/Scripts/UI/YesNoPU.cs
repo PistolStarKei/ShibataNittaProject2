@@ -9,6 +9,9 @@ public class YesNoPU : MonoBehaviour {
 
 	#region  メンバ変数
 	public UILabel label;
+	public UILabel yesLabel;
+	public UILabel noLabel;
+
 	public GameObject btnBG;
 	public GameObject container;
 
@@ -40,8 +43,10 @@ public class YesNoPU : MonoBehaviour {
 
 
 	#region  Public関数
-	public void Show(string desc,Callback_userResponce onResponce){
-		
+	public void Show(string desc,string yesText,string noText,Callback_userResponce onResponce){
+		this.yesLabel.text=yesText;
+		this.noLabel.text=noText;
+
 		this.onResponce= onResponce;
 		label.text=desc;
 		AudioController.Play("open");

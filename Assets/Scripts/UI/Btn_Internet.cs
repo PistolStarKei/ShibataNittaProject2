@@ -36,7 +36,7 @@ public class Btn_Internet : MonoBehaviour {
 
 	#region  Public関数
 	public void OnClick(){
-		yesno.Show(Localization.Get("TittleReview"),OnResponse);
+		yesno.Show(Localization.Get("TittleReview"),Localization.Get("TextReview"),"×",OnResponse);
 	}
 
 	public void OnResponse(bool isYes){

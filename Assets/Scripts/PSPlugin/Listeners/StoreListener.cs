@@ -53,9 +53,8 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 
         
 		public bool isConsumableProduct(string skusName){
-
 			int i=Array.IndexOf(AppData.IAP_SKUs,skusName);
-			if(i<AppData.IAP_Comsumable.Length){
+			if(i>=0 && i<AppData.IAP_Comsumable.Length){
 				return AppData.IAP_Comsumable[i];
 			}else{
 				Debug.LogError("isConsumableProduct sukus is over isConsumable Length");

@@ -96,9 +96,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			this.razerSysytem=mzl.GetComponent<Razer>();
 		}
 		currentHP=MaxHP;
-		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
-			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
-		}
 
 		if(!photonTransformView && debugPlayership){
 			PSPhoton.GameManager.instance.playerShip=this;
@@ -923,10 +920,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 			if(photonView){
 
-				//HPバーの更新、プレイヤーオブジェクトのみでやる
-				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-				}
 				GUIManager.Instance.Damage (damage, MaxHP);
 
 				if(currentHP<=0.0f){
@@ -934,10 +927,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 				}
 
 			}else{
-				//HPバーの更新、プレイヤーオブジェクトのみでやる
-				if(GUIManager.Instance.isDebugMode){
-					GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-				}
 				GUIManager.Instance.Damage (damage, MaxHP);
 				if(currentHP<=0.0f){
 					Debug.Log("shipは死亡！");
@@ -984,9 +973,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 					//HPバーの更新、プレイヤーオブジェクトのみでやる
 
 
-					if(GUIManager.Instance.isDebugMode){
-						GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-					}
 				GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
 
 			}
@@ -1013,10 +999,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 					//HPバーの更新、プレイヤーオブジェクトのみでやる
 
-
-					if(GUIManager.Instance.isDebugMode){
-						GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-					}
 					GUIManager.Instance.Damage (PSParams.GameParameters.sw_damage[(int)Subweapon.RAZER], MaxHP);
 
 					if(currentHP<=0.0f){
@@ -1173,8 +1155,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(isOwnersShip()){
 				GUIManager.Instance.ShakeCamera();
 
-				if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
-
 				GUIManager.Instance.Damage (damage, MaxHP);
 			}
 			return;
@@ -1198,8 +1178,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 						//HPバーの更新、プレイヤーオブジェクトのみでやる
 						GUIManager.Instance.ShakeCamera();
-
-						if(GUIManager.Instance.isDebugMode)GUIManager.Instance.hpSlider.SetDebugVal((currentHP<0.0f?0.0f:currentHP).ToString()+"/"+MaxHP);
 
 						GUIManager.Instance.Damage (damage, MaxHP);
 
@@ -1258,10 +1236,6 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 
 		currentHP+=MaxHP*(percentage/100.0f);
 		if(currentHP>MaxHP)currentHP=MaxHP;
-
-		if(isOwnersShip() && GUIManager.Instance.isDebugMode){
-			GUIManager.Instance.hpSlider.SetDebugVal(currentHP.ToString()+"/"+MaxHP);
-		}
 
 		if(isOwnersShip())GUIManager.Instance.Cure (percentage,MaxHP);
 	}

@@ -7,6 +7,8 @@ public class FlagSelecter : MonoBehaviour {
 
 
 	public UILabel mCurrentServer;
+	public UISprite mCurrentFlag;
+
 	void SetServer(string key){
 		mCurrentServer.text=key;
 		if(Countly.ServerRegionAvaillable[key]){
@@ -48,7 +50,7 @@ public class FlagSelecter : MonoBehaviour {
 
 		current=DataManager.Instance.envData.serverRegion;
 		mCurrentServer.text=current;
-
+		UpdateCurrentFlag();
 		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
@@ -77,26 +79,28 @@ public class FlagSelecter : MonoBehaviour {
 		string defaultCountly=DataManager.Instance.gameData.country;
 		for(int i=0;i<flags.Length;i++){
 			if(flags[i].Equals(defaultCountly)){
-				currentSelected=AddNewFlagItem(flags[i],true);
+				currentSelected=AddNewFlagItem(flags[i],false);
 			}else{
-				AddNewFlagItem(flags[i],false);
+				AddNewFlagItem(flags[i],true);
 			}
 		}
 
+	}
 
-
+	void UpdateCurrentFlag(){
+		mCurrentFlag.spriteName=DataManager.Instance.gameData.country;
 	}
 
 	public void OnClickItem(FlagItem item){
 		if(item!=currentSelected){
-			
-			currentSelected.SetState(false);
-			item.SetState(true);
+			currentSelected.SetState(true);
+			item.SetState(false);
 			currentSelected=item;
 			DataManager.Instance.gameData.country=item.name;
 			PSPhoton.LobbyManager.instance.OnCountlyChanged(item.name);
 			flagSp.spriteName=DataManager.Instance.gameData.country=item.name;
 			DataManager.Instance.SaveAll();
+			UpdateCurrentFlag();
 		}
 	}
 	FlagItem  AddNewFlagItem(string flagName,bool state){

@@ -21,7 +21,11 @@ public class RankingBtn : MonoBehaviour {
 	bool loadedRankingData=false;
 
 	void Start(){
-		if(PS_Plugin.Instance.readerboadListener.isLogin())StartCoroutine(GetUpdate());
+		if(PS_Plugin.Instance.readerboadListener.isLogin()){
+			StartCoroutine(GetUpdate());
+		}else{
+			SetUpdate(false,0);
+		}
 	}
 	IEnumerator GetUpdate(){
 		isLoading=true;

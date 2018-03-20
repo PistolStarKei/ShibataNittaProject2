@@ -94,14 +94,14 @@ MonoBehaviour:
   CameraAPI: 0
   KeepManifestClean: 1
   GooglePlayServiceAppID: 216817929098
-  ToolbarSelectedIndex: 0
+  ToolbarSelectedIndex: 2
   base64EncodedPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0A5/41OdhwKcWmaZP/o3gTNDuoyt7Clek4HU5SYk8jZg7kzpUARLsbQiLii6hLBlwUpB8fBJRRuhw8rGLCqTkT3eYwGVSkG+WU00qecgkso1uiyvU0guLBW4ATExZ/5fpVDaNtpQWDcTje7a6eCUTLNcaUA/rvkhk5umIiPZFg0hW6LbF22T6yXDFrowqAFohWpmeB4Tap2F232OTZ4oZQW14HoglTs93qUiNSZUB8Cc1LtRCPkWIayaMb/0mCaec4tqtOT9QQ8jVvClTRyJYcAZWkf0sMJQNORuc6I+0IET/NIR9b/nInunWX17du81Yc7MGiF6OXlhLJZfskqswIDAQAB
   ShowStoreProducts: 1
   InAppProducts:
-  - IsOpen: 0
+  - IsOpen: 1
     SKU: 5tickets
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
@@ -116,87 +116,96 @@ MonoBehaviour:
     _Title: New Product
     _Texture: {fileID: 0}
     _ProductType: 1
-  - IsOpen: 0
+  - IsOpen: 1
     SKU: ship1sc
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship2sc
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship4sc
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship6pan
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship6sak
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship7met
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship7gld
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship8gld
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
-  - IsOpen: 0
+    _ProductType: 0
+  - IsOpen: 1
     SKU: ship8sc
-    _LocalizedPrice: 0$
-    _PriceAmountMicros: 0
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
     _PriceCurrencyCode: USD
     _Description: 
     _Title: New Product
     _Texture: {fileID: 0}
-    _ProductType: 1
+    _ProductType: 0
+  - IsOpen: 1
+    SKU: museigen
+    _LocalizedPrice: 0.99 $
+    _PriceAmountMicros: 990000
+    _PriceCurrencyCode: USD
+    _Description: 
+    _Title: New Product
+    _Texture: {fileID: 0}
+    _ProductType: 0
   ShowLeaderboards: 1
   Leaderboards: []
   ShowAchievements: 1

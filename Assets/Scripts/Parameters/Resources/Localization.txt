@@ -4,9 +4,14 @@ Sound,Sound,Son
 PolicyPage,Privacy Policy,個人情報のお取り扱い
 TokushoPage,About Japanese Row,特別商取引法に基づく表示
 SupportMail,Support Mail,ご購入に関するお問い合わせ
-DescTweet,Tweet now to get,アプリからツイートすると
+DescTweet,Tweet now to get,[3回目は2枚！]アプリからツイートで　
 TittleTweet,1 Play Ticket,チケット1枚プレゼント
+TextNo,×,×
+TextYes,●,●
+TextReview,Review Now,レビューする
+SelectedFlag,Flag,選択
 Tittle5Tickets,5 Play Ticket,チケット 5枚
+Desc3Times,Limited Offer,3回目は2枚!
 DescMuseigen,Unlimited Play + AD,プレイ無制限 + 広告オフの買い切りパック
 Monthly,/ Monthly ,/ 1ヶ月
 TittleMuseigen,Unlimited Play Pack,無制限プレイパック
