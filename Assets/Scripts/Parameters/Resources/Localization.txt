@@ -10,6 +10,7 @@ TextNo,×,×
 TextYes,●,●
 TextReview,Review Now,レビューする
 SelectedFlag,Flag,選択
+LastTimeUnlock,Unlock ,アンロックまで 
 Tittle5Tickets,5 Play Ticket,チケット 5枚
 Desc3Times,Limited Offer,3回目は2枚!
 DescMuseigen,Unlimited Play + AD,プレイ無制限 + 広告オフの買い切りパック

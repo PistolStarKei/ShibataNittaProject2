@@ -64,9 +64,15 @@ public class LobbyShipSwitcher : MonoBehaviour {
 		UpdateBoadingBtn();
 	}
 
+	public UnlockLabel unlockLabel;
+	public void OnTimeOut(){
+		UpdateBoadingBtn();
+	}
+
 	public void UpdateBoadingBtn(){
 		if(DataManager.Instance.gameData.shipType==currentSelect && DataManager.Instance.gameData.shipColor==colorLists.mCurrentSelected){
 			boadingBtn.SetState(ShipStatus.BOADING,"");
+			unlockLabel.SetLastTime();
 			return;
 		}
 
@@ -87,6 +93,7 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 		//開放済みかの判断
 		if(keikaSec<	times[colorLists.mCurrentSelected]*3600f){
+			unlockLabel.SetLastTime((times[colorLists.mCurrentSelected]*3600f)-keikaSec,OnTimeOut);
 			boadingBtn.SetState(ShipStatus.PENDINNG,"");
 			return;
 		}
@@ -96,8 +103,10 @@ public class LobbyShipSwitcher : MonoBehaviour {
 		if(flags[colorLists.mCurrentSelected]){
 			//セレクト可能
 			boadingBtn.SetState(ShipStatus.SELECTABLE,"");
+			unlockLabel.SetLastTime();
 		}else{
 			//ここで購入処理 金額を渡す
+			unlockLabel.SetLastTime();
 			boadingBtn.SetState(ShipStatus.PURCHASABLE,GetShipPrice(currentSelect,colorLists.mCurrentSelected));
 		}
 
