@@ -9,6 +9,8 @@ public class SubWeaponMenu : MonoBehaviour {
 
 	public Subweapon subTest;
 	public TweenRotation tr;
+	public UILabel subWeaponNameLb;
+
 	UIWidget widget;
 	void Start(){
 		widget=gameObject.GetComponent<UIWidget>();
@@ -110,12 +112,12 @@ public class SubWeaponMenu : MonoBehaviour {
 			tr.enabled=false;
 			currentSub.enabled=false;
 			SetHighLight(false);
+			subWeaponNameLb.text="";
 		}else{
-			
+			subWeaponNameLb.text=Localization.Get(fittingName[(int)wep]);
 			SetCurrentSubItem(wep);
 		}
 	}
-
 
 	public SubweaponNext[] nextHolder;
 

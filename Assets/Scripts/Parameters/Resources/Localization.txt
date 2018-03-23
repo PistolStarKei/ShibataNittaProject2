@@ -8,6 +8,8 @@ DescTweet,Tweet now to get,[3回目は2枚！]アプリからツイートで　
 TittleTweet,1 Play Ticket,チケット1枚プレゼント
 TextNo,×,×
 TextYes,●,●
+TittleHowTo,How To Play,遊び方
+DescPage1,1    Kill opponents  to be the last ship.\n\n2 Watch out for Damage areas which expands at regular time intervals., 1    参加者全員でバトルロワイヤル\n\n2 一定時間でダメージエリアが増えていく\n\n3  最後の一人になれば勝利
 TextReview,Review Now,レビューする
 SelectedFlag,Flag,選択
 LastTimeUnlock,Unlock ,アンロックまで 
@@ -31,3 +33,13 @@ RestorePurchase,Restore Purchase,ご購入情報の復元
 TittleTweetCampaign,Tweet to get tickets,Tweetキャンペーン実施中
 TittleTweetCampaign2,Special Offer,公開記念
 DescTweetCampaign,Tweet from app and get one more play.\nTap + button to get more infos.,アプリからツイートすると、プレイチケットを１枚プレゼント！\nさらに、１日３回目のツイートは２枚もらえる。
+PU_Napam,Napalm,ナパーム
+PU_Nuke,Nuke,ヌーク
+PU_Razer,Razer,レーザー
+PU_Stealth,Stealth,ステルス
+PU_Wave,Wave Shot,ウェーブ弾
+PU_Yudou,Homing Missile,誘導弾
+PU_Zenhoukou,All Around Shots,全方向弾
+TextDouleday,Doubled ToDay,本日2倍デー
+DescriptionDouleday,[b][FF0000][ONE DAY LIMITED OFFER][-][/b]\n\nEarned tikets doubled today.\n\nTweet now?,[b][FF0000][本日ツイートボーナスデー][-][/b]\n\n獲得プレイチケットがいつもの２倍!!\n\n今すぐツイートしますか？
+YesTextDoubleDay,Tweet Now,Tweetする

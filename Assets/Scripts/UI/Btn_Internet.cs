@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class Btn_Internet : MonoBehaviour {
 
 	#region  メンバ変数
-	public YesNoPU yesno;
+	public PU_HowTo howto;
 	#endregion
 
 	#region  初期化
@@ -36,7 +36,7 @@ public class Btn_Internet : MonoBehaviour {
 
 	#region  Public関数
 	public void OnClick(){
-		yesno.Show(Localization.Get("TittleReview"),Localization.Get("TextReview"),"×",OnResponse);
+		howto.Show();
 	}
 
 	public void OnResponse(bool isYes){

@@ -39,6 +39,7 @@ public class GameData{
 	public float rankingAvrRank =0;
 	public bool isReviewd =false;
 	public int[] rankingRanks=new int[3]{0,0,0};
+	public string loginDay ="";
 }
 
 public class DataManager : PS_SingletonBehaviour<DataManager> {
@@ -68,11 +69,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"rankingRanks");	
+			ES2.Delete(filename+"loginDay");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"rankingRanks")){
+		if(!ES2.Exists(filename+"loginDay")){
 			
 			InitData();
 			LoadData();
@@ -147,7 +148,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		gameData.rankingRanks=ES2.LoadArray<int>(filename+"rankingRanks");
 
-
+		gameData.loginDay=ES2.Load<string>(filename+"loginDay");
 
 	}
 
@@ -191,6 +192,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(gameData.isReviewd,filename+"isReviewd");
 
 		ES2.Save(gameData.rankingRanks,filename+"rankingRanks");
+		ES2.Save(gameData.loginDay,filename+"loginDay");
 	}
 
 	private void DestroyAll(){
@@ -236,6 +238,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(false,filename+"isReviewd");
 
 		ES2.Save(new int[3]{0,0,0},filename+"rankingRanks");
+		ES2.Save(TimeManager.GetCurrentTime(),filename+"loginDay");
 	}
 		
 	private void DeleteAll(){
@@ -246,6 +249,17 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	void OnApplicationQuit(){
 		DataManager.Instance.gameData.lastTime=TimeManager.GetCurrentTime();
 		DataManager.Instance.SaveAll();
+	}
+
+	public bool IsTweetDay(){
+		
+		if(TimeManager.GetKeikaDaysSinceLast(TimeManager.StringToDateTime(gameData.loginDay))%7==0){
+			//ログインから7日後
+			return true;
+		}
+
+		return false;
+
 	}
 
 	public static string GetUUID ()
@@ -346,4 +360,6 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		return oldFlags;
 	}
+
+
 }

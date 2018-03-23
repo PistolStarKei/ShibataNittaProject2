@@ -11,11 +11,16 @@ public class PU_Ticket : MonoBehaviour {
 	#region  メンバ変数
 	public GameObject btn;
 	public GameObject container;
+
+	public GameObject tweetDay;
+	bool _IsTweetDay=false;
 	#endregion
 
 
 	#region  Public関数
 	public void Show(){
+		_IsTweetDay=DataManager.Instance.IsTweetDay();
+		SetTweetLabel(_IsTweetDay);
 		AudioController.Play("open");
 		btn.SetActive(true);
 		container.SetActive(true);
@@ -67,6 +72,9 @@ public class PU_Ticket : MonoBehaviour {
 			
 
 			DataManager.Instance.gameData.tweetNum++;
+			int earningBonus=DataManager.Instance.gameData.tweetNum==3?2:1;
+			if(_IsTweetDay)earningBonus=earningBonus*2;
+
 			DataManager.Instance.gameData.gameTickets+=DataManager.Instance.gameData.tweetNum==3?2:1;
 
 			DataManager.Instance.SaveAll();
@@ -203,5 +211,11 @@ public class PU_Ticket : MonoBehaviour {
 				setter.UpdateTickets();
 			}
 		}
+	}
+
+
+	void SetTweetLabel(bool isTweetDay){
+
+		NGUITools.SetActive(tweetDay,isTweetDay);
 	}
 }

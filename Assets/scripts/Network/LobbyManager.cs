@@ -54,6 +54,8 @@ namespace PSPhoton {
 
 		public GameObject internetCheker;
 		public GameObject audioControllerObj;
+		public YesNoPU yesnoPopup;
+		public PU_Ticket tiketPopup;
 		void Start () {
 
 			if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
@@ -78,11 +80,28 @@ namespace PSPhoton {
 				return;
 			}
 
-			if(!DataManager.Instance.gameData.isReviewd && DataManager.Instance.gameData.playNum>5 && DataManager.Instance.gameData.playNum%5==0){
-				
-				reviewBtn.OnClick();
+			if(TimeManager.IsSameDayLogin(TimeManager.StringToDateTime(DataManager.Instance.gameData.loginDay))){
+				//初回起動時
+				tweetInfo.Show();
+			}else{
+				if(!DataManager.Instance.gameData.isReviewd && DataManager.Instance.gameData.playNum>5 && DataManager.Instance.gameData.playNum%5==0){
+
+					reviewBtn.OnClick();
+				}else{
+					if(DataManager.Instance.IsTweetDay() && DataManager.Instance.gameData.gameTickets!=-100){
+						yesnoPopup.Show(Localization.Get("DescriptionDouleday"),Localization.Get("YesTextDoubleDay"),"×",OnTweetDoubleDayInfoClosed);
+					}
+
+				}
 			}
+
+
 			ConnectToPUN();
+		}
+		public void OnTweetDoubleDayInfoClosed(bool isYesed){
+			if(isYesed){
+				tiketPopup.Show();
+			}
 		}
 
 		public Btn_Internet reviewBtn;

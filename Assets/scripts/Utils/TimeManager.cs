@@ -34,6 +34,16 @@ public class TimeManager : PS_SingletonBehaviour<TimeManager>  {
 
 
 	#region static methods
+	public static int GetKeikaDaysSinceLast(DateTime lastTimeOpen){
+
+		TimeSpan elapsed = DateTime.Now.Subtract(lastTimeOpen) ;
+		double days = elapsed.TotalDays ;
+
+		Debug.Log("経過日数　前回："+lastTimeOpen.ToString()+" 経過日数＝"+int.Parse(days.ToString("0")));
+
+		return  int.Parse(days.ToString("0"));
+	}
+
 	public static string GetCurrentTime(){
 		return DateTimeToString(DateTime.Now);
 	}

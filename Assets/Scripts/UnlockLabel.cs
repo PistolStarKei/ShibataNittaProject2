@@ -57,9 +57,23 @@ public class UnlockLabel : MonoBehaviour {
 	#region  メンバ関数
 	void SetTime(float lastTime){
 		if(formatUnlockAt=="")formatUnlockAt=Localization.Get("LastTimeUnlock");;
-		int minutes = Mathf.FloorToInt(lastTime / 60F);
-		int seconds = Mathf.FloorToInt(lastTime - minutes * 60);
-		string niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+		int hours = (int)(lastTime / 3600);
+		int minutes = (int)((lastTime % 3600) / 60);
+		int seconds = (int)((lastTime % 3600 ) % 60);
+
+		string niceTime = "";
+		if(hours>0)niceTime+=hours.ToString()+":";
+		if(hours>0){
+			niceTime+=minutes.ToString()+":";
+		}else{
+			if(minutes>0){
+				niceTime+=minutes.ToString()+":";
+			}
+		}
+
+		niceTime+=seconds.ToString();
+
 		lb.text=formatUnlockAt+niceTime;
 
 	}

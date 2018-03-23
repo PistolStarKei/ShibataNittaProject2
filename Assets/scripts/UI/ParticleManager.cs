@@ -12,7 +12,28 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 	public GameObject cureM;
 	public GameObject cureL;
 
+	public GameObject getItem;
+	string[] fittingName=new string[7]{"PU_Napam","PU_Nuke","PU_Razer","PU_Stealth","PU_Wave","PU_Yudou","PU_Zenhoukou"};
+	public Transform getItemParent;
 
+	public void ShowGetItemEffect(Subweapon weapon){
+		Transform trans=SpawnParticle(getItem,Vector3.zero,Quaternion.identity,getItemParent);
+		trans.localPosition=Vector3.zero;
+		trans.localScale=Vector3.one;
+		trans.localRotation=Quaternion.identity;
+
+		if(trans!=null){
+			GetItemEffect gi=trans.gameObject.GetComponent<GetItemEffect>();
+			if(gi!=null){
+				gi.OnInit(weapon,fittingName[(int)weapon]);
+			}else{
+				Debug.LogError("gi is null!!");
+			}
+		}else{
+			Debug.LogError("trans is null!!");
+		}
+
+	}
 	public void ShowCureSAt(Vector3 position,Quaternion qt,Transform parent){
 		SpawnParticle(cureS,position,qt,parent);
 	}
@@ -36,7 +57,7 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 		SpawnParticle(explosionCollide,position,qt,parent);
 	}
 
-	void SpawnParticle(GameObject prefab,Vector3 position,Quaternion qt,Transform parent){
+	Transform SpawnParticle(GameObject prefab,Vector3 position,Quaternion qt,Transform parent){
 		
 
 		if(parent!=null){
@@ -54,6 +75,9 @@ public class ParticleManager : PS_SingletonBehaviour<ParticleManager> {
 					position, 
 					qt
 				);
+			
 		}
+
+		return current;
 	}
 }

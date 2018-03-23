@@ -217,8 +217,7 @@ public class GUIManager : PS_SingletonBehaviour<GUIManager> {
 			Debug.Log(" ホルダーがいっぱいでこれ以上は持てない ");
 			return false;
 		}
-
-		subWeaponSlot.AddSubWeaponToHolder(weaponType);
+		ParticleManager.Instance.ShowGetItemEffect(weaponType);
 
 		return true;
 	}
