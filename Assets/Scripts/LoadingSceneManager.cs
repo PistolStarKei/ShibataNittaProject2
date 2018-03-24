@@ -12,26 +12,21 @@ public class LoadingSceneManager : MonoBehaviour {
 	#endregion
 
 	#region  Public変数
-	
+
 	#endregion
 
 
 	#region  初期化
 	void Start () {
+		
 		PS_Plugin.Instance.InitAll(OnInitProgress);
-	}
-	#endregion
-
-	#region  Update
-	// Update is called once per frame
-	void Update () {
-	
 	}
 	#endregion
 
 	#region  Public関数
 	public void OnInitProgress(int progress){
 		Debug.Log(""+progress);
+
 		slider.value=GetProgress(progress);
 		if(progress==maxProgress && !isLoaded){
 			isLoaded=true;
