@@ -8,6 +8,7 @@ public class EnvData{
 	public bool toggleBGM=true;
 	public string startTime="";
 	public string serverRegion ="";
+	public bool isTutorialed=false;
 }
 
 [System.Serializable]
@@ -69,11 +70,11 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		#if UNITY_EDITOR
 		if(debugDelete){
-			ES2.Delete(filename+"loginDay");	
+			ES2.Delete(filename+"isTutorialed");	
 		}
 		#endif
 
-		if(!ES2.Exists(filename+"loginDay")){
+		if(!ES2.Exists(filename+"isTutorialed")){
 			
 			InitData();
 			LoadData();
@@ -109,7 +110,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		envData.toggleBGM=ES2.Load<bool>(filename+"toggleBGM");
 		envData.startTime=ES2.Load<string>(filename+"startTime");
 		envData.serverRegion=ES2.Load<string>(filename+"serverRegion");
-
+		envData.isTutorialed=ES2.Load<bool>(filename+"isTutorialed");
 
 		gameData.shipType=ES2.Load<int>(filename+"shipType");
 		gameData.username=ES2.Load<string>(filename+"username");
@@ -150,6 +151,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		gameData.loginDay=ES2.Load<string>(filename+"loginDay");
 
+
+
 	}
 
 	public void SaveAll(){
@@ -157,7 +160,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(envData.toggleBGM,filename+"toggleBGM");
 		ES2.Save(envData.startTime,filename+"startTime");
 		ES2.Save(envData.serverRegion,filename+"serverRegion");
-
+		ES2.Save(envData.isTutorialed,filename+"isTutorialed");
 
 		ES2.Save(gameData.shipType,filename+"shipType");
 		ES2.Save(gameData.username,filename+"username");
@@ -239,6 +242,8 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 		ES2.Save(new int[3]{0,0,0},filename+"rankingRanks");
 		ES2.Save(TimeManager.GetCurrentTime(),filename+"loginDay");
+
+		ES2.Save(false,filename+"isTutorialed");
 	}
 		
 	private void DeleteAll(){
@@ -252,8 +257,9 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	}
 
 	public bool IsTweetDay(){
-		
-		if(TimeManager.GetKeikaDaysSinceLast(TimeManager.StringToDateTime(gameData.loginDay))%7==0){
+		int keika=TimeManager.GetKeikaDaysSinceLast(TimeManager.StringToDateTime(gameData.loginDay));
+		Debug.LogError(""+keika);
+		if(keika>0 && keika%7==0){
 			//ログインから7日後
 			return true;
 		}

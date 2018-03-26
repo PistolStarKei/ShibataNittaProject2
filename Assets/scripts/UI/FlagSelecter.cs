@@ -9,6 +9,9 @@ public class FlagSelecter : MonoBehaviour {
 	public UILabel mCurrentServer;
 	public UISprite mCurrentFlag;
 
+	public delegate void Callback_closedEvent();
+	public  event Callback_closedEvent closedEvent;
+
 	void SetServer(string key){
 		mCurrentServer.text=key;
 		if(Countly.ServerRegionAvaillable[key]){
@@ -45,7 +48,7 @@ public class FlagSelecter : MonoBehaviour {
 		AudioController.Play("open");
 		btnBG.SetActive(true);
 		container.SetActive(true);
-
+		closedEvent=null;
 		currentServerNum=System.Array.IndexOf (Countly.ServerRegions, DataManager.Instance.envData.serverRegion);
 
 		current=DataManager.Instance.envData.serverRegion;
@@ -53,6 +56,20 @@ public class FlagSelecter : MonoBehaviour {
 		UpdateCurrentFlag();
 		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
+
+	public void Show(Callback_closedEvent closedEvent){
+		AudioController.Play("open");
+		btnBG.SetActive(true);
+		container.SetActive(true);
+		this.closedEvent=closedEvent;
+		currentServerNum=System.Array.IndexOf (Countly.ServerRegions, DataManager.Instance.envData.serverRegion);
+
+		current=DataManager.Instance.envData.serverRegion;
+		mCurrentServer.text=current;
+		UpdateCurrentFlag();
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
+	}
+
 
 	public void OnClose(){
 		AudioController.Play("popup");
@@ -64,6 +81,8 @@ public class FlagSelecter : MonoBehaviour {
 			PSPhoton.LobbyManager.instance.OnChangedServer();
 		}
 		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
+
+		if(closedEvent!=null)closedEvent();
 	}
 
 	public UIGrid grid;

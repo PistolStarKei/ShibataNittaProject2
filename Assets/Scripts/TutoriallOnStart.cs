@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class TutoriallOnStart : MonoBehaviour {
 
+	struct UIObjectData{
+		public int depth;
+		public Transform parent;
+		public Vector3 localPosition;
+		public List<EventDelegate> prevDelegate;
+	}
 	#region  Public変数
 
 	#endregion
@@ -13,11 +19,14 @@ public class TutoriallOnStart : MonoBehaviour {
 	#endregion
 
 	#region  初期化
-	void Awake () {
-	
-	}
 	void Start () {
-	
+		//ここでチュートリアルの必要性を加味する
+		if(DataManager.Instance.envData.isTutorialed){
+			KillSelf();
+			return;
+		}
+
+
 	}
 	#endregion
 
@@ -37,9 +46,15 @@ public class TutoriallOnStart : MonoBehaviour {
 
 	#region  イベント
 
+	void OnFinished(){
+		//tweetInfo.Show();
+		KillSelf();
+	}
 	#endregion
 
 	#region  メンバ関数
-
+	void KillSelf(){
+		Destroy(gameObject);
+	}
 	#endregion
 }
