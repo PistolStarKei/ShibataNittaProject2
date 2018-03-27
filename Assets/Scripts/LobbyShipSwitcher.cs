@@ -17,6 +17,7 @@ public class LobbyShipSwitcher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		indecator.SetIndecatorCount(PSParams.GameParameters.shipNames.Length);
 		indecator.onChanged+=OnShipChanged;
 		currentSelect=DataManager.Instance.gameData.shipType;
 		indecator.SetCurrent(currentSelect);

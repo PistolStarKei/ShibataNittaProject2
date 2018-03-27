@@ -210,7 +210,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 		ES2.Save(Countly.GetRegion(Application.systemLanguage),filename+"serverRegion");
 
 		ES2.Save(0,filename+"shipType");
-		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"Barcode":"Unkown",filename+"username");
+		ES2.Save(Application.systemLanguage == SystemLanguage.Japanese?"タップで名前を入力":"Tap here to input",filename+"username");
 		ES2.Save(false,filename+"isConnectingRoom");
 
 		ES2.Save(Countly.ToCountryCode(Application.systemLanguage),filename+"country");
@@ -258,7 +258,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 
 	public bool IsTweetDay(){
 		int keika=TimeManager.GetKeikaDaysSinceLast(TimeManager.StringToDateTime(gameData.loginDay));
-		Debug.LogError(""+keika);
+
 		if(keika>0 && keika%7==0){
 			//ログインから7日後
 			return true;

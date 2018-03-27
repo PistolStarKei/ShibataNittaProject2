@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class SphericalIndicaterItem : MonoBehaviour {
+public class PageIndecaterItem : MonoBehaviour {
 
 	public UISprite bgSp;
 	UISprite mSp;
 	void SetBGOn(bool isOn){
-		if(parentIndicator==null)FindParent ();
-		if(mSp==null)mSp=gameObject.GetComponent<UISprite>();
-		if(bgSp==null)Debug.LogError("bgSP==ull");
-		if(parentIndicator==null)Debug.LogError("parentIndicator==ull");
-
 		bgSp.enabled=isOn;
 		bgSp.color=parentIndicator.activeCol;
 		mSp.color=isOn? parentIndicator.activeCol: parentIndicator.disactiveCol;
 	}
-	public SphericalIndicator parentIndicator;
-	public void FindParent ()
+	public PageIndecaters parentIndicator;
+	void FindParent ()
 	{
-		
-		SphericalIndicator pi = transform.parent.gameObject.GetComponent<SphericalIndicator>();
-		if(pi==null)Debug.LogError("pi==null");
+		// If the scroll view is on a parent, don't try to remember it (as we want it to be dynamic in case of re-parenting)
+		PageIndecaters pi = NGUITools.FindInParents<PageIndecaters>(transform);
 		parentIndicator = pi;
 	}
 	public bool mIson=false;

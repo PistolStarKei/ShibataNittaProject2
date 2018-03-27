@@ -7,8 +7,10 @@ public class PU_HowTo : MonoBehaviour {
 	#region  Public変数
 	public GameObject btnBG;
 	public GameObject container;
-	public PageIndecaters pageIndecater;
+	public SphericalIndicator pageIndecater;
 	public GameObject[] contents;
+
+
 	#endregion
 
 	#region  メンバ変数
@@ -17,24 +19,28 @@ public class PU_HowTo : MonoBehaviour {
 
 	#region  初期化
 	void Awake () {
-		pageIndecater.pageNum=contents.Length;
+		
+		pageIndecater.IndecatorCount=contents.Length;
 		pageIndecater.onChanged+=OnPage;
-
+		pageIndecater.SetIndecatorCount(contents.Length);
 	}
 	#endregion
 
 	#region  Public関数
 
 	public void Show(){
+		pageIndecater.SetCurrent(0);
 		AudioController.Play("open");
 		btnBG.SetActive(true);
 		container.SetActive(true);
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
 	public void OnClose(){
 		AudioController.Play("popup");
 		btnBG.SetActive(false);
 		container.SetActive(false);
+		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.ShowBanner();
 	}
 
 

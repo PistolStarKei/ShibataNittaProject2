@@ -9,6 +9,7 @@ public class SphericalIndicator : MonoBehaviour {
 	public Color disactiveCol;
 
 	public GameObject item;
+	public int IndecatorCount;
 	void AddItem(){
 		GameObject go=GameObject.Instantiate(item,mGrid.transform) as GameObject;
 		go.transform.localPosition=Vector3.one;
@@ -16,46 +17,61 @@ public class SphericalIndicator : MonoBehaviour {
 		go.transform.localScale=Vector3.one;
 	}
 	void Trim(){
-		int num=PSParams.GameParameters.shipNames.Length;
 		int child=transform.childCount;
 
-		if(child!=num){
-			if(child<num){
+		if(child!=IndecatorCount){
+			if(child<IndecatorCount){
 				//足りない
-				for(int i=0;i<num-child;i++){
+				for(int i=0;i<IndecatorCount-child;i++){
 					AddItem();
 				}
 			}else{
 				//余る
-				for(int i=0;i<child-num;i++){
-					Destroy(transform.GetChild(i).gameObject);
+				for(int i=0;i<child-IndecatorCount;i++){
+					if(transform.childCount>0){
+						
+						foreach(Transform trans in transform){
+							NGUITools.DestroyImmediate(trans.gameObject);
+							break;
+						}
+
+					}
+
 				}
 			}
-			Debug.Log("生成");
 			mGrid.Reposition();
 		}
 
 
 	}
+	public void SetIndecatorCount(int num){
+		this.IndecatorCount=num;
+		Trim();
 
+		GetItems();
+	}
 	// Use this for initialization
 	void Awake () {
 		mGrid=gameObject.GetComponent<UIGrid>();
 		//動的に生成する
-		Trim();
+		//Trim();
 
-		GetItems();
+		//GetItems();
 
 
 		mCurrent=0;
 	}
 		
 	void GetItems(){
+		mItems.Clear();
 		SphericalIndicaterItem it;
+
 		foreach(Transform trans in transform){
 			it=trans.gameObject.GetComponent<SphericalIndicaterItem>();
 			if(it!=null){
+				
 				mItems.Add(it);
+				if(it.parentIndicator==null)it.FindParent();
 			}
 		}
 	}
@@ -72,6 +88,7 @@ public class SphericalIndicator : MonoBehaviour {
 			}
 			i++;
 		}
+
 	}
 		
 	public int mCurrent=0;

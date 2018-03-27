@@ -57,7 +57,7 @@ public class FlagSelecter : MonoBehaviour {
 		if(DataManager.Instance.gameData.gameTickets!=-100)AdManager.Instance.HideBanner();
 	}
 
-	public void Show(Callback_closedEvent closedEvent){
+	public void ShowWithCallback(Callback_closedEvent closedEvent){
 		AudioController.Play("open");
 		btnBG.SetActive(true);
 		container.SetActive(true);

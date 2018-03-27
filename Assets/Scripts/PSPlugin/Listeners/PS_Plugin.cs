@@ -63,7 +63,7 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
                 yield return null;
             }
 		if(this.progressEvent!=null)this.progressEvent(2);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
             isInitted_Twitter=false;
             twListener.Init();
 		if(this.progressEvent!=null)this.progressEvent(3);
@@ -74,12 +74,12 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
                 yield return null;
             }
 		if(this.progressEvent!=null)this.progressEvent(5);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 		if(this.progressEvent!=null)this.progressEvent(6);
         isInitted_Readerboad=false;
         readerboadListener.Init();
 
-        yield return null;
+		yield return new WaitForSeconds(0.5f);
 
         while(!isInitted_Readerboad){
 			if(this.progressEvent!=null)this.progressEvent(7);
@@ -114,15 +114,7 @@ public class PS_Plugin: PS_SingletonBehaviour<PS_Plugin> {
         isInitted_Readerboad=true;
         isConnected_Readerboad=isSuccess;
 
-		if(TimeManager.Instance.ISSameMonthLogin(TimeManager.StringToDateTime(DataManager.Instance.gameData.lastTime))){
-			//月初リセット
-			DataManager.Instance.gameData.rankingKillNum=0;
-			DataManager.Instance.gameData.rankingTopNum=0;
-			DataManager.Instance.gameData.rankingAvrRank=0.0f;
-			DataManager.Instance.gameData.rankingTotalPlay=0;
-			DataManager.Instance.gameData.rankingTotalRank=0;
-			DataManager.Instance.SaveAll();
-		}
+
     }
  
 

@@ -10,8 +10,8 @@ TextNo,×,×
 TextYes,●,●
 TittleHowTo,How To Play,遊び方
 DescHelpPage0,1. Battle Royale by all players.\n\n2. Watch out for Damage areas which expands at regular time intervals.\n\n3. Victory if you become the last one.,1・参加者全員でバトルロワイヤル\n\n2・ダメージエリアは一定時間で増えていく\n\n3・最後の一人になれば勝利！！
-DescHelpPage1,HOMING...近くにいる敵に向かって飛んでいく\n\nNAPALM...一定距離飛び、広範囲にダメージを与える\n\nWAVE...一定時間、幅の広い弾が出る\n\nFLASH...一定時間、全方向に弾を発射する,HOMING...近くにいる敵に向かって飛んでいく\n\nNAPALM...一定距離飛び、広範囲にダメージを与える\n\nWAVE...一定時間、幅の広い弾が出る\n\nFLASH...一定時間、全方向に弾を発射する
-DescHelpPage2,LASER...近くの敵を捕捉し、ダメージを与え続ける\n\nSTEALTH...一定時間、透明になり見えなくなる\n\nNUKE...一定距離飛び、広範囲に大ダメージを与える,LASER...近くの敵を捕捉し、ダメージを与え続ける\n\nSTEALTH...一定時間、透明になり見えなくなる\n\nNUKE...一定距離飛び、広範囲に大ダメージを与える
+DescHelpPage1,HOMING...Launch 5 missiles follow within a range of players untill they hit walls. \n\nNAPALM...Flies cretain distance then explode causing massive damage on a wide range.\n\nWAVE...Wide shots for a certain times.\n\nFLASH...All around shots for a certain times.,HOMING...近くにいる敵に向かって飛んでいく\n\nNAPALM...一定距離飛び、広範囲にダメージを与える\n\nWAVE...一定時間、幅の広い弾が出る\n\nFLASH...一定時間、全方向に弾を発射する
+DescHelpPage2,LASER...Applies constant damage to other player within a certain range.\n\nSTEALTH...Become invisible for a certain time.\n\nNUKE...Flies cretain distance then explode causing massive damage on a wide range.,LASER...近くの敵を捕捉し、ダメージを与え続ける\n\nSTEALTH...一定時間、透明になり見えなくなる\n\nNUKE...一定距離飛び、広範囲に大ダメージを与える
 TextReview,Review Now,レビューする
 SelectedFlag,Flag,選択
 LastTimeUnlock,Unlock ,アンロックまで 
@@ -35,13 +35,17 @@ RestorePurchase,Restore Purchase,ご購入情報の復元
 TittleTweetCampaign,Tweet to get tickets,Tweetキャンペーン実施中
 TittleTweetCampaign2,Special Offer,公開記念
 DescTweetCampaign,Tweet from app and get one more play.\nTap + button to get more infos.,アプリからツイートすると、プレイチケットを１枚プレゼント！\nさらに、１日３回目のツイートは２枚もらえる。
-PU_Napam,Napalm,ナパーム
-PU_Nuke,Nuke,ヌーク
-PU_Razer,Razer,レーザー
-PU_Stealth,Stealth,ステルス
-PU_Wave,Wave Shot,ウェーブ弾
-PU_Yudou,Homing Missile,誘導弾
-PU_Zenhoukou,All Around Shots,全方向弾
+PU_Napam,Napalm,Napalm
+PU_Nuke,Nuke,Nuke
+PU_Razer,Lazer,Lazer
+PU_Stealth,Stealth,Stealth
+PU_Wave,Wave,Wave
+PU_Yudou,Homing,Homing
+PU_Zenhoukou,FLASH,FLASH
 TextDouleday,Doubled ToDay,本日2倍デー
 DescriptionDouleday,[b][FF0000][ONE DAY LIMITED OFFER][-][/b]\n\nEarned tikets doubled today.\n\nTweet now?,[b][FF0000][本日ツイートボーナスデー][-][/b]\n\n獲得プレイチケットがいつもの２倍!!\n\n今すぐツイートしますか？
 YesTextDoubleDay,Tweet Now,Tweetする
+Desc_ServerSelect,  [Initial Settings 1/2]\n\nChoose country flag and server region. \n\nWarning：Choose the nearest server from where you live for the best  performance.,  [初期設定 1/2]\n\n国旗と参加サーバーを選択してください。\n\n注意：お住いの地域に近いサーバーを選択してください。遅延によりゲームを快適にプレイできない可能性があります。
+Desc_SetName,  [Initial Settings 2/2]\n\nTap to input player name which displayed to every player.\n\nThis name would be able to modyfy later.,  [初期設定 2/2]\n\nゲーム内で他にプレイヤーに表示される名前を入力してください。\n\n名前は、ゲーム開始後いつでも変更ができます。
+AlertNullInput,Input at least one charater for the name.,名前には1文字以上の文字を入力してください。
+AlertNoInput,Input unique name,何か名前を入力してください
