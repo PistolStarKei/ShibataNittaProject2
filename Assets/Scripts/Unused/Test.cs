@@ -8,42 +8,19 @@ using System.Linq;
 
 public class Test :MonoBehaviour {
 	
-
+	public GameObject prehab;
+	public RandomPointGenerater rpg;
 	void Start () {
-		Debug.Log(""+GetRandomPU_Subweapon());
+		for(int i=0;i<4;i++){
+			Vector3 pos=rpg.GetRandomPoint(0,i);
+			pos.y=0.0f;
+			GameObject go=Instantiate(prehab,pos,Quaternion.identity,null) as GameObject;
+			go.name=i.ToString();
 
-	}
-
-	Pickup GetRandomPU_Kaifuku(){
-		int rand=UnityEngine.Random.Range(0,101);
-
-		var sorted = PSParams.SpawnItemRates.Rate_Kaifuku.OrderBy((x) => x.Value);  
-
-		int sum=0;
-		foreach(var s in sorted){
-			sum+=s.Value;
-			Debug.Log(sum.ToString()+" "+s.Value);
-			if(rand<=sum){
-				return s.Key;
-			}
-		}
-		return Pickup.CureS;
-	}
-
-	Pickup GetRandomPU_Subweapon(){
-		int rand=UnityEngine.Random.Range(0,101);
-		var sorted = PSParams.SpawnItemRates.Rate_Subweapon.OrderBy((x) => x.Value);  
-
-		int sum=0;
-		foreach(var s in sorted){
-			sum+=s.Value;
-			Debug.Log(sum.ToString()+" "+s.Value);
-			if(rand<=sum){
-				return s.Key;
-			}
 		}
 
-		return Pickup.NAPAM;
 	}
+
+
 
 }

@@ -87,17 +87,10 @@ namespace PSPhoton {
 			pos=Vector3.zero;
 			int areaCount=randomPointGenerater.GetBoundsCount();
 			Debug.Log("SpawnSubweapons on start area=="+areaCount);
-			int area=0;
-			for(int i=0;i<num;i++){
-				if(area>=areaCount)area=0;
-				pu= GetRandomPU_Subweapon();
-				pos=randomPointGenerater.GetRandomPoint(area);
-				pos.y=0.0f;
-				SpawnPUInvoke((int)pu,pos);
-				area++;
-			}
 
-			/*int area=0;
+			Debug.Log("Spawn item= "+num);
+
+			int area=0;
 			int area2=0;
 			int areaBound=0;
 			for(int i=0;i<num;i++){
@@ -109,10 +102,11 @@ namespace PSPhoton {
 				area++;
 				area2++;
 				if(area2>=areaCount){
+					Debug.Log("oner areaCount!");
 					area2=0;
 					areaBound++;
 				}
-			}*/
+			}
 
 		}
 

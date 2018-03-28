@@ -19,6 +19,7 @@ namespace PS_Util{
 		public override void MatchScale(){
 			col.size=new Vector3(col.size.x*transform.lossyScale.x,col.size.y*transform.lossyScale.y,col.size.z*transform.lossyScale.z);
 			transform.localScale=Vector3.one;
+		
 		}
 
 		Vector3 center;
@@ -29,25 +30,32 @@ namespace PS_Util{
 
 				center=transform.InverseTransformPoint(col.bounds.center);
 				size=col.size/2.0f;
-				DestroyComponets();
+				//DestroyComponets();
 			}
 		}
 
 		public override Vector3 GetBoundPointInArea(int num){
 			
 			Vector3 rndPosWithin=Vector3.zero;
-			
+
+			Quaternion storedRotation =gameObject.transform.rotation;
+			gameObject.transform.rotation = Quaternion.identity;
+
+
 			if(num==0){
-				rndPosWithin=transform.TransformPoint(center+new Vector3(-size.x,-size.y, -size.z));
+				rndPosWithin=transform.TransformPoint(center+new Vector3(-col.bounds.extents.x,-col.bounds.extents.y,-col.bounds.extents.z));
 			}else if(num==1){
-				rndPosWithin=transform.TransformPoint(center+new Vector3(size.x,-size.y, -size.z));
+				rndPosWithin=transform.TransformPoint(center+new Vector3(col.bounds.extents.x,-col.bounds.extents.y,-col.bounds.extents.z));
 			}else if(num==2){
-				rndPosWithin=transform.TransformPoint(center+new Vector3(-size.x,-size.y, size.z));
+				rndPosWithin=transform.TransformPoint(center+new Vector3(-col.bounds.extents.x,-col.bounds.extents.y,col.bounds.extents.z));
 			}else if(num==3){
-				rndPosWithin=transform.TransformPoint(center+new Vector3(size.x,-size.y, size.z));
+				rndPosWithin=transform.TransformPoint(center+new Vector3(col.bounds.extents.x,-col.bounds.extents.y,col.bounds.extents.z));
 			}else{
 				rndPosWithin=GetRandomPointInArea();
 			}
+
+
+			gameObject.transform.rotation = storedRotation;
 
 			return rndPosWithin;
 		}
@@ -58,5 +66,8 @@ namespace PS_Util{
 				Random.Range(-size.z, size.z)));;
 			return rndPosWithin;
 		}
+
+
+
 	}
 }

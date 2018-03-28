@@ -12402,6 +12402,21 @@ Prefab:
       propertyPath: _NameInputs
       value: 
       objectReference: {fileID: 214342903}
+    - target: {fileID: 65000011076998256, guid: 60372a0795bc14e51a3d3d447a5c6b26,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011731176482, guid: 60372a0795bc14e51a3d3d447a5c6b26,
+        type: 2}
+      propertyPath: mHeight
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011731176482, guid: 60372a0795bc14e51a3d3d447a5c6b26,
+        type: 2}
+      propertyPath: aspectRatio
+      value: 1.4293333
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60372a0795bc14e51a3d3d447a5c6b26, type: 2}
   m_IsPrefabParent: 0
@@ -17474,7 +17489,7 @@ Prefab:
     - target: {fileID: 114000010682197944, guid: dfd8ee2125b484bce9aca0dcb30da1cd,
         type: 2}
       propertyPath: debugDelete
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dfd8ee2125b484bce9aca0dcb30da1cd, type: 2}
@@ -26584,7 +26599,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: maxPlayers
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

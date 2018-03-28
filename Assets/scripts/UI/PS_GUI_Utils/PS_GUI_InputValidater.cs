@@ -10,7 +10,7 @@ public class PS_GUI_InputValidater : MonoBehaviour {
 	}
 
 	void Start(){
-		SetValue(DataManager.Instance.gameData.username);
+		input.defaultText=DataManager.Instance.gameData.username;
 	}
 
 	public void OnSubmit(){
@@ -31,6 +31,7 @@ public class PS_GUI_InputValidater : MonoBehaviour {
 
 	public void SetValue(string str){
 		Debug.Log("SetValue "+str);
+
 		input.value=str;
 	}
 }

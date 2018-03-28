@@ -51,7 +51,6 @@ public class ResultPanel : MonoBehaviour {
 
 
 
-
 		DataManager.Instance.SaveAll();
 
 		DataManager.Instance.gameData.isConnectingRoom=false;
