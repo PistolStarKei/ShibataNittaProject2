@@ -140,6 +140,8 @@ public class TutoriallOnStart : MonoBehaviour {
 					tp.from=new Vector3(-486.91f,tp.from.y,tp.from.z);
 					tp.to=new Vector3(-486.91f,tp.to.y,tp.to.z);
 				_textLb.text=Localization.Get("Desc_ServerSelect");
+
+				NGUITools.MarkParentAsChanged(_FlagSp.gameObject);
 				break;
 			case 1:
 				_FlagSp.transform.parent=_CashedData.parent;

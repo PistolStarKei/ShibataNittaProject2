@@ -10,7 +10,7 @@ TextNo,×,×
 TextYes,●,●
 TittleHowTo,How To Play,遊び方
 DescHelpPage0,1. Battle Royale by all players.\n\n2. Watch out for Damage areas which expands at regular time intervals.\n\n3. Victory if you become the last one.,1・参加者全員でバトルロワイヤル\n\n2・ダメージエリアは一定時間で増えていく\n\n3・最後の一人になれば勝利！！
-DescHelpPage1,HOMING...Launch 5 missiles follow within a range of players untill they hit walls. \n\nNAPALM...Flies cretain distance then explode causing massive damage on a wide range.\n\nWAVE...Wide shots for a certain times.\n\nFLASH...All around shots for a certain times.,HOMING...近くにいる敵に向かって飛んでいく\n\nNAPALM...一定距離飛び、広範囲にダメージを与える\n\nWAVE...一定時間、幅の広い弾が出る\n\nFLASH...一定時間、全方向に弾を発射する
+DescHelpPage1,HOMING...Launch 5 missiles follow  players within a range untill they hit walls. \n\nNAPALM...Flies cretain distance then explode causing massive damage on a wide range.\n\nWAVE...Wide shots for a certain times.\n\nFLASH...shots in all directions for a certain times.,HOMING...近くにいる敵に向かって飛んでいく\n\nNAPALM...一定距離飛び、広範囲にダメージを与える\n\nWAVE...一定時間、幅の広い弾が出る\n\nFLASH...一定時間、全方向に弾を発射する
 DescHelpPage2,LASER...Applies constant damage to other player within a certain range.\n\nSTEALTH...Become invisible for a certain time.\n\nNUKE...Flies cretain distance then explode causing massive damage on a wide range.,LASER...近くの敵を捕捉し、ダメージを与え続ける\n\nSTEALTH...一定時間、透明になり見えなくなる\n\nNUKE...一定距離飛び、広範囲に大ダメージを与える
 TextReview,Review Now,レビューする
 SelectedFlag,Flag,選択
