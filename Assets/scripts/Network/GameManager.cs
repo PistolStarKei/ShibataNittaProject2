@@ -230,6 +230,7 @@ namespace PSPhoton {
 					count++;
 				}
 			}
+			Debug.Log("GetAlivePlayerCount  "+count);
 			return count;
 		}
 		int GetPlayerRank(int id){
@@ -271,12 +272,13 @@ namespace PSPhoton {
 				count++;
 			}
 
-
+			Debug.Log("順位の判定 "+count);
 			return count;
 		}
 
 		//同着順位かの判定
 		bool isDouji(int playerNum){
+			Debug.Log("同着順位の判定 ");
 			if(playerDatas[0].connected == playerDatas[playerNum].connected){
 				if(playerDatas[0].connected){
 					//同じくコネクト
@@ -284,10 +286,12 @@ namespace PSPhoton {
 						if(playerDatas[0].dead){
 							//同じ死亡時間
 							if(playerDatas[0].alive == playerDatas[playerNum].alive){
+								Debug.Log("同着順位　同じ死亡時間 ");
 								return true;
 							}
 						}else{
 							//同じく生存
+							Debug.Log("同着順位　同じく生存 ");
 							return true;
 						}
 					}else{
@@ -295,10 +299,11 @@ namespace PSPhoton {
 					}
 				}else{
 					//同じく非接続
+					Debug.Log("同着順位　同じく非接続 ");
 					return true;
 				}
 			}
-
+			Debug.Log("同着順位はない ");
 			return false;
 
 		}
@@ -383,6 +388,7 @@ namespace PSPhoton {
 
 				if(PhotonNetwork.isMasterClient)PhotonNetwork.room.SetCustomProperties(new ExitGames.Client.Photon.Hashtable() { { "map",(int)PhotonNetwork.room.CustomProperties["map"]}, { "state",3}  });
 
+				Debug.Log("順位の判定");
 				// enable panel
 				GUIManager.Instance.OnGameOver(gameTime,killNum,GetPlayerRank(PhotonNetwork.player.ID),playerDatas.Count,playerShip);
 			}else{
@@ -397,8 +403,9 @@ namespace PSPhoton {
 				}
 				GUIManager.Instance.Log(info);
 
+				Debug.Log("アクティブシップの判定");
 				if(GetAlivePlayerCount()<=1){
-					
+					Debug.Log("勝ち残りゲームオーバー アクティブシップが存在しないため");
 					playerShip.isDead=true;
 					playerShip.isControllable=false;
 
