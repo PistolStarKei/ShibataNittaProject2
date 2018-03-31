@@ -435,6 +435,13 @@ namespace PSPhoton {
 
 				timer.SetTime(checkTimeOnRoom,checkTimeOnRoom);
 			}else{
+				GameObject go=GameObject.FindGameObjectWithTag("TicketSetter");
+				if(go){
+					GameTicketSetter setter=go.GetComponent<GameTicketSetter>();
+					if(setter){
+						setter.UpdateTickets();
+					}
+				}
 				inRoom=false;
 				lobbyList.ClearList();
 				DataManager.Instance.gameData.isConnectingRoom=false;

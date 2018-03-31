@@ -26,6 +26,9 @@ namespace PSParams{
 
 		//何秒間ストリームが来ていなければデッドとするか。
 		public static readonly float DisconnectionTime=3.0f;
+
+		//何秒間ロードを待ち受けるか
+		public static readonly float spawnWaitTimeOnGameStart=60.0f;
 		#endregion
 
 

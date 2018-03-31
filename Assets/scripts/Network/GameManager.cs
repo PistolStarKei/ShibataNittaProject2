@@ -501,7 +501,8 @@ namespace PSPhoton {
 
 
 		private void CheckCountdown() {
-			bool takingTooLong = gameTime >= 10;
+			
+			bool takingTooLong = gameTime >= PSParams.GameParameters.spawnWaitTimeOnGameStart;
 			bool finishedLoading = loadedPlayers == PhotonNetwork.playerList.Length;
 			if (takingTooLong || finishedLoading) {
 				photonView.RPC ("StartCountdown", PhotonTargets.AllBufferedViaServer, PhotonNetwork.time + 4);
@@ -524,6 +525,8 @@ namespace PSPhoton {
 
 		void SetPlayerHUD(){
 			GameObject[] ships = GameObject.FindGameObjectsWithTag ("Player");
+
+			Debug.Log("SetPlayerHUD　カウント"+ships.Length);
 
 			shipControl ship;
 			foreach (GameObject go in ships) {

@@ -127,6 +127,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		isControllable=false;
 		rd.isKinematic=true;
 
+
+
 		ParticleManager.Instance.ShowExplosionBigAt(transform.position,Quaternion.identity,null);
 		if(GUIManager.Instance.IsWithinAudioDistance(transform.position))AudioController.Play("Dead",transform.position,null);
 
@@ -139,6 +141,8 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			
 		if(isActiveShip){
 			if(!isOwnersShip())return;
+
+
 			if(photonView){
 				photonView.RPC ("ScatterWeapons", PhotonTargets.AllViaServer,new object[]{GUIManager.Instance.GetSubweaponInHolder(),shot_rensou});
 			}else{
@@ -153,6 +157,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}
 		}
 
+		if(isOwnersShip())Camera.main.gameObject.AddComponent<AudioListener>();
 	}
 		
 	[PunRPC]
@@ -801,7 +806,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 		case Subweapon.STEALTH:
 			GUIManager.Instance.SetShotTgl(false);
 			weapontimer=PSParams.GameParameters.sw_timer[(int)Subweapon.STEALTH];
-			//OnShotToggle(false);
+			OnShotToggle(false);
 			if(photonView){
 				photonView.RPC ("StealthMode", PhotonTargets.AllViaServer,new object[]{true});
 			}else{
