@@ -235,6 +235,7 @@ namespace PSPhoton {
 		}
 		int GetPlayerRank(int id){
 			
+			Debug.Log("順位の判定 総プレイヤ数　"+playerDatas.Count);
 
 			playerDatas.Sort(delegate(shipControl.PlayerData a, shipControl.PlayerData b) {
 
@@ -272,7 +273,7 @@ namespace PSPhoton {
 				count++;
 			}
 
-			Debug.Log("順位の判定 "+count);
+			Debug.Log("順位の判定 "+count+" 位");
 			return count;
 		}
 
