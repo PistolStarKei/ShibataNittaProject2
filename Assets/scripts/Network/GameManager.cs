@@ -354,6 +354,7 @@ namespace PSPhoton {
 
 		public void OnPlayerDead(int shipID,int killed,float aliveTime){
 
+			if(isLocalPlayerGameOver)return;
 			SetPlayerDead(shipID);
 			SetPlayerAlive(shipID,aliveTime);
 
@@ -367,7 +368,7 @@ namespace PSPhoton {
 
 			if (PhotonNetwork.player.ID==shipID) {
 				Debug.Log("プレイヤが死亡しました");
-
+					isLocalPlayerGameOver=true;
 					string info="";
 					if(GetNameById(killed)!=""){
 						info=Application.systemLanguage == SystemLanguage.Japanese?  "あなたが"+GetNameById(killed)+"にキルされました"
@@ -406,6 +407,7 @@ namespace PSPhoton {
 
 				Debug.Log("アクティブシップの判定");
 				if(GetAlivePlayerCount()<=1){
+					isLocalPlayerGameOver=true;
 					Debug.Log("勝ち残りゲームオーバー アクティブシップが存在しないため");
 					playerShip.isDead=true;
 					playerShip.isControllable=false;
@@ -435,6 +437,7 @@ namespace PSPhoton {
 
 		}
 
+		public bool isLocalPlayerGameOver=false;
 		public bool isNetworkMode=true;
 		// Use this for initialization
 		public UILabel nameLB;
