@@ -13,13 +13,12 @@ public class ShipFollowHUD : FollowGUI {
 	}
 
 	public override void OverlayPosition(){
-		if(PSPhoton.GameManager.instance.playerShip.isDead || !ship){
+		if(PSPhoton.GameManager.instance.playerShip.isDead || !ship || ship.isDead || !ship.gameObject.activeSelf){
 			Show(false);
 			return;
 		}
 
-		if(ship.isDead || ship.isStealthMode){
-			//死亡したら表示しない
+		if(ship.isStealthMode){
 			Show(false);
 			return;
 		}else{

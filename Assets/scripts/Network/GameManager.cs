@@ -541,7 +541,7 @@ namespace PSPhoton {
 					shipControllers.Add(ship);
 
 				}else{
-					Debug.LogError("shipControllerがアタッチされていない");
+					Debug.LogWarning("shipControllers added already");
 				}
 
 			}
