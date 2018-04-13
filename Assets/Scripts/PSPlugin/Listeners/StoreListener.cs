@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using PSParams;
+using Strobotnik.GUA;
 
 [System.Serializable]
 public class StoreItemsParams{
@@ -247,6 +248,9 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 					if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "OnProductPurchased: "+result.Purchase.SKU);
 				}
 				if(result.Purchase.State==GooglePurchaseState.PURCHASED){
+
+					Analytics.gua.sendTransactionHit(result.Purchase.SKU,"",0d,0d,0d,"");
+
 					if(isConsumableProduct(result.Purchase.SKU)){
 						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log( "consume first ");
 						consume(result.Purchase.SKU);
@@ -286,6 +290,8 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
                 if(purchasFailledEvent!=null)purchasFailledEvent(id);
             }else{
          
+
+
 					if(id=="5tickets"){
 						//ここで購入を
 						DataManager.Instance.gameData.gameTickets+=5;

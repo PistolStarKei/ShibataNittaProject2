@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Colorful;
 using System;
-
+using Strobotnik.GUA;
 /// <summary>
 /// Ranking_PUの説明
 /// </summary>
@@ -32,6 +32,7 @@ public class Ranking_PU : MonoBehaviour {
 		
 	#region  Public関数
 	public void Show(){
+		Analytics.gua.sendAppScreenHit("Menu Rankings");
 		AudioController.Play("open");
 		btnBG.SetActive(true);
 		container.SetActive(true);

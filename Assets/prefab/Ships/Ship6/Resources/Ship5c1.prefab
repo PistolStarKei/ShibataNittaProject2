@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 1500
   currentHP: 1500
-  usingLog: 1
+  usingLog: 0
   isControllable: 0
   playerData:
     userName: 
@@ -354,6 +354,7 @@ MonoBehaviour:
   lastReceivedTime: 0
   maxSpeed: 1
   speed: 0.01
+  shipRotation: 4
   isActiveShip: 1
 --- !u!114 &114000011980236482
 MonoBehaviour:
@@ -369,7 +370,6 @@ MonoBehaviour:
   psF: {fileID: 0}
   psL: {fileID: 0}
   psR: {fileID: 0}
-  scale: 0.2
 --- !u!114 &114000014075245054
 MonoBehaviour:
   m_ObjectHideFlags: 1

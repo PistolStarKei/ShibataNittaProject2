@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Colorful;
 using PSParams;
-
+using Strobotnik.GUA;
 /// <summary>
 /// PU_Infoの説明
 /// </summary>
@@ -12,11 +12,13 @@ public class PU_Info : MonoBehaviour {
 	#region  メンバ変数
 	public GameObject btn;
 	public GameObject container;
+	public UILabel versionLabel;
 	#endregion
 
 	#region  初期化
 
 	void Awake () {
+		versionLabel.text="ver."+Analytics.gua.appVersion;
 	}
 
 	void Start () {
@@ -58,6 +60,7 @@ public class PU_Info : MonoBehaviour {
 
 	public void OnClickTwitter(){
 		if(!PS_Plugin.Instance.twListener.IsAuthenticated)return;
+		Analytics.gua.sendSocialHit("Twitter", "Follow", "PistolTwitter");
 		Application.OpenURL("https://twitter.com/"+PSParams.AppData.TwitterfollowPageName);
 
 	}

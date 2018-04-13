@@ -25,7 +25,7 @@ public class LoadingSceneManager : MonoBehaviour {
 
 	#region  Public関数
 	public void OnInitProgress(int progress){
-		Debug.Log(""+progress);
+		//Debug.Log(""+progress);
 
 		slider.value=GetProgress(progress);
 		if(progress==maxProgress && !isLoaded){

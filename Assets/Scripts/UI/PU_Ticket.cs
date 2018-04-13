@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Colorful;
 using PSParams;
+using Strobotnik.GUA;
 /// <summary>
 /// PU_Ticketの説明
 /// </summary>
@@ -19,6 +20,7 @@ public class PU_Ticket : MonoBehaviour {
 
 	#region  Public関数
 	public void Show(){
+		Analytics.gua.sendAppScreenHit("Menu Add Tickets");
 		_IsTweetDay=DataManager.Instance.IsTweetDay();
 		SetTweetLabel(_IsTweetDay);
 		AudioController.Play("open");
@@ -49,7 +51,10 @@ public class PU_Ticket : MonoBehaviour {
 	}
 
 	public void OnClickTweet(){
+		
 		if(DataManager.Instance.gameData.tweetNum>=3)return;
+
+		Analytics.gua.sendSocialHit("Twitter", "Tweet", "OwnTwitter");
 		PSGUI.WaitHUD.guiWait.Show(gameObject.GetComponent<UIPanel>().depth,"Connecting");	
 		//ツイッターへ飛ばす、待ち受けて追加する
 		//Texture2D image = GetImage();
@@ -94,6 +99,8 @@ public class PU_Ticket : MonoBehaviour {
 		if(DataManager.Instance.gameData.gameTickets==-100)return;
 		if(!PS_Plugin.Instance.storeListener.IsStoreAvaillable())return;
 
+		Analytics.gua.sendEventHit("Parchase",AppData.IAP_SKUs[0],null,-1);
+
 		PSGUI.WaitHUD.guiWait.Show(7,"Connecting");
 
 		PS_Plugin.Instance.storeListener.PurchaseProduct(AppData.IAP_SKUs[0],OnTicket5PurchaseSuccesed,OnTicket5PurchaseFailled);
@@ -121,6 +128,10 @@ public class PU_Ticket : MonoBehaviour {
 	public void OnClickMuseigenPack(){
 		if(DataManager.Instance.gameData.gameTickets==-100)return;
 		if(!PS_Plugin.Instance.storeListener.IsStoreAvaillable())return;
+
+
+
+		Analytics.gua.sendEventHit("Parchase",AppData.IAP_SKUs[1],null,-1);
 
 		PSGUI.WaitHUD.guiWait.Show(7,"Connecting");
 		PS_Plugin.Instance.storeListener.PurchaseProduct(AppData.IAP_SKUs[1],OnMuseigenPackPurchaseSuccesed,OnMuseigenPackPurchaseFailled);

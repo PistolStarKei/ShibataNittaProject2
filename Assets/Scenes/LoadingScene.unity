@@ -210,7 +210,7 @@ MonoBehaviour:
   trackingID: UA-116726701-2
   debugTrackingID: 
   appName: SBSAndroid
-  appVersion: 2.1.0
+  appVersion: 2.1.1
   newLevelAnalyticsEventPrefix: level-
   useHTTPS: 1
   useOfflineCache: 1

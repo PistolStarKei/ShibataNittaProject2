@@ -163,7 +163,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	[PunRPC]
 	public void ScatterWeapons(int[] subweaponInHolder,int rensou){
 		
-		Debug.LogWarning("ここでマスターがサブウェポンをばらまく");
+		//Debug.LogWarning("ここでマスターがサブウェポンをばらまく");
 		if(PhotonNetwork.isMasterClient){
 			//サブウェポンをばらまく
 			if(subweaponInHolder!=null){
@@ -236,7 +236,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 	double RTTExpectation=0.1d;
 
 	IEnumerator Shot(){
-		Debug.Log("ローカル発射コルーチン　"+this.playerData.userName);
+		//Debug.Log("ローカル発射コルーチン　"+this.playerData.userName);
 
 		while(true && !isDead){
 
@@ -934,7 +934,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			}else{
 				GUIManager.Instance.Damage (damage, MaxHP);
 				if(currentHP<=0.0f){
-					Debug.Log("shipは死亡！");
+					//Debug.Log("shipは死亡！");
 				}
 
 
@@ -966,7 +966,7 @@ public class shipControl : Photon.MonoBehaviour, IPunObservable {
 			if(PhotonNetwork.player.ID==targettedBy){
 				//当てた人
 					//当てたプレイヤがオフライン中
-					Debug.LogWarning("Razer オフラインユーザーの代わりにDeadする");
+					//Debug.LogWarning("Razer オフラインユーザーの代わりにDeadする");
 					if(currentHP<=0.0f){
 						photonView.RPC ("OnDead", PhotonTargets.AllBufferedViaServer,new object[]{targettedBy,PSPhoton.GameManager.instance.gameTime});
 						return;

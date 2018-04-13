@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Strobotnik.GUA;
 
 public class LobbyShipSwitcher : MonoBehaviour {
 
@@ -158,11 +159,15 @@ public class LobbyShipSwitcher : MonoBehaviour {
 			AudioController.Play("Enter");
 			//セレクト可能
 			currentSelectColor=colorLists.mCurrentSelected;
+			Analytics.gua.sendEventHit("ChangeShip",currentSelectColor.ToString(),null,-1);
 			OnShipColorChanged();
 			UpdateBoadingBtn();
 		}else if(status==ShipStatus.PURCHASABLE){
 			//TODO ここで購入処理
 			if(PS_Plugin.Instance.storeListener.IsStoreAvaillable()){
+
+				Analytics.gua.sendEventHit("Parchase",GetShipSku(currentSelect,colorLists.mCurrentSelected),null,-1);
+
 				PS_Plugin.Instance.storeListener.PurchaseProduct(GetShipSku(currentSelect,colorLists.mCurrentSelected),OnPurchaseSuccessed,OnPurchaseFailled);
 				PSGUI.WaitHUD.guiWait.Show(9,"Connecting");
 			}

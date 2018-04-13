@@ -15431,7 +15431,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: cfddbdbf796ef4ee8af95418fb3253f8, type: 3}
   mFont: {fileID: 0}
-  mText: ver1.1.2
+  mText: ver2.1.1
   mFontSize: 32
   mFontStyle: 0
   mAlignment: 0
@@ -19663,6 +19663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   btn: {fileID: 934766660}
   container: {fileID: 1404295926}
+  versionLabel: {fileID: 1087731163}
 --- !u!1 &1438755253
 GameObject:
   m_ObjectHideFlags: 0
@@ -26625,7 +26626,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: useDebugLog
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -26690,7 +26691,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: minPlayers
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
@@ -26711,7 +26712,7 @@ Prefab:
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}
       propertyPath: maxPlayers
-      value: 2
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114000010182198726, guid: f94bda0ee31a641f7b8de458cc5fdc15,
         type: 2}

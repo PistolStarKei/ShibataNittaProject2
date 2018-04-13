@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon;
 
-
 namespace PSPhoton {
 	
 	[RequireComponent (typeof (PhotonView))]
