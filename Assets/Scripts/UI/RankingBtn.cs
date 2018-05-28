@@ -34,6 +34,8 @@ public class RankingBtn : MonoBehaviour {
 
 		string boadID=GetBoadID(currentBoad,false);
 
+		Debug.Log("ーリーダーボード更新１");
+
 		if(boadID!=""){
 			//まずユーザーの今月のランクを取得する
 			loadedRankingData=false;
@@ -51,11 +53,12 @@ public class RankingBtn : MonoBehaviour {
 			}
 		}
 
-
+		Debug.Log("ーリーダーボード更新１　完了");
 		yield return null;
 
 		currentBoad=1;
 		boadID=GetBoadID(currentBoad,false);
+		Debug.Log("ーリーダーボード更新２");
 		if(boadID!=""){
 			//まずユーザーの今月のランクを取得する
 			loadedRankingData=false;
@@ -72,11 +75,12 @@ public class RankingBtn : MonoBehaviour {
 			}
 		}
 
-
+		Debug.Log("ーリーダーボード更新２　完了");
 		yield return null;
 
 		currentBoad=2;
 		boadID=GetBoadID(currentBoad,false);
+		Debug.Log("ーリーダーボード更新３");
 		if(boadID!=""){
 			//まずユーザーの今月のランクを取得する
 			loadedRankingData=false;
@@ -93,7 +97,7 @@ public class RankingBtn : MonoBehaviour {
 			}
 		}
 
-
+		Debug.Log("ーリーダーボード更新３　完了");
 		yield return null;
 
 		if(infoNum==0){
@@ -103,6 +107,7 @@ public class RankingBtn : MonoBehaviour {
 		}
 		DataManager.Instance.SaveAll();
 		isLoading=false;
+		Debug.Log("loading完了　リーダーボード更新");
 	}
 
 	GPScore playerScore;
@@ -121,10 +126,11 @@ public class RankingBtn : MonoBehaviour {
 
 	#region  メンバ関数
 		void OnClick() {
-		if(isLoading)return;
-			rankingMenu.Show();
+		if(isLoading){
+			Debug.Log("still loading");
 			return;
-			Debug.Log("OnClick");
+		}
+
 			if(PS_Plugin.Instance.readerboadListener.isLogin()){
 				//PS_Plugin.Instance.readerboadListener.Open();
 				rankingMenu.Show();

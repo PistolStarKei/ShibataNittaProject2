@@ -49,3 +49,10 @@ Desc_ServerSelect,  [Initial Settings 1/2]\n\nChoose country flag and server reg
 Desc_SetName,  [Initial Settings 2/2]\n\nTap to input player name which displayed to every player.\n\nThis name would be able to modyfy later.,  [初期設定 2/2]\n\nゲーム内で他にプレイヤーに表示される名前を入力してください。\n\n名前は、ゲーム開始後いつでも変更ができます。
 AlertNullInput,Input at least one charater for the name.,名前には1文字以上の文字を入力してください。
 AlertNoInput,Input unique name,何か名前を入力してください
+ServerInfo_ConUser,users online,人がオンライン中
+ServerInfo_Room,battles ongoing,のバトルが進行中
+ServerInfo_Disconnected,Disconnected,サーバー未接続
+ServerInfo_LobbyDisConnected,Server Connected,サーバー接続
+ServerInfoWaiting,Finding Opponent,対戦相手募集中
+ServerInfoWaitingTime,Time Average 15min,平均待ち時間:15分
+RoomFailled,Failled to create new match,接続エラーのためゲームを開始できません

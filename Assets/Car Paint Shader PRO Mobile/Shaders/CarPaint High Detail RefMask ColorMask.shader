@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
@@ -106,7 +108,7 @@ SubShader {
 			o.worldNormal = mul(unity_ObjectToWorld, fixed4(input.normal, 0.0f)).xyz;
 						   
 			o.tex = input.texcoord;
-            o.pos = mul(UNITY_MATRIX_MVP, input.vertex);
+            o.pos = UnityObjectToClipPos(input.vertex);
             o.viewDir = normalize(mul(unity_ObjectToWorld, input.vertex) - fixed4(_WorldSpaceCameraPos.xyz, 1.0)).xyz;			   			   			   
 			   			   			   			   			   			   			   			   			   
             o.tangentWorld = normalize(mul(unity_ObjectToWorld, fixed4(input.tangent.xyz, 0.0) ).xyz);

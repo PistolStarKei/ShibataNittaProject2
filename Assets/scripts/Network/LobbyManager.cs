@@ -51,6 +51,7 @@ namespace PSPhoton {
 			if(InternetReachabilityVerifier.Instance==null){
 				GameObject.Instantiate(internetCheker,Vector3.zero,Quaternion.identity,null);
 			}
+			DataManager.Instance.CheckTweetNum();
 		}
 
 		public GameObject internetCheker;
@@ -58,6 +59,8 @@ namespace PSPhoton {
 		public YesNoPU yesnoPopup;
 		public PU_Ticket tiketPopup;
 		void Start () {
+
+
 
 			if(TimeManager.Instance.ISSameMonthLogin(TimeManager.StringToDateTime(DataManager.Instance.gameData.lastTime))){
 				//月初リセット
@@ -74,7 +77,7 @@ namespace PSPhoton {
 			AudioController.PlayMusic("LobbbyMusic");
 			PhotonNetwork.CrcCheckEnabled = true;
 
-			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
+			stateHUD.SetServerState(ServerInfoLabelState.DISCONNECTED);
 
 			Debug.LogWarning("ここでランキングがあれば見せる");
 
@@ -83,7 +86,7 @@ namespace PSPhoton {
 
 				if(DataManager.Instance.gameData.gameTickets!=-100 && Random.Range(0,3)==0)AdManager.Instance.ShowInterstitial();
 
-				stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
+				stateHUD.SetServerState(ServerInfoLabelState.SERVERCONNECTED);
 				if(useDebugLog)Debug.Log("ロビーに再接続");
 
 				JoinLobby();
@@ -133,7 +136,7 @@ namespace PSPhoton {
 		public void ConnectToPUN(){
 			PhotonNetwork.player.NickName = DataManager.Instance.gameData.userID;
 
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Connecting");
+			stateHUD.SetServerState(ServerInfoLabelState.CONNECTING_TO_PUN);
 			//PhotonNetwork.ConnectUsingSettings(APP_VERSION);
 			//PhotonNetwork.ConnectToBestCloudServer(APP_VERSION);
 
@@ -144,15 +147,14 @@ namespace PSPhoton {
 		{
 			if(useDebugLog)Debug.Log("OnConnectedToPhoton succcess");
 
-			stateHUD.SetStateHUD(NetworkState.SERVERCONNECTED);
+			stateHUD.SetServerState(ServerInfoLabelState.SERVERCONNECTED);
 			base.OnConnectedToPhoton ();
 		}
 		public override void OnFailedToConnectToPhoton (DisconnectCause cause)
 		{
 			if(useDebugLog)Debug.Log("OnFailedToConnectToPhoton retry in seconds");
 
-			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Reconneting");
+			stateHUD.SetServerState(ServerInfoLabelState.RECONNECTING);
 			base.OnFailedToConnectToPhoton (cause);
 		}
 
@@ -167,9 +169,7 @@ namespace PSPhoton {
 		public override void OnDisconnectedFromPhoton ()
 		{
 			if(useDebugLog)Debug.Log("OnDisconnectedFromPhoton");
-			stateHUD.SetStateHUD(NetworkState.DISCONNECTED);
-
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "接続中" :"Reconneting");
+			stateHUD.SetServerState(ServerInfoLabelState.RECONNECTING);
 			Invoke("ConnectToPUN",2.0f);
 			lobbyList.ClearList();
 			base.OnDisconnectedFromPhoton();
@@ -187,14 +187,14 @@ namespace PSPhoton {
 
 		public void JoinLobby(){
 			if(useDebugLog)Debug.Log("JoinLobby");
-			stateHUD.SetAnime(Application.systemLanguage == SystemLanguage.Japanese? "ロビー接続中" :"Entering Lobby");
+			stateHUD.SetServerState(ServerInfoLabelState.CONNECTING_TO_LOBBY);
 			PhotonNetwork.JoinLobby ();
 		}
 
 
 		public override void OnJoinedLobby () {
 			if(useDebugLog)Debug.Log("Joined Lobby succcess");
-			stateHUD.SetStateHUD(NetworkState.LOBBYCONNECTED);
+			stateHUD.SetServerState(ServerInfoLabelState.LOBBYCONNECTED);
 
 			//ロビーからの再入場は無し
 			if(DataManager.Instance.gameData.isConnectingRoom){
@@ -209,7 +209,7 @@ namespace PSPhoton {
 		public GameTicketSetter gameTicketSetter;
 		public void OnClickPlayBtn(){
 
-			if(stateHUD.networkState!=NetworkState.LOBBYCONNECTED || inRoom){
+			if(stateHUD._stateInfo.currentState!=ServerInfoLabelState.LOBBYCONNECTED || inRoom){
 				if(useDebugLog)Debug.LogWarning("ロビーにコネクトされていないので不可");
 				return;
 			}
@@ -276,7 +276,8 @@ namespace PSPhoton {
 				PhotonNetwork.playerName += "-2";
 				CreateRoom (PhotonNetwork.player.NickName);
 			}else{
-				
+				stateHUD.ShowWaitingTime(false);
+				info.Log(Localization.Get("RoomFailled"));
 				HUDOnROOM(false);
 			}
 		}
@@ -338,12 +339,21 @@ namespace PSPhoton {
 			UpdatePlayerList ();
 		}
 			
+		public int countOfPlayerOnline=0;
+		public int roomOnline=0;
+
+		public override void OnLobbyStatisticsUpdate()
+		{
+			if(useDebugLog)Debug.Log("OnLobbyStatisticsUpdate ");
+			countOfPlayerOnline=PhotonNetwork.countOfPlayers;
+			roomOnline=PhotonNetwork.countOfRooms;
+		}
 
 
 		// self-explainable
 		public void UpdatePlayerList() {
 			if(useDebugLog)Debug.Log("UpdatePlayerList "+PhotonNetwork.playerList.Length);
-			stateHUD.SetLabel(PhotonNetwork.playerList.Length.ToString()+"/"+maxPlayers.ToString(),false);
+			if(PhotonNetwork.playerList.Length>=2)stateHUD.ShowWaitingTime(false);
 			lobbyList.ClearList();
 			int i=0;
 			foreach (PhotonPlayer p in PhotonNetwork.playerList) {
@@ -396,7 +406,7 @@ namespace PSPhoton {
 		public override void OnJoinedRoom ()
 		{
 			if(useDebugLog)Debug.Log("OnJoindRoom successed");
-			stateHUD.SetStateHUD(NetworkState.ROOMCONNECTED);
+			stateHUD.SetServerState(ServerInfoLabelState.ROOMCONNECTED);
 			DataManager.Instance.gameData.lastRoomName=PhotonNetwork.room.Name;
 			DataManager.Instance.SaveAll();
 
@@ -416,9 +426,9 @@ namespace PSPhoton {
 		public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
 		{
 			if(useDebugLog)Debug.Log("OnJoindRoom failled");
-
+			info.Log(Localization.Get("RoomFailled"));
 			HUDOnROOM(false);
-
+			stateHUD.ShowWaitingTime(false);
 			base.OnPhotonRandomJoinFailed (codeAndMsg);
 		}
 
@@ -450,7 +460,7 @@ namespace PSPhoton {
 
 
 		public void OnShipChanged(int num,int color){
-			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+			if(inRoom){
 				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
 					SetCustomProperties(PhotonNetwork.player, num,color,(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"],(string)PhotonNetwork.player.CustomProperties["userName"]);
 				}
@@ -459,7 +469,7 @@ namespace PSPhoton {
 		}
 
 		public void OnUserNameChanged(string name){
-			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+			if(inRoom){
 				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
 					SetCustomProperties(PhotonNetwork.player, (int)PhotonNetwork.player.CustomProperties["shipBase"],(int)PhotonNetwork.player.CustomProperties["shipColor"],(string)PhotonNetwork.player.CustomProperties["countly"], (int)PhotonNetwork.player.CustomProperties["spawn"],name);
 				}
@@ -468,7 +478,7 @@ namespace PSPhoton {
 		}
 
 		public void OnCountlyChanged(string countly){
-			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+			if(inRoom){
 				if(PhotonNetwork.player.CustomProperties.ContainsKey("spawn")){
 					Debug.Log("OnCountlyChanged "+countly);
 					SetCustomProperties(PhotonNetwork.player, (int)PhotonNetwork.player.CustomProperties["shipBase"],(int)PhotonNetwork.player.CustomProperties["shipColor"],countly, (int)PhotonNetwork.player.CustomProperties["spawn"],(string)PhotonNetwork.player.CustomProperties["userName"]);
@@ -590,7 +600,7 @@ namespace PSPhoton {
 		}
 
 		public void OnChangedServer(){
-			if(stateHUD.networkState==NetworkState.ROOMCONNECTED){
+			if(inRoom){
 				LeaveRoom();
 			}else{
 				PhotonNetwork.Disconnect();

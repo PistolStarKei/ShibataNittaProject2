@@ -185,7 +185,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 				}else{
 				    if(AndroidInAppPurchaseManager.Client.Inventory.IsProductPurchased(p.SKU)) {
 						if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.Log("リストアあり　 " +p.SKU);
-						OnPurchased(p.SKU,true);
+						OnPurchased(p.SKU,false);
 					}else{
 						
 						if(p.SKU=="museigenmonthly"){
@@ -274,7 +274,7 @@ public class StoreListener :  PS_SingletonBehaviour<StoreListener>
 		    if(PS_Plugin.Instance.isDebugMode && isDebugLog)Debug.LogError ("OnProductConsumed "+result.IsSuccess );
 
 			if(result.IsSuccess) {
-				OnPurchased(result.Purchase.SKU,true);
+				OnPurchased(result.Purchase.SKU,false);
 			} else {
                 if(purchasFailledEvent!=null)purchasFailledEvent("購入完了も、消費に失敗　再起動せよ");
 			}

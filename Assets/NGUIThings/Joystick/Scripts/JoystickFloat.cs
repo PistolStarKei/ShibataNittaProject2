@@ -77,12 +77,12 @@ public class JoystickFloat : PS_SingletonBehaviour<JoystickFloat>
 		
 		if (joystick == null)
 		{
-			joystick = transform.FindChild("Joystick");
+			joystick = transform.Find("Joystick");
 			if (joystick == null)
 				Debug.LogWarning("Child object Joystick is not found.");
 			else if (center == null)
 			{
-				center = joystick.FindChild("Center");
+				center = joystick.Find("Center");
 				if (center == null)
 					Debug.LogWarning("Child object Center is not found.");
 			}

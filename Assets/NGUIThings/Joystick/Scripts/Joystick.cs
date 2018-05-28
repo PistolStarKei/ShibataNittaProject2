@@ -42,7 +42,7 @@ public class Joystick : MonoBehaviour
 		joystickRadius =((SphereCollider) GetComponent<Collider>()).radius;
 		if(center == null)
 		{
-			center = transform.FindChild("Center");
+			center = transform.Find("Center");
 			if(center == null)
 				Debug.LogWarning("Center of the joystick is not found.");
 		}

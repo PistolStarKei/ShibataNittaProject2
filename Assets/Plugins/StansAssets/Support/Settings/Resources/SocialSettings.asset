@@ -27,9 +27,9 @@ MonoBehaviour:
   - user_likes
   TWITTER_CONSUMER_KEY: 1clvpB5q0hZeVGBsiGv6dNdw8
   TWITTER_CONSUMER_SECRET: nJRly4zuRxqU9D6Upyb8qTportXwig1G4WxL1DM2SHQIyoxFZl
-  TWITTER_ACCESS_TOKEN: 
-  TWITTER_ACCESS_TOKEN_SECRET: 
-  ShowEditorOauthTestingBlock: 0
+  TWITTER_ACCESS_TOKEN: 520988453-SAa3SEla2YPyJzUZYroJVGmaa0y5Da2Ui6aDKvOz
+  TWITTER_ACCESS_TOKEN_SECRET: XIEw3lrev6HAOIFQ3PPPZXWTAaZxUzb2AF0vwBbrn9wxe
+  ShowEditorOauthTestingBlock: 1
   TwitterAPI: 1
   NativeSharingAPI: 1
   InstagramAPI: 0

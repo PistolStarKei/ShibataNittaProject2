@@ -13,6 +13,8 @@ public class TutoriallOnStart : MonoBehaviour {
 		public List<EventDelegate> prevDelegate;
 	}
 	#region  Public変数
+	public GameObject _Contents;
+
 	public int _TutorialProgress=0;
 	public UILabel _textLb;
 	public UIObjectData _CashedData;
@@ -36,6 +38,7 @@ public class TutoriallOnStart : MonoBehaviour {
 			KillSelf();
 			return;
 		}
+		NGUITools.SetActive(_Contents,true);
 		_TutorialProgress=0;
 		Next();
 		//Flagをハイライトする

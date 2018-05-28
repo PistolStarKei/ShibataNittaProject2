@@ -308,7 +308,7 @@ namespace DopplerInteractive.TidyTileMapper.IconManagement{
 				}
 				else{
 					
-					importer.textureType = TextureImporterType.Advanced;
+					importer.textureType = TextureImporterType.Default;
 					
 					importer.npotScale = TextureImporterNPOTScale.None;
 					

@@ -230,7 +230,7 @@ namespace PSPhoton {
 					count++;
 				}
 			}
-			Debug.Log("GetAlivePlayerCount  "+count);
+			//Debug.Log("GetAlivePlayerCount  "+count);
 			return count;
 		}
 		int GetPlayerRank(int id){

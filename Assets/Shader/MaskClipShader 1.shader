@@ -1,4 +1,6 @@
-﻿Shader "Custom/MaskClipShader 1" 
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/MaskClipShader 1" 
 {
   Properties 
   {
@@ -52,7 +54,7 @@
 		v2f vert (appdata_t v)
 		{
 			v2f o = (v2f)0;
-			o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+			o.vertex = UnityObjectToClipPos(v.vertex);
 			o.color = v.color;
 			o.texcoord = v.texcoord;
 			o.worldPos = v.vertex.xy * _ClipRange0.zw + _ClipRange0.xy;

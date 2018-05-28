@@ -86,14 +86,7 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 			SaveAll();
 		}
 
-		if(TimeManager.Instance!=null){
-			if(!TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
-				gameData.tweetNum=0;
-				gameData.playNum++;
-				SaveAll();
-			}
 
-		}
 
 		if(Application.systemLanguage==SystemLanguage.Japanese){
 			Localization.language="Japanese";
@@ -105,6 +98,16 @@ public class DataManager : PS_SingletonBehaviour<DataManager> {
 	}
 
 
+	public void CheckTweetNum(){
+		if(TimeManager.Instance!=null){
+			if(!TimeManager.Instance.ISSameDayLogin(TimeManager.StringToDateTime(gameData.lastTime))){
+				gameData.tweetNum=0;
+				gameData.playNum++;
+				SaveAll();
+			}
+
+		}
+	}
 	public void LoadData(){
 		envData.toggleSE=ES2.Load<bool>(filename+"toggleSE");
 		envData.toggleBGM=ES2.Load<bool>(filename+"toggleBGM");

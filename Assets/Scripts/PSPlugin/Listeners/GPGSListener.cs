@@ -136,7 +136,7 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 		GPScore playerRank=loadedLeaderBoad.GetCurrentPlayerScore(this.span,GPCollectionType.GLOBAL);
 
 		if(playerRank==null){
-			OnLoadReaderBoadFinished(false,"ロード完了　GETできたが　スコアリストがnullの場合",null);
+			OnLoadPlayerRankFinished(false,"ロード完了　GETできたが　スコアリストがnullの場合",null);
 			yield break;
 		}
 		yield return null;
@@ -261,6 +261,7 @@ public class GPGSListener:  PS_SingletonBehaviour<GPGSListener> {
 
     void OnConnectionResult(GooglePlayConnectionResult result) {
         Debug.Log(result.code.ToString());
+		Debug.Log("コネクション　"+GooglePlayConnection.State);
         if(isDebugLog)Debug.Log( "GooglePlayへのコネクト完了！: " + userName_string );
         PS_Plugin.Instance.OnGpgInitComplete(result.IsSuccess);
     }

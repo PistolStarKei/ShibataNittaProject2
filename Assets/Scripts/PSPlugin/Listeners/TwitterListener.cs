@@ -41,7 +41,7 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 	public void Tweet(string msg,Callback_tweetCompletedEvent tweetCompletedEvent) {
 
 		if(isInvoking)return;
-		Debug.Log( "TweetWithScreenshot" );
+		Debug.Log( "Tweet" );
 		this.tweetCompletedEvent=tweetCompletedEvent;
 		this.logInType=TwitterLoginType.Toukou;
 		message=msg;
@@ -49,8 +49,10 @@ public class TwitterListener :  PS_SingletonBehaviour<TwitterListener> {
 
 
 		if(IsAuthenticated){
+			Debug.Log( "Tweet Post" );
 			AndroidTwitterManager.Instance.Post(message);
 		}else{
+			Debug.Log( "AuthenticateUser" );
 			AndroidTwitterManager.Instance.AuthenticateUser();
 		}
 	}
